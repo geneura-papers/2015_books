@@ -3,7 +3,7 @@
 \usepackage{amssymb}
 \usepackage[dvips]{epsfig}
 \usepackage[spanish]{babel}
-%\usepackage[latin1]{inputenc}
+\usepackage[latin1]{inputenc}
 
 \def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}~}
 \addtolength{\textfloatsep}{-0.5cm}
@@ -11,7 +11,7 @@
 
 
 %%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
-\title{books prediction}
+\title{Use of forecasting models for new book publishing}
 
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%%
 \author {
@@ -30,11 +30,19 @@ P.A. Castillo et al.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-the abstract
-
 % Cuando se edita un nuevo libro, es importante determinar el número de ejemplares que se van a imprimir en papel en cada edición, ya que a la editorial puede suponerle un alto coste imprimir volúmenes que finalmente no se vendan.
 % Así pues, se hace necesario disponer de herramientas automáticas, basadas en algoritmos de extracción de la información que ofrezcan estimaciones de la cantidad de copias de cierto libro que se pueden llegar a vender.
 % En ese sentido, en colaboración con la empresa PRM Consultores S.C.A. se ha llevado a cabo el análisis de un conjunto de datos que describen la tirada editorial en los últimos años. Como parte del estudio, se han aplicado diversos métodos de clasificación y predicción para determinar cuántos libros se pueden llegar a vender.
+
+Muchas empresas ven la estimación de las ventas de un nuevo producto como uno de las tareas más complicadas de llevar a cabo, ya que en muchos casos no suele haber datos históricos que sirvan de guía.
+
+Es más, realizar predicciones poco precisas puede dar lugar a decisiones erróneas que resulten en un exceso de producción que no se llegue a vender o incluso a una producción deficitaria.
+
+Es el caso del problema de la tirada editorial, en el que las empresas editoriales deben estimar el número de volúmenes a imprimir, siempre cuidando de no imprimir más de los que realmente acaben vendiéndose. Así pues, un sistema automático de predicción de ventas de libros para estimar la tirada editorial sería de gran ayuda para las empresas editoriales.
+
+En la bibliografía se proponen diferentes métodos de predicción de ventas, principalmente para la industria de la moda. En esos trabajos, cuando las ventas son estables, con una tendencia clara a lo largo del tiempo, los métodos clásicos son una buena opción. Sin embargo, en el caso de nuevos productos, tales como la publicación para su venta de un nuevo libro, los métodos clásicos no funcionan bien.
+
+En este trabajo se propone el uso de un método basado en reglas de decisión para abordar el problema de la predicción de la tirada editorial. Dicho método ha sido validado por la empresa que cedió los datos ya que ofrece información sobre el proceso de decisión y no necesita de intervención humana, ni para el funcionamiento ni para la interpretación.
 
 \end{abstract}
 
@@ -49,6 +57,70 @@ the abstract
 % Como primer objetivo se define el conjunto de datos y se estudian las entradas actuales para los modelos de predicción y las que se podrían obtener para mejorar las predicciones.
 
 % Se espera obtener modelos basados en redes neuronales capaces de realizar predicciones de la tirada global.
+
+
+A una empresa, lanzar un nuevo producto le supone un alto riesgo debido a la complejidad de los procesos de producción y distribución. En este ámbito, disponer de estimaciones de futuras ventas del nuevo producto resulta extremadamente importante \cite{ChingChin2010}.
+
+La industria editorial se basa en varios pasos y procesos productivos
+
+La publicación de un libro requiere de varios pasos
+
+Además, la distribución es importante y juega un papel importante
+
+Esos pasos hacen que el proceso y las decisiones individuales en cada paso sean muy importantes y afecten a la distribución. 
+Una de esas decisiones es el número de ejemplares a imprimir.
+
+Un sistema de predicción debe tener en cuenta varios detalles del ámbito de las editoriales.
+
+La implementación de un buen sistema de predicción requiere, no sólo de un buen estudio del estado del arte en este campo, sino también de un conocimiento preciso de las operaciones y retos de la industria editorial y su cadena de producción.
+
+En el ámbito de la industria de la moda se trata d eun problema muy complejo, sujeto a ciertos requisitos \cite{SThomassey2014} y que se ha abordado con diversos métodos en las últimas décadas \cite{Thomassey2012,Xia2012,Hammond1990,SThomassey2014}.
+
+
+Interesa imprimir un número de ejemplares suficiente pero sin pasarse, ya que los no vendidos suponen pérdidas, mientras que si se imprimieron de menos, siempre se pueden imprimir más.
+
+El uso de una herramienta de predicción es útil si se usa adecuadamente, y para ello conviene conocer el producto, las características de las ventas y la forma de distribuirlo, ya que son detalles que afectan al proceso \cite{Armstrong2001,SThomassey2014}.
+
+
+En la industria editorial influyen diversos factores que hacen que las ventas fluctúen. Estos factores no suelen ser controlables y en ocasiones no son conocidos.
+Algunos tienen que ver con las decisiones sobre compras, otros con el tráfico de mercancías o con la estrategia de distribución \cite{Little1998}.
+
+El impacto que tienen es difícil de estimar y no es constante en el tiempo, de ahí la dificultad de identificarlos adecuadamente y medir su influencia \cite{DeToni2000}. 
+Además, algunas pueden presentar correlaciones entre ellas. Dichas correlaciones pueden detectarse utilizando métodos de análisis de datos, como el SOM (y otros de R) \textbf{ESPECIFICAR CUÁLES}
+
+
+El proceso habitual de predicción de ventas se basa en el uso de algún tipo de software que generan una predicción que sirve como base u orientación, pero que finalmente refina un experto, ya que la empresa requiere un modelo interpretable y entendible. 
+Generalmente las editoriales usan datos históricos y es un experto el que aplica su conocimiento y usa diversas variables externas para obtener predicciones bastante adecuadas. Por ejemplo, el experto puede subir o bajar la predicción de las ventas en función de algún periodo de ofertas. Sin embargo, los análisis son imprecisos y pueden no tener todas las variables en cuenta. 
+Además, el proceso suele ser tedioso para un conjunto considerable de datos, e incluso,diferentes expertos pueden llegar a diferentes predicciones a partir de los mismos datos.
+
+Es por estas razones que la industria requiere que se adapten mejores técnicas de predicción a sus necesidades para realizar estimaciones de las ventas.
+
+El uso de herramientas de predicción puede ser beneficioso para una empresa editorial para optimizar la producción y así mejorar sus ganancias o minimizar pérdidas \cite{Zhao2001}. Un ejemplo es la optimización de las ventas \cite{Mattila2002}, mejorando el margen de ganancia al vender toda la tirada editorial.
+
+%---------- estado del arte
+
+En la bibliografía se pueden encontrar diversas propuestas para llevar a cabo la predicción de ventas en diferentes áreas. Por un lado, ciertos métodos cualitativos se basan en la experiencia de expertos, mientras que los métodos basados en el análisis de series temporales utilizan información histórica para hacer las predicciones \cite{ChingChin2010,FaderHardie2005,Madsen2008}.
+
+El uso de métodos de predicción de series temporales es quizás la técnica más usada para la predicción de ventas.
+Entre las técnicas más conocidas destacan las técnicas estadísticas \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}. 
+Sin embargo, la eficiencia de estas técnicas depende en gran medida del campo de aplicación y de los datos que conforman el problema. Concretamente, aquellas técnicas que requieren de una gran cantidad de datos no son las más apropiadas para realizar la predicción de ventas de nuevos productos \cite{ChingChin2010}.
+
+En cualquier caso, en diversos trabajos ha quedado demostrado que una reducción de los errores de predicción en las ventas da como resultado una mejora en la cadena de producción \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
+
+
+
+Por otro lado, diferentes autores han propuesto métricas para determinar la bondad de las estimaciones. Sin embargo, las más comunmente utilizadas por las empresas son las basadas en el análisis de los errores cometidos (MSE, MAPE) \cite{ChingChin2010,Madsen2008}.
+
+Finalmente, existen casos en los que las predicciones se ven influenciadas por variables externas que hay que tener en cuenta, como la estacionalidad, promociones o modas \cite{Lapide1999}. Algunos autores proponen reducir las variaciones en los datos causadas por esas variables para mejorar la precisión de las predicciones \cite{Sheikh2003,Schrieber2005}. % p.ej. separar los datos relativos a una estación de otras para clasificar por separado.
+
+Por el tipo de problema que queremos abordar en este artículo, los métodos clásicos de predicción no son útiles, por lo que deberemos analizarlos previamente con otras herramientas.
+Además, puesto que las editoriales necesitan modelos que expliquen las predicciones ofrecidas, ciertos métodos tipo caja negra pueden no resultar adecuados a igualdad de precisión en las predicciones.
+
+
+%---------- final de la intro
+
+El resto del paper está organizado como sigue...
+
 
 
 %********************************************************************************
@@ -69,6 +141,14 @@ the abstract
 %********************************************************************************
 \section{Conclusions and Future Work}
 
+La predicción de ventas en la industria editorial es un problema muy challenging durante los últimos años.
+
+Diferentes técnicas de datamining pueden ser muy útiles cuando no hay datos históricos disponibles.
+
+
+%---------- trabajos futuros
+
+Puesto que hay algunas características que pueden afectar a la venta de productos de forma significativa, otra forma de mejorar las predicciones de ventas podría ser realizar un estudio en profundidad del efecto de la aplicación de descuentos y promociones.
 
 
 %********************************************************************************

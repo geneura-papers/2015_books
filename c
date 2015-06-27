@@ -8,8 +8,8 @@ rm *~
 rm *.dvi
 
 latex paper.tex && latex paper.tex &&  latex paper.tex 
-#bibtex paper
-#latex paper.tex && latex paper.tex && latex paper.tex
+bibtex paper
+latex paper.tex && latex paper.tex && latex paper.tex
 
 echo "-----------------------------" 
 
