@@ -3,5 +3,8 @@ publishing industry
 
 book publishing
 
+tirada editorial
+
+
 --- aquí pondré los nombres de las variables de cada libro para traducirlas (irá a la sección "The problem").
 
