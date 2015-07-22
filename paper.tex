@@ -141,10 +141,8 @@ Además, puesto que las editoriales necesitan modelos que expliquen las prediccio
 
 The rest of this paper is structured as follows:
 %Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography to BLA BLA BLA.
-Section \ref{sec:methodology} briefly describes the EA algorithm, and analyzes the parameters we propose to evaluate.
-This section also presents the experimental setup and the methodology considered in the study. 
-Section \ref{sec:experiments} details the statistical study based on ANOVA. 
-Obtained results are analyzed in order to establish the most suitable values.
+Section \ref{sec:problem} describes the new book publishing problem, followed by Section \ref{sec:methodology} where the experimental setup and the methodology considered in the study is presented. 
+Section \ref{sec:experiments} reports and analyzes the obtained results with a real data set.
 Finally, conclusions and future work are presented in Section \ref{sec:conclusionsAndFutureWork}.
 
 
@@ -153,18 +151,23 @@ Finally, conclusions and future work are presented in Section \ref{sec:conclusio
 \section{The problem}
 \label{sec:problem}
 
+Este paper aborda el problema de la predicción de la tirada editorial.
+
+Describir en detalle el problema de la tirada editorial. 
+Comentar que se ha colaborado con la empresa Trevenque, y qué datos nos ha pasado.
+Indicar qué variables externas afectarán a las predicciones, etc.
+
 
 %********************************************************************************
 \section{Methodology}
 \label{sec:methodology}
-
-Este paper aborda el problema de la predicción de la tirada editorial.
 
 Hay varias dificultades inherentes al problema de la predicción de ventas de nuevos productos: la limitación en la cantidad de datos disponibles, la aplicación de los diferentes métodos y la elección del más adecuado de ellos.
 
 Además, no existe una metodología estándar para resolver el problema general de la predicción de ventas. 
 Así pues, en este estudio se han seguido los siguientes pasos: 
 
+%-------------------------------------------------
 \subsection{Data collection and analysis}
 
 Las predicciones suelen basarse en datos históricos de las cuales extraer series temporales y patrones. 
@@ -172,14 +175,14 @@ Sin embargo, en el caso de nuevos productos, como es el caso de la edición de nu
 
 \textbf{TODO:} FALTA CONTAR DE DONDE HAN SALIDO LOS DATOS, SU ESTRUCTURA, COMO SE HAN ANALIZADO Y TRATADO PARA REDUCIR EL NUMERO DE ENTRADAS, ETC.
 
-
+%-------------------------------------------------
 \subsection{Selecting an appropriate forecasting method}
 
 Como se ha comentado anteriormente, existen diferentes métodos de predicción disponibles en la bibliografía, cada uno con una serie de parámetros diferente que pueden influir en los resultados.
 
 \textbf{TODO:} FALTA CONTAR AQUI LOS METODOS QUE SE HAN UTILIZADO EN ESTE TRABAJO, SUS PARAMETROS, ETC.
 
-
+%-------------------------------------------------
 \subsection{Applying forecasting methods to solve the problem}
 
 Una vez que se han determinado los métodos a utilizar y los parámetros de ejecución, se utilizará un conjunto de datos para obtener el modelo de predicción y posteriormente se comprobará su bondad ante datos no vistos previamente.
