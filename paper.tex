@@ -255,6 +255,8 @@ Estas otras variables no medibles y que los métodos de predicción clásicos no pu
 Hay varias dificultades inherentes al problema de la predicción de ventas de nuevos productos: la limitación en la cantidad de datos disponibles, la aplicación de los diferentes métodos y la elección del más adecuado de ellos.
 
 Además, no existe una metodología estándar para resolver el problema general de la predicción de ventas. 
+Habitualmente es necesario un análisis previo de los datos para eliminar las variables que describen el producto y que no aportan información útil para realizar el proceso de predicción.
+
 Así pues, en este estudio se han seguido los siguientes pasos: 
 
 %-------------------------------------------------
@@ -279,6 +281,20 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
 
 \textbf{TODO:} FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS (RESULTADOS QUE SE COMENTARAN EN LA SIGUIENTE SECCION)
 
+  %  
+  %  El proceso que seguimos, resumido para el paper, es:
+  %  
+  %  [43 entradas] en 2013-01 vamos a tomar 
+  %  	pb_noneg.csv para obtener pb_ventas.csv (es el pb_ventas.arff)
+  %  
+  %  [13 entradas] en 2013-02-08 vamos a tomar 
+  %  	controlado_reducido.csv.arff (197 líneas)
+  %  	pbenero.csv.arff (5656 líneas)
+  %  
+  %  [7 entradas; materia editorial] en 2013-02-25 vamos a tomar
+  %  	pbRAWtrn.arff
+  %  	pbRAWtst.arff
+  %  
 
 %********************************************************************************
 \section{Experiments and Results}
