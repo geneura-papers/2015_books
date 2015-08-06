@@ -11,7 +11,7 @@
 
 
 %%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
-\title{Using forecasting models for new book publishing}
+\title{Using forecasting models for new book publishing} 
 
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%%
 \author {
@@ -94,7 +94,7 @@ Some have to do with decisions on purchases, others with freight traffic, and ot
 % El impacto que tienen es difícil de estimar y no es constante en el tiempo, de ahí la dificultad de identificarlos adecuadamente y medir su influencia \cite{DeToni2000}. Además, algunas pueden presentar correlaciones entre ellas. Sin embargo, dichas correlaciones pueden detectarse utilizando métodos de análisis de datos, como el SOM (y otros de R) \textbf{ESPECIFICAR CUÁLES}
 Their impact is difficult to estimate and it is not constant over time, hence the difficulty to adequately identify and measure their influence \cite{DeToni2000}.
 In addition, some may have correlations between them. 
-However, these correlations can be detected using data analysis methods, such as SOM or R  \textbf{ESPECIFICAR CUÁLES}
+However, these correlations can be detected using data analysis methods, such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression analysis (SRA) \cite{Chang2009}.
 
 
 % Generalmente las editoriales usan datos históricos y es un experto el que aplica su conocimiento y usa diversas variables externas para obtener predicciones bastante adecuadas.  El proceso habitual de predicción de ventas se basa en el uso de algún tipo de software que genera una predicción que sirve como base u orientación, pero que finalmente refina un experto, ya que la empresa requiere un modelo interpretable y entendible.  Por ejemplo, el experto puede subir o bajar la predicción de las ventas en función de algún periodo de ofertas.  Sin embargo, los análisis son imprecisos y pueden no tener todas las variables en cuenta.  Además, el proceso suele ser tedioso para un conjunto considerable de datos, e incluso, diferentes expertos pueden llegar a diferentes predicciones a partir de los mismos datos.
@@ -163,11 +163,89 @@ Finally, conclusions and future work are presented in Section \ref{sec:conclusio
 \section{The problem}
 \label{sec:problem}
 
-Este paper aborda el problema de la predicción de la tirada editorial.
+This paper faces the new book publishing problem using different prediction methods.
 
-Describir en detalle el problema de la tirada editorial. 
-Comentar que se ha colaborado con la empresa Trevenque, y qué datos nos ha pasado.
-Indicar qué variables externas afectarán a las predicciones, etc.
+\textbf{Describir en detalle el problema de la tirada editorial.}
+
+A lo largo de esta investigación se colaboró con la empresa Trevenque Editorial \footnote{{\tt http://editorial.trevenque.es}}, una compañía que ofrece sistemas de gestión y servicios para librerías, editoriales y distribuidoras.
+
+La empresa Trevenque, cuyo experto asesoró esta investigación, facilitó un conjunto de datos inicial consistente en 3159 libros. 
+Para cada libro, se incluye información acerca del precio, lugares donde se han puesto a la venta, materia, editorial, ventas, devoluciones, entre otros datos.
+Table \ref{tabla:paramsOrig} shows the original set of parameters describing each book.
+
+\begin{table}[!h]
+\caption{Parameters describing a book, as provided by the company Trevenque.}
+\label{tabla:paramsOrig}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+referencia
+autor
+pvp
+materia1
+materia2
+materia3
+editorial
+coleccion
+encuadernacion
+tirada
+venta_total
+venta_grandes_superficies
+venta_delegados
+venta_resto
+venta1anio_total
+venta1anio_grandes_superficies
+venta1anio_delegados
+venta1anio_resto
+colocado_total
+colocado_grandes_superficies
+colocado_delegados
+colocado_resto
+colocado1anio_total
+colocado1anio_grandes_superficies
+colocado1anio_delegados
+\end{verbatim} \end{minipage}     & 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+colocado1anio_resto
+reimpresiones
+numero_reimpresiones
+devolucion_total
+devolucion_grandes_superficies
+devolucion_delegados
+devolucion_resto
+devolucion1anio_total
+devolucion1anio_grandes_superficies
+devolucion1anio_delegados
+devolucion1anio_resto
+obsequios
+ejemplares_distribuidos_en_novedad
+puntos_vta_total
+puntos_vta_grandes_superficies
+puntos_vta_delegados
+puntos_vta_resto
+puntos_vta1anio_total
+puntos_vta1anio_grandes_superficies
+puntos_vta1anio_delegados
+puntos_vta1anio_resto
+semanas_venta
+entorno_venta_positivo
+entorno_venta_medio
+entorno_venta_negativo
+\end{verbatim} \end{minipage}    \\
+
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+En el problema de la predicción de ventas de nuevos libros afectan diversas variables propias del libro en cuestión, como por ejemplo el autor, el precio, la materia o la editorial.
+
+Sin embargo, existen otras variables externas que también afectan a las ventas de un nuevo libro.
+Se trata de cuestiones como la estacionalidad, modas o promociones.
+Estas otras variables no medibles y que los métodos de predicción clásicos no pueden procesar y que un experto debe tener en cuenta modificando la predicción ofrecida por el método automático. 
 
 
 %********************************************************************************
