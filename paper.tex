@@ -171,11 +171,11 @@ A lo largo de esta investigación se colaboró con la empresa Trevenque Editorial 
 
 La empresa Trevenque, cuyo experto asesoró esta investigación, facilitó un conjunto de datos inicial consistente en 3159 libros. 
 Para cada libro, se incluye información acerca del precio, lugares donde se han puesto a la venta, materia, editorial, ventas, devoluciones, entre otros datos.
-Table \ref{tabla:paramsOrig} shows the original set of parameters describing each book.
+Table \ref{tabla:paramsOrig50} shows the original set of parameters describing each book.
 
 \begin{table}[!h]
 \caption{Parameters describing a book, as provided by the company Trevenque.}
-\label{tabla:paramsOrig}
+\label{tabla:paramsOrig50}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
@@ -257,7 +257,16 @@ Hay varias dificultades inherentes al problema de la predicción de ventas de nue
 Además, no existe una metodología estándar para resolver el problema general de la predicción de ventas. 
 Habitualmente es necesario un análisis previo de los datos para eliminar las variables que describen el producto y que no aportan información útil para realizar el proceso de predicción.
 
-Así pues, en este estudio se han seguido los siguientes pasos: 
+Thus, in this study there are three main stages: 
+\begin{itemize}
+  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, a SOM cluster method is used to analyze data, to eliminate unrelated variables and to select the best variables to be considered in the forecasted model.
+
+  \item  Then, several forecasting methods has to be tested. In this stage different forecasting methods are used to obtain sales forecasts from the data provided.
+
+  \item  Finally, in some cases, it is necessary a third stage where experienced managers adjust subjectively the results obtained using the forecasting methods. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
+
+\end{itemize}
+
 
 %-------------------------------------------------
 \subsection{Data collection and analysis}
@@ -265,7 +274,131 @@ Así pues, en este estudio se han seguido los siguientes pasos:
 Las predicciones suelen basarse en datos históricos de las cuales extraer series temporales y patrones. 
 Sin embargo, en el caso de nuevos productos, como es el caso de la edición de nuevos libros, es complicado observar patrones pasados ya que no hay disponibles datos históricos de las ventas \cite{ChingChin2010}.
 
-\textbf{TODO:} FALTA CONTAR DE DONDE HAN SALIDO LOS DATOS, SU ESTRUCTURA, COMO SE HAN ANALIZADO Y TRATADO PARA REDUCIR EL NUMERO DE ENTRADAS, ETC.
+\textbf{TODO:} FALTA CONTAR COMO SE HAN ANALIZADO Y TRATADO LOS DATOS PARA REDUCIR EL NUMERO DE ENTRADAS, ETC.
+
+
+Table \ref{tabla:params43} shows the set of variables describing a book after analizyng the original dataset using the SOM to select the best variables to be considered.
+
+\begin{table}[!h]
+\caption{Variables describing a book, after analizyng the original dataset provided by the company Trevenque using the SOM to select the best variables to be considered.}
+\label{tabla:params43}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+puntos_vta1anio_grandes_superficies
+venta1anio_resto
+entorno_venta_negativo
+colocado1anio_grandes_superficies
+devolucion_total
+reimpresiones
+venta1anio_grandes_superficies
+puntos_vta1anio_total
+ejemplares_distribuidos_en_novedad
+tirada
+numero_reimpresiones
+devolucion_grandes_superficies
+puntos_vta1anio_resto
+venta_resto
+puntos_vta_delegados
+devolucion_resto
+puntos_vta1anio_delegados
+entorno_venta_positivo
+colocado1anio_resto
+puntos_vta_resto
+devolucion1anio_total
+devolucion_delegados
+\end{verbatim} \end{minipage}     & 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+venta_grandes_superficies
+colocado1anio_total
+puntos_vta_total
+colocado_grandes_superficies
+colocado1anio_delegados
+puntos_vta_grandes_superficies
+venta1anio_total
+entorno_venta_medio
+semanas_venta
+colocado_delegados
+autor
+venta1anio_delegados
+obsequios
+devolucion1anio_grandes_superficies
+venta_delegados
+colocado_resto
+devolucion1anio_delegados
+colocado_total
+devolucion1anio_resto
+pvp
+venta_total (output)
+\end{verbatim} \end{minipage}    \\
+
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+Table \ref{tabla:params13} shows the set of variables describing a book after a second analisys carried out along the company experienced manager to select the best variables to be considered.
+
+\begin{table}[!h]
+\caption{Variables describing a book, after a second analisys carried out along the company experienced manager to select the best variables to be considered to solve the sales forecasting problem.}
+\label{tabla:params13}
+\begin{center}
+\begin{tabular}{|c|}
+\hline 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+devolucion_total
+reimpresiones
+puntos_vta1anio_total
+ejemplares_distribuidos_en_novedad
+numero_reimpresiones
+devolucion1anio_total
+colocado1anio_total
+puntos_vta_total
+semanas_venta
+colocado_total
+pvp
+tirada
+venta_total (output)
+\end{verbatim} \end{minipage}     \\
+
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+Table \ref{tabla:params7} shows the final set of variables describing a book, taking into account the company experienced manager knowledge.
+
+\begin{table}[!h]
+\caption{Final set of variables describing a book, taking into account the company experienced manager knowledge, to be considered to solve the sales forecasting problem.}
+\label{tabla:params7}
+\begin{center}
+\begin{tabular}{|c|}
+\hline 
+
+\begin{minipage}{2.3in} \begin{verbatim}
+ejemplares_distribuidos_en_novedad
+puntos_vta_total
+colocado_total
+pvp
+materia
+editorial
+venta_total (output)
+\end{verbatim} \end{minipage}     \\
+
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 
 %-------------------------------------------------
 \subsection{Selecting an appropriate forecasting method}
@@ -273,6 +406,13 @@ Sin embargo, en el caso de nuevos productos, como es el caso de la edición de nu
 Como se ha comentado anteriormente, existen diferentes métodos de predicción disponibles en la bibliografía, cada uno con una serie de parámetros diferente que pueden influir en los resultados.
 
 \textbf{TODO:} FALTA CONTAR AQUI LOS METODOS QUE SE HAN UTILIZADO EN ESTE TRABAJO, SUS PARAMETROS, ETC.
+
+ %  Hemos usado:
+ % weka.classifiers.trees.M5P
+ % weka.classifiers.functions.LinearRegression
+ % weka.classifiers.functions.SMOreg
+ % weka.classifiers.lazy.IBk
+
 
 %-------------------------------------------------
 \subsection{Applying forecasting methods to solve the problem}
