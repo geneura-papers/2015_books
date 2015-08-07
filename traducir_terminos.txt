@@ -1,10 +1,54 @@
 
-publishing industry
+Necesito ayuda para traducir los nombres de las variables que describen cada libro:
 
-book publishing
-
-tirada editorial
-
-
---- aquí pondré los nombres de las variables de cada libro para traducirlas (irá a la sección "The problem").
+referencia
+autor
+pvp
+materia1
+materia2
+materia3
+editorial
+coleccion
+encuadernacion
+tirada
+venta_total
+venta_grandes_superficies
+venta_delegados
+venta_resto
+venta1anio_total
+venta1anio_grandes_superficies
+venta1anio_delegados
+venta1anio_resto
+colocado_total
+colocado_grandes_superficies
+colocado_delegados
+colocado_resto
+colocado1anio_total
+colocado1anio_grandes_superficies
+colocado1anio_delegados
+colocado1anio_resto
+reimpresiones
+numero_reimpresiones
+devolucion_total
+devolucion_grandes_superficies
+devolucion_delegados
+devolucion_resto
+devolucion1anio_total
+devolucion1anio_grandes_superficies
+devolucion1anio_delegados
+devolucion1anio_resto
+obsequios
+ejemplares_distribuidos_en_novedad
+puntos_vta_total
+puntos_vta_grandes_superficies
+puntos_vta_delegados
+puntos_vta_resto
+puntos_vta1anio_total
+puntos_vta1anio_grandes_superficies
+puntos_vta1anio_delegados
+puntos_vta1anio_resto
+semanas_venta
+entorno_venta_positivo
+entorno_venta_medio
+entorno_venta_negativo
 
