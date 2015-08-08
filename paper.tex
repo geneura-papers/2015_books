@@ -36,8 +36,9 @@ P.A. Castillo, A.M. Mora, J.J. Merelo,  et al.
 
 % Muchas empresas ven la estimación de las ventas de un nuevo producto como uno de las tareas más complicadas de llevar a cabo, ya que en muchos casos no suele haber datos históricos que sirvan de guía.
 Many companies must face, as one of the most difficult tasks to accomplish, new product sales estimation, since in many cases no historical data to serve as guide is available.
+Moreover, some of them lack the knowledge about forecasting methods and they can only make decisions based on the expert sales managers.
 % Es más, realizar predicciones poco precisas puede dar lugar a decisiones erróneas que resulten en un exceso de producción que no se llegue a vender o incluso a una producción deficitaria.
-Moreover, making inaccurate predictions may lead to erroneous decisions that result in excess production that will not be sold, or even to a production deficit.
+Thus, making inaccurate predictions may lead to erroneous decisions that result in excess production that will not be sold, or even to a production deficit.
 % Es el caso del problema de la tirada editorial, en el que las empresas editoriales deben estimar el número de volúmenes a imprimir, siempre cuidando de no imprimir más de los que realmente acaben vendiéndose. Así pues, un sistema automático de predicción de ventas de libros para estimar la tirada editorial sería de gran ayuda para las empresas editoriales.
 That is the publishing roll problem, in which publishing companies must estimate the number of volumes printed, taking care not to print more than they actually end up selling. Thus, an automatic prediction of book sales to estimate the publishing roll would be helpful for publishers.
 % En la bibliografía se proponen diferentes métodos de predicción de ventas, principalmente para la industria de la moda. En esos trabajos, cuando las ventas son estables, con una tendencia clara a lo largo del tiempo, los métodos clásicos son una buena opción. Sin embargo, en el caso de nuevos productos, tales como la publicación para su venta de un nuevo libro, los métodos clásicos no funcionan bien.
@@ -64,6 +65,7 @@ This method has been validated by the company that provided the data, as the obt
 
 % A una empresa, lanzar un nuevo producto le supone un alto riesgo debido a la complejidad de los procesos de producción y distribución. En este ámbito, disponer de estimaciones de futuras ventas del nuevo producto resulta extremadamente importante \cite{ChingChin2010}.
 A company that intends launching a new product has a high risk due to the complexity of the production and distribution processes. 
+A newly launched product is also new to the company, and sales forecasts can be based on the experience of similar products.
 In this scope, having accurate estimates of future sales of the new product is extremely important \cite{ChingChin2010}.
 
 % La industria editorial se basa en varios pasos y procesos productivos / La publicación de un libro requiere de varios pasos / Además, la distribución es importante y juega un papel importante
@@ -81,7 +83,7 @@ Implementing a good forecasting tool requires not only a good study of the state
 In the field of fashion industry it is very complex problem, subject to certain requirements \cite{SThomassey2014} and has been faced using various methods in recent decades \cite{Thomassey2012,Xia2012,Hammond1990,SThomassey2014}.
 
 % Interesa imprimir un número de ejemplares suficiente pero sin pasarse, ya que los no vendidos suponen pérdidas, mientras que si se imprimieron de menos, siempre se pueden imprimir más.
-In the field of publishing industry, it is more important printing an adequate number of copies but not too much, as the unsold volumes will lead to losses, whereas if the number of printed copies was not enough, you can always print more.
+In the field of publishing industry, it is more important printing an adequate number of copies but not too much, as the unsold volumes will lead to losses, whereas if the number of printed copies was not enough, you can always print more. Thus, it is extremely important to forecast the sales a new book might achieve.
 
 % El uso de una herramienta de predicción es útil si se usa adecuadamente, y para ello conviene conocer el producto, las características de las ventas y la forma de distribuirlo, ya que son detalles que afectan al proceso \cite{Armstrong2001,SThomassey2014}.
 Thus, using a predictive tool is very useful when used properly; in this sense, it is very important to know the product, the characteristics of sales and how to distribute it, as those details affect the process \cite{Armstrong2001,SThomassey2014}.
@@ -170,7 +172,7 @@ The main issue of this paper is to compute forecasting of the sales for new unpu
 Thus, this paper faces the new book publishing problem using different prediction methods and using as inputs the historical sales data related to other yet published books, and some descriptive variables relative to the new unpublished-book.
 
 En el caso de libros ya publicados, se dispone de datos históricos que ayudan a la generación de modelos predictivos. 
-Sin embargo, en el caso de nuevos libros no hay datos históricos que ayuden a definir patrones, y sólo ciertos datos descriptivos están disponibles. 
+Sin embargo, en el caso de nuevos libros no hay datos históricos que ayuden a definir patrones, y sólo ciertos datos descriptivos están disponibles, por lo que no todos los métodos de predicción se pueden utilizar \cite{Madsen2008}. 
 
 An additional issue is the dificulty to compare our model with classical forecasting methods, such as time series prediction methods, since books do not have specific sales time series.
 
@@ -267,7 +269,7 @@ Habitualmente es necesario un análisis previo de los datos para eliminar las var
 
 Thus, in this study there are three main stages: 
 \begin{itemize}
-  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, a SOM cluster method is used to analyze data, to eliminate unrelated variables and to select the best variables to be considered in the forecasted model.
+  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, a SOM cluster method is used to analyze data, to eliminate unrelated variables and to select the best variables to be considered in the forecasted model. This task may help to identify leading indicators to be used by the forecasting methods in order to improve the accuracy of future forecasts.
 
   \item  Then, several forecasting methods has to be tested. In this stage different forecasting methods are used to obtain sales forecasts from the data provided.
 
@@ -442,13 +444,13 @@ Como se ha comentado anteriormente, existen diferentes métodos de predicción dis
 
 Sin embargo, dado que en el caso de nuevos libros sólo ciertos datos descriptivos están disponibles (frente a datos históricos de ventas de libros ya publicados), no todos los métodos predictivos se pueden usar en este problema concreto.
 
-Así pues, en esta investigación se propusieron para su evaluación los siguientes métodos:
+Thus, in this research five forecasting methods, based on the literature review in the introduction \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used:
 
 \begin{itemize}
 
  % weka.classifiers.trees.M5P
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item M5P trees
+ \item M5 Model trees and rules: The original algorithm M5 was proposed by Quinlan \cite{Quinlan1992} and afterwards Wang \cite{Wang1997} made improvements.
 
  % weka.classifiers.functions.LinearRegression
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
@@ -456,11 +458,11 @@ Así pues, en esta investigación se propusieron para su evaluación los siguientes
 
  % weka.classifiers.functions.SMOreg
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item Support Vector Machine for Regression (SMOreg)
+ \item Support Vector Machine for Regression (SMOreg): This algorithm was proposed by Shevade et al \cite{Shevade1999}.
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
- \item K-nearest neighbours classifier (IBk)
+ \item K-nearest neighbours classifier (IBk): \cite{Aha1991}
 
  % weka.classifiers.functions.MultilayerPerceptron
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
@@ -468,13 +470,16 @@ Así pues, en esta investigación se propusieron para su evaluación los siguientes
 
 \end{itemize}
 
+The objective is finding the most appropriate forecasting method that minimizes the error between the forecast and the actual sales for each new book published.
 
-%-------------------------------------------------
-\subsection{Applying forecasting methods to solve the problem}
 
-Una vez que se han determinado los métodos a utilizar y los parámetros de ejecución, se utilizará un conjunto de datos para obtener el modelo de predicción y posteriormente se comprobará su bondad ante datos no vistos previamente.
+%********************************************************************************
+\section{Experiments and Results}
+\label{sec:experiments}
 
-\textbf{TODO:} FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS (RESULTADOS QUE SE COMENTARAN EN LA SIGUIENTE SECCION)
+Una vez que se han determinado los métodos a utilizar y los parámetros de ejecución, se aplicarán a los conjuntos de datos para obtener los modelos de predicción y posteriormente se comprobará su bondad ante datos no vistos previamente.
+
+\textbf{TODO:} FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS
 
   %  
   %  El proceso que seguimos, resumido para el paper, es:
@@ -490,12 +495,6 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
   %  	pbRAWtrn.arff
   %  	pbRAWtst.arff
   %  
-
-%********************************************************************************
-\section{Experiments and Results}
-\label{sec:experiments}
-
-aquí hay que contar los experimentos realizados y presentar los resultados obtenidos
 
 
 %********************************************************************************
