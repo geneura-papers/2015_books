@@ -295,7 +295,18 @@ This method is usually applied to analyze data as similar items tend to be mappe
 Also, the SOM graph represents and highlight very clearly those regions (clusters) with high training sample concentration and fewer where the samples are scarce.
 
 
-En un primer paso, el experto analizó las 50 variables de entrada que describen cada libro para eliminar algunas que estimó como suplerfuas.
+As stated in Section \ref{sec:problem}, an expert sales manager colaborated in this research in the stage of data analysis.
+Thus, the process was as follows:
+\begin{itemize}
+  \item First, the expert removed superfluous variables, and dimensionality was reduced from 50 to 43 inputs.
+  \item Then, the expert, using his knowledge and the information obtained analyzing the SOM results, removed some inputs, reducing the number of variables describing a book from 43 to 13.
+  \item The company asked to include the information about \emph{editorial} and \emph{materia}. Thus, in a new iteration, taking into account the expert's advice and the información obtained analyzing the SOM results, the number of inputs was decreased to 7.
+  \item In a third step, several forecasting methods were used on the obtained dataset, and the best was choosen to obtain an accurate predicting model.
+  \item Finally, some information about the new book, such as \emph{author}, although not included in the obtained models, was taken into account by the expert sales manager to modify the forecasted results. 
+\end{itemize}
+
+
+Más concretamente, en un primer paso, el experto analizó las 50 variables de entrada que describen cada libro para eliminar algunas que estimó como suplerfuas.
 Table \ref{tabla:params43} shows the set of variables describing a book (43 total inputs) that the expert manager determined as non-superfluous or non-redundant.
 
 \begin{table}[!h]
@@ -444,8 +455,10 @@ Como se ha comentado anteriormente, existen diferentes métodos de predicción dis
 
 Sin embargo, dado que en el caso de nuevos libros sólo ciertos datos descriptivos están disponibles (frente a datos históricos de ventas de libros ya publicados), no todos los métodos predictivos se pueden usar en este problema concreto.
 
-Thus, in this research five forecasting methods, based on the literature review in the introduction \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used:
+Thus, in this research five forecasting methods, based on the literature review in the introduction \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
+Well known forecasting methods implemented in the Weka\footnote{{\tt http://www.cs.waikato.ac.nz/ml/weka/} tool \cite{Hall2009,Witten2011} have been choosen, as these methods are widely known, and could be very helpful for practitioners to reproduce experiments and even to solve similar sales prediction problems using these methods.
 
+Specifically, following forecasting methods are proposed:
 \begin{itemize}
 
  % weka.classifiers.trees.M5P
