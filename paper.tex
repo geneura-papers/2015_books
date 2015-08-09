@@ -267,9 +267,17 @@ Hay varias dificultades inherentes al problema de la predicción de ventas de nue
 Además, no existe una metodología estándar para resolver el problema general de la predicción de ventas. 
 Habitualmente es necesario un análisis previo de los datos para eliminar las variables que describen el producto y que no aportan información útil para realizar el proceso de predicción.
 
-Thus, in this study there are three main stages: 
+\begin{figure}[!h] 
+\begin{center}
+\includegraphics{stages.eps} \\
+\caption{\small{Three main stages in this research: data analysis, (2) forecasting methods testing, and (3) subjectively adjusting the obtained results.}}
+\label{fig:stages}
+\end{center}
+\end{figure}
+
+Thus, in this study there are three main stages (see Figure \ref{fig:stages} for details): 
 \begin{itemize}
-  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, a SOM cluster method is used to analyze data, to eliminate unrelated variables and to select the best variables to be considered in the forecasted model. This task may help to identify leading indicators to be used by the forecasting methods in order to improve the accuracy of future forecasts.
+  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, an expert sales manager, using the information obtained analyzing the SOM cluster method results, removes some unrelated variables and selects the best variables to be considered in the forecasted model. This task may help to identify leading indicators to be used by the forecasting methods in order to improve the accuracy of future forecasts.
 
   \item  Then, several forecasting methods has to be tested. In this stage different forecasting methods are used to obtain sales forecasts from the data provided.
 
@@ -305,6 +313,22 @@ Thus, the process was as follows:
   \item Finally, some information about the new book, such as \emph{author}, although not included in the obtained models, was taken into account by the expert sales manager to modify the forecasted results. 
 \end{itemize}
 
+  %  
+  %  El proceso que seguimos, resumido para el paper, es:
+  %  
+  %  [43 entradas] en 2013-01 vamos a tomar 
+  %  	pb_noneg.csv para obtener pb_ventas.csv (es el pb_ventas.arff)
+  %  	y hacer el SOM
+  %  
+  %  [13 entradas] en 2013-02-08 vamos a tomar 
+  %  	controlado_reducido.csv.arff (197 líneas)
+  %  	pbenero.csv.arff (5656 líneas)
+  %  	y hacer el SOM
+  %  
+  %  [7 entradas; materia editorial] en 2013-02-25 vamos a tomar
+  %  	pbRAWtrn.arff
+  %  	pbRAWtst.arff
+  %  
 
 Más concretamente, en un primer paso, el experto analizó las 50 variables de entrada que describen cada libro para eliminar algunas que estimó como suplerfuas.
 Table \ref{tabla:params43} shows the set of variables describing a book (43 total inputs) that the expert manager determined as non-superfluous or non-redundant.
