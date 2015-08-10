@@ -1,54 +1,54 @@
 
 Necesito ayuda para traducir los nombres de las variables que describen cada libro:
 
-referencia
-autor
-pvp
-materia1
-materia2
-materia3
-editorial
-coleccion
-encuadernacion
-tirada
-venta_total
-venta_grandes_superficies
-venta_delegados
-venta_resto
-venta1anio_total
-venta1anio_grandes_superficies
-venta1anio_delegados
-venta1anio_resto
-colocado_total
-colocado_grandes_superficies
-colocado_delegados
-colocado_resto
-colocado1anio_total
-colocado1anio_grandes_superficies
-colocado1anio_delegados
-colocado1anio_resto
-reimpresiones
-numero_reimpresiones
-devolucion_total
-devolucion_grandes_superficies
-devolucion_delegados
-devolucion_resto
-devolucion1anio_total
-devolucion1anio_grandes_superficies
-devolucion1anio_delegados
-devolucion1anio_resto
-obsequios
-ejemplares_distribuidos_en_novedad
-puntos_vta_total
-puntos_vta_grandes_superficies
-puntos_vta_delegados
-puntos_vta_resto
-puntos_vta1anio_total
-puntos_vta1anio_grandes_superficies
-puntos_vta1anio_delegados
-puntos_vta1anio_resto
-semanas_venta
-entorno_venta_positivo
-entorno_venta_medio
-entorno_venta_negativo
+referencia - REFERENCE
+autor - AUTHOR
+pvp - RETAIL PRICE
+materia1 - SUBJECT-MATTER1
+materia2 - SUBJECT-MATTER2
+materia3 - SUBJECT-MATTER3
+editorial - EDITORIAL
+coleccion - COLLECTION
+encuadernacion - BOOKBINDING
+tirada - PRINT-RUN
+venta_total - TOTAL SALES
+venta_grandes_superficies - MALLS SALES
+venta_delegados - DELEGATES SALES
+venta_resto - REST OF SALES
+venta1anio_total - TOTAL SALES FIRST YEAR
+venta1anio_grandes_superficies - MALL SALES FIRST YEAR
+venta1anio_delegados - DELEGATES SALES FIRST YEAR
+venta1anio_resto - REST OF SALES FIRST YEAR
+colocado_total - TOTAL DISTRIBUTED
+colocado_grandes_superficies - MALLS DISTRIBUTED
+colocado_delegados - DELEGATES DISTRIBUTED
+colocado_resto - REST OF DISTRIBUTED
+colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
+colocado1anio_grandes_superficies - MALLS DISTRIBUTED FIRST YEAR
+colocado1anio_delegados - DELEGATES DISTRIBUTED FIRST YEAR
+colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
+reimpresiones - REPRINTS
+numero_reimpresiones - NUMBER OF REPRINTS
+devolucion_total - TOTAL DEVOLUTIONS
+devolucion_grandes_superficies - MALLS DEVOLUTIONS
+devolucion_delegados - DELEGATES DEVOLUTIONS
+devolucion_resto - REST OF DEVOLUTIONS
+devolucion1anio_total - TOTAL DEVOLUTIONS FIRT YEAR
+devolucion1anio_grandes_superficies - MALLS DEVOLUTIONS FIRST YEAR
+devolucion1anio_delegados - DELEGATES DEVOLUTIONS FIRST YEAR
+devolucion1anio_resto - REST OF DEVOLUTIONS FIRST YEAR
+obsequios - GIFTS
+ejemplares_distribuidos_en_novedad - UNITS DISTRIBUTED IN FIRST EDITION
+puntos_vta_total - TOTAL SELLING POINTS
+puntos_vta_grandes_superficies - MALLS SELLING POINTS
+puntos_vta_delegados - DELEGATES SELLING POINTS
+puntos_vta_resto - REST OF SELLING POINTS
+puntos_vta1anio_total - TOTAL SELLING POINTS FIRST YEAR
+puntos_vta1anio_grandes_superficies - MALLS SELLING POINTS FIRST YEAR
+puntos_vta1anio_delegados - DELEGATES SELLING POINTS FIRST YEAR
+puntos_vta1anio_resto - REST OF SELLING POINTS FIRST YEAR
+semanas_venta - WEEKS ON SALE
+entorno_venta_positivo - POSITIVE SALE MARKET
+entorno_venta_medio - MEDIUM SALE MARKET
+entorno_venta_negativo - NEGATIVE SALE MARKET
 
