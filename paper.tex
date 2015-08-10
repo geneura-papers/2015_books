@@ -269,7 +269,7 @@ Habitualmente es necesario un análisis previo de los datos para eliminar las var
 
 \begin{figure}[!h] 
 \begin{center}
-\includegraphics{stages.eps} \\
+  \epsfig{file=stages.eps,width=7cm}
 \caption{\small{Three main stages in this research: data analysis, (2) forecasting methods testing, and (3) subjectively adjusting the obtained results.}}
 \label{fig:stages}
 \end{center}
@@ -285,7 +285,38 @@ Thus, in this study there are three main stages (see Figure \ref{fig:stages} for
 
 \end{itemize}
 
-Finally, in order to compute the forecasting errors of the different methods, the following standard criteria have been selected: Mean absolute error, Root mean squared error, Relative absolute error and Root relative squared error.
+Finally, in the literature different error measures can be found to report the results obtained using the prediction methods. 
+Those error measurements are also called error functions or cost functions. 
+%One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
+
+In any case, we recommend using widely accepted standard equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} in order to compare obtained results with those presented in other research papers using other methods.
+That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
+
+Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+
+\begin{itemize}
+  \item \emph{Mean Absolute Error} (MAE):
+        \begin{equation}\label{eq:MAE}
+            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
+        \end{equation}
+
+  \item \emph{Root Mean Squared Error} (RMSE):
+        \begin{equation}\label{eq:RMSE}
+            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
+        \end{equation}
+
+  \item \emph{Relative absolute error} (RAE):
+        \begin{equation}\label{eq:RAE}
+            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid p_{i-1} - o_i\mid} }
+        \end{equation}
+
+  \item \emph{Root relative squared error} (RRSE):
+        \begin{equation}\label{eq:RRSE}
+            % RRSE = \frac{ \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 } }{ \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_{i-1} - o_i)}^2 } }
+            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(p_{i-1} - o_i)}^2 }  }
+        \end{equation}
+\end{itemize}
+where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained prediction.
 
 
 %-------------------------------------------------
@@ -400,7 +431,7 @@ Table \ref{tabla:params13} shows the set of variables describing a book after th
 
 \begin{figure}[!h] 
 \begin{center}
-\includegraphics{som43.eps} \\
+  \epsfig{file=som43.eps,width=\textwidth}
 \caption{\small{Análisis de los datos iniciales, usando 43 variables descriptivas por libro, utilizando el SOM.}}
 \label{fig:som43}
 \end{center}
@@ -442,7 +473,7 @@ Table \ref{tabla:params7} shows the final set of variables describing a book, ta
 
 \begin{figure}[!h] 
 \begin{center}
-\includegraphics{som13.eps} \\
+  \epsfig{file=som13.eps,width=\textwidth}
 \caption{\small{Análisis de los datos iniciales, usando 13 variables descriptivas por libro, utilizando el SOM.}}
 \label{fig:som13}
 \end{center}
@@ -495,7 +526,7 @@ Specifically, following forecasting methods are proposed:
 
  % weka.classifiers.functions.SMOreg
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item Support Vector Machine for Regression (SMOreg): This algorithm was proposed by Shevade et al \cite{Shevade1999}.
+ \item Support Vector Machine for Regression (SVM): This algorithm was proposed by Shevade et al \cite{Shevade1999}.
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
@@ -532,6 +563,61 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
   %  	pbRAWtrn.arff
   %  	pbRAWtst.arff
   %  
+
+% Mean absolute error MAE
+% Root mean squared error RMSE
+% Relative absolute error RAE
+% Root relative squared error RRSE
+
+
+ % [Pedro] los resultados aún no están terminados de calcular. Pongo unos números cualquiera.
+Obtained results using the different forecasting methods on the dataset with 13 variables per book can be shown in Table \ref{tabla:results13}:
+\begin{table*}[!h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ Method 	& Time (sec.) 	& MAE 			& RMSE 			& RAE 			& RRSE 			\\
+\hline
+  MP5 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  LR 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  SVM 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  KNN 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  MLP 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+\end{tabular}
+\end{center}
+\caption{\small{Results (errors and time) obtained using the different forecasting methods on the dataset with 13 variables per book.}}
+\label{tabla:results13}
+\end{table*}
+
+
+ % [Pedro] los resultados aún no están terminados de calcular. Pongo unos números cualquiera.
+Obtained results using the different forecasting methods on the dataset with 7 variables per book can be shown in Table \ref{tabla:results7}:
+\begin{table*}[!h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ Method 	& Time (sec.) 	& MAE 			& RMSE 			& RAE 			& RRSE 			\\
+\hline
+  MP5 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  LR 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  SVM 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  KNN 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+  MLP 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+\hline
+\end{tabular}
+\end{center}
+\caption{\small{Results (errors and time) obtained using the different forecasting methods on the dataset with 7 variables per book.}}
+\label{tabla:results7}
+\end{table*}
 
 
 %********************************************************************************
