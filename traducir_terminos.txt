@@ -7,16 +7,16 @@ pvp - RETAIL PRICE
 materia1 - SUBJECT-MATTER1
 materia2 - SUBJECT-MATTER2
 materia3 - SUBJECT-MATTER3
-editorial - PUBLISHER
+editorial - EDITORIAL
 coleccion - COLLECTION
-encuadernacion - BINDING
+encuadernacion - BOOKBINDING
 tirada - PRINT-RUN
 venta_total - TOTAL SALES
-venta_grandes_superficies - DEPARTMENT STORE SALES
+venta_grandes_superficies - MALLS SALES
 venta_delegados - DELEGATES SALES
 venta_resto - REST OF SALES
 venta1anio_total - TOTAL SALES FIRST YEAR
-venta1anio_grandes_superficies - DEPARTMENT STORE SALES FIRST YEAR
+venta1anio_grandes_superficies - MALL SALES FIRST YEAR
 venta1anio_delegados - DELEGATES SALES FIRST YEAR
 venta1anio_resto - REST OF SALES FIRST YEAR
 colocado_total - TOTAL DISTRIBUTED
@@ -29,26 +29,26 @@ colocado1anio_delegados - DELEGATES DISTRIBUTED FIRST YEAR
 colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
-devolucion_total - TOTAL RETURNS
-devolucion_grandes_superficies - DEPARTMENT STORE RETURNS
-devolucion_delegados - DELEGATES RETURNS
-devolucion_resto - REST OF RETURNS
-devolucion1anio_total - TOTAL RETURNS FIRT YEAR
-devolucion1anio_grandes_superficies - DEPARTMENT STORE RETURNS FIRST YEAR
-devolucion1anio_delegados - DELEGATES RETURNS FIRST YEAR
-devolucion1anio_resto - REST OF RETURNS FIRST YEAR
+devolucion_total - TOTAL DEVOLUTIONS
+devolucion_grandes_superficies - MALLS DEVOLUTIONS
+devolucion_delegados - DELEGATES DEVOLUTIONS
+devolucion_resto - REST OF DEVOLUTIONS
+devolucion1anio_total - TOTAL DEVOLUTIONS FIRT YEAR
+devolucion1anio_grandes_superficies - MALLS DEVOLUTIONS FIRST YEAR
+devolucion1anio_delegados - DELEGATES DEVOLUTIONS FIRST YEAR
+devolucion1anio_resto - REST OF DEVOLUTIONS FIRST YEAR
 obsequios - GIFTS
 ejemplares_distribuidos_en_novedad - UNITS DISTRIBUTED IN FIRST EDITION
-puntos_vta_total - TOTAL POINTS OF SALE
-puntos_vta_grandes_superficies -  DEPARTMENT STORE POINTS OF SALE
-puntos_vta_delegados - DELEGATES POINTS OF SALE
-puntos_vta_resto - REST OF POINTS OF SALE
-puntos_vta1anio_total - TOTAL POINTS OF SALE FIRST YEAR
-puntos_vta1anio_grandes_superficies - DEPARTMENT STORES POINTS OF SALE FIRST YEAR
-puntos_vta1anio_delegados - DELEGATES POINTS OF SALE FIRST YEAR
-puntos_vta1anio_resto - REST OF POINTS OF SALE FIRST YEAR
+puntos_vta_total - TOTAL SELLING POINTS
+puntos_vta_grandes_superficies - MALLS SELLING POINTS
+puntos_vta_delegados - DELEGATES SELLING POINTS
+puntos_vta_resto - REST OF SELLING POINTS
+puntos_vta1anio_total - TOTAL SELLING POINTS FIRST YEAR
+puntos_vta1anio_grandes_superficies - MALLS SELLING POINTS FIRST YEAR
+puntos_vta1anio_delegados - DELEGATES SELLING POINTS FIRST YEAR
+puntos_vta1anio_resto - REST OF SELLING POINTS FIRST YEAR
 semanas_venta - WEEKS ON SALE
-entorno_venta_positivo - POSITIVE SALES ENVIRONMENT
-entorno_venta_medio - MEDIUM SALE ENVIRONMENT
-entorno_venta_negativo - NEGATIVE SALES ENVIRONMENT
+entorno_venta_positivo - POSITIVE SALE MARKET
+entorno_venta_medio - MEDIUM SALE MARKET
+entorno_venta_negativo - NEGATIVE SALE MARKET
 
