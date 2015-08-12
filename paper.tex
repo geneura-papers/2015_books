@@ -438,23 +438,29 @@ Table \ref{tabla:params13} shows the set of variables describing a book after th
 	% colocar en un trabajo en revista  cómo ha ido el entrenamiento, sino
 	% datos serios de análisis estadístico de las variables. 
 	% [Pedro] ¿a qué gráficas te refieres? ¿a las tablas de las variables?
-
+% NO, a fig:som43, creo, porque ha desaparecido. - JJ
 \begin{figure}[!h] 
 \begin{center}
 \begin{tabular}{c}
   \epsfig{file=som43vars.eps,width=11cm} \\
   \epsfig{file=som43umatrix.eps,width=5cm}
 \end{tabular}
-\caption{\small{Análisis de los datos iniciales, usando 43 variables descriptivas por libro, utilizando el SOM.}}
+\caption{\small{Initial data analysis, using 43 descriptive variables per bok, using SOM.}}
 	% Cojollos, ¿qué trabajo os cuesta poner esto en inglés directamente? - JJ
 	% [Pedro] sí, si estoy de acuerdo... hay días que me "sale" el texto en inglés,
 	% pero hay días que soltar la parrafada en español me resulta más fácil    :/
+        % Sería más bien exploratory data analysis o data visualization. Un gráfico no es un análisis. Y pon las cosas cortas en inglés, hombre - JJ
 \label{fig:som43}
 \end{center}
 \end{figure}
 
 \begin{table}[!h]
-\caption{Variables describing a book (13 total inputs), after the second analisys carried out using the SOM along with the company experienced manager to select the best variables to be considered to solve the sales forecasting problem.}
+\caption{Variables that describe every book, 13 in total, after the
+  second analysis carried out using the SOM along with the company
+  experienced manager % él no hizo el análisis. No cuela con ``along
+                      % with'' - JJ
+to select the best variables to be considered to
+  solve the sales forecasting problem.} 
 \label{tabla:params13}
 \begin{center}
 \begin{tabular}{|c|}
@@ -502,7 +508,9 @@ Table \ref{tabla:params7} shows the final set of variables describing a book, ta
   \epsfig{file=som13vars.eps,width=11cm} \\
   \epsfig{file=som13umatrix.eps,width=5cm}
 \end{tabular}
-\caption{\small{Análisis de los datos iniciales, usando 13 variables descriptivas por libro, utilizando el SOM.}}
+\caption{\small{Análisis de los datos iniciales, usando 13 variables
+    descriptivas por libro, utilizando el SOM.}}
+%describir de forma más precisa: visualización usando UMatrix de... - JJ
 \label{fig:som13}
 \end{center}
 \end{figure}
@@ -575,7 +583,7 @@ The objective is finding the most appropriate forecasting method that minimizes 
 
 Una vez que se han determinado los métodos a utilizar y los parámetros de ejecución, se aplicarán a los conjuntos de datos para obtener los modelos de predicción y posteriormente se comprobará su bondad ante datos no vistos previamente.
 
-\textbf{TODO:} FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS
+\textbf{TODO:} % FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS
 
   %  
   %  El proceso que seguimos, resumido para el paper, es:
