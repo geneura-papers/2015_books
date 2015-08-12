@@ -434,11 +434,17 @@ venta_total (output)
 Then, after analizyng the original dataset using the SOM to select the best variables to be considered, and taking into account the knowledge of the company experienced manager, 13 inputs were considered. 
 Figure \ref{fig:som43} shows the initial analisys of dataset using the total of 43 descriptive inputs per book.
 Table \ref{tabla:params13} shows the set of variables describing a book after the second analisys.
+% esta gráfica no aporta nada, ni la siguiente tampoco. No se puede
+% colocar en un trabajo en revista  cómo ha ido el entrenamiento, sino
+% datos serios de análisis estadístico de las variables. 
 
 \begin{figure}[!h] 
 \begin{center}
   \epsfig{file=som43.eps,width=\textwidth}
-\caption{\small{Análisis de los datos iniciales, usando 43 variables descriptivas por libro, utilizando el SOM.}}
+\caption{\small{Análisis de los datos iniciales, usando 43 variables
+    descriptivas por libro, utilizando el SOM.}}
+% Además, no es un análisis, es una evolución temporal de un solo
+% entrenamiento.  - JJ
 \label{fig:som43}
 \end{center}
 \end{figure}
@@ -472,7 +478,15 @@ venta_total (output)
 \end{table}
 
 
-Finally, after analizyng the dataset with 13 descriptive inputs per book, and paying attention to the company experienced manager's recommendations, 7 inputs were considered; specifically, variables \emph{editorial} and \emph{materia} were included, while \emph{devolucion\_total, reimpresiones, puntos\_vta1anio\_total, numero\_reimpresiones, devolucion1anio\_total, colocado1anio\_total, semanas\_venta, tirada} were discarded. 
+Finally, after analizyng the dataset with 13 descriptive inputs per
+book, and paying attention to the company experienced manager's
+recommendations, 7 inputs were considered; specifically, variables
+\emph{editorial} and \emph{materia} were included, while
+\emph{devolucion\_total, reimpresiones, puntos\_vta1anio\_total,
+  numero\_reimpresiones, devolucion1anio\_total, colocado1anio\_total,
+  semanas\_venta, tirada} were discarded.  
+% Hay que aportar datos de por qué se hizo esto. ¿Análisis de planos?
+% ¿Análisis de varianza? - jj
 Figure \ref{fig:som13} shows the initial analisys of dataset using the SOM on the total of 13 descriptive inputs per book.
 This, along with the expert manager knowledge determined the final 7 inputs to be considered.
 Table \ref{tabla:params7} shows the final set of variables describing a book, taking into account the company experienced manager knowledge.
