@@ -39,9 +39,10 @@ P.A. Castillo, A.M. Mora, J.J. Merelo,  et al.
 % Eliminado esto.
 When a new book is published the publishing house faces the problem of
 how many books should be printed. Printing too many is the main issue,
-since it implies a loss of investment. That is why it is an issue to
-print the right amount of book, and do so even before the book has
-reached shelves. That is the problem we try to solve in this paper.
+since it implies a loss of investment due to inventory excess. That is
+why in this paper we are tackling the problem or predicting sales to 
+print the right amount of books, doing so even before the book has
+reached shelves, which is when printing occurs. 
 %Thus, making inaccurate predictions may lead to erroneous decisions that result in excess production that will not be sold, or even to a production deficit.
 %That is the publishing roll problem, in which publishing companies must estimate the number of volumes printed, taking care not to print more than they actually end up selling. Thus, an automatic prediction of book sales to estimate the publishing roll would be helpful for publishers.
 % In the literature, different methods of sales prediction, mainly for
@@ -53,7 +54,7 @@ reached shelves. That is the problem we try to solve in this paper.
 %problem of predicting the publishing roll.  
 % It's not proposed. It just obtained the best result with WEKA. - JJ 
 % Publishing roll? ¿Qué es? - JJ
-In this paper, which works with data on published books in Spain, we
+In this paper, which works with data on published books for several years in Spain, we
 first apply a data visualization and preprocessing strategy to find
 out what are the relevant variables in the prediction of sales, and
 then use standard data mining software to predict sales, and from them
@@ -71,8 +72,9 @@ interpretation.
 %********************************************************************************
 \section{Introduction}
 
-
-% A partir de datos históricos de tiradas editoriales se plantea el uso de varios modelos para la clasificación y predicción de la tirada de nuevos títulos editoriales.
+% A partir de datos históricos de tiradas editoriales se plantea el
+% uso de varios modelos para la clasificación y predicción de la
+% tirada de nuevos títulos editoriales. 
 
 A company that intends to release a new product has a high risk due to
 the complexity of the production and distribution processes. A newly
@@ -171,12 +173,19 @@ An example is the optimization of sales \cite{Mattila2002} by
 improving profit margins by selling the whole publishing roll. 
 
 
-The rest of this paper is structured as follows:
-Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to the prediction of sales.
-Then, Section \ref{sec:problem} describes the new book publishing problem, followed by Section \ref{sec:methodology} where the experimental setup and the methodology considered in the study is presented. 
+The rest of this paper is structured as follows: next, 
+Section \ref{sec:soa} presents a comprehensive review of the
+approaches found in the bibliography related to the prediction of
+sales from product characteristics. 
+Then, Section \ref{sec:problem} describes the new book publishing
+problem, % no es el problema de publicación, es el problema de venta
+         % de libros sin publicar. Habrá que buscar un nombre - JJ
+ followed by Section \ref{sec:methodology} where the
+experimental setup and the methodology considered in the study is
+presented.  
 Section \ref{sec:experiments} reports and analyzes the obtained results with a real data set.
-Finally, conclusions and future work are presented in Section \ref{sec:conclusionsAndFutureWork}.
-
+Finally, conclusions and future work are presented in Section
+\ref{sec:conclusionsAndFutureWork}. 
 
 
 %********************************************************************************
