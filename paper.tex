@@ -709,7 +709,9 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
 % Root relative squared error RRSE
 
 
-  %[pedro] los resultados aún no están terminados de calcular. Pongo unos números cualquiera.
+  %[pedro] ya están los resultados de MP5, LR y KNN.
+  % faltan los de SVM y MLP
+
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
@@ -718,17 +720,17 @@ Obtained results using the different forecasting methods on the dataset with 13 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method 	& Time (sec.) 	& MAE 			& RMSE 			& RAE 			& RRSE 			\\
+ Method 	& Time (sec.) 	  & MAE 			& RMSE 		& RAE 		& RRSE 			\\
 \hline
-  MP5 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  MP5 		& 2.94 $\pm$ 0.51 	& 65.49 	& 133.73 	& 11.10 	& 9.17 	\\
 \hline
-  LR 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  LR 		  & 0.33 $\pm$ 0.07 	& 100.81 	& 257.63 	& 17.09 	& 17.67 	\\
 \hline
-  SVM 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  SVM 		& 57.10 $\pm$ 10,51	& 52.30 $\pm$ 0	& 139.45 $\pm$ 0	& 8.87 $\pm$ 0    & 9.56 $\pm$ 0	\\
 \hline
-  KNN 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  KNN 		& 0.03 $\pm$ 0.01 	& 198.16 	& 542.93 	& 33.59 	& 37.24 	\\
 \hline
-  MLP 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  MLP 		& 9.62 $\pm$ 2.02 	& 81.12 $\pm$ 0 	& 157.78 $\pm$ 0 	& 13.75 $\pm$ 0 	& 10.82 $\pm$ 0 	\\
 \hline
 \end{tabular}
 \end{center}
@@ -738,23 +740,25 @@ Obtained results using the different forecasting methods on the dataset with 13 
 \end{table*}
 
 
- % [Pedro] los resultados aún no están terminados de calcular. Pongo unos números cualquiera.
-Obtained results using the different forecasting methods on the dataset with 7 variables per book can be shown in Table \ref{tabla:results7}:
+  %[pedro] ya están los resultados de MP5, LR y KNN.
+  % faltan los de SVM y MLP
+
+  Obtained results using the different forecasting methods on the dataset with 7 variables per book can be shown in Table \ref{tabla:results7}:
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method 	& Time (sec.) 	& MAE 			& RMSE 			& RAE 			& RRSE 			\\
+ Method   & Time (sec.)     & MAE       & RMSE    & RAE     & RRSE      \\
 \hline
-  MP5 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  MP5     & 7.39 $\pm$ 1.75   & 117.78   & 260.05  & 18.51   & 17.00  \\
 \hline
-  LR 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  LR      & 40.59 $\pm$ 12.94 & 120.29  & 252.91  & 18.91   & 16.54   \\
 \hline
-  SVM 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  SVM     & 1547.91 $\pm$ 365.55 & 109.30 $\pm$ 0 & 251.16 $\pm$ 0  & 17.18 $\pm$ 0    & 16.42 $\pm$ 0  \\
 \hline
-  KNN 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  KNN     & 0.02 $\pm$ 0.01   & 293.98  & 1071.52  & 46.21   & 70.06   \\
 \hline
-  MLP 		& 35 $\pm$ 1 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	& 20 $\pm$ 2 	\\
+  MLP     & 3265.71 $\pm$ 813.37   & 992.97 $\pm$ 0   & 1755.62 $\pm$ 0  & 156.07 $\pm$ 0   & 114.79 $\pm$ 0   \\
 \hline
 \end{tabular}
 \end{center}
