@@ -709,8 +709,7 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
 % Root relative squared error RRSE
 
 
-  %[pedro] ya están los resultados de MP5, LR y KNN.
-  % faltan los de SVM y MLP
+  %[pedro] ya están todos los resultados:  MP5, LR, KNN, SVM y MLP
 
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
@@ -720,17 +719,17 @@ Obtained results using the different forecasting methods on the dataset with 13 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method 	& Time (sec.) 	  & MAE 			& RMSE 		& RAE 		& RRSE 			\\
+ Method 	& Time (sec.) 	  & MAE 			& RMSE 		& RAE 		& RRSE 		\\
 \hline
-  MP5 		& 2.94 $\pm$ 0.51 	& 65.49 	& 133.73 	& 11.10 	& 9.17 	\\
+  MP5 		& 2.94 $\pm$ 0.51 	& 65.49 	& 133.73 	& 11.10 	& 9.17 	  \\
 \hline
-  LR 		  & 0.33 $\pm$ 0.07 	& 100.81 	& 257.63 	& 17.09 	& 17.67 	\\
+  LR 		  & 0.33 $\pm$ 0.07 	& 100.813 & 257.63 	& 17.09 	& 17.67 	\\
 \hline
-  SVM 		& 57.10 $\pm$ 10,51	& 52.30 $\pm$ 0	& 139.45 $\pm$ 0	& 8.87 $\pm$ 0    & 9.56 $\pm$ 0	\\
+  SVM 		& 49.10 $\pm$ 8.05	& 52.30	  & 139.45	& 8.87    & 9.56  	\\
 \hline
   KNN 		& 0.03 $\pm$ 0.01 	& 198.16 	& 542.93 	& 33.59 	& 37.24 	\\
 \hline
-  MLP 		& 9.62 $\pm$ 2.02 	& 81.12 $\pm$ 0 	& 157.78 $\pm$ 0 	& 13.75 $\pm$ 0 	& 10.82 $\pm$ 0 	\\
+  MLP 		& 12.70 $\pm$ 3.08 	& 97.18 $\pm$ 24.74 	& 174.77 $\pm$ 31.50 	& 16.47 $\pm$ 4.19 	& 11.99 $\pm$ 2.16 	\\
 \hline
 \end{tabular}
 \end{center}
