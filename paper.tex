@@ -83,63 +83,49 @@ only be based on the experience of similar products.
 In this scope, having accurate estimates of future sales of the new
 product is extremely important \cite{ChingChin2010} so that production
 runs do not exceed predicted sales. 
+Indeed, several studies have demonstrated that improving sale predictions 
+(a reduction of forecasting errors) results in an improvement in the 
+production \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
 
-In this sense, the publishing industry is based on very particular and
-established production process, and publishing a book requires several
-steps, between which the distribution is important and plays an
-important role. 
-The publishing process and individual decisions at each step are very
-important. 
-% One of those decisions is the number of copies to print. 
+% In this sense, the publishing industry is based on very particular and
+% established production process, and publishing a book requires several
+% steps, between which the distribution is important and plays an
+% important role. The publishing process and individual decisions at each step are very
+% important. One of those decisions is the number of copies to print. 
   % ¿Esto que tiene que ver con la frase anterior? - JJ
-Thus, a suitable prediction system for new books should take into
-account many details about how the editorial process works. % y? - JJ
+% Thus, a suitable prediction system for new books should take into
+% account many details about how the editorial process works. % y? - JJ
 
-Implementing a good forecasting tool requires not only a good study of
-the state of the art in this field, but also an accurate knowledge of
-the operations and challenges facing the publishing industry and its
-supply chain. % ¿eso es lo que vamos a hacer? - JJ
-
-
-% introducirlo diciendo... El problema de la industria similar es
-% parecido a otras industrias, etc, etc...
-In the field of fashion predicting sales is very complex problem, subject
-to certain requirements \cite{SThomassey2014} and has been faced using
-various methods in recent decades
-\cite{Thomassey2012,Xia2012,Hammond1990,SThomassey2014}.  % Este
-                                % párrafo no dice absolutamente nada
-                                % ni aporta nada. Si se menciona la
-                                % industria de la moda, es que vamos a
-                                % aprender algo de ella. ¿Cuáles son
-                                % los requisitos? ¿Cuáles son los
-                                % métodos? ¿Vamos a aprender de ellos?
-                                % - JJ
+% Implementing a good forecasting tool requires not only a good study of
+% the state of the art in this field, but also an accurate knowledge of
+% the operations and challenges facing the publishing industry and its
+% supply chain. % ¿eso es lo que vamos a hacer? - JJ
 
 
 In the field of publishing industry, it is more important printing an
 adequate number of copies but not too much, as the unsold volumes will
 lead to losses, whereas if the number of printed copies was not
-enough, you can always print more. Thus, it is extremely important to
-forecast the sales a new book might achieve. % Hala, otro salto. ¿Qué
-                                % tiene que ver esto con el párrafo
-                                % anterior? - JJ
+enough, you can always print more. 
+Thus, it is extremely important using predictive tools to optimize 
+production and improve the publishing company profits or minimize losses \cite{Zhao2001}
+by forecasting the sales a new book might achieve. 
+An example is the optimization of sales \cite{Mattila2002} by
+improving profit margins by selling the whole publishing roll.  
+% [Pedro] "publishing roll" es como he encontrado "tirada editorial" traducido...
 
-
-Thus, using a predictive tool is very useful when used properly; in
-this sense, it is very important to know the product, the
-characteristics of sales and how to distribute it, as those details
-affect the process \cite{Armstrong2001,SThomassey2014}. % ¿Esto
-                                % también pasa en la industria de la
-                                % moda. ¿Qué vamos a usar de esto? - JJ
-
-
-Book sales are influenced by various factors that make
-them fluctuate.  These factors are usually not controllable and
+However, accurately using a predictive tool is a difficult task as
+book sales are influenced by various factors that make
+them fluctuate and usually they might be not controllable and
 sometimes unknown. 
 Some have to do with decisions on purchases, others with freight
 traffic, and others with the distribution strategy \cite{Little1998}. 
-  % ¿Qué hacen todas estas cosas? ¿Vamos a tenerlas en cuenta? 
 
+Thus, it is very important to know the product and the variables that
+might affect the sales, and how an expert manager can eventually 
+take them into account \cite{Armstrong2001,SThomassey2014}. 
+                                % ¿Esto también pasa en la industria de la
+                                % moda. ¿Qué vamos a usar de esto? - JJ
+                                % [Pedro] esto iba referido a la Industria Editorial.
 Their impact is difficult to estimate and it is not constant over time, 
 hence the difficulty to adequately identify and measure their influence \cite{DeToni2000}.
 In addition, some may have correlations between them. 
@@ -148,38 +134,44 @@ such as Self-Organizing Maps (SOM) \cite{kohonen1998}
 or stepwise regression analysis (SRA) \cite{Chang2009}.
 
 
-Publishers generally use historical data and an expert analyzes that
-data and applies his knowledge using external variables to obtain quite
-appropriate predictions. % ¿cita para esto?  - JJ
-However, in recent years the sales are forecasted using an
-application. % ¿Cita para esto? - JJ
-This is used as the foundation over which an expert applies his
-knowledge, as the company might require an interpretable and
-understandable model. For example, the expert might increase or
-decrease the sales prediction based on season or sales period.
-However, the obtained analysis can be imprecise and may not take all
-the variables into account. 
-In addition, the process is often tedious, especially when the amount
+In this research, the problem of how many books should be printed 
+when a new book is published is faced using data provided by the 
+Spanish publishing company Trevenque Editorial \footnote{{\tt http://editorial.trevenque.es}}.
+The company's expert sales managers analized historical data 
+and applied their knowledge using external variables to calculate
+appropriate predictions, for example, increasing or decreasing the 
+sales prediction based on season or sales period.
+                        % varias citas - JJ
+                        % [Pedro] lo modifico para comentar quienes nos facilitaron los datos
+                        %  y que así era como funcionaban hasta ese momento.
+%In any case, in general companies usually use a forecasting model and then, an expert applies his knowledge, as the company might require an interpretable and understandable model. 
+
+However, carrying out the analysis and forecasting process as described,
+may lead to an imprecise analysis and may not take all the variables into account. 
+In addition, the process might be tedious, especially when the amount
 of data is large, and even, different experts can reach different
-predictions from the same data set. % We NEED a reference for this!!! - JJ
+predictions from the same data set \cite{ChingChin2010,Sanders1994}.
 
 For these reasons, the industry requires the best suited forecasting
 techniques to be adopted so that, estimating sales task is carried out
-properly. 
+properly and in an automatic way. 
 
-Using predictive tools can benefit a publishing company to optimize 
-production and improve their profits or minimize losses \cite{Zhao2001}. 
-An example is the optimization of sales \cite{Mattila2002} by
-improving profit margins by selling the whole publishing roll. 
+With this in mind, i this paper a data visualization and preprocessing strategy to find
+out what are the relevant variables describing a book in the prediction 
+of book sales is proposed; then several standard data mining models 
+for sales forecasting are evaluated so a publishing company 
+can deduce and optimize print roll.
 
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
 approaches found in the bibliography related to the prediction of
 sales from product characteristics. 
-Then, Section \ref{sec:problem} describes the new book publishing
-problem, % no es el problema de publicación, es el problema de venta
-         % de libros sin publicar. Habrá que buscar un nombre - JJ
+Then, Section \ref{sec:problem} describes the 
+problem of how many books should be printed when a new book is published, 
+        % no es el problema de publicación, es el problema de venta
+        % de libros sin publicar. Habrá que buscar un nombre - JJ
+        %[Pedro] cierto, lo cambio, aunque me ha quedado un nombre muy largo  :)
  followed by Section \ref{sec:methodology} where the
 experimental setup and the methodology considered in the study is
 presented.  
@@ -189,50 +181,81 @@ Finally, conclusions and future work are presented in Section
 
 
 %********************************************************************************
-\section{State of the art}
+\section{Sales forecasting. State of the art}
 \label{sec:soa}
 
 In the literature several proposals to perform the prediction of sales
-in different areas can be found.  %frase que no dice nada. ¿Por qué no
-                                %empiezas enmarcando el estado del
-                                %arte? Methods to predict book sales
-                                %have been generally based on ... - JJ
+in different fields can be found. % frase que no dice nada. ¿Por qué no empiezas enmarcando el estado del
+                                % arte? Methods to predict book sales have been generally based on ... - JJ
+                                % [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
+                                %  por eso quiero enfocarlo desde el punto de vista de la predicción 
+                                %  de ventas en general, que sí hay bastante en muchos campos.
 On the one hand, several qualitative methods are based on an expert
-experience, while time series prediction methods are based on using
-historical data to make predictions
+experience, while time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
+are based on using historical data to make predictions
 \cite{ChingChin2010,FaderHardie2005,Madsen2008}. % Hasta ahora no has
                                 % dicho cuál es el problema. Tienes
                                 % que decir claramente qué tienes y
                                 % qué quieres. - JJ
 
-Using time series prediction methods is perhaps the most used
-technique to tackle the sales forecasting task. 
-In this sense, among the most popular techniques include 
-statistical techniques \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}. 
-However, the efficiency of these techniques depends largely on the field of application and the problem data. 
-Specifically, techniques that require a large amount of data for predicting sales of new products are not the most suitable for this task \cite{ChingChin2010}.
+Although using time series prediction methods is perhaps the most used
+technique to tackle the sales forecasting task, the efficiency of these 
+techniques depends largely on the field of application and the problem data. 
+Specifically, techniques that require a large amount of data for predicting 
+sales of new products are not the most suitable for this task \cite{ChingChin2010}.
 
-Anyway, several studies have demonstrated that improving sale predictions (a reduction of forecasting errors) results in an improvement in the production \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
+Thus, in the last years, different analysis and forecasting methods 
+have been proposed for sales forecasting in several industry fields. %similar to the publishing industry.
 
 
-On the other hand, different authors have proposed metrics to determine the accuracy of estimates. 
-However, most companies use metrics based on the analysis of errors (MSE, MAPE) \cite{ChingChin2010,Madsen2008}.
+  %[Pedro] el caso de la industria de la moda es muy similar al de la 
+  % publicación de nuevos libros, ya que no hay datos históricos 
+  % de un nuevo producto, y hay que echar mano de productos similares
+  % o simplemente de los datos que describen el nuevo producto.
+In the fashion industry, very similar to the publishing industry, 
+predicting sales is a very complex problem, subject
+to certain specific requirements \cite{SThomassey2014}.
+This task has been faced using various methods in recent decades
+  %[Pedro] me falta describir las aproximaciones
+\cite{Thomassey2012,Xia2012,Hammond1990,SThomassey2014}.
 
-Finally, in many cases the predictions are influenced by external variables that must be taken into account, such as seasonality, promotions or fashions \cite{Lapide1999,ChernWSF15}.
-In this sense, some authors propose reducing variations in the data caused by such variables to improve the accuracy of predictions
+
+  %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre
+  % New tea product
+  % New cosmetic product
+  % New soft drink product
+
+
+  %[Pedro] otro caso a comentar es el paper de Chang2009 sobre 
+  % sales forecasting in printed circuit board industry
+
+
+Finally, in many cases the predictions are influenced by external 
+variables that must be taken into account, such as seasonality, 
+promotions or fashions \cite{Lapide1999,ChingChin2010,ChernWSF15}.
+In this sense, some authors propose reducing variations in the data 
+caused by such variables to improve the accuracy of predictions
  \cite{Sheikh2003,Schrieber2005}.
 
-Taking into account the kind of problem we address in this paper, the classical forecasting methods are not useful. 
-Thus, we must analyze raw data using other tools, prior to apply forecasting techniques.
-In addition, since publishers need models to explain obtained predictions, black box forecasting methods may not be suitable for this problem.
+%On the other hand, different authors have proposed metrics to determine the accuracy of estimates. 
+%However, most companies use metrics based on the analysis of errors (MSE, MAPE) \cite{ChingChin2010,Madsen2008}.
+
+Taking into account the kind of problem we address in this paper, the 
+classical forecasting methods are not useful. 
+Thus, we must analyze raw data using other tools, prior to apply 
+forecasting techniques.
+In addition, since publishers need models to explain obtained predictions, 
+black box forecasting methods may not be suitable for this problem, so 
+models based on rules are proposed.
 
 
 %********************************************************************************
 \section{The problem}
 \label{sec:problem}
 
-Sales forecasting in editorial industry is a very complex
-problem. %hala, vuelta la burra al trigo - JJ
+%Sales forecasting in editorial industry is a very complex problem. 
+        %hala, vuelta la burra al trigo - JJ
+        %[Pedro] ea, lo quito
 There are several difficulties inherent to the new book sales forecasting, such as dealing with limited data, finding adequate forecasting methods, and selecting the best method to use \cite{ChingChin2010}.
 
 The main issue of this paper is to compute forecasting of the sales for new unpublished-books, for which no historical data is available.
@@ -255,6 +278,9 @@ Table \ref{tabla:paramsOrig50} shows the original set of parameters describing e
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
+
+
+  %[Pedro] me falta poner ya los nombres traducidos (y usarlos para los SOM)
 
 \begin{minipage}{2.3in} \begin{verbatim}
 referencia
@@ -673,10 +699,10 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
 % Root relative squared error RRSE
 
 
- % [Pedro] los resultados aún no están terminados de calcular. Pongo
- % unos números cualquiera.
-% ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a
-% seleccionar uno? - JJ
+  %[pedro] los resultados aún no están terminados de calcular. Pongo unos números cualquiera.
+  % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
+  %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
+  % en algunos calculan muchos más, pero estos son los más usados.
 Obtained results using the different forecasting methods on the dataset with 13 variables per book can be shown in Table \ref{tabla:results13}:
 \begin{table*}[!h]
 \begin{center}
@@ -750,14 +776,15 @@ Por otro lado, puesto que hay algunas características que pueden afectar a la ve
 
 %********************************************************************************
 \section*{Acknowledgements}
-This work has been supported in part by SIPESCA (Programa Operativo
-FEDER de Andalucía 2007-2013), TIN2011-28627-C04-02 and
+This work has been supported in part by PreTEL (PRM Consultores - Trevenque),
+SIPESCA (Programa Operativo FEDER de Andalucía 2007-2013), TIN2011-28627-C04-02 and
 TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), PRY142/14
 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la
 IX Convocatoria de Proyectos de Investigaci{\'o}n), and PYR-2014-17
-GENIL project (CEI-BIOTIC Granada). % ¿Y el contrato con Trevenque?  - JJ
-
+GENIL project (CEI-BIOTIC Granada). 
+    % ¿Y el contrato con Trevenque?  - JJ
+    %[pedro] añadido
 
 %********************************************************************************
 \bibliographystyle{plain}
