@@ -144,6 +144,7 @@ sales prediction based on season or sales period.
                         % varias citas - JJ
                         % [Pedro] lo modifico para comentar quienes nos facilitaron los datos
                         %  y que así era como funcionaban hasta ese momento.
+
 %In any case, in general companies usually use a forecasting model and then, an expert applies his knowledge, as the company might require an interpretable and understandable model. 
 
 However, carrying out the analysis and forecasting process as described,
@@ -184,31 +185,32 @@ Finally, conclusions and future work are presented in Section
 \section{Sales forecasting. State of the art}
 \label{sec:soa}
 
-%[pedro] comienzo a rehacer esta sección...
+% [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
+%  por eso quiero comenzar hablando de la aplicación de métodos
+%  de predicción en la industria en general, que sí hay bastante bibliografía.
 
-In the literature several proposals to perform the prediction of sales
-in different fields can be found. % frase que no dice nada. ¿Por qué no empiezas enmarcando el estado del
-                                % arte? Methods to predict book sales have been generally based on ... - JJ
-                                % [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
-                                %  por eso quiero enfocarlo desde el punto de vista de la predicción 
-                                %  de ventas en general, que sí hay bastante en muchos campos.
-On the one hand, several qualitative methods are based on an expert
-experience, while time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
-are based on using historical data to make predictions
-\cite{ChingChin2010,FaderHardie2005,Madsen2008}. % Hasta ahora no has
-                                % dicho cuál es el problema. Tienes
-                                % que decir claramente qué tienes y
-                                % qué quieres. - JJ
+% In the literature several proposals to perform the prediction of sales in different fields can be found. 
+In the last years, different analysis and forecasting methods, such as
+regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001} 
+have been applyed in different industry sectors, i.e. electricity consumption, traffic flow or sales forecasting.
 
-Although using time series prediction methods is perhaps the most used
-technique to tackle the sales forecasting task, the efficiency of these 
-techniques depends largely on the field of application and the problem data. 
-Specifically, techniques that require a large amount of data for predicting 
+Specifically, using time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
+is perhaps the most used technique to tackle the sales forecasting problems, 
+the efficiency of these techniques depends largely on the field of application 
+and the problem data as they require a large amount of data for predicting 
 sales of new products are not the most suitable for this task \cite{ChingChin2010}.
 
-Thus, in the last years, different analysis and forecasting methods 
-have been proposed for sales forecasting in several industry fields. %similar to the publishing industry.
+This is the new book sales forecasting case, for which no historical data 
+to make predictions \cite{ChingChin2010,FaderHardie2005,Madsen2008} is available
+and only some descriptive variables relative to the new unpublished-book are available.
 
+Methods used to predict book sales have been generally based on experts' 
+experience who analyzed data about sales, and taking into account their knowledge 
+in industry experience and their perception about trends, could make decisions
+on the companies production (how many books should be printed when a new book is published).
+This a complex problem as the predictions are influenced by external variables 
+that must be taken into account, such as seasonality, promotions or fashions 
+that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}.
 
   %[pedro] sobre la industria editorial no hay trabajos sobre predicción de ventas.
   % Lo habitual ha sido usar el conocimiento de expertos para realizar predicciones 
@@ -217,18 +219,33 @@ have been proposed for sales forecasting in several industry fields. %similar to
   %  sobre "Use Blog Information As Book Sales Prediction":
   %     Moon2010ICSSSM
   %     Moon2010ICEC
+Recently, some works propose \cite{Moon2010ICSSSM,Moon2010ICEC} analyzing 
+relationships between on-line information and book sales.
+Specifically, authors propose using the number of blog references as an indicator of book sales.
+Different sales patterns are observed by analyzing data obtained.
+In any case, in this research, historical data from published books is used, 
+and the proposed methodology can not be usable in the problem of unpublished-books sales prediction.
 
+%
+% pasar a contar los casos de la predicción de ventas en la 
+% industria de la moda (SThomassey2014) y de nuevos productos (ChingChin2010)
+%
+% Son problemas muy similares, ya que no hay datos históricos de los nuevos productos,
+% al igual que no los hay sobre ventas, y en los que además influyen mucho las variables 
+% externas (estacionalidad, modas, fama del author, etc).
+% Hay que echar mano de productos similares o simplemente de los datos que describen el nuevo producto.
+%
 
-  %[Pedro] el caso de la industria de la moda es muy similar al de la 
-  % publicación de nuevos libros, ya que no hay datos históricos 
-  % de un nuevo producto, y hay que echar mano de productos similares
-  % o simplemente de los datos que describen el nuevo producto.
-In the fashion industry, very similar to the publishing industry, 
-predicting sales is a very complex problem, subject
-to certain specific requirements \cite{SThomassey2014}.
-This task has been faced using various methods in recent decades
-  %[Pedro] me falta describir las aproximaciones
-\cite{Thomassey2012,Xia2012,Hammond1990,SThomassey2014}.
+Some authors have faced the problem of forecasting sales of new products using 
+different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
+Thomassey et al \cite{SThomassey2014} propose using a clustering method and 
+decision trees for sales forecasting in textile-appared fashion industry, 
+a very similar issue to the new book publishing problem.
+The same problem was previously faced by Xia et al \cite{Xia2012} using a 
+forecasting method based on extreme learning machine with adaptive metrics of inputs.
+Complexity of this problem is due to the lack of historical data, short lifetime 
+of the large number of items, and due to the influence of variables such as promotions, 
+fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
 
 
   %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
@@ -241,23 +258,21 @@ This task has been faced using various methods in recent decades
   % sales forecasting in printed circuit board industry.
 
 
-Finally, in many cases the predictions are influenced by external 
-variables that must be taken into account, such as seasonality, 
-promotions or fashions \cite{Lapide1999,ChingChin2010,ChernWSF15}.
-In this sense, some authors propose reducing variations in the data 
-caused by such variables to improve the accuracy of predictions
- \cite{Sheikh2003,Schrieber2005}.
 
-%On the other hand, different authors have proposed metrics to determine the accuracy of estimates. 
-%However, most companies use metrics based on the analysis of errors (MSE, MAPE) \cite{ChingChin2010,Madsen2008}.
+%Finally, although different authors have proposed metrics to determine 
+%the accuracy of estimates, most companies use metrics based on the analysis 
+%of errors, i.e. MAE or RMSE \cite{ChingChin2010,Madsen2008}.
 
-Taking into account the kind of problem we address in this paper, the 
-classical forecasting methods are not useful. 
-Thus, we must analyze raw data using other tools, prior to apply 
-forecasting techniques.
+Taking into account the kind of problem we address in this paper, 
+a new product sales prediction for which no historical data is available,
+the classical forecasting methods based on time series are not adequate. 
+Thus, in this paper the relevant variables in the prediction of sales are determined
+using data visualization tools and then, standard data mining software 
+to predict sales is used to deduce print roll.
 In addition, since publishers need models to explain obtained predictions, 
 black box forecasting methods may not be suitable for this problem, so 
-models based on rules are proposed.
+models based on rules are tested as an alternative.
+
 
 
 %********************************************************************************
@@ -392,7 +407,6 @@ Thus, in this study there are three main stages (see Figure \ref{fig:stages} for
 Finally, in the literature different error measures can be found to report the results obtained using the prediction methods. 
 Those error measurements are also called error functions or cost functions. 
 %One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
-
 In any case, we recommend using widely accepted standard equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} in order to compare obtained results with those presented in other research papers using other methods.
 That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
 
