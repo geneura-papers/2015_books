@@ -258,11 +258,6 @@ fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
   % sales forecasting in printed circuit board industry.
 
 
-
-%Finally, although different authors have proposed metrics to determine 
-%the accuracy of estimates, most companies use metrics based on the analysis 
-%of errors, i.e. MAE or RMSE \cite{ChingChin2010,Madsen2008}.
-
 Taking into account the kind of problem we address in this paper, 
 a new product sales prediction for which no historical data is available,
 the classical forecasting methods based on time series are not adequate. 
@@ -404,13 +399,25 @@ Thus, in this study there are three main stages (see Figure \ref{fig:stages} for
 
 \end{itemize}
 
-Finally, in the literature different error measures can be found to report the results obtained using the prediction methods. 
+%Finally, although different authors have proposed metrics to determine 
+%the accuracy of estimates, most companies use metrics based on the analysis 
+%of errors, i.e. MAE or RMSE \cite{ChingChin2010,Madsen2008}.
+
+Finally, in the literature different error measures can be found to report 
+the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008}. 
 Those error measurements are also called error functions or cost functions. 
 %One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
-In any case, we recommend using widely accepted standard equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} in order to compare obtained results with those presented in other research papers using other methods.
-That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
+In any case, we recommend using widely accepted standard 
+equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} 
+in order to compare obtained results with those presented in other research 
+papers using other methods.
+That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), 
+implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} 
+or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
 
-Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+Specifically, in order to compute the forecasting errors of the different methods, 
+Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) 
+and Root relative squared error (RRSE) have been selected:
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
