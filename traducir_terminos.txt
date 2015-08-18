@@ -26,6 +26,7 @@ colocado_resto - REST OF DISTRIBUTED
 colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
 colocado1anio_grandes_superficies - MALLS DISTRIBUTED FIRST YEAR
 colocado1anio_delegados - DELEGATES DISTRIBUTED FIRST YEAR
+
 colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
