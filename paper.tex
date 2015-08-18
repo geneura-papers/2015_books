@@ -252,15 +252,26 @@ Complexity of this problem is due to the lack of historical data, short lifetime
 of the large number of items, and due to the influence of variables such as promotions, 
 fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
 
-
   %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
   % New tea product
   % New cosmetic product
   % New soft drink product
-
+In \cite{ChingChin2010}, a decision-support system for new product sales forecasting 
+is proposed to solve three real-world sales forecasting problems involving new tea, 
+cosmetic, and soft drink products taking into account quantitative variables. 
+In this study, it is assumed that products are classified based on their sales 
+pattern so that products in the same class would have similar sales pattern.
+However, as the authors state, proposed system can not deal with qualitative 
+date related to the products, and even more real-world cases, such as consumer 
+electronics and fashion products, should be examined, as these industries 
+introduce new products every season. 
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
+In those cases where there is historical data available, classical time series 
+forecasting methods can be applied, such as in \cite{Chang2009}, where a hybrid 
+model integrating K-mean and fuzzy neural networks to forecast the future sales 
+of a printed circuit board is proposed.
 
 
 Taking into account the kind of problem we address in this paper, 
@@ -281,7 +292,7 @@ models based on rules are tested as an alternative.
 
 %Sales forecasting in editorial industry is a very complex problem. 
         %hala, vuelta la burra al trigo - JJ
-        %[Pedro] ea, lo quito
+        %[Pedro] ea, lo quito   :)
 There are several difficulties inherent to the new book sales forecasting, such as dealing with limited data, finding adequate forecasting methods, and selecting the best method to use \cite{ChingChin2010}.
 
 The main issue of this paper is to compute forecasting of the sales for new unpublished-books, for which no historical data is available.
@@ -304,9 +315,6 @@ Table \ref{tabla:paramsOrig50} shows the original set of parameters describing e
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
-
-
-  %[Pedro] me falta poner ya los nombres traducidos (y usarlos para los SOM)
 
 \begin{minipage}{2.3in} \begin{verbatim}
 REFERENCE
@@ -589,19 +597,19 @@ to select the best variables to be considered to
 \hline 
 
 \begin{minipage}{2.3in} \begin{verbatim}
-devolucion_total
-reimpresiones
-puntos_vta1anio_total
-ejemplares_distribuidos_en_novedad
-numero_reimpresiones
-devolucion1anio_total
-colocado1anio_total
-puntos_vta_total
-semanas_venta
-colocado_total
-pvp
-tirada
-venta_total (output)
+TOTAL DEVOLUTIONS
+REPRINTS
+TOTAL SELLING POINTS FIRST YEAR
+UNITS DISTRIBUTED IN FIRST EDITION
+NUMBER OF REPRINTS
+TOTAL DEVOLUTIONS FIRT YEAR
+TOTAL DISTRIBUTED FIRST YEAR
+TOTAL SELLING POINTS
+WEEKS ON SALE
+TOTAL DISTRIBUTED
+RETAIL PRICE
+PRINT-RUN
+TOTAL SALES (output)
 \end{verbatim} \end{minipage}     \\
 
 \hline
@@ -647,13 +655,13 @@ Table \ref{tabla:params7} shows the final set of variables describing a book, ta
 \hline 
 
 \begin{minipage}{2.3in} \begin{verbatim}
-ejemplares_distribuidos_en_novedad
-puntos_vta_total
-colocado_total
-pvp
-materia
-editorial
-venta_total (output)
+UNITS DISTRIBUTED IN FIRST EDITION
+TOTAL SELLING POINTS
+TOTAL DISTRIBUTED
+RETAIL PRICE
+SUBJECT-MATTER
+EDITORIAL
+TOTAL SALES (output)
 \end{verbatim} \end{minipage}     \\
 
 \hline
