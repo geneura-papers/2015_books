@@ -53,8 +53,8 @@ reached shelves, which is when printing occurs.
 %problem of predicting the publishing roll.  
 % It's not proposed. It just obtained the best result with WEKA. - JJ 
 % Publishing roll? ¿Qué es? - JJ
-In this paper, which works with data on published books for several years in Spain, we
-first apply a data visualization and preprocessing strategy to find
+In this paper, which works with data on published books for several years in 
+Spain, we first apply a data visualization and preprocessing strategy to find
 out what are the relevant variables in the prediction of sales, and
 then use standard data mining software to predict sales, and from them
 deduce print roll, based on those variables. Our work discovers which
@@ -159,8 +159,8 @@ For these reasons, the industry requires the best suited forecasting
 techniques to be adopted so that, estimating sales task is carried out
 properly and in an automatic way. 
 
-With this in mind, i this paper a data visualization and preprocessing strategy to find
-out what are the relevant variables describing a book in the prediction 
+With this in mind, i this paper a data visualization and preprocessing strategy 
+to find out what are the relevant variables describing a book in the prediction 
 of book sales is proposed; then several standard data mining models 
 for sales forecasting are evaluated so a publishing company 
 can deduce and optimize print roll.
@@ -177,8 +177,8 @@ problem of how many books should be printed when a new book is published,
  followed by Section \ref{sec:methodology} where the
 experimental setup and the methodology considered in the study is
 presented.  
-Section \ref{sec:experiments} reports and analyzes the obtained results with a real data set.
-Finally, conclusions and future work are presented in Section
+Section \ref{sec:experiments} reports and analyzes the obtained results with a 
+real data set. Finally, conclusions and future work are presented in Section
 \ref{sec:conclusionsAndFutureWork}. 
 
 
@@ -192,7 +192,8 @@ Finally, conclusions and future work are presented in Section
 
 % In the literature several proposals to perform the prediction of sales in different fields can be found. 
 In the last years, different analysis and forecasting methods, such as
-regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001} 
+regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} 
+or fuzzy systems \cite{Mastorocostas2001} 
 have been applied in different industry sectors, i.e. electricity
 consumption, traffic flow or sales forecasting. % ¿Y qué? Esta frase
                                 % no aporta nada. La primera frase
@@ -226,10 +227,12 @@ that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,Che
   %     Moon2010ICEC
 Recently, some works propose \cite{Moon2010ICSSSM,Moon2010ICEC} analyzing 
 relationships between on-line information and book sales.
-Specifically, authors propose using the number of blog references as an indicator of book sales.
+Specifically, authors propose using the number of blog references as an indicator 
+of book sales.
 Different sales patterns are observed by analyzing data obtained.
 In any case, in this research, historical data from published books is used, 
-and the proposed methodology can not be usable in the problem of unpublished-books sales prediction.
+and the proposed methodology can not be usable in the problem of unpublished-books 
+sales prediction.
 
 %
 % pasar a contar los casos de la predicción de ventas en la 
@@ -249,16 +252,17 @@ a very similar issue to the new book publishing problem.
 The same problem was previously faced by Xia et al \cite{Xia2012} using a 
 forecasting method based on extreme learning machine with adaptive metrics of inputs.
 Complexity of this problem is due to the lack of historical data, short lifetime 
-of the large number of items, and due to the influence of variables such as promotions, 
-fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
+of the large number of items, and due to the influence of variables such as 
+promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
 
   %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
   % New tea product
   % New cosmetic product
   % New soft drink product
-In \cite{ChingChin2010}, a decision-support system for new product sales forecasting 
-is proposed to solve three real-world sales forecasting problems involving new tea, 
-cosmetic, and soft drink products taking into account quantitative variables. 
+In \cite{ChingChin2010}, a decision-support system for new product sales 
+forecasting is proposed to solve three real-world sales forecasting problems 
+involving new tea, cosmetic, and soft drink products taking into account 
+quantitative variables. 
 In this study, it is assumed that products are classified based on their sales 
 pattern so that products in the same class would have similar sales pattern.
 However, as the authors state, proposed system can not deal with qualitative 
@@ -293,21 +297,37 @@ models based on rules are tested as an alternative.
 %Sales forecasting in editorial industry is a very complex problem. 
         %hala, vuelta la burra al trigo - JJ
         %[Pedro] ea, lo quito   :)
-There are several difficulties inherent to the new book sales forecasting, such as dealing with limited data, finding adequate forecasting methods, and selecting the best method to use \cite{ChingChin2010}.
+There are several difficulties inherent to the new book sales forecasting, 
+such as dealing with limited data, finding adequate forecasting methods, and 
+selecting the best method to use \cite{ChingChin2010}.
 
-The main issue of this paper is to compute forecasting of the sales for new unpublished-books, for which no historical data is available.
-Thus, this paper faces the new book publishing problem using different prediction methods and using as inputs the historical sales data related to other yet published books, and some descriptive variables relative to the new unpublished-book.
+The main issue of this paper is to compute forecasting of the sales for 
+new unpublished-books, for which no historical data is available.
+Thus, this paper faces the new book publishing problem using different 
+prediction methods and using as inputs the historical sales data related 
+to other yet published books, and some descriptive variables relative to 
+the new unpublished-book.
 
-En el caso de libros ya publicados, se dispone de datos históricos que ayudan a la generación de modelos predictivos. 
-Sin embargo, en el caso de nuevos libros no hay datos históricos que ayuden a definir patrones, y sólo ciertos datos descriptivos están disponibles, por lo que no todos los métodos de predicción se pueden utilizar \cite{Madsen2008,ChernWSF15}. 
+In the case of already published books, available historical data might help 
+to generate predictive models.
+However, in the case of new books there is no historical data to define patterns, 
+and only some descriptive data about the new book is available.
+In these cases not any forecasting method can be used\cite{Madsen2008,ChernWSF15}. 
 
-An additional issue is the dificulty to compare our model with classical forecasting methods, such as time series prediction methods, since books do not have specific sales time series.
+An additional issue is the dificulty to compare our model with classical 
+forecasting methods, such as time series prediction methods, since books 
+do not have specific sales time series.
 
-A lo largo de esta investigación se colaboró con la empresa Trevenque Editorial \footnote{{\tt http://editorial.trevenque.es}}, una compañía que ofrece sistemas de gestión y servicios para librerías, editoriales y distribuidoras.
+Throughout this research we collaborated with the company Trevenque Editorial\footnote{{\tt http://editorial.trevenque.es}}, 
+a company that provides management systems and services for libraries, publishers 
+and distributors.
 
-La empresa Trevenque, cuyo experto asesoró esta investigación, facilitó un conjunto de datos inicial consistente en 3159 libros. 
-En este conjunto, para cada libro se incluye información descriptiva del libro, como son el precio, lugares donde se han puesto a la venta, materia, editorial, ventas, devoluciones, entre otros datos. 
-Table \ref{tabla:paramsOrig50} shows the original set of parameters describing each book.
+Trevenque company, whose expert manager advised this research, provided 
+the initial data set consisting of 3159 books.
+In this data set, descriptive information for each book includes price, 
+selling points, matter, publisher, sales, returns, among other information.
+Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
+each book.
 
 \begin{table}[!h]
 \caption{Parameters describing a book, as provided by the company Trevenque.}
@@ -320,9 +340,9 @@ Table \ref{tabla:paramsOrig50} shows the original set of parameters describing e
 REFERENCE
 AUTHOR
 RETAIL PRICE
-SUBJECT-MATTER1
-SUBJECT-MATTER2
-SUBJECT-MATTER3
+MATTER1
+MATTER2
+MATTER3
 EDITORIAL
 COLLECTION
 BOOKBINDING
@@ -377,38 +397,59 @@ NEGATIVE SALE MARKET
 \end{center}
 \end{table}
 
-En el problema de la predicción de ventas de nuevos libros afectan diversas variables propias del libro en cuestión, como por ejemplo el autor, el precio, la materia o la editorial.
+In this prediction problem, several variables related to the own book affect 
+the forecasts, such as author, price, matter or publisher.
 
-Sin embargo, existen otras variables externas que también afectan a las ventas de un nuevo libro.
-Se trata de cuestiones como la estacionalidad, modas o promociones.
-Estas otras variables no medibles y que los métodos de predicción clásicos no pueden procesar y que un experto debe tener en cuenta modificando la predicción ofrecida por el método automático. 
-Las empresas editoriales suelen finalmente definir reglas o índices para ajustar subjetivamente los resultados de predicción.
+However, there are other external variables that also affect the sales of 
+a new book, such as those related to seasonality, trends or promotions, 
+that classical prediction methods can not deal with.
+However, an expert can consider them to modify the forecast obtained by 
+the automatic method. Even publishing companies tend to define rules or 
+indexes to subjectively adjust the results of prediction based on external data.
 
 
 %********************************************************************************
 \section{Methodology}
 \label{sec:methodology}
 
-Hay varias dificultades inherentes al problema de la predicción de ventas de nuevos productos: la limitación en la cantidad de datos disponibles, la aplicación de los diferentes métodos y la elección del más adecuado de ellos.
-
-Además, no existe una metodología estándar para resolver el problema general de la predicción de ventas. 
-Habitualmente es necesario un análisis previo de los datos para eliminar las variables que describen el producto y que no aportan información útil para realizar el proceso de predicción.
+There are several issues inherent to the problem of predicting sales of new 
+products: the limitation on the amount of data available, the application of 
+different methods and choose the most suitable of them.
+In addition, there is no a standard methodology to solve the general problem 
+of sales forecasting.
+Usually, a preliminary analysis of the data is carried out to eliminate those 
+variables that describe the product but do not provide useful information during 
+the prediction process.
 
 \begin{figure}[!h] 
 \begin{center}
   \epsfig{file=stages.eps,width=7cm}
-\caption{\small{Three main stages in this research: data analysis, (2) forecasting methods testing, and (3) subjectively adjusting the obtained results.}}
+\caption{\small{Three main stages in this research: data analysis, (2) forecasting 
+methods testing, and (3) subjectively adjusting the obtained results.}}
 \label{fig:stages}
 \end{center}
 \end{figure}
 
-Thus, in this study there are three main stages (see Figure \ref{fig:stages} for details): 
+Thus, in this study there are three main stages (see Figure \ref{fig:stages} 
+for details): 
 \begin{itemize}
-  \item  First, after the editorial company has provided the raw data, taken directly from its database, a selection variables process is carried out. In this stage, an expert sales manager, using the information obtained analyzing the SOM cluster method results, removes some unrelated variables and selects the best variables to be considered in the forecasted model. This task may help to identify leading indicators to be used by the forecasting methods in order to improve the accuracy of future forecasts.
 
-  \item  Then, several forecasting methods has to be tested. In this stage different forecasting methods are used to obtain sales forecasts from the data provided.
+  \item  First, after the editorial company has provided the raw data, taken 
+  directly from its database, a selection variables process is carried out. 
+  In this stage, an expert sales manager, using the information obtained 
+  analyzing the SOM cluster method results, removes some unrelated variables 
+  and selects the best variables to be considered in the forecasted model. 
+  This task may help to identify leading indicators to be used by the 
+  forecasting methods in order to improve the accuracy of future forecasts.
 
-  \item  Finally, in some cases, it is necessary a third stage where experienced managers adjust subjectively the results obtained using the forecasting methods. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
+  \item  Then, several forecasting methods has to be tested. In this stage 
+  different forecasting methods are used to obtain sales forecasts from the 
+  data provided.
+
+  \item  Finally, in some cases, it is necessary a third stage where experienced 
+  managers adjust subjectively the results obtained using the forecasting methods. 
+  They might manually adjust the forecasting results taking into account their 
+  knowledge in industry experience and their perception about trends.
 
 \end{itemize}
 
@@ -429,8 +470,8 @@ implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINI
 or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
 
 Specifically, in order to compute the forecasting errors of the different methods, 
-Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) 
-and Root relative squared error (RRSE) have been selected:
+Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute 
+error (RAE) and Root relative squared error (RRSE) have been selected:
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
@@ -450,7 +491,6 @@ and Root relative squared error (RRSE) have been selected:
 
   \item \emph{Root relative squared error} (RRSE):
         \begin{equation}\label{eq:RRSE}
-            % RRSE = \frac{ \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 } }{ \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_{i-1} - o_i)}^2 } }
             RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(p_{i-1} - o_i)}^2 }  }
         \end{equation}
 \end{itemize}
@@ -468,18 +508,29 @@ Además, de todas las variables descriptivas de un nuevo libro, algunas influirán
 Así pues, a partir del conjunto inicial de variables, se aplicó el SOM \cite{kohonen1998} con el objetivo de reducir la dimensionalidad de los datos de entrada y elegir un conjunto de variables adecuado.
 
 \textbf{FALTA EXPLICAR EN UN PAR DE PÁRRAFOS QUÉ ES EL SOM DE KOHONEN.} 
-This method is usually applied to analyze data as similar items tend to be mapped close together, while those items dissimilar, are mapped apart.
-Also, the SOM graph represents and highlight very clearly those regions (clusters) with high training sample concentration and fewer where the samples are scarce.
+This method is usually applied to analyze data as similar items tend to be 
+mapped close together, while those items dissimilar, are mapped apart.
+Also, the SOM graph represents and highlight very clearly those regions (clusters) 
+with high training sample concentration and fewer where the samples are scarce.
 
 
-As stated in Section \ref{sec:problem}, an expert sales manager colaborated in this research in the stage of data analysis.
-Thus, the process was as follows:
+As stated in Section \ref{sec:problem}, an expert sales manager colaborated in 
+this research in the stage of data analysis. Thus, the process was as follows:
 \begin{itemize}
-  \item First, the expert removed superfluous variables, and dimensionality was reduced from 50 to 43 inputs.
-  \item Then, the expert, using his knowledge and the information obtained analyzing the SOM results, removed some inputs, reducing the number of variables describing a book from 43 to 13.
-  \item The company asked to include the information about \emph{editorial} and \emph{materia}. Thus, in a new iteration, taking into account the expert's advice and the información obtained analyzing the SOM results, the number of inputs was decreased to 7.
-  \item In a third step, several forecasting methods were used on the obtained dataset, and the best was choosen to obtain an accurate predicting model.
-  \item Finally, some information about the new book, such as \emph{author}, although not included in the obtained models, was taken into account by the expert sales manager to modify the forecasted results. 
+  \item First, the expert removed superfluous variables, and dimensionality was 
+  reduced from 50 to 43 inputs.
+  \item Then, the expert, using his knowledge and the information obtained 
+  analyzing the SOM results, removed some inputs, reducing the number of 
+  variables describing a book from 43 to 13.
+  \item The company asked to include the information about \emph{editorial} 
+  and \emph{materia}. Thus, in a new iteration, taking into account the expert's 
+  advice and the información obtained analyzing the SOM results, the number of 
+  inputs was decreased to 7.
+  \item In a third step, several forecasting methods were used on the obtained 
+  dataset, and the best was choosen to obtain an accurate predicting model.
+  \item Finally, some information about the new book, such as \emph{author}, 
+  although not included in the obtained models, was taken into account by 
+  the expert sales manager to modify the forecasted results. 
 \end{itemize}
 
   %  
@@ -499,11 +550,16 @@ Thus, the process was as follows:
   %  	pbRAWtst.arff
   %  
 
-Más concretamente, en un primer paso, el experto analizó las 50 variables de entrada que describen cada libro para eliminar algunas que estimó como suplerfuas.
-Table \ref{tabla:params43} shows the set of variables describing a book (43 total inputs) that the expert manager determined as non-superfluous or non-redundant.
+More specifically, in a first step, the expert analyzed the 50 input variables 
+describing each book to remove those that were suplerfuas.
+Table \ref{tabla:params43} shows the set of variables describing a book 
+(43 total inputs) that the expert manager determined as non-superfluous or 
+non-redundant.
 
 \begin{table}[!h]
-\caption{Variables describing a book (43 total inputs), after the expert manager analized the original dataset provided by the company Trevenque to remove some inputs.}
+\caption{Variables describing a book (43 total inputs), after the expert 
+manager analized the original dataset provided by the company Trevenque to 
+remove some inputs.}
 \label{tabla:params43}
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -563,9 +619,13 @@ TOTAL SALES (output)
 \end{center}
 \end{table}
 
-Then, after analizyng the original dataset using the SOM to select the best variables to be considered, and taking into account the knowledge of the company experienced manager, 13 inputs were considered. 
-Figure \ref{fig:som43} shows the initial analisys of dataset using the total of 43 descriptive inputs per book.
-Table \ref{tabla:params13} shows the set of variables describing a book after the second analisys.
+Then, after analizyng the original dataset using the SOM to select the best 
+variables to be considered, and taking into account the knowledge of the company 
+experienced manager, 13 inputs were considered. 
+Figure \ref{fig:som43} shows the initial analisys of dataset using the total 
+of 43 descriptive inputs per book.
+Table \ref{tabla:params13} shows the set of variables describing a book after 
+the second analisys.
 	% esta gráfica no aporta nada, ni la siguiente tampoco. No se puede
 	% colocar en un trabajo en revista  cómo ha ido el entrenamiento, sino
 	% datos serios de análisis estadístico de las variables. 
@@ -576,11 +636,13 @@ Table \ref{tabla:params13} shows the set of variables describing a book after th
   \epsfig{file=som43vars.eps,width=11cm} \\
   \epsfig{file=som43umatrix.eps,width=5cm}
 \end{tabular}
-\caption{\small{Initial data analysis, using 43 descriptive variables per book, using SOM.}}
+\caption{\small{Initial data analysis, using 43 descriptive variables per book, 
+using SOM.}}
 	% Cojollos, ¿qué trabajo os cuesta poner esto en inglés directamente? - JJ
 	% [Pedro] sí, si estoy de acuerdo... hay días que me "sale" el texto en inglés,
 	% pero hay días que soltar la parrafada en español me resulta más fácil    :/
-        % Sería más bien exploratory data analysis o data visualization. Un gráfico no es un análisis. Y pon las cosas cortas en inglés, hombre - JJ
+        % Sería más bien exploratory data analysis o data visualization. 
+        % Un gráfico no es un análisis. Y pon las cosas cortas en inglés, hombre - JJ
 \label{fig:som43}
 \end{center}
 \end{figure}
@@ -621,16 +683,19 @@ TOTAL SALES (output)
 Finally, after analizyng the dataset with 13 descriptive inputs per
 book, and paying attention to the company experienced manager's
 recommendations, 7 inputs were considered; specifically, variables
-\emph{editorial} and \emph{materia} were included, while
-\emph{devolucion\_total, reimpresiones, puntos\_vta1anio\_total,
-  numero\_reimpresiones, devolucion1anio\_total, colocado1anio\_total,
-  semanas\_venta, tirada} were discarded.  
+\emph{EDITORIAL} and \emph{MATTER} were included, while
+\emph{TOTAL DEVOLUTIONS, REPRINTS, TOTAL SELLING POINTS FIRST YEAR,
+  NUMBER OF REPRINTS, TOTAL DEVOLUTIONS FIRT YEAR, TOTAL DISTRIBUTED FIRST YEAR,
+  WEEKS ON SALE, PRINT-RUN} were discarded.  
 	% Hay que aportar datos de por qué se hizo esto. ¿Análisis de planos?
 	% ¿Análisis de varianza? - jj
 	% [Pedro] En cuanto estén los SOM definitivos lo añadimos. Está relacionado con el ISSUE #6
-Figure \ref{fig:som13} shows the initial analisys of dataset using the SOM on the total of 13 descriptive inputs per book.
-This, along with the expert manager knowledge determined the final 7 inputs to be considered.
-Table \ref{tabla:params7} shows the final set of variables describing a book, taking into account the company experienced manager knowledge.
+Figure \ref{fig:som13} shows the initial analisys of dataset using the SOM on 
+the total of 13 descriptive inputs per book.
+This, along with the expert manager knowledge determined the final 7 inputs 
+to be considered.
+Table \ref{tabla:params7} shows the final set of variables describing a book, 
+taking into account the company experienced manager knowledge.
 
 \begin{figure}[!h] 
 \begin{center}
@@ -648,7 +713,8 @@ Table \ref{tabla:params7} shows the final set of variables describing a book, ta
 \end{figure}
 
 \begin{table}[!h]
-\caption{Final set of variables describing a book, taking into account the company experienced manager knowledge, to be considered to solve the sales forecasting problem.}
+\caption{Final set of variables describing a book, taking into account the company 
+experienced manager knowledge, to be considered to solve the sales forecasting problem.}
 \label{tabla:params7}
 \begin{center}
 \begin{tabular}{|c|}
@@ -659,7 +725,7 @@ UNITS DISTRIBUTED IN FIRST EDITION
 TOTAL SELLING POINTS
 TOTAL DISTRIBUTED
 RETAIL PRICE
-SUBJECT-MATTER
+MATTER
 EDITORIAL
 TOTAL SALES (output)
 \end{verbatim} \end{minipage}     \\
@@ -674,24 +740,30 @@ TOTAL SALES (output)
 %-------------------------------------------------
 \subsection{Selecting an appropriate forecasting method}
 
-Como se ha comentado anteriormente, existen diferentes métodos de predicción disponibles en la bibliografía, cada uno con una serie de parámetros diferente que pueden influir en los resultados.
+As previously stated, there are many prediction methods available in the 
+literature, each one with a different parameter set that may affect the 
+obtained results.
 
-Sin embargo, dado que en el caso de nuevos libros sólo ciertos datos descriptivos están disponibles (frente a datos históricos de ventas de libros ya publicados), no todos los métodos predictivos se pueden usar en este problema concreto.
+However, as in the case of new books only some descriptive data is available 
+(compared to those cases in which historical data on sales of published books 
+is available), not all forecasting methods can be used in this specific problem.
 
-Thus, in this research five forecasting methods, based on the literature review in the introduction \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
+Thus, in this research five forecasting methods, based on the literature 
+review in the introduction 
+\cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
 Well known forecasting methods implemented in the Weka tool
 \cite{Hall2009,Witten2011} have been choosen, as these methods are
 widely known, and could be very helpful for practitioners to reproduce
 experiments and even to solve similar sales prediction problems using
-these methods. % eliminado el pie de página, es mejor usar referencias
-               % - JJ
+these methods. % eliminado el pie de página, es mejor usar referencias - JJ
 
 Specifically, following forecasting methods are proposed:
 \begin{itemize}
 
  % weka.classifiers.trees.M5P
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item M5 Model trees and rules: The original algorithm M5 was proposed by Quinlan \cite{Quinlan1992} and afterwards Wang \cite{Wang1997} made improvements.
+ \item M5 Model trees and rules: The original algorithm M5 was proposed by 
+ Quinlan \cite{Quinlan1992} and afterwards Wang \cite{Wang1997} made improvements.
 
  % weka.classifiers.functions.LinearRegression
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
@@ -699,7 +771,8 @@ Specifically, following forecasting methods are proposed:
 
  % weka.classifiers.functions.SMOreg
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item Support Vector Machine for Regression (SVM): This algorithm was proposed by Shevade et al \cite{Shevade1999}.
+ \item Support Vector Machine for Regression (SVM): This algorithm was proposed 
+ by Shevade et al \cite{Shevade1999}.
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
@@ -711,14 +784,18 @@ Specifically, following forecasting methods are proposed:
 
 \end{itemize}
 
-The objective is finding the most appropriate forecasting method that minimizes the error between the forecast and the actual sales for each new book published.
+The objective is finding the most appropriate forecasting method that minimizes 
+the error between the forecast and the actual sales for each new book published.
 
 
 %********************************************************************************
 \section{Experiments and Results}
 \label{sec:experiments}
 
-Una vez que se han determinado los métodos a utilizar y los parámetros de ejecución, se aplicarán a los conjuntos de datos para obtener los modelos de predicción y posteriormente se comprobará su bondad ante datos no vistos previamente.
+Once  the methods to be applied have determined as well as their execution 
+parameters, they must be applied to data sets to obtain the prediction models 
+for each one. Later on, the models ability must be validated on non-previously 
+seen data.
 
 \textbf{TODO:} % FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS
 
@@ -748,7 +825,8 @@ Una vez que se han determinado los métodos a utilizar y los parámetros de ejecuc
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
-Obtained results using the different forecasting methods on the dataset with 13 variables per book can be shown in Table \ref{tabla:results13}:
+Obtained results using the different forecasting methods on the dataset with 13 
+variables per book can be shown in Table \ref{tabla:results13}:
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -775,8 +853,8 @@ Obtained results using the different forecasting methods on the dataset with 13 
 
   %[pedro] ya están los resultados de de tabla:results7 para MP5, LR, KNN, SVM.
   % faltan AUN los de MLP
-
-  Obtained results using the different forecasting methods on the dataset with 7 variables per book can be shown in Table \ref{tabla:results7}:
+Obtained results using the different forecasting methods on the dataset with 7 
+variables per book can be shown in Table \ref{tabla:results7}:
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -795,7 +873,8 @@ Obtained results using the different forecasting methods on the dataset with 13 
 \hline
 \end{tabular}
 \end{center}
-\caption{\small{Results (errors and time) obtained using the different forecasting methods on the dataset with 7 variables per book.}}
+\caption{\small{Results (errors and time) obtained using the different 
+forecasting methods on the dataset with 7 variables per book.}}
 \label{tabla:results7}
 \end{table*}
 
