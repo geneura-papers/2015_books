@@ -53,11 +53,12 @@ reached shelves, which is when printing occurs.
 %problem of predicting the publishing roll.  
 % It's not proposed. It just obtained the best result with WEKA. - JJ 
 % Publishing roll? ¿Qué es? - JJ
+%[Pedro] en la traducción de términos Antonio propone traducirlo como "print run". Lo pongo así.
 In this paper, which works with data on published books for several years in 
 Spain, we first apply a data visualization and preprocessing strategy to find
 out what are the relevant variables in the prediction of sales, and
 then use standard data mining software to predict sales, and from them
-deduce print roll, based on those variables. Our work discovers which
+deduce print-run, based on those variables. Our work discovers which
 are the most relevant variables when predicting sales, and is
 eventually able to predict sales with remarkable accuracy. In fact,
 this method has been validated by the company that provided the data 
@@ -112,8 +113,9 @@ Thus, it is extremely important using predictive tools to optimize
 production and improve the publishing company profits or minimize losses \cite{Zhao2001}
 by forecasting the sales a new book might achieve. 
 An example is the optimization of sales \cite{Mattila2002} by
-improving profit margins by selling the whole publishing roll.  
+improving profit margins by selling the whole print-run. %publishing roll.  
 % [Pedro] "publishing roll" es como he encontrado "tirada editorial" traducido...
+% Antonio propone traducirlo como "print run". Lo pongo así.
 
 However, accurately using a predictive tool is a difficult task as
 book sales are influenced by various factors that make
@@ -159,11 +161,11 @@ For these reasons, the industry requires the best suited forecasting
 techniques to be adopted so that, estimating sales task is carried out
 properly and in an automatic way. 
 
-With this in mind, i this paper a data visualization and preprocessing strategy 
+With this in mind, in this paper a data visualization and preprocessing strategy 
 to find out what are the relevant variables describing a book in the prediction 
 of book sales is proposed; then several standard data mining models 
 for sales forecasting are evaluated so a publishing company 
-can deduce and optimize print roll.
+can deduce and optimize print-run.
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
@@ -283,7 +285,7 @@ a new product sales prediction for which no historical data is available,
 the classical forecasting methods based on time series are not adequate. 
 Thus, in this paper the relevant variables in the prediction of sales are determined
 using data visualization tools and then, standard data mining software 
-to predict sales is used to deduce print roll.
+to predict sales is used to deduce print-run.
 In addition, since publishers need models to explain obtained predictions, 
 black box forecasting methods may not be suitable for this problem, so 
 models based on rules are tested as an alternative.
@@ -508,6 +510,7 @@ Además, de todas las variables descriptivas de un nuevo libro, algunas influirán
 Así pues, a partir del conjunto inicial de variables, se aplicó el SOM \cite{kohonen1998} con el objetivo de reducir la dimensionalidad de los datos de entrada y elegir un conjunto de variables adecuado.
 
 \textbf{FALTA EXPLICAR EN UN PAR DE PÁRRAFOS QUÉ ES EL SOM DE KOHONEN.} 
+
 This method is usually applied to analyze data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those regions (clusters) 
@@ -852,7 +855,7 @@ variables per book can be shown in Table \ref{tabla:results13}:
 
 
   %[pedro] ya están los resultados de de tabla:results7 para MP5, LR, KNN, SVM.
-  % faltan AUN los de MLP
+  % faltan AUN algunas ejecuciones de los de MLP (actualizo con los resultados últimos media+-stdev)
 Obtained results using the different forecasting methods on the dataset with 7 
 variables per book can be shown in Table \ref{tabla:results7}:
 \begin{table*}[!h]
@@ -861,15 +864,15 @@ variables per book can be shown in Table \ref{tabla:results7}:
 \hline 
  Method   & Time (sec.)     & MAE       & RMSE    & RAE (\%)     & RRSE (\%)      \\
 \hline
-  MP5     & 7.39 $\pm$ 1.75   & 117.78   & 260.05  & 18.51   & 17.00  \\
+  MP5     & 7.77 $\pm$ 1.15   & 117.78   & 260.05  & 18.51   & 17.00  \\
 \hline
-  LR      & 40.59 $\pm$ 12.94 & 120.29  & 252.91  & 18.91   & 16.54   \\
+  LR      & 41.72 $\pm$ 8.41 & 120.29  & 252.91  & 18.91   & 16.54   \\
 \hline
-  SVM     & 1547.91 $\pm$ 365.55 & 109.30  & 251.16   & 17.18     & 16.42   \\
+  SVM     & 1652.20 $\pm$ 283.50 & 109.30  & 251.16   & 17.18     & 16.42   \\
 \hline
-  KNN     & 0.02 $\pm$ 0.01   & 293.98  & 1071.52  & 46.21   & 70.06   \\
+  KNN     & 0.03 $\pm$ 0.01   & 293.98  & 1071.52  & 46.21   & 70.06   \\
 \hline
-  MLP     & 3265.71 $\pm$ 813.37   & 992.97 $\pm$ 0   & 1755.62 $\pm$ 0  & 156.07 $\pm$ 0   & 114.79 $\pm$ 0   \\
+  MLP     & 3646.76 $\pm$ 64.83   & 705.69 $\pm$ 77.22   & 1608.69 $\pm$ 42.96  & 110.92 $\pm$ 12.14   & 105.18 $\pm$ 2.81   \\
 \hline
 \end{tabular}
 \end{center}
@@ -883,28 +886,59 @@ forecasting methods on the dataset with 7 variables per book.}}
 \section{Conclusions and Future Work}
 \label{sec:conclusionsAndFutureWork}
 
-La predicción de ventas en la industria editorial es un problema muy challenging durante los últimos años.
+In this paper, the problem of how many books should be printed 
+when a new book is published is faced using several data-mining and
+forecasting methods.
 
-Para resolver este problmea, diferentes técnicas de datamining pueden ser muy útiles, al no haber datos históricos disponibles de las ventas.
+This is a very challenging problem in this industry, because printing a higher 
+number of volumnes than those finally sold will lead to losses, 
+while printing an adequate number of copies will optimize sales and company earnings.
+In addition, there are several difficulties inherent to the new book sales forecasting, 
+such as dealing with limited data, finding adequate forecasting methods, and 
+selecting the best method to use.
 
-La investigación descrita en este trabajo se ha llevado a cabo conjuntamente con una empresa editorial que ha facilitado un conjunto de datos con los que trabajar, así como con la ayuda de un experto en ventas de este campo para validar los resultados obtenidos.
-En este sentido, los árboles de decisión resultaron ser un modelo muy adecuado debido a la facilidad para explicar cómo se obtiene dicha predicción a partir de las variables descriptivas del nuevo libro. Esto, frente a los modelos tipo black-box como las ANN fue determinante desde el punto de vista de las necesidades de los expertos y la empresa.
+%La investigación descrita en este trabajo se ha llevado a cabo conjuntamente con una empresa editorial que ha facilitado un conjunto de datos con los que trabajar, así como con la ayuda de un experto en ventas de este campo para validar los resultados obtenidos.
+A data set consisting of 3159 books provided by the Spanish 
+publishing company Trevenque Editorial has been used.
 
-This research provides a new direction in the sales forecasting area using different soft-computing techniques.
-Moreover, proposed method could be implemented, not only in the editorial industry, but also in other domains where the specificity of products is similar, and might be of interest to other academic researches and industrial practitioners.
+In this paper, a data visualization method has been used to find out what are 
+the relevant variables describing a book in the prediction of book sales.
+Then, several standard data mining models for sales forecasting have been used 
+to forecast new book sales, and from them deduce print-run, based on those variables.
+
+The most relevant variables when predicting sales have been determined, 
+while unrelated or superfluous ones have been removed, 
+and sales predictions have been obtained using five different forecasting 
+standard methods.
+Proposed method was validated by the company and incorporated in a business 
+intelligence tool for publishing houses.
+
+In this sense, the decision trees proved to be a suitable model because of the ease 
+to explain how the prediction is obtained from the variables that describe the new book. 
+This, compared to the black-box models such as the ANN was decisive from the point 
+of view of the needs of experts and the company.
+
+This research provides a new direction in the sales forecasting area using 
+different soft-computing techniques.
+Moreover, proposed method could be implemented, not only in the editorial 
+industry, but also in other domains where the specificity of products is similar, 
+and might be of interest to other academic researches and industrial practitioners.
 
 %---------- trabajos futuros
 
-Como trabajos futuros sería interesante comparar las predicciones de los modelos obtenidos con otros basados en métodos de soft-computing, como genetic programming o fuzzy logic.
+As future work, it would be interesting comparing the obtained forecasting results 
+with other methods based on soft-computing, such as genetic programming or fuzzy logic.
 
-Por otro lado, puesto que hay algunas características que pueden afectar a la venta de productos de forma significativa, otra forma de mejorar las predicciones de ventas podría ser realizar un estudio en profundidad del efecto de la aplicación de descuentos y promociones.
+Furthermore, since there are some characteristics that may affect product sales 
+significantly, another way to improve sales predictions could be making a thorough 
+study of the effect of the application of discounts and promotions.
 
 
 %********************************************************************************
 \section*{Acknowledgements}
 This work has been supported in part by PreTEL (PRM Consultores - Trevenque),
-SIPESCA (Programa Operativo FEDER de Andalucía 2007-2013), TIN2011-28627-C04-02 and
-TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
+SIPESCA (Programa Operativo FEDER de Andalucía 2007-2013), TIN2011-28627-C04-02 
+and TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), PRY142/14
 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la
 IX Convocatoria de Proyectos de Investigaci{\'o}n), and PYR-2014-17
