@@ -771,25 +771,103 @@ Specifically, following forecasting methods are proposed:
 
  % weka.classifiers.trees.M5P
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item M5 Model trees and rules: The original algorithm M5 was proposed by 
- Quinlan \cite{Quinlan1992} and afterwards Wang \cite{Wang1997} made improvements.
+ \item \emph{M5 Model trees}: 
+A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
+that contain an attribute name and branches to other sub-decision trees.
+Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
+However, in order to use this model in regression problems, some authors have 
+extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
+by combining a conventional decision tree and generating linear regression functions at the nodes.
+
+The construction of a model tree is similar to that of classical decision 
+trees \cite{Solomatine2004}:
+The process breaks the input space of the training data through decision points 
+(nodes) to assign a linear model suitable for that sub-area of the input space. 
+This process may lead to a complex model tree.
+
+Model tree models can learn and tackle tasks with high dimensionality (up to 
+hundreds of attributes) and generate reproducible and comprehensible representations, 
+what makes them potentially more successful in the eyes of decision makers.
+
+The final model consists of the collection of linear sub-models that brings the 
+required non-linearity in dealing with the regression problem
+and both the predicted values at the answer-nodes along with the path from the 
+root to that node is given as a result.
 
  % weka.classifiers.functions.LinearRegression
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
- \item Linear Regression
+ \item \emph{Linear Regression}:
+ Linear regression \cite{Cohen2003,Yan2009,Rencher2102} method models the 
+relationship between a scalar dependent variable (outcome) and several independent 
+variables (predictor) over the range of values in the data set. 
+In this statistical technique, data is modeled using linear functions to estimate 
+unknown model parameters, examining the linear correlations between independent 
+and dependent variables.
+
+This method of regression provides an adequate and interpretable description of 
+how the input affects the output as it models the dependent variable as a linear 
+function of the independent variables. Moreover, the linear relation can be 
+solved using the least squares method, that minimizes the error between the 
+actual data and the regression line \cite{McClendon2015}.
 
  % weka.classifiers.functions.SMOreg
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item Support Vector Machine for Regression (SVM): This algorithm was proposed 
- by Shevade et al \cite{Shevade1999}.
+ \item \emph{Support Vector Machine for Regression (SVM)}:
+Support vector machine (SVM) \cite{Cortes1995,Shevade1999} method is based on  
+statistical learning theory and has succesfully used in classification and  
+regression problems \cite{Cao2003,Jari2008}.
+
+In classification problems the algorithm searchs for an optimal hyperplane 
+that separates two classes, maximizing the margin between two classes. 
+In the case of regression the algorithm chooses a hyperplane close to as many 
+of the data points as possible, minimizing the sum of the distances from 
+the data points to the hyperplane. 
+In both cases, the hyperplane is defined by a subset of training set samples 
+(called support vectors).
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
- \item K-nearest neighbours classifier (IBk): \cite{Aha1991}
+ \item \emph{k-Nearest Neighbours (kNN)}: 
+The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
+wich the unknown instances are classified by relating them to the known 
+instances using a distance measurement/function (Euclidean, Minkowsky or minimax).
+
+The main idea behind the algorithm is that two instances far enough in the space, 
+taking into account the distance function, are less likely to belong to the 
+same class than two closely situated instances.
+
+The classification algorithm locates the nearest neighbour in instance space and 
+asigns the class of that neighbour to the unknown instance.
+In order to improve the robustness of the model, several neighbours can be 
+located, assigning the resulting class to an unclassified vector using the 
+closest k vectors found in the training set by majority vote.
 
  % weka.classifiers.functions.MultilayerPerceptron
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
- \item Multilayer Perceptron
+ \item \emph{Multilayer Perceptron}:
+A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
+artificial neural network model that maps the input data onto an appropriate output. 
+It is an artificial neural network generally used for classification or 
+approximation problems.
+
+This model is a generalization of the standard linear perceptron that uses several 
+layers of nodes (called neurons) and that is able to solve linearly inseparable 
+problems \cite{SteinwenderBitzer2003}.
+Each neuron consists of a linear combination of weighted inputs which is passed 
+though a non-linear activation function to produce its output.
+
+This kind of artificial neural network is trained using a supervised learning 
+technique called back-propagation.
+This training method was developed independly by Werbos \cite{Werbos1974}, 
+Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
+in updating the weights of the output layer neurons once the erroneous output 
+has been obtained, and then, propagating the succesive weight layers back to 
+the input layer.
+
+A key issue when designing an MLP is the number of hidden layers of neurons.
+Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
+create classifying regions of any kind. This result was then confirmed in later 
+works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
 
 \end{itemize}
 
