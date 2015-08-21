@@ -782,7 +782,8 @@ that contain an attribute name and branches to other sub-decision trees.
 Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
 However, in order to use this model in regression problems, some authors have 
 extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
-by combining a conventional decision tree and generating linear regression functions at the nodes.
+by combining a conventional decision tree and generating linear regression 
+functions at the nodes.
 
 The construction of a model tree is similar to that of classical decision 
 trees \cite{Solomatine2004}:
@@ -932,17 +933,17 @@ variables per book can be shown in Table \ref{tabla:results13}:
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method 	& Time (sec.) 	  & MAE 			& RMSE 		& RAE (\%)		& RRSE (\%) 		\\
+ Method 	& Time (sec.) 	      & MAE 		& RMSE 		& RAE (\%) & RRSE (\%) 		\\
 \hline
-  MP5 		& 2.94 $\pm$ 0.51 	& 65.49 	& 133.73 	& 11.10 	& 9.17 	  \\
+  MP5 		& 2.94 $\pm$ 0.51 	  & 65.49 	& 133.73 	& 11.10 	 & 9.17 	  \\
 \hline
-  LR 		  & 0.33 $\pm$ 0.07 	& 100.813 & 257.63 	& 17.09 	& 17.67 	\\
+  LR 		  & 0.33 $\pm$ 0.07 	  & 100.813 & 257.63 	& 17.09 	 & 17.67 	\\
 \hline
-  SVM 		& 49.10 $\pm$ 8.05	& 52.30	  & 139.45	& 8.87    & 9.56  	\\
+  SVM 		& 49.10 $\pm$ 8.05	  & 52.30	  & 139.45	& 8.87     & 9.56  	\\
 \hline
-  KNN 		& 0.03 $\pm$ 0.01 	& 198.16 	& 542.93 	& 33.59 	& 37.24 	\\
+  KNN 		& 0.03 $\pm$ 0.01 	  & 198.16 	& 542.93 	& 33.59 	 & 37.24 	\\
 \hline
-  MLP 		& 12.70 $\pm$ 3.08 	& 97.18 $\pm$ 24.74 	& 174.77 $\pm$ 31.50 	& 16.47 $\pm$ 4.19 	& 11.99 $\pm$ 2.16 	\\
+  MLP 		& 12.70 $\pm$ 3.08 	  & 97.18 $\pm$ 24.74 	& 174.77 $\pm$ 31.50 	& 16.47 $\pm$ 4.19 	& 11.99 $\pm$ 2.16 	\\
 \hline
 \end{tabular}
 \end{center}
@@ -960,17 +961,17 @@ variables per book can be shown in Table \ref{tabla:results7}:
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method   & Time (sec.)     & MAE       & RMSE    & RAE (\%)     & RRSE (\%)      \\
+ Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
 \hline
-  MP5     & 7.77 $\pm$ 1.15   & 117.78   & 260.05  & 18.51   & 17.00  \\
+  MP5     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
 \hline
-  LR      & 41.72 $\pm$ 8.41 & 120.29  & 252.91  & 18.91   & 16.54   \\
+  LR      & 41.72 $\pm$ 8.41    & 120.29  & 252.91  & 18.91     & 16.54   \\
 \hline
-  SVM     & 1652.20 $\pm$ 283.50 & 109.30  & 251.16   & 17.18     & 16.42   \\
+  SVM     & 1652.20 $\pm$ 283.50& 109.30  & 251.16   & 17.18    & 16.42   \\
 \hline
-  KNN     & 0.03 $\pm$ 0.01   & 293.98  & 1071.52  & 46.21   & 70.06   \\
+  KNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
 \hline
-  MLP     & 3646.76 $\pm$ 64.83   & 705.69 $\pm$ 77.22   & 1608.69 $\pm$ 42.96  & 110.92 $\pm$ 12.14   & 105.18 $\pm$ 2.81   \\
+  MLP     & 3646.76 $\pm$ 64.83 & 705.69 $\pm$ 77.22   & 1608.69 $\pm$ 42.96  & 110.92 $\pm$ 12.14   & 105.18 $\pm$ 2.81   \\
 \hline
 \end{tabular}
 \end{center}
@@ -985,7 +986,24 @@ forecasting methods on the dataset with 7 variables per book.}}
 % - indicar qué método da mejores resultados
 % - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables"
 % - 
-% - 
+%
+% => comienzo anotando pros y contras de los diferentes métodos: 
+
+%M5P model advantages are that it can learn and tackle tasks with high dimensionality
+%and it generates reproducible and comprehensible representations that provide 
+%information on the decision process and does not require human intervention 
+%either for the operation or for interpretation. Thus, it is very suitable in 
+%order to be incorporated in a publishing company processes
+
+
+%Main drawbacks of the Multilayer Perceptron method are both the cost of system 
+%building and the fact that it is a back-box model, and thus, it is difficult 
+%to explain how the forecasts are obtained.
+
+
+%The proposed forecasting method to solve the problem of how many books should 
+%be printed when a new book is published can be used for products with historical 
+%sales data and for new products with little or no historical data available.
 
 
 %********************************************************************************
