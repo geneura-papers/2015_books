@@ -77,11 +77,11 @@ interpretation.
 % tirada de nuevos títulos editoriales. 
 
 A company that intends to release a new product has a high risk due to
-the complexity of the production and distribution processes. A newly
+the complexity of the production and distribution processes. 
 % tienes que enmarcar el problema. Se trata de productos culturales
 % con soporte físico y con ventas relativamente pequeñas. Libros,
 % discos, no sé si alguna cosa más. - JJ
-launched product is also new to the company, and sales forecasts can
+A newly launched product is also new to the company, and sales forecasts can
 only be based on the experience of similar products. 
 In this scope, having accurate estimates of future sales of the new
 product is extremely important \cite{ChingChin2010} so that production
@@ -830,6 +830,7 @@ of the data points as possible, minimizing the sum of the distances from
 the data points to the hyperplane. 
 In both cases, the hyperplane is defined by a subset of training set samples 
 (called support vectors).
+%This method works well even if the space is highly dimensional and the problem is not linearly separable.
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
@@ -980,30 +981,51 @@ forecasting methods on the dataset with 7 variables per book.}}
 \label{tabla:results7}
 \end{table*}
 
-
-\textbf{TODO: FALTA COMENTAR LOS RESULTADOS OBTENIDOS CON LOS 5 MÉTODOS.}
-
+% - indicar pros y contras de los diferentes métodos
 % - indicar qué método da mejores resultados
-% - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables"
-% - 
-%
-% => comienzo anotando pros y contras de los diferentes métodos: 
+% - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables" 
 
-%M5P model advantages are that it can learn and tackle tasks with high dimensionality
-%and it generates reproducible and comprehensible representations that provide 
-%information on the decision process and does not require human intervention 
-%either for the operation or for interpretation. Thus, it is very suitable in 
-%order to be incorporated in a publishing company processes
+M5P model obtained good results, both in time and error, and as stated before, 
+this method can learn and tackle tasks with high dimensionality
+and it generates reproducible and comprehensible representations that provide 
+information on the decision process and does not require human intervention 
+either for the operation or for interpretation. Thus, it is very suitable in 
+order to be incorporated in a publishing company processes.
+
+The Linear Regression model outperforms other complex methods, both in time 
+(as it is a simple method to train) and in obtained errors.
+However, more powerful models, that obtain better results, can be obtained in 
+comparable time.
+
+Taking into account the SVM model obtained results, this method obtains the best
+errors. Even when used using the default parameter values it exhibit a good 
+generalization performance.
+However, it is much slower than the others to build the model, not only when 
+using the data set with 13 input variables, but when using the data set with 
+7 input variables (including \emph{EDITORIAL} and \emph{MATTER}).
+
+kNN is the faster method used in this study, as it is the simpler method.
+However, the model is slow when classifying (as there are a large number of 
+training examples), and it exhibit a poor generalization ability, as it does not 
+learn anything from the training data.
+
+As far as the Multilayer Perceptron, its main drawbacks are both the cost of model 
+building (not only parameter and weights setting, but also time to train the 
+network) and the fact that it is a back-box model, and thus, it is difficult 
+to explain how the forecasts are obtained.
+In these experiments, the MLP requires a higher time than other methods, but also
+the obtained errors are worse as no parameter tuning to build the models have
+been carried out.
+Also, the difficulty to process information related to variables \emph{EDITORIAL} 
+and \emph{MATTER} might affect the worse results obtained on the final dataset.
 
 
-%Main drawbacks of the Multilayer Perceptron method are both the cost of system 
-%building and the fact that it is a back-box model, and thus, it is difficult 
-%to explain how the forecasts are obtained.
-
-
-%The proposed forecasting method to solve the problem of how many books should 
-%be printed when a new book is published can be used for products with historical 
-%sales data and for new products with little or no historical data available.
+Finally, paying attention to the cost in time to obtain the forecasting models 
+and their accuracy, the M5P model is the most adequate to solve the problem of 
+how many books should be printed when a new book is published.
+This forecasting method, as an additional advantage, can be used for products 
+with historical sales data and for new products with little or no historical 
+data available.
 
 
 %********************************************************************************
@@ -1028,30 +1050,40 @@ publishing company Trevenque Editorial has been used.
 In this paper, a data visualization method has been used to find out what are 
 the relevant variables describing a book in the prediction of book sales.
 Then, several standard data mining models for sales forecasting have been used 
-to forecast new book sales, and from them deduce print-run, based on those variables.
+to forecast new book sales, and from them deduce print-run, based on those 
+variables.
 
 The most relevant variables when predicting sales have been determined, 
 while unrelated or superfluous ones have been removed, 
 and sales predictions have been obtained using five different forecasting 
 standard methods.
-Proposed method was validated by the company and incorporated in a business 
-intelligence tool for publishing houses.
+Not only the obtained forecasting error has been taking into account to evaluate
+those methods, but also the the cost of model building as parameter setting and 
+the required time to train the model.
 
-In this sense, the decision trees proved to be a suitable model because of the ease 
-to explain how the prediction is obtained from the variables that describe the new book. 
-This, compared to the black-box models such as the ANN was decisive from the point 
-of view of the needs of experts and the company.
+In this sense, the decision trees proved to be a suitable model because of the 
+ease to explain how the prediction is obtained from the variables that describe 
+the new book. 
+This, compared to the black-box models such as the artificial neural network 
+was decisive from the point of view of the needs of experts and the company.
+Moreover, proposed method was validated by the company and incorporated in a 
+business intelligence tool for publishing houses.
 
-This research provides a new direction in the sales forecasting area using 
-different soft-computing techniques.
+
+Overall, this study contributes to the literature by proposing the use of different 
+soft-computing standard techniques to solve a new challenging problem.
 Moreover, proposed method could be implemented, not only in the editorial 
 industry, but also in other domains where the specificity of products is similar, 
 and might be of interest to other academic researches and industrial practitioners.
+
 
 %---------- trabajos futuros
 
 As future work, it would be interesting comparing the obtained forecasting results 
 with other methods based on soft-computing, such as genetic programming or fuzzy logic.
+Moreover, as default parameters have been used for proposed forecasting methods,
+it would be of interest carrying out some parameter tuning procedure in order to
+improve obtained results.
 
 Furthermore, since there are some characteristics that may affect product sales 
 significantly, another way to improve sales predictions could be making a thorough 
