@@ -883,8 +883,11 @@ published.
 Once the methods to be applied have been chosen, they must be applied to data sets 
 to obtain the prediction models for each one. 
 Later on, the models ability must be validated on non-previously seen data.
-
-\textbf{TODO: FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS}
+Specifically, instead of using the conventional validation strategy based on 
+using a training set and later on a testing set (unknown data against which 
+the model must be tested), a cross-validation technique \cite{Geisser1993,Kohavi1995,Devijver1982} 
+has been used to estimate how accurately the predictive model will perform in 
+practice. %, limiting at the same time the overfitting problem.
 
   %  
   %  El proceso que seguimos, resumido para el paper, es:
@@ -901,14 +904,20 @@ Later on, the models ability must be validated on non-previously seen data.
   %  	pbRAWtst.arff
   %  
 
-% Mean absolute error MAE
-% Root mean squared error RMSE
-% Relative absolute error RAE
-% Root relative squared error RRSE
+\textbf{TODO: FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS}
+
+% Comentar que:
+% - se ha usado la implementación de estos 5 métodos del paquete WEKA
+% - se han realizado 30 ejecuciones con cada método
+% - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU @ 3.00GHz (4 cores), 16 GB RAM
+% - 
+% - 
+% Preparar tests estadísticos para ver si hay diferencias en los errores entre métodos.
+% - 
+% - 
 
 
-  %[pedro] ya están todos los resultados de tabla:results13 para MP5, LR, KNN, SVM y MLP
-
+% Mean absolute error MAE / Root mean squared error RMSE /  Relative absolute error RAE / Root relative squared error RRSE
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
@@ -967,6 +976,11 @@ forecasting methods on the dataset with 7 variables per book.}}
 
 
 \textbf{TODO: FALTA COMENTAR LOS RESULTADOS OBTENIDOS CON LOS 5 MÉTODOS.}
+
+% - indicar qué método da mejores resultados
+% - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables"
+% - 
+% - 
 
 
 %********************************************************************************
