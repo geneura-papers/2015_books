@@ -896,7 +896,6 @@ the model must be tested), a cross-validation technique \cite{Geisser1993,Kohavi
 has been used to estimate how accurately the predictive model will perform in 
 practice. %, limiting at the same time the overfitting problem.
 
-  %  
   %  El proceso que seguimos, resumido para el paper, es:
   %  
   %  [43 entradas] en 2013-01 vamos a tomar 
@@ -909,19 +908,20 @@ practice. %, limiting at the same time the overfitting problem.
   %  [7 entradas; materia editorial] en 2013-02-25 vamos a tomar
   %  	pbRAWtrn.arff
   %  	pbRAWtst.arff
-  %  
 
-\textbf{TODO: FALTA CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS}
-
-% Comentar que:
+% CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS:
 % - se ha usado la implementación de estos 5 métodos del paquete WEKA
 % - se han realizado 30 ejecuciones con cada método
-% - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU @ 3.00GHz (4 cores), 16 GB RAM
+% - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU at 3.00GHz (4 cores) and 16 GB RAM
 % - 
-% - 
-% Preparar tests estadísticos para ver si hay diferencias en los errores entre métodos.
-% - 
-% - 
+
+Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
+(4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE_1.7.0_72.
+
+Proposed methods (M5P, LR, SVM, kNN, MLP) have been selected for this study from 
+the Weka implementation, and they were run 30 times with the Weka default parameter 
+settings and a different random initialization seed for each run.
+
 
 Table \ref{tabla:results13} shows obtained results (time to build the model and 
 error) after applying the proposed forecasting methods on the dataset with 13 
@@ -940,13 +940,13 @@ number of instances.
 \hline 
  Method 	& Time (sec.) 	      & MAE 		& RMSE 		& RAE (\%) & RRSE (\%) 		\\
 \hline
-  MP5 		& 2.94 $\pm$ 0.51 	  & 65.49 	& 133.73 	& 11.10 	 & 9.17 	  \\
+  M5P 		& 2.94 $\pm$ 0.51 	  & 65.49 	& 133.73 	& 11.10 	 & 9.17 	  \\
 \hline
   LR 		  & 0.33 $\pm$ 0.07 	  & 100.813 & 257.63 	& 17.09 	 & 17.67 	\\
 \hline
   SVM 		& 49.10 $\pm$ 8.05	  & 52.30	  & 139.45	& 8.87     & 9.56  	\\
 \hline
-  KNN 		& 0.03 $\pm$ 0.01 	  & 198.16 	& 542.93 	& 33.59 	 & 37.24 	\\
+  kNN 		& 0.03 $\pm$ 0.01 	  & 198.16 	& 542.93 	& 33.59 	 & 37.24 	\\
 \hline
   MLP 		& 12.70 $\pm$ 3.08 	  & 97.18 $\pm$ 24.74 	& 174.77 $\pm$ 31.50 	& 16.47 $\pm$ 4.19 	& 11.99 $\pm$ 2.16 	\\
 \hline
@@ -974,13 +974,13 @@ models.
 \hline 
  Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
 \hline
-  MP5     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
+  M5P     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
 \hline
   LR      & 41.72 $\pm$ 8.41    & 120.29  & 252.91  & 18.91     & 16.54   \\
 \hline
   SVM     & 1652.20 $\pm$ 283.50& 109.30  & 251.16   & 17.18    & 16.42   \\
 \hline
-  KNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
+  kNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
 \hline
   MLP     & 3595.24 $\pm$ 97.50 & 691.84 $\pm$ 82.71   & 1619.92 $\pm$ 91.67  & 108.74 $\pm$ 13.00   & 105.91 $\pm$ 5.99   \\
 \hline
@@ -1040,6 +1040,7 @@ been carried out.
 Also, the difficulty to process information related to variables \emph{EDITORIAL} 
 and \emph{MATTER} might affect the worse results obtained on the final dataset.
 
+%[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
 
 Finally, paying attention to the cost in time to obtain the forecasting models 
 and their accuracy, the M5P model is the most adequate to solve the problem of 
