@@ -141,7 +141,7 @@ or stepwise regression analysis (SRA) \cite{Chang2009}. % What do they
 In this research, the problem of how many books should be printed 
 when a new book is published is faced using data provided by the 
 Spanish publishing company Trevenque Editorial \footnote{{\tt http://editorial.trevenque.es}}.
-The company's expert sales managers analized historical data 
+The company's expert sales managers analyzed historical data 
 and applied their knowledge using external variables to calculate
 appropriate predictions, for example, increasing or decreasing the 
 sales prediction based on season or sales period.
@@ -923,13 +923,17 @@ practice. %, limiting at the same time the overfitting problem.
 % - 
 % - 
 
+Table \ref{tabla:results13} shows obtained results (time to build the model and 
+error) after applying the proposed forecasting methods on the dataset with 13 
+variables per book.
+In this dataset, every book is described using numerical variables, and thus, 
+processing the data to build the different models is a fast task despite the 
+number of instances.
 
 % Mean absolute error MAE / Root mean squared error RMSE /  Relative absolute error RAE / Root relative squared error RRSE
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
-Obtained results using the different forecasting methods on the dataset with 13 
-variables per book can be shown in Table \ref{tabla:results13}:
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -954,10 +958,16 @@ variables per book can be shown in Table \ref{tabla:results13}:
 \end{table*}
 
 
+Obtained results (time to build the model and error) using the different 
+forecasting methods on the dataset with 7 variables per book can be shown 
+in Table \ref{tabla:results7}.
+Although in this dataset each book is described using a smaller number of 
+variables, two categorical variables, \emph{EDITORIAL} and \emph{MATTER}, are 
+included, what that makes harder to process the instances and build the different 
+models.
+
   %[pedro] ya están los resultados de de tabla:results7 para MP5, LR, KNN, SVM.
   % faltan AUN algunas ejecuciones de los de MLP (actualizo con los resultados últimos media+-stdev)
-Obtained results using the different forecasting methods on the dataset with 7 
-variables per book can be shown in Table \ref{tabla:results7}:
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -972,7 +982,7 @@ variables per book can be shown in Table \ref{tabla:results7}:
 \hline
   KNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
 \hline
-  MLP     & 3646.76 $\pm$ 64.83 & 705.69 $\pm$ 77.22   & 1608.69 $\pm$ 42.96  & 110.92 $\pm$ 12.14   & 105.18 $\pm$ 2.81   \\
+  MLP     & 3595.24 $\pm$ 97.50 & 691.84 $\pm$ 82.71   & 1619.92 $\pm$ 91.67  & 108.74 $\pm$ 13.00   & 105.91 $\pm$ 5.99   \\
 \hline
 \end{tabular}
 \end{center}
@@ -981,16 +991,27 @@ forecasting methods on the dataset with 7 variables per book.}}
 \label{tabla:results7}
 \end{table*}
 
+% - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
+Paying attention to the obtained results shown in tables \ref{tabla:results13} 
+and \ref{tabla:results7}, using those categorical variables as part of a big 
+data set makes the problem hard to solve, both in required time to build the 
+forecasting models as well as in the obtained errors.
+However, as stated before, Trevenque expert sales manager, taking into account 
+his knowledge in industry experience and their perceptions, decided that 
+\emph{EDITORIAL} and \emph{MATTER} should taken into account.
+
+
 % - indicar pros y contras de los diferentes métodos
 % - indicar qué método da mejores resultados
 % - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables" 
 
-M5P model obtained good results, both in time and error, and as stated before, 
-this method can learn and tackle tasks with high dimensionality
-and it generates reproducible and comprehensible representations that provide 
-information on the decision process and does not require human intervention 
-either for the operation or for interpretation. Thus, it is very suitable in 
-order to be incorporated in a publishing company processes.
+As far as the different methods is concerned, M5P model obtained good results, 
+both in time and error, and as stated before, this method can learn and tackle 
+tasks with high dimensionality and it generates reproducible and comprehensible 
+representations that provide information on the decision process and does not 
+require human intervention either for the operation or for interpretation. 
+Thus, it is very suitable in order to be incorporated in a publishing company 
+processes.
 
 The Linear Regression model outperforms other complex methods, both in time 
 (as it is a simple method to train) and in obtained errors.
