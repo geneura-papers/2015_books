@@ -39,7 +39,7 @@ P.A. Castillo, A.M. Mora, J.J. Merelo, \\ A.J. Fern\'andez-Ares, P. Garc\'{\i}a-
 When a new book is published the publishing house faces the problem of
 how many books should be printed. Printing too many is the main issue,
 since it implies a loss of investment due to inventory excess. That is
-why in this paper we are tackling the problem or predicting sales to %FERGU: The problem ON predicting, no?
+why in this paper we are tackling the problem on predicting sales to %FERGU: The problem ON predicting, no? ¡gracias!
 print the right amount of books, doing so even before the book has
 reached shelves, which is when printing occurs. 
 %Thus, making inaccurate predictions may lead to erroneous decisions that result in excess production that will not be sold, or even to a production deficit.
@@ -185,7 +185,7 @@ real data set. Finally, conclusions and future work are presented in Section
 
 
 %********************************************************************************
-\section{Sales forecasting. State of the art} %FERGU: State of the art on sales forecasting?
+\section{State of the art on sales forecasting} %FERGU: State of the art on sales forecasting?  ok  ;)
 \label{sec:soa}
 
 % [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
@@ -203,8 +203,9 @@ consumption, traffic flow or sales forecasting. % ¿Y qué? Esta frase
                                 % arte - JJ
 
 Specifically, using time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
-is perhaps the most used technique to tackle the sales forecasting problems, %FERGU: terminar esta frase con punto en vez de coma para que no sea larga
-the efficiency of these techniques depends largely on the field of application 
+is perhaps the most used technique to tackle the sales forecasting problems. 
+%FERGU: terminar esta frase con punto en vez de coma para que no sea larga.   OK
+The efficiency of these techniques depends largely on the field of application 
 and the problem data as they require a large amount of data for predicting 
 sales of new products are not the most suitable for this task \cite{ChingChin2010}.
 
@@ -227,12 +228,13 @@ that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,Che
   %  sobre "Use Blog Information As Book Sales Prediction":
   %     Moon2010ICSSSM
   %     Moon2010ICEC
-Recently, some works propose \cite{Moon2010ICSSSM,Moon2010ICEC} analyzing 
-relationships between on-line information and book sales.
+Recently, some works propose analyzing relationships between on-line information 
+and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}.
 Specifically, authors propose using the number of blog references as an indicator 
 of book sales.
 Different sales patterns are observed by analyzing data obtained.
-In any case, in this research, historical data from published books is used, %FERGU: a qué research se refiere? A la nuestra o a la de la referencia? Dejarlo más claro, por si acaso
+In any case, Moon et al \cite{Moon2010ICSSSM,Moon2010ICEC} used historical data from published books, 
+%FERGU: a qué research se refiere? A la nuestra o a la de la referencia? Dejarlo más claro, por si acaso.   ok
 and the proposed methodology can not be usable in the problem of unpublished-books 
 sales prediction.
 
@@ -249,7 +251,7 @@ sales prediction.
 Some authors have faced the problem of forecasting sales of new products using 
 different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
 Thomassey et al \cite{SThomassey2014} propose using a clustering method and 
-decision trees for sales forecasting in textile-appared fashion industry, %FERGU: appared? apparel, creo
+decision trees for sales forecasting in textile-apparel fashion industry, %FERGU: appared? apparel, creo.  ¡sí!
 a very similar issue to the new book publishing problem.
 The same problem was previously faced by Xia et al \cite{Xia2012} using a 
 forecasting method based on extreme learning machine with adaptive metrics of inputs.
@@ -266,7 +268,7 @@ forecasting is proposed to solve three real-world sales forecasting problems
 involving new tea, cosmetic, and soft drink products taking into account 
 quantitative variables. 
 In this study, it is assumed that products are classified based on their sales 
-pattern so that products in the same class would have similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? 
+pattern so that products in the same class would have a similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? ok
 However, as the authors state, proposed system can not deal with qualitative 
 date related to the products, and even more real-world cases, such as consumer 
 electronics and fashion products, should be examined, as these industries 
@@ -281,7 +283,7 @@ of a printed circuit board is proposed.
 A similar method is proposed by Chern et al \cite{Chern2015}, who analyze 
 historical data along online reviews, reviewer characteristics and review 
 influences to understand how electronic word-of-mouth affects product sales. 
-Proposed method is suitable in those sales forecasting problems with abundant %FERGU: _The_ proposed method? 
+The proposed method is suitable in those sales forecasting problems with abundant %FERGU: _The_ proposed method?    ok
 online reviews and historical data.
 
 
@@ -318,7 +320,8 @@ the new unpublished-book.
 In the case of already published books, available historical data might help 
 to generate predictive models.
 However, in the case of new books there is no historical data to define patterns, 
-and only some descriptive data about the new book is available. %FERGU: data es plural. is->are
+and only some descriptive data about the new book is available. 
+%FERGU: data es plural. is->are   ...a mí me suena bien con "is"   ¡una segunda opinión!   ;)
 In these cases not any forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
 
 An additional issue is the difficulty to compare our model with classical 
@@ -332,7 +335,7 @@ and distributors.
 Trevenque company, whose expert manager advised this research, provided %FERGU: los párrafos anteriores son un poco dispersos, puedes quitar los puntos y aparte y agruparlos por temas (por ejemplo, todo lo de Trevenque debería de ir en un párrafo)
 the initial data set consisting of 3159 books.
 In this data set, descriptive information for each book includes price, 
-selling points, matter, publisher, sales, returns, among other information.
+selling points, subject, publisher, sales, returns, among other information.
 Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
 each book.
 
@@ -347,9 +350,9 @@ each book.
 REFERENCE
 AUTHOR
 RETAIL PRICE
-MATTER1
-MATTER2
-MATTER3
+SUBJECT1
+SUBJECT2
+SUBJECT3
 EDITORIAL
 COLLECTION
 BOOKBINDING
@@ -405,7 +408,7 @@ NEGATIVE SALE MARKET
 \end{table}
 
 In this prediction problem, several variables related to the own book affect 
-the forecasts, such as author, price, matter or publisher.
+the forecasts, such as author, price, subject or publisher.
 
 However, there are other external variables that also affect the sales of 
 a new book, such as those related to seasonality, trends or promotions, 
@@ -437,7 +440,7 @@ methods testing, and (3) subjectively adjusting the obtained results.}}
 \end{center}
 \end{figure}
 
-Thus, in this study there are three main stages (see Figure \ref{fig:stages} %FERGU: there are->we propose
+Thus, in this study we propose three main stages (see Figure \ref{fig:stages} %FERGU: there are->we propose
 for details): 
 \begin{itemize}
 
@@ -475,8 +478,8 @@ papers using other methods.
 That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), 
 implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} 
 or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
-
-Specifically, in order to compute the forecasting errors of the different methods, %FERGU: quitar este salto de linea y unirlo al párrafo de arriba
+Specifically, in order to compute the forecasting errors of the different methods, 
+%FERGU: quitar este salto de linea y unirlo al párrafo de arriba.    ok
 Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute 
 error (RAE) and Root relative squared error (RRSE) have been selected:
 
@@ -633,6 +636,8 @@ TOTAL SALES (output)
 \end{center}
 \end{table}
 %FERGU: para ahorrar espacio se puede hacer la tabla inversa: variables que se han quitado (las 7)
+%[pedro] no entiendo muy bien a qué te refieres...
+
 Then, after analyzing the original dataset using the SOM to select the best %FERGU: parametros o framework SOM usados?
 variables to be considered, and taking into account the knowledge of the company 
 experienced manager, 13 inputs were considered. 
@@ -697,7 +702,7 @@ TOTAL SALES (output)
 Finally, after analyzing the dataset with 13 descriptive inputs per %FERGU: describis los resultados antes de explicar que volveis a hacer SOM
 book, and paying attention to the company experienced manager's
 recommendations, 7 inputs were considered; specifically, variables
-\emph{EDITORIAL} and \emph{MATTER} were included, while %FERGU: vale, no useis MATTER, usad mejor SUBJECT (MATTER es materia de física, creo xD)
+\emph{EDITORIAL} and \emph{SUBJECT} were included, while %FERGU: vale, no useis SUBJECT, usad mejor SUBJECT (SUBJECT es materia de física, creo xD).    ok, ¡gracias!
 \emph{TOTAL DEVOLUTIONS, REPRINTS, TOTAL SELLING POINTS FIRST YEAR,
   NUMBER OF REPRINTS, TOTAL DEVOLUTIONS FIRT YEAR, TOTAL DISTRIBUTED FIRST YEAR,
   WEEKS ON SALE, PRINT-RUN} were discarded.  
@@ -738,7 +743,7 @@ UNITS DISTRIBUTED IN FIRST EDITION
 TOTAL SELLING POINTS
 TOTAL DISTRIBUTED
 RETAIL PRICE
-MATTER
+SUBJECT
 EDITORIAL
 TOTAL SALES (output)
 \end{verbatim} \end{minipage}     \\
@@ -961,7 +966,7 @@ Obtained results (time to build the model and error) using the different
 forecasting methods on the dataset with 7 variables per book can be shown 
 in Table \ref{tabla:results7}.
 Although in this dataset each book is described using a smaller number of 
-variables, two categorical variables, \emph{EDITORIAL} and \emph{MATTER}, are 
+variables, two categorical variables, \emph{EDITORIAL} and \emph{SUBJECT}, are 
 included, what that makes harder to process the instances and build the different 
 models.
 
@@ -987,7 +992,7 @@ models.
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
 forecasting methods on the dataset with 7 variables per book.}}
-\label{tabla:results7} %FERGU: es normal que con menos variables tarde más?
+\label{tabla:results7} %FERGU: es normal que con menos variables tarde más? Sí, el uso de MATERIA y EDITORIAL hacen que el conjunto sea endiablado.
 \end{table*}
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
@@ -997,7 +1002,7 @@ data set makes the problem hard to solve, both in required time to build the
 forecasting models as well as in the obtained errors.
 However, as stated before, Trevenque expert sales manager, taking into account 
 his knowledge in industry experience and their perceptions, decided that 
-\emph{EDITORIAL} and \emph{MATTER} should be taken into account.
+\emph{EDITORIAL} and \emph{SUBJECT} should be taken into account.
 
 
 % - indicar pros y contras de los diferentes métodos
@@ -1017,12 +1022,13 @@ The Linear Regression model outperforms other complex methods, both in time
 However, more powerful models, that obtain better results, can be obtained in 
 comparable time.
 
-Taking into account the SVM model obtained results, this method obtains the best %FERGU: "the best errors" no se sabe si es lo mejor o lo peor xDD Pon "worst results" o así
+Taking into account the SVM model obtained results, this method obtains the lower 
+%FERGU: "the best errors" no se sabe si es lo mejor o lo peor xDD Pon "worst results" o así
 errors. Even when used using the default parameter values it exhibit a good 
 generalization performance.
 However, it is much slower than the others to build the model, not only when 
 using the data set with 13 input variables, but when using the data set with %FERGU: a veces pones dataset: unificarlo
-7 input variables (including \emph{EDITORIAL} and \emph{MATTER}).
+7 input variables (including \emph{EDITORIAL} and \emph{SUBJECT}).
 
 kNN is the faster method used in this study, as it is the simpler method.
 However, the model is slow when classifying (as there are a large number of 
@@ -1037,7 +1043,7 @@ In these experiments, the MLP requires a higher time than other methods, but als
 the obtained errors are worse as no parameter tuning to build the models have
 been carried out.
 Also, the difficulty to process information related to variables \emph{EDITORIAL} 
-and \emph{MATTER} might affect the worse results obtained on the final dataset.
+and \emph{SUBJECT} might affect the worse results obtained on the final dataset.
 
 %[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
 
