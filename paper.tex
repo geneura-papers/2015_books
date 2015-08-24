@@ -39,7 +39,7 @@ P.A. Castillo, A.M. Mora, J.J. Merelo, \\ A.J. Fern\'andez-Ares, P. Garc\'{\i}a-
 When a new book is published the publishing house faces the problem of
 how many books should be printed. Printing too many is the main issue,
 since it implies a loss of investment due to inventory excess. That is
-why in this paper we are tackling the problem or predicting sales to 
+why in this paper we are tackling the problem or predicting sales to %FERGU: The problem ON predicting, no?
 print the right amount of books, doing so even before the book has
 reached shelves, which is when printing occurs. 
 %Thus, making inaccurate predictions may lead to erroneous decisions that result in excess production that will not be sold, or even to a production deficit.
@@ -54,7 +54,7 @@ reached shelves, which is when printing occurs.
 % It's not proposed. It just obtained the best result with WEKA. - JJ 
 % Publishing roll? ¿Qué es? - JJ
 %[Pedro] en la traducción de términos Antonio propone traducirlo como "print run". Lo pongo así.
-In this paper, which works with data on published books for several years in 
+In this paper, which works with data on published books for several years in
 Spain, we first apply a data visualization and preprocessing strategy to find
 out what are the relevant variables in the prediction of sales, and
 then use standard data mining software to predict sales, and from them
@@ -121,7 +121,7 @@ However, accurately using a predictive tool is a difficult task as
 book sales are influenced by various factors that make
 them fluctuate and usually they might be not controllable and
 sometimes unknown. 
-Some have to do with decisions on purchases, others with freight
+Some have to do with decisions on purchases, others with freight %FERGU: El Some have to do me suena raro
 traffic, and others with the distribution strategy \cite{Little1998}. 
 
 Thus, it is very important to know the product and the variables that
@@ -178,14 +178,14 @@ problem of how many books should be printed when a new book is published,
         %[Pedro] cierto, lo cambio, aunque me ha quedado un nombre muy largo  :)
  followed by Section \ref{sec:methodology} where the
 experimental setup and the methodology considered in the study is
-presented.  
+presented.  %FERGU: mejor described para no repetir
 Section \ref{sec:experiments} reports and analyzes the obtained results with a 
 real data set. Finally, conclusions and future work are presented in Section
 \ref{sec:conclusionsAndFutureWork}. 
 
 
 %********************************************************************************
-\section{Sales forecasting. State of the art}
+\section{Sales forecasting. State of the art} %FERGU: State of the art on sales forecasting?
 \label{sec:soa}
 
 % [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
@@ -203,7 +203,7 @@ consumption, traffic flow or sales forecasting. % ¿Y qué? Esta frase
                                 % arte - JJ
 
 Specifically, using time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
-is perhaps the most used technique to tackle the sales forecasting problems, 
+is perhaps the most used technique to tackle the sales forecasting problems, %FERGU: terminar esta frase con punto en vez de coma para que no sea larga
 the efficiency of these techniques depends largely on the field of application 
 and the problem data as they require a large amount of data for predicting 
 sales of new products are not the most suitable for this task \cite{ChingChin2010}.
@@ -232,7 +232,7 @@ relationships between on-line information and book sales.
 Specifically, authors propose using the number of blog references as an indicator 
 of book sales.
 Different sales patterns are observed by analyzing data obtained.
-In any case, in this research, historical data from published books is used, 
+In any case, in this research, historical data from published books is used, %FERGU: a qué research se refiere? A la nuestra o a la de la referencia? Dejarlo más claro, por si acaso
 and the proposed methodology can not be usable in the problem of unpublished-books 
 sales prediction.
 
@@ -249,7 +249,7 @@ sales prediction.
 Some authors have faced the problem of forecasting sales of new products using 
 different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
 Thomassey et al \cite{SThomassey2014} propose using a clustering method and 
-decision trees for sales forecasting in textile-appared fashion industry, 
+decision trees for sales forecasting in textile-appared fashion industry, %FERGU: appared? apparel, creo
 a very similar issue to the new book publishing problem.
 The same problem was previously faced by Xia et al \cite{Xia2012} using a 
 forecasting method based on extreme learning machine with adaptive metrics of inputs.
@@ -261,12 +261,12 @@ promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThoma
   % New tea product
   % New cosmetic product
   % New soft drink product
-In \cite{ChingChin2010}, a decision-support system for new product sales 
+In \cite{ChingChin2010}, a decision-support system for new product sales %FERGU: The work of Chinchin et al.?
 forecasting is proposed to solve three real-world sales forecasting problems 
 involving new tea, cosmetic, and soft drink products taking into account 
 quantitative variables. 
 In this study, it is assumed that products are classified based on their sales 
-pattern so that products in the same class would have similar sales pattern.
+pattern so that products in the same class would have similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? 
 However, as the authors state, proposed system can not deal with qualitative 
 date related to the products, and even more real-world cases, such as consumer 
 electronics and fashion products, should be examined, as these industries 
@@ -281,7 +281,7 @@ of a printed circuit board is proposed.
 A similar method is proposed by Chern et al \cite{Chern2015}, who analyze 
 historical data along online reviews, reviewer characteristics and review 
 influences to understand how electronic word-of-mouth affects product sales. 
-Proposed method is suitable in those sales forecasting problems with abundant 
+Proposed method is suitable in those sales forecasting problems with abundant %FERGU: _The_ proposed method? 
 online reviews and historical data.
 
 
@@ -318,18 +318,18 @@ the new unpublished-book.
 In the case of already published books, available historical data might help 
 to generate predictive models.
 However, in the case of new books there is no historical data to define patterns, 
-and only some descriptive data about the new book is available.
-In these cases not any forecasting method can be used\cite{Madsen2008,ChernWSF15}. 
+and only some descriptive data about the new book is available. %FERGU: data es plural. is->are
+In these cases not any forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
 
-An additional issue is the dificulty to compare our model with classical 
+An additional issue is the difficulty to compare our model with classical 
 forecasting methods, such as time series prediction methods, since books 
 do not have specific sales time series.
 
-Throughout this research we collaborated with the company Trevenque Editorial, %\footnote{{\tt http://editorial.trevenque.es}}, 
+Throughout this research, we collaborated with the company Trevenque Editorial, %\footnote{{\tt http://editorial.trevenque.es}}, 
 a company that provides management systems and services for libraries, publishers 
 and distributors.
 
-Trevenque company, whose expert manager advised this research, provided 
+Trevenque company, whose expert manager advised this research, provided %FERGU: los párrafos anteriores son un poco dispersos, puedes quitar los puntos y aparte y agruparlos por temas (por ejemplo, todo lo de Trevenque debería de ir en un párrafo)
 the initial data set consisting of 3159 books.
 In this data set, descriptive information for each book includes price, 
 selling points, matter, publisher, sales, returns, among other information.
@@ -423,7 +423,7 @@ There are several issues inherent to the problem of predicting sales of new
 products: the limitation on the amount of data available, the application of 
 different methods and choose the most suitable of them.
 In addition, there is no a standard methodology to solve the general problem 
-of sales forecasting.
+of sales forecasting. %FERGU: hacer más hincapié de esto en la intro entonces
 Usually, a preliminary analysis of the data is carried out to eliminate those 
 variables that describe the product but do not provide useful information during 
 the prediction process.
@@ -437,7 +437,7 @@ methods testing, and (3) subjectively adjusting the obtained results.}}
 \end{center}
 \end{figure}
 
-Thus, in this study there are three main stages (see Figure \ref{fig:stages} 
+Thus, in this study there are three main stages (see Figure \ref{fig:stages} %FERGU: there are->we propose
 for details): 
 \begin{itemize}
 
@@ -449,7 +449,7 @@ for details):
   This task may help to identify leading indicators to be used by the 
   forecasting methods in order to improve the accuracy of future forecasts.
 
-  \item  Then, several forecasting methods has to be tested. In this stage 
+  \item  Then, several forecasting methods have to be tested. In this stage 
   different forecasting methods are used to obtain sales forecasts from the 
   data provided.
 
@@ -469,14 +469,14 @@ the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008
 Those error measurements are also called error functions or cost functions. 
 %One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
 In any case, we recommend using widely accepted standard 
-equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} 
+equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} %FERGU: mejor tratar esto como una referencia, ya que es un texto
 in order to compare obtained results with those presented in other research 
 papers using other methods.
 That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), 
 implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} 
 or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are proposed.
 
-Specifically, in order to compute the forecasting errors of the different methods, 
+Specifically, in order to compute the forecasting errors of the different methods, %FERGU: quitar este salto de linea y unirlo al párrafo de arriba
 Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute 
 error (RAE) and Root relative squared error (RRSE) have been selected:
 
@@ -525,10 +525,10 @@ appropriate set of variables.
 This method is usually applied to analyze data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those regions (clusters) 
-with high training sample concentration and fewer where the samples are scarce.
+with high training sample concentration and fewer where the samples are scarce. %FERGU: mencionarlo en la intro
 
 
-As stated in Section \ref{sec:problem}, an expert sales manager colaborated in 
+As stated in Section \ref{sec:problem}, an expert sales manager collaborated in 
 this research in the stage of data analysis. Thus, the process was as follows:
 \begin{itemize}
   \item First, the expert removed superfluous variables, and dimensionality was 
@@ -537,11 +537,11 @@ this research in the stage of data analysis. Thus, the process was as follows:
   analyzing the SOM results, removed some inputs, reducing the number of 
   variables describing a book from 43 to 13.
   \item The company asked to include the information about \emph{editorial} 
-  and \emph{materia}. Thus, in a new iteration, taking into account the expert's 
-  advice and the información obtained analyzing the SOM results, the number of 
+  and \emph{materia}. Thus, in a new iteration, taking into account the expert's %FERGU: materia no existe en inglés. Subject?
+  advice and the information obtained analyzing the SOM results, the number of 
   inputs was decreased to 7.
   \item In a third step, several forecasting methods were used on the obtained 
-  dataset, and the best was choosen to obtain an accurate predicting model.
+  dataset, and the best was chosen to obtain an accurate predicting model.
   \item Finally, some information about the new book, such as \emph{author}, 
   although not included in the obtained models, was taken into account by 
   the expert sales manager to modify the forecasted results. 
@@ -565,7 +565,7 @@ this research in the stage of data analysis. Thus, the process was as follows:
   %  
 
 More specifically, in a first step, the expert analyzed the 50 input variables 
-describing each book to remove those that were suplerfuas.
+describing each book to remove those that were superfluous.
 Table \ref{tabla:params43} shows the set of variables describing a book 
 (43 total inputs) that the expert manager determined as non-superfluous or 
 non-redundant.
@@ -632,14 +632,14 @@ TOTAL SALES (output)
 \end{tabular}
 \end{center}
 \end{table}
-
-Then, after analizyng the original dataset using the SOM to select the best 
+%FERGU: para ahorrar espacio se puede hacer la tabla inversa: variables que se han quitado (las 7)
+Then, after analyzing the original dataset using the SOM to select the best %FERGU: parametros o framework SOM usados?
 variables to be considered, and taking into account the knowledge of the company 
 experienced manager, 13 inputs were considered. 
-Figure \ref{fig:som43} shows the initial analisys of dataset using the total 
+Figure \ref{fig:som43} shows the initial analysis of dataset using the total 
 of 43 descriptive inputs per book.
 Table \ref{tabla:params13} shows the set of variables describing a book after 
-the second analisys.
+the second analysis.
 	% esta gráfica no aporta nada, ni la siguiente tampoco. No se puede
 	% colocar en un trabajo en revista  cómo ha ido el entrenamiento, sino
 	% datos serios de análisis estadístico de las variables. 
@@ -650,7 +650,7 @@ the second analisys.
   \epsfig{file=som43vars.eps,width=11cm} \\
   \epsfig{file=som43umatrix.eps,width=5cm}
 \end{tabular}
-\caption{\small{Initial data analysis, using 43 descriptive variables per book, 
+\caption{\small{Initial data analysis, using 43 descriptive variables per book, %FERGU: la figura está en español, pero ya lo sabréis :P
 using SOM.}}
 	% Cojollos, ¿qué trabajo os cuesta poner esto en inglés directamente? - JJ
 	% [Pedro] sí, si estoy de acuerdo... hay días que me "sale" el texto en inglés,
@@ -694,17 +694,17 @@ TOTAL SALES (output)
 \end{table}
 
 
-Finally, after analizyng the dataset with 13 descriptive inputs per
+Finally, after analyzing the dataset with 13 descriptive inputs per %FERGU: describis los resultados antes de explicar que volveis a hacer SOM
 book, and paying attention to the company experienced manager's
 recommendations, 7 inputs were considered; specifically, variables
-\emph{EDITORIAL} and \emph{MATTER} were included, while
+\emph{EDITORIAL} and \emph{MATTER} were included, while %FERGU: vale, no useis MATTER, usad mejor SUBJECT (MATTER es materia de física, creo xD)
 \emph{TOTAL DEVOLUTIONS, REPRINTS, TOTAL SELLING POINTS FIRST YEAR,
   NUMBER OF REPRINTS, TOTAL DEVOLUTIONS FIRT YEAR, TOTAL DISTRIBUTED FIRST YEAR,
   WEEKS ON SALE, PRINT-RUN} were discarded.  
 	% Hay que aportar datos de por qué se hizo esto. ¿Análisis de planos?
 	% ¿Análisis de varianza? - jj
 	% [Pedro] En cuanto estén los SOM definitivos lo añadimos. Está relacionado con el ISSUE #6
-Figure \ref{fig:som13} shows the initial analisys of dataset using the SOM on 
+Figure \ref{fig:som13} shows the initial analysis of dataset using the SOM on 
 the total of 13 descriptive inputs per book.
 This, along with the expert manager knowledge determined the final 7 inputs 
 to be considered.
@@ -717,8 +717,7 @@ taking into account the company experienced manager knowledge.
   \epsfig{file=som13vars.eps,width=11cm} \\
   \epsfig{file=som13umatrix.eps,width=5cm}
 \end{tabular}
-\caption{\small{Análisis de los datos iniciales, usando 13 variables
-    descriptivas por libro, utilizando el SOM.}}
+\caption{\small{Analysis of the initial data, using 13 descriptive variables per book, using the SOM.}} % Análisis de los datos iniciales, usando 13 variables descriptivas por libro, utilizando el SOM.}} %FERGU: teniais esto en español, lo he traducido al inglés :)
 % describir de forma más precisa: visualización usando UMatrix de... - JJ
 % ¡y usar nombres en inglés para las variables! - JJ
 %[pedro] es el siguiente arreglo que le haré mañana al paper    ;)
@@ -758,7 +757,7 @@ As previously stated, there are many prediction methods available in the
 literature, each one with a different parameter set that may affect the 
 obtained results.
 
-However, as in the case of new books only some descriptive data is available 
+However, as in the case of new books only some descriptive data is available %FERGU: data es plural. is->are
 (compared to those cases in which historical data on sales of published books 
 is available), not all forecasting methods can be used in this specific problem.
 
@@ -766,12 +765,12 @@ Thus, in this research five forecasting methods, based on the literature
 review in the introduction 
 \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
 Well known forecasting methods implemented in the Weka tool
-\cite{Hall2009,Witten2011} have been choosen, as these methods are
+\cite{Hall2009,Witten2011} have been chosen, as these methods are
 widely known, and could be very helpful for practitioners to reproduce
 experiments and even to solve similar sales prediction problems using
 these methods. % eliminado el pie de página, es mejor usar referencias - JJ
 
-Specifically, following forecasting methods are proposed:
+Specifically, the following forecasting methods are proposed:
 \begin{itemize}
 
  % weka.classifiers.trees.M5P
@@ -820,10 +819,10 @@ actual data and the regression line \cite{McClendon2015}.
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
  \item \emph{Support Vector Machine for Regression (SVM)}:
 Support vector machine (SVM) \cite{Cortes1995,Shevade1999} method is based on  
-statistical learning theory and has succesfully used in classification and  
+statistical learning theory and has successfully used in classification and  
 regression problems \cite{Cao2003,Jari2008}.
 
-In classification problems the algorithm searchs for an optimal hyperplane 
+In classification problems the algorithm searches for an optimal hyperplane 
 that separates two classes, maximizing the margin between two classes. 
 In the case of regression the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimizing the sum of the distances from 
@@ -836,7 +835,7 @@ In both cases, the hyperplane is defined by a subset of training set samples
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
  \item \emph{k-Nearest Neighbours (kNN)}: 
 The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
-wich the unknown instances are classified by relating them to the known 
+which the unknown instances are classified by relating them to the known 
 instances using a distance measurement/function (Euclidean, Minkowsky or minimax).
 
 The main idea behind the algorithm is that two instances far enough in the space, 
@@ -844,7 +843,7 @@ taking into account the distance function, are less likely to belong to the
 same class than two closely situated instances.
 
 The classification algorithm locates the nearest neighbour in instance space and 
-asigns the class of that neighbour to the unknown instance.
+assigns the class of that neighbour to the unknown instance.
 In order to improve the robustness of the model, several neighbours can be 
 located, assigning the resulting class to an unclassified vector using the 
 closest k vectors found in the training set by majority vote.
@@ -865,10 +864,10 @@ though a non-linear activation function to produce its output.
 
 This kind of artificial neural network is trained using a supervised learning 
 technique called back-propagation.
-This training method was developed independly by Werbos \cite{Werbos1974}, 
+This training method was developed independently by Werbos \cite{Werbos1974}, 
 Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
 in updating the weights of the output layer neurons once the erroneous output 
-has been obtained, and then, propagating the succesive weight layers back to 
+has been obtained, and then, propagating the successive weight layers back to 
 the input layer.
 
 A key issue when designing an MLP is the number of hidden layers of neurons.
@@ -988,7 +987,7 @@ models.
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
 forecasting methods on the dataset with 7 variables per book.}}
-\label{tabla:results7}
+\label{tabla:results7} %FERGU: es normal que con menos variables tarde más?
 \end{table*}
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
@@ -998,7 +997,7 @@ data set makes the problem hard to solve, both in required time to build the
 forecasting models as well as in the obtained errors.
 However, as stated before, Trevenque expert sales manager, taking into account 
 his knowledge in industry experience and their perceptions, decided that 
-\emph{EDITORIAL} and \emph{MATTER} should taken into account.
+\emph{EDITORIAL} and \emph{MATTER} should be taken into account.
 
 
 % - indicar pros y contras de los diferentes métodos
@@ -1018,11 +1017,11 @@ The Linear Regression model outperforms other complex methods, both in time
 However, more powerful models, that obtain better results, can be obtained in 
 comparable time.
 
-Taking into account the SVM model obtained results, this method obtains the best
+Taking into account the SVM model obtained results, this method obtains the best %FERGU: "the best errors" no se sabe si es lo mejor o lo peor xDD Pon "worst results" o así
 errors. Even when used using the default parameter values it exhibit a good 
 generalization performance.
 However, it is much slower than the others to build the model, not only when 
-using the data set with 13 input variables, but when using the data set with 
+using the data set with 13 input variables, but when using the data set with %FERGU: a veces pones dataset: unificarlo
 7 input variables (including \emph{EDITORIAL} and \emph{MATTER}).
 
 kNN is the faster method used in this study, as it is the simpler method.
@@ -1066,7 +1065,7 @@ such as dealing with limited data, finding adequate forecasting methods, and
 selecting the best method to use.
 
 %La investigación descrita en este trabajo se ha llevado a cabo conjuntamente con una empresa editorial que ha facilitado un conjunto de datos con los que trabajar, así como con la ayuda de un experto en ventas de este campo para validar los resultados obtenidos.
-A data set consisting of 3159 books provided by the Spanish 
+A data set consisting of 3159 books provided by the Spanish %FERGU: mover este párrafo debajo del siguiente
 publishing company Trevenque Editorial has been used.
 
 In this paper, a data visualization method has been used to find out what are 
@@ -1089,8 +1088,9 @@ the new book.
 This, compared to the black-box models such as the artificial neural network 
 was decisive from the point of view of the needs of experts and the company.
 Moreover, proposed method was validated by the company and incorporated in a 
-business intelligence tool for publishing houses.
+business intelligence tool for publishing houses. %FERGU: no hay más info de esto? estaría guay describirlo
 
+%FERGU: no mencionais el SOM en las conclusiones
 
 Overall, this study contributes to the literature by proposing the use of different 
 soft-computing standard techniques to solve a new challenging problem.
