@@ -48,7 +48,7 @@ puntos_vta1anio_total - TOTAL SELLING POINTS FIRST YEAR
 puntos_vta1anio_grandes_superficies - MALLS SELLING POINTS FIRST YEAR
 puntos_vta1anio_delegados - DELEGATES SELLING POINTS FIRST YEAR
 puntos_vta1anio_resto - REST OF SELLING POINTS FIRST YEAR
-semanas_venta - WEEKS ON SALE
+semanas_venta - WEEKS FOR SALE
 entorno_venta_positivo - POSITIVE SALE MARKET
 entorno_venta_medio - MEDIUM SALE MARKET
 entorno_venta_negativo - NEGATIVE SALE MARKET
