@@ -4,9 +4,9 @@ Necesito ayuda para traducir los nombres de las variables que describen cada lib
 referencia - REFERENCE
 autor - AUTHOR
 pvp - RETAIL PRICE
-materia1 - MATTER1
-materia2 - MATTER2
-materia3 - MATTER3
+materia1 - SUBJECT1
+materia2 - SUBJECT2
+materia3 - SUBJECT3
 editorial - EDITORIAL
 coleccion - COLLECTION
 encuadernacion - BOOKBINDING
