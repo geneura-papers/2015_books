@@ -1,0 +1,25 @@
+*************
+* PB_VENTAS *
+*************
+
+>> sM=som_make(sDN, 'lattice', 'hexa');
+Determining map size...
+ map size [24, 16]
+
+Final quantization error: 0.199
+Final topographic error:  0.082
+
+------------------------------------------------------
+
+>> sM1=som_make(sDN, 'msize', [36 24], 'lattice', 'hexa');
+
+Final quantization error: 0.165
+Final topographic error:  0.074
+
+------------------------------------------------------
+
+>> sM2=som_make(sDN, 'msize', [48 32], 'lattice', 'hexa');
+
+Final quantization error: 0.145
+Final topographic error:  0.050
+
