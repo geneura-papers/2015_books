@@ -10,8 +10,6 @@ materia3 - SUBJECT3
 editorial - EDITORIAL
 coleccion - COLLECTION
 encuadernacion - BOOKBINDING
-tirada - PRINT-RUN
-venta_total - TOTAL SALES
 venta_grandes_superficies - MALLS SALES
 venta_delegados - DELEGATES SALES
 venta_resto - REST OF SALES
@@ -26,7 +24,6 @@ colocado_resto - REST OF DISTRIBUTED
 colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
 colocado1anio_grandes_superficies - MALLS DISTRIBUTED FIRST YEAR
 colocado1anio_delegados - DELEGATES DISTRIBUTED FIRST YEAR
-
 colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
@@ -52,4 +49,5 @@ semanas_venta - WEEKS FOR SALE
 entorno_venta_positivo - POSITIVE SALE MARKET
 entorno_venta_medio - MEDIUM SALE MARKET
 entorno_venta_negativo - NEGATIVE SALE MARKET
-
+tirada - PRINT-RUN
+venta_total - TOTAL SALES
