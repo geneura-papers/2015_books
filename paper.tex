@@ -31,9 +31,7 @@ P.A. Castillo, A.M. Mora, J.J. Merelo, P. Garc\'{\i}a-S\'anchez, \\ A.J. Fern\'a
 When a new book is published the publisher faces the problem of
 how many books should be printed for delivery to bookstores. Printing too many is the main issue,
 since it implies a loss of investment due to inventory excess. In this
-paper we are tackling the problem of predicting total sales in order to %FERGU: The
-                                %problem ON predicting, no? ¡gracias!  
-% of predicting -  JJ
+paper we are tackling the problem of predicting total sales in order to 
 print the right amount of books, doing so even before the book has
 reached shelves. 
 In this paper, which works with several years of data on published books in
@@ -291,19 +289,23 @@ models based on rules are tested as an alternative.
 \section{The problem}
 \label{sec:problem}
 
-%Sales forecasting in editorial industry is a very complex problem. 
-        %hala, vuelta la burra al trigo - JJ
-        %[Pedro] ea, lo quito   :)
-There are several difficulties inherent to the new book sales forecasting, 
-such as dealing with limited data, finding adequate forecasting methods, and 
-selecting the best method to use \cite{ChingChin2010}.
 
-The main issue of this paper is to compute forecasting of the sales for 
-new unpublished-books, for which no historical data is available.
-Thus, this paper faces the new book publishing problem using different 
-prediction methods and using as inputs the historical sales data related 
-to other yet published books, and some descriptive variables relative to 
-the new unpublished-book.
+The main issue of this paper is to forecast sales for 
+unpublished books for which no historical data is available, just some
+descriptive variables relative to the new book. In order to do that,
+training data includes historical sales data for all books published
+in Spain for several years, including those descriptive variables. 
+
+%Después de esto no sé si merece la pena dejar este párrafo.
+Forecasting sales of new books is a problem with issues 
+such as dealing with limited data, finding adequate forecasting methods and 
+selecting the best method to use \cite{ChingChin2010}. % He cambiado
+                                % esto, pero sigue sin decir
+                                % absolutamente nada. "The problem"
+                                % tiene que describir el problema: qué
+                                % queremos hacer, qué tenemos - JJ
+
+
 
 In the case of already published books, available historical data might help 
 to generate predictive models.
