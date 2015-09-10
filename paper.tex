@@ -295,7 +295,8 @@ unpublished books for which no historical data is available, just some
 descriptive variables relative to the new book. In order to do that,
 training data includes historical sales data for all books published
 in Spain for several years, including those descriptive variables. 
-
+%
+%%% Principio de párrafos a eliminar o mover a estado del arte.
 %Después de esto no sé si merece la pena dejar este párrafo.
 Forecasting sales of new books is a problem with issues 
 such as dealing with limited data, finding adequate forecasting methods and 
@@ -306,7 +307,9 @@ selecting the best method to use \cite{ChingChin2010}. % He cambiado
                                 % queremos hacer, qué tenemos - JJ
 
 
-
+% Este párrafo o se borra o se traslada al estado del arte. Aquí hay
+% que contar cuál es el problema y qué se tiene. No se puede volver a
+% repetir lo de antes.
 In the case of already published books, available historical data might help 
 to generate predictive models.
 However, in the case of new books there is no historical data to define patterns, 
@@ -314,18 +317,31 @@ and only some descriptive data about the new book is available.
 %FERGU: data es plural. is->are   ...a mí me suena bien con "is"   ¡una segunda opinión!   ;)
 In these cases not any forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
 
+% Vale, más issues. Este párrafo también puede quedar fuera. Ya has
+% dicho que no se puede usar la serie histórica.
 An additional issue is the difficulty to compare our model with classical 
 forecasting methods, such as time series prediction methods, since books 
 do not have specific sales time series.
 
+
+
 Throughout this research, we collaborated with the company Trevenque Editorial, %\footnote{{\tt http://editorial.trevenque.es}}, 
 a company that provides management systems and services for libraries, publishers 
-and distributors.
+and distributors. % Esto tampoco viene a cuento. Se dice en la intro o
+                  % se cuenta como gente que nos ha proporcionado los
+                  % datos y nos contrató para hacerlo.
 
-Trevenque company, whose expert manager advised this research, provided %FERGU: los párrafos anteriores son un poco dispersos, puedes quitar los puntos y aparte y agruparlos por temas (por ejemplo, todo lo de Trevenque debería de ir en un párrafo)
-the initial data set consisting of 3159 books.
-In this data set, descriptive information for each book includes price, 
-selling points, subject, publisher, sales, returns, among other information.
+
+
+Trevenque company, whose expert manager advised this research,
+provided %FERGU: los párrafos anteriores son un poco dispersos, puedes
+         %quitar los puntos y aparte y agruparlos por temas (por
+         %ejemplo, todo lo de Trevenque debería de ir en un párrafo) 
+% O borrarlos - JJ
+%% Fin de párrafos a eliminar.
+This initial data set, provided in the framework of a contract by
+Trevenque Editorial, included 3159 books, and included descriptive information for each book includes price, 
+points of sale, subject, publisher, sales, returns, among other information.
 Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
 each book.
 
