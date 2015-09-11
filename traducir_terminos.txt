@@ -26,7 +26,6 @@ colocado_resto -  DISTRIBUTED - REST
 colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
 colocado1anio_grandes_superficies -  DISTRIBUTED THROUGH DEPARTMENT STORES FIRST YEAR
 colocado1anio_delegados -  DISTRIBUTED THROUGH DELEGATES FIRST YEAR
-
 colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
@@ -52,4 +51,6 @@ semanas_venta - WEEKS FOR SALE
 entorno_venta_positivo - POSITIVE SALES ENVIRONMENT
 entorno_venta_medio - MEDIUM SALES ENVIRONMENT
 entorno_venta_negativo - NEGATIVE SALES ENVIRONMENT
+tirada - PRINT-RUN
+venta_total - TOTAL SALES
 
