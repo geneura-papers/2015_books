@@ -3,7 +3,7 @@ Necesito ayuda para traducir los nombres de las variables que describen cada lib
 
 referencia - REFERENCE
 autor - AUTHOR
-pvp - RETAIL PRICE
+pvp - RETAIL PRICER
 materia1 - SUBJECT1
 materia2 - SUBJECT2
 materia3 - SUBJECT3
@@ -12,44 +12,44 @@ coleccion - COLLECTION
 encuadernacion - BOOKBINDING
 tirada - PRINT-RUN
 venta_total - TOTAL SALES
-venta_grandes_superficies - MALLS SALES
-venta_delegados - DELEGATES SALES
+venta_grandes_superficies - DEPARTMENT STORES SALES
+venta_delegados - SALES THROUGH DELEGATES 
 venta_resto - REST OF SALES
 venta1anio_total - TOTAL SALES FIRST YEAR
 venta1anio_grandes_superficies - MALL SALES FIRST YEAR
 venta1anio_delegados - DELEGATES SALES FIRST YEAR
 venta1anio_resto - REST OF SALES FIRST YEAR
 colocado_total - TOTAL DISTRIBUTED
-colocado_grandes_superficies - MALLS DISTRIBUTED
-colocado_delegados - DELEGATES DISTRIBUTED
-colocado_resto - REST OF DISTRIBUTED
+colocado_grandes_superficies -  DISTRIBUTED THROUGH DEPARTMENT STORES
+colocado_delegados -  DISTRIBUTED THROUGH DELEGATES
+colocado_resto -  DISTRIBUTED - REST
 colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
-colocado1anio_grandes_superficies - MALLS DISTRIBUTED FIRST YEAR
-colocado1anio_delegados - DELEGATES DISTRIBUTED FIRST YEAR
+colocado1anio_grandes_superficies -  DISTRIBUTED THROUGH DEPARTMENT STORES FIRST YEAR
+colocado1anio_delegados -  DISTRIBUTED THROUGH DELEGATES FIRST YEAR
 
 colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
-devolucion_total - TOTAL DEVOLUTIONS
-devolucion_grandes_superficies - MALLS DEVOLUTIONS
-devolucion_delegados - DELEGATES DEVOLUTIONS
-devolucion_resto - REST OF DEVOLUTIONS
-devolucion1anio_total - TOTAL DEVOLUTIONS FIRT YEAR
-devolucion1anio_grandes_superficies - MALLS DEVOLUTIONS FIRST YEAR
-devolucion1anio_delegados - DELEGATES DEVOLUTIONS FIRST YEAR
-devolucion1anio_resto - REST OF DEVOLUTIONS FIRST YEAR
+devolucion_total - TOTAL RETURNS
+devolucion_grandes_superficies - RETURNS - DEPARTMENT STORES
+devolucion_delegados - DELEGATES RETURNS
+devolucion_resto - REST OF RETURNS
+devolucion1anio_total - TOTAL RETURNS FIRT YEAR
+devolucion1anio_grandes_superficies -  RETURNS -  DEPARTMENT STORES  FIRST YEAR
+devolucion1anio_delegados - DELEGATES RETURNS FIRST YEAR
+devolucion1anio_resto - REST OF RETURNS FIRST YEAR
 obsequios - GIFTS
-ejemplares_distribuidos_en_novedad - UNITS DISTRIBUTED IN FIRST EDITION
-puntos_vta_total - TOTAL SELLING POINTS
-puntos_vta_grandes_superficies - MALLS SELLING POINTS
-puntos_vta_delegados - DELEGATES SELLING POINTS
-puntos_vta_resto - REST OF SELLING POINTS
-puntos_vta1anio_total - TOTAL SELLING POINTS FIRST YEAR
-puntos_vta1anio_grandes_superficies - MALLS SELLING POINTS FIRST YEAR
-puntos_vta1anio_delegados - DELEGATES SELLING POINTS FIRST YEAR
-puntos_vta1anio_resto - REST OF SELLING POINTS FIRST YEAR
+ejemplares_distribuidos_en_novedad - UNITS DISTRIBUTED AS NOVELTY
+puntos_vta_total - TOTAL POINTS OF SALE
+puntos_vta_grandes_superficies - POINTS OF SALE - DEPARTMENT STORES
+puntos_vta_delegados - DELEGATES POINTS OF SALE
+puntos_vta_resto - REST OF POINTS OF SALE
+puntos_vta1anio_total - TOTAL POINTS OF SALE FIRST YEAR
+puntos_vta1anio_grandes_superficies - DEPARTMENT STORES POINTS OF SALE FIRST YEAR
+puntos_vta1anio_delegados - DELEGATES POINTS OF SALE FIRST YEAR
+puntos_vta1anio_resto - REST OF POINTS OF SALE FIRST YEAR
 semanas_venta - WEEKS FOR SALE
-entorno_venta_positivo - POSITIVE SALE MARKET
-entorno_venta_medio - MEDIUM SALE MARKET
-entorno_venta_negativo - NEGATIVE SALE MARKET
+entorno_venta_positivo - POSITIVE SALES ENVIRONMENT
+entorno_venta_medio - MEDIUM SALES ENVIRONMENT
+entorno_venta_negativo - NEGATIVE SALES ENVIRONMENT
 
