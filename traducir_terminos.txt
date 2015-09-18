@@ -10,19 +10,17 @@ materia3 - SUBJECT3
 editorial - EDITORIAL
 coleccion - COLLECTION
 encuadernacion - BOOKBINDING
-tirada - PRINT-RUN
-venta_total - TOTAL SALES
 venta_grandes_superficies - DEPARTMENT STORES SALES
 venta_delegados - SALES THROUGH DELEGATES 
 venta_resto - REST OF SALES
 venta1anio_total - TOTAL SALES FIRST YEAR
-venta1anio_grandes_superficies - MALL SALES FIRST YEAR
+venta1anio_grandes_superficies - DEPARTMENT STORES SALES FIRST YEAR
 venta1anio_delegados - DELEGATES SALES FIRST YEAR
 venta1anio_resto - REST OF SALES FIRST YEAR
 colocado_total - TOTAL DISTRIBUTED
 colocado_grandes_superficies -  DISTRIBUTED THROUGH DEPARTMENT STORES
 colocado_delegados -  DISTRIBUTED THROUGH DELEGATES
-colocado_resto -  DISTRIBUTED - REST
+colocado_resto -  REST OF DISTRIBUTED
 colocado1anio_total - TOTAL DISTRIBUTED FIRST YEAR
 colocado1anio_grandes_superficies -  DISTRIBUTED THROUGH DEPARTMENT STORES FIRST YEAR
 colocado1anio_delegados -  DISTRIBUTED THROUGH DELEGATES FIRST YEAR
@@ -30,11 +28,11 @@ colocado1anio_resto - REST OF DISTRIBUTED FIRST YEAR
 reimpresiones - REPRINTS
 numero_reimpresiones - NUMBER OF REPRINTS
 devolucion_total - TOTAL RETURNS
-devolucion_grandes_superficies - RETURNS - DEPARTMENT STORES
+devolucion_grandes_superficies - DEPARTMENT STORES RETURNS
 devolucion_delegados - DELEGATES RETURNS
 devolucion_resto - REST OF RETURNS
-devolucion1anio_total - TOTAL RETURNS FIRT YEAR
-devolucion1anio_grandes_superficies -  RETURNS -  DEPARTMENT STORES  FIRST YEAR
+devolucion1anio_total - TOTAL RETURNS FIRST YEAR
+devolucion1anio_grandes_superficies -  DEPARTMENT STORES RETURNS FIRST YEAR
 devolucion1anio_delegados - DELEGATES RETURNS FIRST YEAR
 devolucion1anio_resto - REST OF RETURNS FIRST YEAR
 obsequios - GIFTS
@@ -53,4 +51,3 @@ entorno_venta_medio - MEDIUM SALES ENVIRONMENT
 entorno_venta_negativo - NEGATIVE SALES ENVIRONMENT
 tirada - PRINT-RUN
 venta_total - TOTAL SALES
-
