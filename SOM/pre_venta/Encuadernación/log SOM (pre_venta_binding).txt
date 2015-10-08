@@ -1,6 +1,6 @@
-**************************
-* PRE_VENTA * COLLECTION *
-**************************
+***********************
+* PRE_VENTA * BINDING *
+***********************
 
 >> sM=som_make(sDN, 'lattice', 'hexa');
 Determining map size...
