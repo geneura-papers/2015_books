@@ -531,15 +531,28 @@ where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained pre
 In general, historical data is used to make time series, and from them extracting 
 common patterns and obtaining accurate predictions.
 However, in the case of new products, such as the issue of new books, past patterns 
-is difficult to observe as there is no available historical sales data \cite{ChingChin2010}.
+is difficult to observe as there is no available historical sales data 
+\cite{ChingChin2010} (only pre-sales data is available in this problem).
 
 In addition, among the variables describing a new book, some may affect 
 predictions (those variables provide information), while others may not be 
 necessary and even redundant.
 
-Thus, from the initial set of variables, the SOM \cite{kohonen1998} was applied 
-in order to reduce the dimensionality of the input data and to choose an 
-appropriate set of variables.
+
+Moreover, the algorithm runing times grow with the number of features, and thus 
+making the algorithm impractical for problems with a large number of features 
+\cite{Selvakuberan2008}. Feature selection task is usually carried out by 
+searching through all possible combinations of features, evaluating each one. 
+
+During the evaluation, the set of all possible features is analyzed in order 
+to find the best set of features, ranking them according to some metric.
+In this process, the feature's predictive ability along with the degree 
+of redundancy between them is considered.
+
+Thus, in order to reduce the dimensionality of the input data and to choose an 
+appropriate set of variables, both the SOM \cite{kohonen1998} method and several 
+feature selection methods have been applied.
+
 
 SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organization, configures the output units into a topological representation of the original data. It tries to imitate the self-organization done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organize data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
 SOM is further processed using Ultsch method \cite{UmatUlts}, the Unified distance matrix (U-matrix), which uses SOM's codevectors (vectors of variables of the problem) as data source and generates a matrix where each component is a distance measure between two adjacent neurons. It allows us to visualize any multi-variated dataset in a two-dimensional display, so we can detect topological relations among neurons and infer about the input data structure. High values in the U-matrix represent a frontier region between clusters, and low values represent a high degree of similarities among neurons on that region, clusters.
@@ -550,231 +563,17 @@ SOMs (and U-Matrix) are usually applied for visualize natural structures in the 
 This method is usually applied to analyze data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those regions (clusters) 
-with high training sample concentration and fewer where the samples are scarce. %FERGU: mencionarlo en la intro
+with high training sample concentration and fewer where the samples are scarce. 
+%FERGU: mencionarlo en la intro
 
 
-As stated in Section \ref{sec:problem}, an expert sales manager collaborated in 
-this research in the stage of data analysis. Thus, the process was as follows:
-\begin{itemize}
-  \item First, the expert removed superfluous variables, and dimensionality was 
-  reduced from 50 to 43 inputs.
-  \item Then, the expert, using his knowledge and the information obtained 
-  analyzing the SOM results, removed some inputs, reducing the number of 
-  variables describing a book from 43 to 13.
-  \item The company asked to include the information about \emph{editorial} 
-  and \emph{materia}. Thus, in a new iteration, taking into account the expert's %FERGU: materia no existe en inglés. Subject?
-  advice and the information obtained analyzing the SOM results, the number of 
-  inputs was decreased to 7.
-  \item In a third step, several forecasting methods were used on the obtained 
-  dataset, and the best was chosen to obtain an accurate predicting model.
-  \item Finally, some information about the new book, such as \emph{author}, 
-  although not included in the obtained models, was taken into account by 
-  the expert sales manager to modify the forecasted results. 
-\end{itemize}
-
-  %  
-  %  El proceso que seguimos, resumido para el paper, es:
-  %  
-  %  [43 entradas] en 2013-01 vamos a tomar 
-  %  	pb_noneg.csv para obtener pb_ventas.csv (es el pb_ventas.arff)
-  %  	y hacer el SOM
-  %  
-  %  [13 entradas] en 2013-02-08 vamos a tomar 
-  %  	controlado_reducido.csv.arff (197 líneas)
-  %  	pbenero.csv.arff (5656 líneas)
-  %  	y hacer el SOM
-  %  
-  %  [7 entradas; materia editorial] en 2013-02-25 vamos a tomar
-  %  	pbRAWtrn.arff
-  %  	pbRAWtst.arff
-  %  
-
-More specifically, in a first step, the expert analyzed the 50 input variables 
-describing each book to remove those that were superfluous.
-Table \ref{tabla:params43} shows the set of variables describing a book 
-(43 total inputs) that the expert manager determined as non-superfluous or 
-non-redundant.
-
-\begin{table}[!h]
-\caption{Variables describing a book (43 total inputs), after the expert 
-manager analized the original dataset provided by the company Trevenque to 
-remove some inputs.}
-\label{tabla:params43}
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline 
-
-\begin{minipage}{2.3in} \begin{verbatim}
-DEPARTMENT STORES POINTS OF SALE FIRST YEAR
-REST OF SALES FIRST YEAR
-NEGATIVE SALES ENVIRONMENT
-DISTRIBUTED THROUGH DEPARTMENT STORES FIRST YEAR
-TOTAL RETURNS
-REPRINTS
-MALL SALES FIRST YEAR
-TOTAL POINTS OF SALE FIRST YEAR
-UNITS DISTRIBUTED AS NOVELTY
-PRINT-RUN
-NUMBER OF REPRINTS
-RETURNS - DEPARTMENT STORES
-REST OF POINTS OF SALE FIRST YEAR
-REST OF SALES
-DELEGATES POINTS OF SALE
-REST OF RETURNS
-DELEGATES POINTS OF SALE FIRST YEAR
-POSITIVE SALES ENVIRONMENT
-REST OF DISTRIBUTED FIRST YEAR
-REST OF POINTS OF SALE
-TOTAL RETURNS FIRT YEAR
-DELEGATES RETURNS
-\end{verbatim} \end{minipage}     & 
-
-\begin{minipage}{2.3in} \begin{verbatim}
-DEPARTMENT STORES SALES
-TOTAL DISTRIBUTED FIRST YEAR
-TOTAL POINTS OF SALE
-DISTRIBUTED THROUGH DEPARTMENT STORES
-DISTRIBUTED THROUGH DELEGATES FIRST YEAR
-POINTS OF SALE - DEPARTMENT STORES
-TOTAL SALES FIRST YEAR
-MEDIUM SALES ENVIRONMENT
-WEEKS FOR SALE
-DISTRIBUTED THROUGH DELEGATES
-AUTHOR
-DELEGATES SALES FIRST YEAR
-GIFTS
-RETURNS -  DEPARTMENT STORES  FIRST YEAR
-SALES THROUGH DELEGATES
-DISTRIBUTED - REST
-DELEGATES RETURNS FIRST YEAR
-TOTAL DISTRIBUTED
-REST OF RETURNS FIRST YEAR
-RETAIL PRICER
-TOTAL SALES (output)
-\end{verbatim} \end{minipage}    \\
-
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-%FERGU: para ahorrar espacio se puede hacer la tabla inversa: variables que se han quitado (las 7)
-%[pedro] no entiendo muy bien a qué te refieres...
-
-Then, after analyzing the original dataset using the SOM to select the best %FERGU: parametros o framework SOM usados?
-variables to be considered, and taking into account the knowledge of the company 
-experienced manager, 13 inputs were considered. 
-Figure \ref{fig:som43} shows the initial analysis of dataset using the total 
-of 43 descriptive inputs per book.
-Table \ref{tabla:params13} shows the set of variables describing a book after 
-the second analysis.
-	% esta gráfica no aporta nada, ni la siguiente tampoco. No se puede
-	% colocar en un trabajo en revista  cómo ha ido el entrenamiento, sino
-	% datos serios de análisis estadístico de las variables. 
-	% [Pedro] sí, estoy de acuerdo. Esto va con el ISSUE #6
-\begin{figure}[!h] 
-\begin{center}
-\begin{tabular}{c}
-  \epsfig{file=som43vars.eps,width=11cm} \\
-  \epsfig{file=som43umatrix.eps,width=5cm}
-\end{tabular}
-\caption{\small{Initial data analysis, using 43 descriptive variables per book, %FERGU: la figura está en español, pero ya lo sabréis :P
-using SOM.}}
-	% Cojollos, ¿qué trabajo os cuesta poner esto en inglés directamente? - JJ
-	% [Pedro] sí, si estoy de acuerdo... hay días que me "sale" el texto en inglés,
-	% pero hay días que soltar la parrafada en español me resulta más fácil    :/
-        % Sería más bien exploratory data analysis o data visualization. 
-        % Un gráfico no es un análisis. Y pon las cosas cortas en inglés, hombre - JJ
-\label{fig:som43}
-\end{center}
-\end{figure}
-
-\begin{table}[!h]
-\caption{Variables that describe every book, 13 in total, after the
-  second analysis carried out using the SOM along with the company
-  experienced manager % él no hizo el análisis. No cuela con ``along with'' - JJ
-to select the best variables to be considered to
-  solve the sales forecasting problem.} 
-\label{tabla:params13}
-\begin{center}
-\begin{tabular}{|c|}
-\hline 
-
-\begin{minipage}{2.3in} \begin{verbatim}
-TOTAL RETURNS
-REPRINTS
-TOTAL POINTS OF SALE FIRST YEAR
-UNITS DISTRIBUTED AS NOVELTY
-NUMBER OF REPRINTS
-TOTAL RETURNS FIRT YEAR
-TOTAL DISTRIBUTED FIRST YEAR
-TOTAL POINTS OF SALE
-WEEKS FOR SALE
-TOTAL DISTRIBUTED
-RETAIL PRICER
-PRINT-RUN
-TOTAL SALES (output)
-\end{verbatim} \end{minipage}     \\
-
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-Finally, after analyzing the dataset with 13 descriptive inputs per %FERGU: describis los resultados antes de explicar que volveis a hacer SOM
-book, and paying attention to the company experienced manager's
-recommendations, 7 inputs were considered; specifically, variables
-\emph{EDITORIAL} and \emph{SUBJECT} were included, while %FERGU: vale, no useis SUBJECT, usad mejor SUBJECT (SUBJECT es materia de física, creo xD).    ok, ¡gracias!
-\emph{TOTAL DEVOLUTIONS, REPRINTS, TOTAL SELLING POINTS FIRST YEAR,
-  NUMBER OF REPRINTS, TOTAL DEVOLUTIONS FIRT YEAR, TOTAL DISTRIBUTED FIRST YEAR,
-  WEEKS FOR SALE, PRINT-RUN} were discarded.  
-	% Hay que aportar datos de por qué se hizo esto. ¿Análisis de planos?
-	% ¿Análisis de varianza? - jj
-	% [Pedro] En cuanto estén los SOM definitivos lo añadimos. Está relacionado con el ISSUE #6
-Figure \ref{fig:som13} shows the initial analysis of dataset using the SOM on 
-the total of 13 descriptive inputs per book.
-This, along with the expert manager knowledge determined the final 7 inputs 
-to be considered.
-Table \ref{tabla:params7} shows the final set of variables describing a book, 
-taking into account the company experienced manager knowledge.
-
-\begin{figure}[!h] 
-\begin{center}
-\begin{tabular}{c}
-  \epsfig{file=som13vars.eps,width=11cm} \\
-  \epsfig{file=som13umatrix.eps,width=5cm}
-\end{tabular}
-\caption{\small{Analysis of the initial data, using 13 descriptive variables per book, using the SOM.}} % Análisis de los datos iniciales, usando 13 variables descriptivas por libro, utilizando el SOM.}} %FERGU: teniais esto en español, lo he traducido al inglés :)
-% describir de forma más precisa: visualización usando UMatrix de... - JJ
-% ¡y usar nombres en inglés para las variables! - JJ
-%[pedro] es el siguiente arreglo que le haré mañana al paper    ;)
-\label{fig:som13}
-\end{center}
-\end{figure}
-
-\begin{table}[!h]
-\caption{Final set of variables describing a book, taking into account the company 
-experienced manager knowledge, to be considered to solve the sales forecasting problem.}
-\label{tabla:params7}
-\begin{center}
-\begin{tabular}{|c|}
-\hline 
-
-\begin{minipage}{2.3in} \begin{verbatim}
-UNITS DISTRIBUTED IN FIRST EDITION
-TOTAL SELLING POINTS
-TOTAL DISTRIBUTED
-RETAIL PRICE
-SUBJECT
-EDITORIAL
-TOTAL SALES (output)
-\end{verbatim} \end{minipage}     \\
-
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
+As far as the feature selection methods are concerned, both a correlation-based 
+feature subset evaluation method (CfsSubsetEval) \cite{Hall1998} and an 
+adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation 
+method \cite{RobnikSikonja1997} are used with two search criteria: BestFirst, 
+that searches the space of feature subsets by greedy hill-climbing augmented 
+with a backtracking facility, and Ranker, that ranks features by their individual 
+evaluations.
 
 
 %-------------------------------------------------
