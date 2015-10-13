@@ -712,6 +712,10 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
+%
+% TODO: explicar los resultados obtenidos en la selección de variables (1) con el SOM (2) con los métodos de selecc. vars.
+%
+
 Once the methods to be applied have been chosen, they must be applied to data sets 
 to obtain the prediction models for each one. 
 Later on, the models ability must be validated on non-previously seen data.
@@ -720,19 +724,6 @@ using a training set and later on a testing set (unknown data against which
 the model must be tested), a cross-validation technique \cite{Geisser1993,Kohavi1995,Devijver1982} 
 has been used to estimate how accurately the predictive model will perform in 
 practice. %, limiting at the same time the overfitting problem.
-
-  %  El proceso que seguimos, resumido para el paper, es:
-  %  
-  %  [43 entradas] en 2013-01 vamos a tomar 
-  %  	pb_noneg.csv para obtener pb_ventas.csv (es el pb_ventas.arff)
-  %  
-  %  [13 entradas] en 2013-02-08 vamos a tomar 
-  %  	controlado_reducido.csv.arff (197 líneas)
-  %  	pbenero.csv.arff (5656 líneas)
-  %  
-  %  [7 entradas; materia editorial] en 2013-02-25 vamos a tomar
-  %  	pbRAWtrn.arff
-  %  	pbRAWtst.arff
 
 % CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS:
 % - se ha usado la implementación de estos 5 métodos del paquete WEKA
