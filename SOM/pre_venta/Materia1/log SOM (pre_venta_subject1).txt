@@ -1,0 +1,25 @@
+************************
+* PRE_VENTA * SUBJECT1 *
+************************
+
+>> sM=som_make(sDN, 'lattice', 'hexa');
+Determining map size...
+ map size [24, 17]
+
+Final quantization error: 0.869
+Final topographic error:  0.049
+
+------------------------------------------------------
+
+>> sM1=som_make(sDN, 'msize', [36 25], 'lattice', 'hexa');
+
+Final quantization error: 0.723
+Final topographic error:  0.044
+
+------------------------------------------------------
+
+>> sM2=som_make(sDN, 'msize', [48 34], 'lattice', 'hexa');
+
+Final quantization error: 0.627
+Final topographic error:  0.034
+
