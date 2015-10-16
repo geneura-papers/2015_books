@@ -340,8 +340,9 @@ provided %FERGU: los párrafos anteriores son un poco dispersos, puedes
 % O borrarlos - JJ
 %% Fin de párrafos a eliminar.
 This initial data set, provided in the framework of a contract by
-Trevenque Editorial, included 3159 books, and included descriptive information for each book includes price, 
-points of sale, subject, publisher, sales, returns, among other information.
+Trevenque Editorial, included 3159 books, and included descriptive information 
+for each book, such as price, points of sale, subject, publisher, sales, returns, 
+among other information.
 Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
 each book.
 
@@ -353,59 +354,59 @@ each book.
 \hline 
 
 \begin{minipage}{2.3in} \begin{verbatim}
-REFERENCE
-AUTHOR
-RETAIL PRICER
-SUBJECT1
-SUBJECT2
-SUBJECT3
-EDITORIAL
-COLLECTION
-BOOKBINDING
-PRINT-RUN
-TOTAL SALES
-DEPARTMENT STORES SALES
-SALES THROUGH DELEGATES
-REST OF SALES
-TOTAL SALES FIRST YEAR
-MALL SALES FIRST YEAR
-DELEGATES SALES FIRST YEAR
-REST OF SALES FIRST YEAR
-TOTAL DISTRIBUTED
-DISTRIBUTED THROUGH DEPARTMENT STORES
-DISTRIBUTED THROUGH DELEGATES
-DISTRIBUTED - REST
-TOTAL DISTRIBUTED FIRST YEAR
-DISTRIBUTED THROUGH DEPARTMENT STORES FIRST YEAR
-DISTRIBUTED THROUGH DELEGATES FIRST YEAR
+reference
+author
+retail pricer
+subject1
+subject2
+subject3
+editorial
+collection
+bookbinding
+print-run
+total sales
+department stores sales
+sales through delegates
+rest of sales
+total sales first year
+mall sales first year
+delegates sales first year
+rest of sales first year
+total distributed
+distributed through department stores
+distributed through delegates
+distributed - rest
+total distributed first year
+distributed through department stores first year
+distributed through delegates first year
 \end{verbatim} \end{minipage}     & 
 
 \begin{minipage}{2.3in} \begin{verbatim}
-REST OF DISTRIBUTED FIRST YEAR
-REPRINTS
-NUMBER OF REPRINTS
-TOTAL RETURNS
-RETURNS - DEPARTMENT STORES
-DELEGATES RETURNS
-REST OF RETURNS
-TOTAL RETURNS FIRT YEAR
-RETURNS -  DEPARTMENT STORES  FIRST YEAR
-DELEGATES RETURNS FIRST YEAR
-REST OF RETURNS FIRST YEAR
-GIFTS
-UNITS DISTRIBUTED AS NOVELTY
-TOTAL POINTS OF SALE
-POINTS OF SALE - DEPARTMENT STORES
-DELEGATES POINTS OF SALE
-REST OF POINTS OF SALE
-TOTAL POINTS OF SALE FIRST YEAR
-DEPARTMENT STORES POINTS OF SALE FIRST YEAR
-DELEGATES POINTS OF SALE FIRST YEAR
-REST OF POINTS OF SALE FIRST YEAR
-WEEKS FOR SALE
-POSITIVE SALES ENVIRONMENT
-MEDIUM SALES ENVIRONMENT
-NEGATIVE SALES ENVIRONMENT
+rest of distributed first year
+reprints
+number of reprints
+total returns
+returns - department stores
+delegates returns
+rest of returns
+total returns firt year
+returns -  department stores  first year
+delegates returns first year
+rest of returns first year
+gifts
+units distributed as novelty
+total points of sale
+points of sale - department stores
+delegates points of sale
+rest of points of sale
+total points of sale first year
+department stores points of sale first year
+delegates points of sale first year
+rest of points of sale first year
+weeks for sale
+positive sales environment
+medium sales environment
+negative sales environment
 \end{verbatim} \end{minipage}    \\
 
 \hline
@@ -732,34 +733,44 @@ practice. %, limiting at the same time the overfitting problem.
 To do so, in a first stage, the feature selection process has been carried out 
 using both the CfsSubsetEval \cite{Hall1998} (a correlation-based feature subset 
 evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an 
-adaptation of relief for attribute estimation) evaluation methods.
+adaptation of relief for attribute estimation) evaluation methods, implemented 
+in the Weka tool.
 
 % con ReliefFAttributeEval salen seleccionadas (9):
 % print_run num_reprints tot_points_sale tot_points_sale_1st_year reprints distrib_novelty weeks_sale + total_sales
 Using the ReliefFAttributeEval feature selection method, and taking into account 
 the best ranked atributes, the following variables have been selected: 
-\emph{print_run, num_reprints, tot_points_sale, tot_points_sale_1st_year, reprints, distrib_novelty, weeks_sale, total_sales}.
+\emph{print-run, number of reprints, total points of sale, total points of sale 1st year, reprints, units distributed as novelty, weeks for sale, total sales}.
 
 % con CfsSubsetEval salen seleccionadas (4):
 % num_reprints tot_points_sale print_run + total_sales
 Using the CfsSubsetEval feature selection method, the following variables have 
-been selected: \emph{num_reprints, tot_points_sale, print_run, total_sales}.
+been selected: \emph{number of reprints, total points of sale, print-run, total sales}.
 
 % como tercer método, se ha usado el SOM; tras interpretar los mapas, se
 % seleccionaron las variables más adecuadas.
 Then, an exhaustive analisys of the SOM results was carried out in order to 
 determine the best variables to be considered to buid the forecasting model.
 
+%
+% TODO: falta incluir aquí el análisis de los mapas SOM.
+% Determinar las variables a usar, según el SOM
 \textbf{ TODO: add the SOM analisys }
+% una vez hecho, hay que hacer las ejecuciones para ese dataset.
 
 Once the different reduced datasets have been obtained, proposed methods 
 (M5P, LR, SVM, kNN, MLP) have been selected for this study from 
 the Weka implementation, and they were run 30 times with the Weka default parameter 
-settings and a different random initialization seed for each run.
+settings and a different random initialization seed for each run and each dataset.
 
 Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
 (4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
 
+% datasets:
+%  original (all vars)
+%  4 vars
+%  9 vars
+%  SOM selected vars
 
 Table \ref{tabla:results13} shows obtained results (time to build the model and 
 error) after applying the proposed forecasting methods on the dataset with 13 
