@@ -712,10 +712,6 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
-%
-% TODO: explicar los resultados obtenidos en la selección de variables (1) con el SOM (2) con los métodos de selecc. vars.
-%
-
 Once the methods to be applied have been chosen, they must be applied to data sets 
 to obtain the prediction models for each one. 
 Later on, the models ability must be validated on non-previously seen data.
@@ -725,18 +721,44 @@ the model must be tested), a cross-validation technique \cite{Geisser1993,Kohavi
 has been used to estimate how accurately the predictive model will perform in 
 practice. %, limiting at the same time the overfitting problem.
 
+%
+% TODO: explicar los resultados obtenidos en la selección de variables: 
+%  (1) con el SOM, (2) con los métodos de selecc. vars.
+%
 % CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS:
 % - se ha usado la implementación de estos 5 métodos del paquete WEKA
 % - se han realizado 30 ejecuciones con cada método
 % - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU at 3.00GHz (4 cores) and 16 GB RAM
-% - 
+To do so, in a first stage, the feature selection process has been carried out 
+using both the CfsSubsetEval \cite{Hall1998} (a correlation-based feature subset 
+evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an 
+adaptation of relief for attribute estimation) evaluation methods.
+
+% con ReliefFAttributeEval salen seleccionadas (9):
+% print_run num_reprints tot_points_sale tot_points_sale_1st_year reprints distrib_novelty weeks_sale + total_sales
+Using the ReliefFAttributeEval feature selection method, and taking into account 
+the best ranked atributes, the following variables have been selected: 
+\emph{print_run, num_reprints, tot_points_sale, tot_points_sale_1st_year, reprints, distrib_novelty, weeks_sale, total_sales}.
+
+% con CfsSubsetEval salen seleccionadas (4):
+% num_reprints tot_points_sale print_run + total_sales
+Using the CfsSubsetEval feature selection method, the following variables have 
+been selected: \emph{num_reprints, tot_points_sale, print_run, total_sales}.
+
+% como tercer método, se ha usado el SOM; tras interpretar los mapas, se
+% seleccionaron las variables más adecuadas.
+Then, an exhaustive analisys of the SOM results was carried out in order to 
+determine the best variables to be considered to buid the forecasting model.
+
+\textbf{ TODO: add the SOM analisys }
+
+Once the different reduced datasets have been obtained, proposed methods 
+(M5P, LR, SVM, kNN, MLP) have been selected for this study from 
+the Weka implementation, and they were run 30 times with the Weka default parameter 
+settings and a different random initialization seed for each run.
 
 Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
 (4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
-
-Proposed methods (M5P, LR, SVM, kNN, MLP) have been selected for this study from 
-the Weka implementation, and they were run 30 times with the Weka default parameter 
-settings and a different random initialization seed for each run.
 
 
 Table \ref{tabla:results13} shows obtained results (time to build the model and 
