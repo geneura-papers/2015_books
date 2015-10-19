@@ -902,13 +902,29 @@ forecasting methods on the dataset with 4 variables per book.}}
 \label{tabla:results4}
 \end{table*}
 
+\begin{figure}[!h] 
+\begin{center}
+  \epsfig{file=fig_time.eps,width=7cm}
+\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 9, 4 and X features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As was expected, simpler methods are much faster to build the model than the complex ones.}}
+\label{fig:time}
+\end{center}
+\end{figure}
 
+\begin{figure}[!h] 
+\begin{center}
+  \epsfig{file=fig_rae.eps,width=7cm}
+\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 9, 4 and X features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
+\label{fig:rae}
+\end{center}
+\end{figure}
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
 Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
-\ref{tabla:results9} and \ref{tabla:results4}, using those categorical variables 
-as part of a big data set makes the problem hard to solve, both in required 
-time to build the forecasting models as well as in the obtained errors.
+\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4}, 
+as well as the figures \ref{fig:time} and \ref{fig:rae}, 
+using those categorical variables as part of a big dataset makes the problem 
+hard to solve, both in required time to build the forecasting models as well as 
+in the obtained errors.
 Moreover, some methods are unable to build the models in a reasonable time.
 %However, as stated before, Trevenque expert sales manager, taking into account 
 %his knowledge in industry experience and their perceptions, decided that 
@@ -927,14 +943,14 @@ require human intervention either for the operation or for interpretation.
 Thus, it is very suitable in order to be incorporated in a publishing company 
 processes.
 
-The Linear Regression model outperforms other complex methods, both in time 
+The Linear Regression model outperforms some other complex methods, both in time 
 (as it is a simple method to train) and in obtained errors.
-However, more powerful models, that obtain better results, can be obtained in 
-comparable time.
+However not in all cases, as more powerful models that obtain better results 
+can be obtained in comparable time.
 
-Taking into account the SVM model obtained results, this method obtains the lower 
-errors. Even when used using the default parameter values it exhibit a good 
-generalization performance.
+Taking into account the SVM model obtained results, this method obtains comparable 
+errors to those of M5P. Even when used using the default parameter values it exhibit 
+a good generalization performance.
 However, it is much slower than the others to build the model, not only when 
 using the dataset with categorical input variables, but also when using the 
 datasets with numerical variables.
