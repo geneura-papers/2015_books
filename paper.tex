@@ -390,7 +390,7 @@ returns - department stores
 delegates returns
 rest of returns
 total returns firt year
-returns -  department stores  first year
+returns -  department stores first year
 delegates returns first year
 rest of returns first year
 gifts
@@ -740,7 +740,8 @@ in the Weka tool.
 % print_run num_reprints tot_points_sale tot_points_sale_1st_year reprints distrib_novelty weeks_sale + total_sales
 Using the ReliefFAttributeEval feature selection method, and taking into account 
 the best ranked atributes, the following variables have been selected: 
-\emph{print-run, number of reprints, total points of sale, total points of sale 1st year, reprints, units distributed as novelty, weeks for sale, total sales}.
+\emph{print-run, number of reprints, total points of sale, total points of sale 
+first year, reprints, units distributed as novelty, weeks for sale, total sales}.
 
 % con CfsSubsetEval salen seleccionadas (4):
 % num_reprints tot_points_sale print_run + total_sales
@@ -767,17 +768,17 @@ Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz
 (4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
 
 % datasets:
-%  original (all vars)
+%  original (16 vars)
 %  4 vars
 %  9 vars
 %  SOM selected vars
 
-Table \ref{tabla:results13} shows obtained results (time to build the model and 
-error) after applying the proposed forecasting methods on the dataset with 13 
-variables per book.
-In this dataset, every book is described using numerical variables, and thus, 
-processing the data to build the different models is a fast task despite the 
-number of instances.
+Table \ref{tabla:resultsT} shows obtained results (time to build the model and 
+error) after applying the proposed forecasting methods on the original dataset,
+using the 16 available variables per book.
+In this dataset, every book is described using not only numerical variables, 
+but using two additional categorical variables, \emph{editorial} and \emph{collection}, 
+what makes harder to process the instances and build the different models.
 
 % Mean absolute error MAE / Root mean squared error RMSE /  Relative absolute error RAE / Root relative squared error RRSE
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
@@ -802,20 +803,18 @@ number of instances.
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different
-    forecasting methods on the dataset with 13 variables per book.}} 
-\label{tabla:results13}
+    forecasting methods on the original dataset (16 variables per book).}} 
+\label{tabla:resultsT}
 \end{table*}
 
 
 Obtained results (time to build the model and error) using the different 
-forecasting methods on the dataset with 7 variables per book can be shown 
-in Table \ref{tabla:results7}.
-Although in this dataset each book is described using a smaller number of 
-variables, two categorical variables, \emph{EDITORIAL} and \emph{SUBJECT}, are 
-included, what that makes harder to process the instances and build the different 
-models.
+forecasting methods on the dataset with 9 variables per book (obtained 
+using the ReliefFAttributeEval feature selection method) can be shown 
+in Table \ref{tabla:results9}.
+In this dataset, every book is described using numerical variables, and thus, 
+processing the data to build the different models is a fast task.
 
-  %[pedro] ya están todos los resultados de de tabla:results7 (MP5, LR, KNN, SVM, MLP)
 \begin{table*}[!h]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -835,9 +834,43 @@ models.
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset with 7 variables per book.}}
-\label{tabla:results7} %FERGU: es normal que con menos variables tarde más? Sí, el uso de MATERIA y EDITORIAL hacen que el conjunto sea endiablado.
+forecasting methods on the dataset with 9 variables per book.}}
+\label{tabla:results9}
 \end{table*}
+
+
+Finally, obtained results (time to build the model and error) using the different 
+forecasting methods on the dataset with 4 variables per book (obtained 
+using the CfsSubsetEval feature selection method) can be shown 
+in Table \ref{tabla:results4}.
+As in the previous case, in this dataset every book is described using numerical 
+variables. Thus, due to the number of features per book, building the different 
+models is faster than in the previous cases.
+
+\begin{table*}[!h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
+\hline
+  M5P     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
+\hline
+  LR      & 41.72 $\pm$ 8.41    & 120.29  & 252.91  & 18.91     & 16.54   \\
+\hline
+  SVM     & 1652.20 $\pm$ 283.50& 109.30  & 251.16   & 17.18    & 16.42   \\
+\hline
+  kNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
+\hline
+  MLP     & 3643.59 $\pm$ 72.40 & 696.92 $\pm$ 85.38 & 1609.37 $\pm$ 76.44  & 108.54 $\pm$ 13.34  & 105.96 $\pm$ 4.93   \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\small{Results (errors and time) obtained using the different 
+forecasting methods on the dataset with 4 variables per book.}}
+\label{tabla:results4}
+\end{table*}
+
+
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
 Paying attention to the obtained results shown in tables \ref{tabla:results13} 
