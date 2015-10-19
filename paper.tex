@@ -808,8 +808,36 @@ what makes harder to process the instances and build the different models.
 \label{tabla:resultsT}
 \end{table*}
 
+
+Obtained results (time to build the model and error) using the different 
+forecasting methods on the dataset with X variables per book (obtained 
+using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
+%In this dataset, every book is described using numerical variables, and thus, 
+%processing the data to build the different models is a fast task.
 %***************************************
-\textbf{ TODO: add the table of results obtained using the variables selected taking into account the SOM analysis }
+% TODO: falta rellenar la tabla, una vez que hagamos el análisis con el SOM y decidamos qué variables incluir en este dataset
+\begin{table*}[!h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%) & RRSE (\%)      \\
+\hline
+  M5P     & x $\pm$ y     & x  & x  & x    & x  \\
+\hline
+  LR      & x $\pm$ y     & x  & x  & x    & x  \\
+\hline
+  SVM     & x $\pm$ y     & x  & x  & x    & x  \\
+\hline
+  kNN     & x $\pm$ y     & x  & x  & x    & x  \\
+\hline
+  MLP     & x $\pm$ y   & x $\pm$ y & x $\pm$ y  & x $\pm$ y  & x $\pm$ y   \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\small{Results (errors and time) obtained using the different 
+forecasting methods on the dataset obtained after the SOM analysis.}}
+\label{tabla:resultsSOM}
+\end{table*}
 
 
 Obtained results (time to build the model and error) using the different 
