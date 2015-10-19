@@ -755,7 +755,7 @@ determine the best variables to be considered to buid the forecasting model.
 
 %
 % TODO: falta incluir aquí el análisis de los mapas SOM.
-% Determinar las variables a usar, según el SOM
+%*************************************** Determinar las variables a usar, según el SOM
 \textbf{ TODO: add the SOM analisys }
 % una vez hecho, hay que hacer las ejecuciones para ese dataset.
 
@@ -790,22 +790,26 @@ what makes harder to process the instances and build the different models.
 \hline 
  Method 	& Time (sec.) 	      & MAE 		& RMSE 		& RAE (\%) & RRSE (\%) 		\\
 \hline
-  M5P 		& 2.94 $\pm$ 0.51 	  & 65.49 	& 133.73 	& 11.10 	 & 9.17 	  \\
+  M5P 		& 23.13 $\pm$ 4.22    & 197.48  & 577.28  & 35.21    & 41.85  \\
 \hline
-  LR 		  & 0.33 $\pm$ 0.07 	  & 100.813 & 257.63 	& 17.09 	 & 17.67 	\\
+  LR 		  & 3327.87 $\pm$ 607.58& 247.22 & 561.67  & 44.08    & 40.71    \\
 \hline
-  SVM 		& 49.10 $\pm$ 8.05	  & 52.30	  & 139.45	& 8.87     & 9.56  	\\
+  SVM 		& 5425.68 $\pm$ 990.59& 215.69  & 574.76  & 38.46    & 41.66  \\
 \hline
-  kNN 		& 0.03 $\pm$ 0.01 	  & 198.16 	& 542.93 	& 33.59 	 & 37.24 	\\
+  kNN 		& 0.02 $\pm$ 0.00     & 302.07 	& 924.94 	& 53.86 	 & 67.05 	\\
 \hline
-  MLP 		& 12.70 $\pm$ 3.08 	  & 97.18 $\pm$ 24.74 	& 174.77 $\pm$ 31.50 	& 16.47 $\pm$ 4.19 	& 11.99 $\pm$ 2.16 	\\
+  MLP 		& - 	  & - 	& - 	& - 	& - 	\\
 \hline
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different
-    forecasting methods on the original dataset (16 variables per book).}} 
+    forecasting methods on the original dataset (16 variables per book). 
+    In this case, due to the categorial variables, the MLP could not be run.}} 
 \label{tabla:resultsT}
 \end{table*}
+
+%***************************************
+\textbf{ TODO: add the table of results obtained using the variables selected taking into account the SOM analysis }
 
 
 Obtained results (time to build the model and error) using the different 
@@ -819,17 +823,17 @@ processing the data to build the different models is a fast task.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
- Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
+ Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%) & RRSE (\%)      \\
 \hline
-  M5P     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
+  M5P     & 2.27 $\pm$ 0.02     & 195.97  & 629.33  & 34.94    & 45.62  \\
 \hline
-  LR      & 41.72 $\pm$ 8.41    & 120.29  & 252.91  & 18.91     & 16.54   \\
+  LR      & 0.38 $\pm$ 0.01     & 256.19  & 549.19  & 45.68    & 39.81   \\
 \hline
-  SVM     & 1652.20 $\pm$ 283.50& 109.30  & 251.16   & 17.18    & 16.42   \\
+  SVM     & 132.64 $\pm$ 2.86   & 230.66  & 613.27  & 41.12    & 44.45   \\
 \hline
-  kNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
+  kNN     & 0.06 $\pm$ 0.01     & 214.76  & 551.33  & 38.29    & 39.96   \\
 \hline
-  MLP     & 3643.59 $\pm$ 72.40 & 696.92 $\pm$ 85.38 & 1609.37 $\pm$ 76.44  & 108.54 $\pm$ 13.34  & 105.96 $\pm$ 4.93   \\
+  MLP     & 130.77 $\pm$ 1.51   & 326.60 $\pm$ 75.77 & 687.61 $\pm$ 55.70  & 58.23 $\pm$ 13.51  & 49.84 $\pm$ 4.04   \\
 \hline
 \end{tabular}
 \end{center}
@@ -853,15 +857,15 @@ models is faster than in the previous cases.
 \hline 
  Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
 \hline
-  M5P     & 7.77 $\pm$ 1.15     & 117.78  & 260.05  & 18.51     & 17.00  \\
+  M5P     & 2.02 $\pm$ 0.01     & 205.52  & 556.90  & 36.64     & 40.37  \\
 \hline
-  LR      & 41.72 $\pm$ 8.41    & 120.29  & 252.91  & 18.91     & 16.54   \\
+  LR      & 0.32 $\pm$ 0.00     & 261.04  & 547.42  & 46.54     & 39.68   \\
 \hline
-  SVM     & 1652.20 $\pm$ 283.50& 109.30  & 251.16   & 17.18    & 16.42   \\
+  SVM     & 81.74 $\pm$ 1.66    & 242.26  & 606.07   & 43.19    & 43.93   \\
 \hline
-  kNN     & 0.03 $\pm$ 0.01     & 293.98  & 1071.52  & 46.21    & 70.06   \\
+  kNN     & 0.05 $\pm$ 0.00     & 216.05  & 506.34  & 38.52    & 36.70   \\
 \hline
-  MLP     & 3643.59 $\pm$ 72.40 & 696.92 $\pm$ 85.38 & 1609.37 $\pm$ 76.44  & 108.54 $\pm$ 13.34  & 105.96 $\pm$ 4.93   \\
+  MLP     & 47.80 $\pm$ 0.51    & 318.29 $\pm$ 43.96 & 587.50 $\pm$ 51.50  & 56.75 $\pm$ 7.84  & 42.59 $\pm$ 3.73   \\
 \hline
 \end{tabular}
 \end{center}
@@ -873,13 +877,14 @@ forecasting methods on the dataset with 4 variables per book.}}
 
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
-Paying attention to the obtained results shown in tables \ref{tabla:results13} 
-and \ref{tabla:results7}, using those categorical variables as part of a big 
-data set makes the problem hard to solve, both in required time to build the 
-forecasting models as well as in the obtained errors.
-However, as stated before, Trevenque expert sales manager, taking into account 
-his knowledge in industry experience and their perceptions, decided that 
-\emph{EDITORIAL} and \emph{SUBJECT} should be taken into account.
+Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
+\ref{tabla:results9} and \ref{tabla:results4}, using those categorical variables 
+as part of a big data set makes the problem hard to solve, both in required 
+time to build the forecasting models as well as in the obtained errors.
+Moreover, some methods are unable to build the models in a reasonable time.
+%However, as stated before, Trevenque expert sales manager, taking into account 
+%his knowledge in industry experience and their perceptions, decided that 
+%\emph{EDITORIAL} and \emph{SUBJECT} should be taken into account.
 
 
 % - indicar pros y contras de los diferentes métodos
@@ -900,12 +905,11 @@ However, more powerful models, that obtain better results, can be obtained in
 comparable time.
 
 Taking into account the SVM model obtained results, this method obtains the lower 
-%FERGU: "the best errors" no se sabe si es lo mejor o lo peor xDD Pon "worst results" o así
 errors. Even when used using the default parameter values it exhibit a good 
 generalization performance.
 However, it is much slower than the others to build the model, not only when 
-using the data set with 13 input variables, but when using the data set with %FERGU: a veces pones dataset: unificarlo
-7 input variables (including \emph{EDITORIAL} and \emph{SUBJECT}).
+using the dataset with categorical input variables, but also when using the 
+datasets with numerical variables.
 
 kNN is the faster method used in this study, as it is the simpler method.
 However, the model is slow when classifying (as there are a large number of 
@@ -916,11 +920,9 @@ As far as the Multilayer Perceptron, its main drawbacks are both the cost of mod
 building (not only parameter and weights setting, but also time to train the 
 network) and the fact that it is a back-box model, and thus, it is difficult 
 to explain how the forecasts are obtained.
-In these experiments, the MLP requires a higher time than other methods, but also
-the obtained errors are worse as no parameter tuning to build the models have
-been carried out.
-Also, the difficulty to process information related to variables \emph{EDITORIAL} 
-and \emph{SUBJECT} might affect the worse results obtained on the final dataset.
+Moreover, in these experiments it has been seen the difficulty to process 
+information related to categorial variables, such as \emph{editorial} and 
+\emph{collection}.
 
 %[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
 
