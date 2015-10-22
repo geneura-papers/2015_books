@@ -329,7 +329,7 @@ each book.
 \begin{tabular}{|c|c|}
 \hline 
 
-\begin{minipage}{2.3in} \begin{verbatim}
+\begin{minipage}{2.45in} \begin{verbatim}
 reference
 author
 retail pricer
@@ -341,44 +341,44 @@ collection
 bookbinding
 print-run
 total sales
-department stores sales
+dept stores sales
 sales through delegates
 rest of sales
-total sales first year
-mall sales first year
-delegates sales first year
-rest of sales first year
+total sales 1st year
+mall sales 1st year
+delegates sales 1st year
+rest of sales 1st year
 total distributed
-distributed through department stores
+distributed through dept stores
 distributed through delegates
 distributed - rest
-total distributed first year
-distributed through department stores first year
-distributed through delegates first year
+total distributed 1st year
+distrib. through dept stores 1st year
+distrib. through delegates 1st year
 \end{verbatim} \end{minipage}     & 
 
 \begin{minipage}{2.3in} \begin{verbatim}
-rest of distributed first year
+rest of distributed 1st year
 reprints
 number of reprints
 total returns
-returns - department stores
+returns - dept stores
 delegates returns
 rest of returns
 total returns firt year
-returns -  department stores first year
-delegates returns first year
-rest of returns first year
+returns -  dept stores 1st year
+delegates returns 1st year
+rest of returns 1st year
 gifts
 units distributed as novelty
 total points of sale
-points of sale - department stores
+points of sale - dept stores
 delegates points of sale
 rest of points of sale
-total points of sale first year
-department stores points of sale first year
-delegates points of sale first year
-rest of points of sale first year
+total points of sale 1st year
+dept stores points of sale 1st year
+delegates points of sale 1st year
+rest of points of sale 1st year
 weeks for sale
 positive sales environment
 medium sales environment
@@ -390,14 +390,9 @@ negative sales environment
 \end{center}
 \end{table}
 
-In this prediction problem, several variables related to the own book affect 
-the forecasts, such as author, price, subject or publisher. %This has
-                                %to be grounded by the experiment and
-                                %graphs. 
-
-However, there are other external variables that also affect the sales of 
-a new book, such as those related to seasonality, trends or promotions, 
-that classical prediction methods can not deal with.
+In this prediction problem there are other external variables that also affect 
+the sales of a new book, such as those related to seasonality, trends or 
+promotions, that classical prediction methods can not deal with.
 However, an expert can consider them to modify the forecast obtained by 
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
@@ -420,14 +415,13 @@ the prediction process.
 \begin{figure}[!h] 
 \begin{center}
   \epsfig{file=stages.eps,width=7cm}
-\caption{\small{Three main stages in this research: data analysis, (2) forecasting 
+\caption{\small{Three main stages in a typical sales prediction process: data analysis, (2) forecasting 
 methods testing, and (3) subjectively adjusting the obtained results.}}
 \label{fig:stages}
 \end{center}
 \end{figure}
 
-Thus, in this study we propose three main stages (see Figure \ref{fig:stages} %FERGU: there are->we propose
-for details): 
+Thus, in this study two main stages are proposed: 
 \begin{itemize}
 
   \item  First, after the editorial company has provided the raw data, taken 
@@ -447,12 +441,14 @@ for details):
   different forecasting methods are used to obtain sales forecasts from the 
   data provided.
 
-  \item  Finally, in some cases, it is necessary a third stage where experienced 
-  managers adjust subjectively the results obtained using the forecasting methods. 
-  They might manually adjust the forecasting results taking into account their 
-  knowledge in industry experience and their perception about trends.
-
 \end{itemize}
+
+In some cases, depending on the company needs and after obtaining the forecasting 
+results, it is necessary a third stage where experienced 
+managers adjust subjectively the results obtained using the forecasting methods 
+(see Figure \ref{fig:stages} for details). 
+They might manually adjust the forecasting results taking into account their 
+knowledge in industry experience and their perception about trends.
 
 %Finally, although different authors have proposed metrics to determine 
 %the accuracy of estimates, most companies use metrics based on the analysis 
@@ -717,7 +713,7 @@ in the Weka tool.
 Using the ReliefFAttributeEval feature selection method, and taking into account 
 the best ranked atributes, the following variables have been selected: 
 \emph{print-run, number of reprints, total points of sale, total points of sale 
-first year, reprints, units distributed as novelty, weeks for sale, total sales}.
+1st year, reprints, units distributed as novelty, weeks for sale, total sales}.
 
 % con CfsSubsetEval salen seleccionadas (4):
 % num_reprints tot_points_sale print_run + total_sales
@@ -732,6 +728,10 @@ determine the best variables to be considered to buid the forecasting model.
 %
 % TODO: falta incluir aquí el análisis de los mapas SOM.
 %*************************************** Determinar las variables a usar, según el SOM
+\textbf{ TODO: add the SOM analysis }
+
+\textbf{ TODO: add the SOM analysis }
+
 \textbf{ TODO: add the SOM analysis }
 % una vez hecho, hay que hacer las ejecuciones para ese dataset.
 
@@ -786,7 +786,7 @@ what makes harder to process the instances and build the different models.
 
 
 Obtained results (time to build the model and error) using the different 
-forecasting methods on the dataset with X variables per book (obtained 
+forecasting methods on the dataset \textbf{with X variables} per book (obtained 
 using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
 %In this dataset, every book is described using numerical variables, and thus, 
 %processing the data to build the different models is a fast task.
@@ -990,8 +990,8 @@ the required time to train the model.
 In this sense, the decision trees proved to be a suitable model because of the 
 ease to explain how the prediction is obtained from the variables that describe 
 the new book. 
-This, compared to the black-box models such as the artificial neural network 
-was decisive from the point of view of the needs of experts and the company.
+This, compared to the black-box models such as the artificial neural network, 
+was decisive from the point of view of the needs of experts and Trevenque company.
 Moreover, proposed method was validated by the company and incorporated in a 
 business intelligence tool for publishing houses. %FERGU: no hay más info de esto? estaría guay describirlo
 
@@ -1026,15 +1026,13 @@ obtain desired sales. This is left as future work.
 
 %********************************************************************************
 \section*{Acknowledgements}
-This work has been supported in part by PreTEL (PRM Consultores - Trevenque),
-SIPESCA (Programa Operativo FEDER de Andalucía 2007-2013), TIN2011-28627-C04-02 
-and TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
-SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), PRY142/14
-(Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la
-IX Convocatoria de Proyectos de Investigaci{\'o}n), and PYR-2014-17
-GENIL project (CEI-BIOTIC Granada). 
-    % ¿Y el contrato con Trevenque?  - JJ
-    %[pedro] añadido 
+This work has been supported in part by 
+PreTEL (PRM Consultores - Trevenque),
+TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
+SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), 
+PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la
+IX Convocatoria de Proyectos de Investigaci{\'o}n), 
+and PYR-2014-17 GENIL project (CEI-BIOTIC Granada). 
 
 %********************************************************************************
 \bibliographystyle{plain}
