@@ -730,7 +730,8 @@ determine the best variables to be considered to buid the forecasting model.
 %*************************************** Determinar las variables a usar, según el SOM
 \textbf{ TODO: add the SOM analysis }
 
-\textbf{ TODO: add the SOM analysis }
+After the SOM analysis, the following variables have been selected: 
+\emph{retail pricer, reprints, number of reprints, gifts, units distributed as novelty, print-run, total sales }.
 
 \textbf{ TODO: add the SOM analysis }
 % una vez hecho, hay que hacer las ejecuciones para ese dataset.
@@ -811,7 +812,7 @@ using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset obtained after the SOM analysis.}}
+forecasting methods on the dataset obtained after the SOM analysis (7 variables per book).}}
 \label{tabla:resultsSOM}
 \end{table*}
 
@@ -842,7 +843,8 @@ processing the data to build the different models is a fast task.
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset with 9 variables per book.}}
+forecasting methods on the dataset obtained using the ReliefFAttributeEval 
+feature selection method (8 variables per book).}}
 \label{tabla:results9}
 \end{table*}
 
@@ -874,14 +876,15 @@ models is faster than in the previous cases.
 \end{tabular}
 \end{center}
 \caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset with 4 variables per book.}}
+forecasting methods on the dataset obtained using the CfsSubsetEval 
+feature selection method (4 variables per book).}}
 \label{tabla:results4}
 \end{table*}
 
 \begin{figure}[!h] 
 \begin{center}
   \epsfig{file=fig_time.eps,width=11cm}
-\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 9, 4 and X features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
+\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
 \label{fig:time}
 \end{center}
 \end{figure}
@@ -889,7 +892,7 @@ forecasting methods on the dataset with 4 variables per book.}}
 \begin{figure}[!h] 
 \begin{center}
   \epsfig{file=fig_rae.eps,width=11cm}
-\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 9, 4 and X features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
+\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
 \label{fig:rae}
 \end{center}
 \end{figure}
