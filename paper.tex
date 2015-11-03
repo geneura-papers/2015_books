@@ -544,11 +544,16 @@ with high training sample concentration and fewer where the samples are scarce.
 
 As far as the feature selection methods are concerned, Weka separates the process in two parts:
 \begin{itemize}
-  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method (CfsSubsetEval) and an adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation method \cite{RobnikSikonja1997} are used. 
+  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method (CfsSubsetEval) and an adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation method are used. 
+  
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
-``Relief'' is the second evaluator used in this work.
-  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. Two search criteria have been used in this work: BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility, and Ranker, that ranks features by their individual evaluations.
+
+``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbors, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values fos instances of the same class, and different values for instances of different class.
+  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
+
+For this reason, 
+%have been used in this work: BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility, and Ranker, that ranks features by their individual evaluations.
 \end{itemize}
 
 
