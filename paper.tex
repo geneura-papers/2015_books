@@ -511,16 +511,18 @@ In addition, among the variables describing a new book, some may affect
 predictions (those variables provide information), while others may not be 
 necessary and even redundant.
 
-
 Moreover, the algorithm runing times grow with the number of features, and thus 
 making the algorithm impractical for problems with a large number of features 
-\cite{Selvakuberan2008}. Feature selection task is usually carried out by 
-searching through all possible combinations of features, evaluating each one. 
+\cite{Selvakuberan2008}. Feature reduction is a task that is usually applied in these kind of situations, having two ways of performance \cite{kittler1986feature}: feature extraction and feature selection. 
+%Feature selection task is usually carried out by 
+%searching through all possible combinations of features, evaluating each one. 
 
-During the evaluation, the set of all possible features is analyzed in order 
-to find the best set of features, ranking them according to some metric.
-In this process, the feature's predictive ability along with the degree 
-of redundancy between them is considered.
+% During the evaluation, the set of all possible features is analyzed in order 
+% to find the best set of features, ranking them according to some metric.
+% In this process, the feature's predictive ability along with the degree 
+% of redundancy between them is considered.
+
+Feature extraction is a ``transformation-based approach", therefore it transforms the original meaning of the features. This approach involves simplifying the amount of resources for accurately describing a large set of data, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}.
 
 Thus, in order to reduce the dimensionality of the input data and to choose an 
 appropriate set of variables, both the SOM \cite{kohonen1998} method and several 
