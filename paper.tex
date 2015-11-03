@@ -523,11 +523,10 @@ making the algorithm impractical for problems with a large number of features
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-Feature extraction is a ``transformation-based approach", therefore it transforms the original meaning of the features. This approach involves simplifying the amount of resources for accurately describing a large set of data, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}.
+Feature extraction is a ``transformation-based approach", therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
 
-Thus, in order to reduce the dimensionality of the input data and to choose an 
-appropriate set of variables, both the SOM \cite{kohonen1998} method and several 
-feature selection methods have been applied.
+In addition, in order to reduce the dimensionality of the input data and to choose an 
+appropriate set of variables, the SOM \cite{kohonen1998} method has been also applied.
 
 
 SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organization, configures the output units into a topological representation of the original data. It tries to imitate the self-organization done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organize data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
@@ -543,13 +542,11 @@ with high training sample concentration and fewer where the samples are scarce.
 %FERGU: mencionarlo en la intro
 
 
-As far as the feature selection methods are concerned, both a correlation-based 
-feature subset evaluation method (CfsSubsetEval) \cite{Hall1998} and an 
-adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation 
-method \cite{RobnikSikonja1997} are used with two search criteria: BestFirst, 
-that searches the space of feature subsets by greedy hill-climbing augmented 
-with a backtracking facility, and Ranker, that ranks features by their individual 
-evaluations.
+As far as the feature selection methods are concerned, Weka separates the process in two parts:
+\begin{itemize}
+  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method (CfsSubsetEval) \cite{Hall1998} and an adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation method \cite{RobnikSikonja1997} are used. 
+  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. Two search criteria have been used in this work: BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility, and Ranker, that ranks features by their individual evaluations.
+\end{itemize}
 
 
 %-------------------------------------------------
