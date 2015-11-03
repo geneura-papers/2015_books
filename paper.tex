@@ -1,6 +1,7 @@
 \documentclass{llncs}
 \usepackage{graphics}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage[dvips]{epsfig}
 \usepackage[latin1]{inputenc}
 
@@ -727,6 +728,7 @@ the best ranked atributes, the following variables have been selected:
 % num_reprints tot_points_sale print_run + total_sales
 Using the CfsSubsetEval feature selection method, the following variables have 
 been selected: \emph{number of reprints, total points of sale, print-run, total sales}.
+%FERGU: podeis quitar estos parrafos de variables porque ya está la tabla :)
 
 % como tercer método, se ha usado el SOM; tras interpretar los mapas, se
 % seleccionaron las variables más adecuadas.
@@ -744,6 +746,33 @@ After the SOM analysis, the following variables have been selected:
 \textbf{ TODO: add the SOM analysis }
 % una vez hecho, hay que hacer las ejecuciones para ese dataset.
 
+\begin{table}
+\begin{tabular}[htb]{|c|c|c|c|c|}
+\hline
+Variable  & PreSales & ReliefFAttributeEval  & SOM & CfsSubsetEval \\ \hline \hline
+subject1    & $\checkmark$  &   &   &   \\ \hline
+subject2    & $\checkmark$  &   &   &   \\ \hline
+subject3    & $\checkmark$  &   &   &   \\ \hline
+editorial   & $\checkmark$  &   &   &   \\ \hline
+collection  & $\checkmark$  &   &   &   \\ \hline
+binding   & $\checkmark$  &   &   &   \\ \hline
+ret\_pricer    & $\checkmark$  &   & $\checkmark$  &   \\ \hline
+reprints    & $\checkmark$  & $\checkmark$  & $\checkmark$  &   \\ \hline
+num\_reprints    & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
+gifts   & $\checkmark$  &   & $\checkmark$  &   \\ \hline
+distrib\_novelty   & $\checkmark$  & $\checkmark$  & $\checkmark$  &   \\ \hline
+tot\_points\_sale   & $\checkmark$  & $\checkmark$  &   & $\checkmark$  \\ \hline
+tot\_points\_sale\_1st\_year    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
+weeks\_sale    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
+print\_run   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
+total\_sales   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
+
+\end{tabular}
+\caption{Variables used in each method.} %PABLO: Poned este caption bien
+\label{tab:varmethods}
+\end{table}
+
+Table \ref{tab:varmethods} shows the used variables used in each step. %Pablo: poner también esta frase mejor 
 Once the different reduced datasets have been obtained, proposed methods 
 (M5P, LR, SVM, kNN, MLP) have been selected for this study from 
 the Weka implementation, and they were run 30 times with the Weka default parameter 
