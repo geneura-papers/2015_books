@@ -323,7 +323,7 @@ among other information.
 Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
 each book.
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \caption{Parameters describing a book, as provided by the company Trevenque.}
 \label{tabla:paramsOrig50}
 \begin{center}
@@ -413,7 +413,7 @@ Usually, a preliminary analysis of the data is carried out to eliminate those
 variables that describe the product but do not provide useful information during 
 the prediction process.
 
-\begin{figure}[!h] 
+\begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=stages.eps,width=7cm}
 \caption{\small{Three main stages in a typical sales prediction process: data analysis, (2) forecasting 
@@ -798,7 +798,7 @@ what makes harder to process the instances and build the different models.
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
-\begin{table*}[!h]
+\begin{table*}[!ht]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
@@ -830,7 +830,7 @@ using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
 %processing the data to build the different models is a fast task.
 %***************************************
 % TODO: falta rellenar la tabla, una vez que hagamos el análisis con el SOM y decidamos qué variables incluir en este dataset
-\begin{table*}[!h]
+\begin{table*}[!ht]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
@@ -861,7 +861,7 @@ in Table \ref{tabla:results9}.
 In this dataset, every book is described using numerical variables, and thus, 
 processing the data to build the different models is a fast task.
 
-\begin{table*}[!h]
+\begin{table*}[!ht]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
@@ -894,7 +894,7 @@ As in the previous case, in this dataset every book is described using numerical
 variables. Thus, due to the number of features per book, building the different 
 models is faster than in the previous cases.
 
-\begin{table*}[!h]
+\begin{table*}[!ht]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
@@ -918,7 +918,7 @@ feature selection method (4 variables per book).}}
 \label{tabla:results4}
 \end{table*}
 
-\begin{figure}[!h] 
+\begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=fig_time.eps,width=11cm}
 \caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
@@ -926,7 +926,7 @@ feature selection method (4 variables per book).}}
 \end{center}
 \end{figure}
 
-\begin{figure}[!h] 
+\begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=fig_rae.eps,width=11cm}
 \caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
