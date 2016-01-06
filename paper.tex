@@ -460,18 +460,13 @@ the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008
 Those error measurements are also called error functions or cost functions. 
 %One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
 In any case, we recommend using widely accepted standard 
-equations\footnote{http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm}
-% FERGU: mejor tratar esto como una referencia, ya que es un texto
-% Efectivamente- JJ
-in order to compare obtained results with those presented in other research 
+equations \cite{gepsoft} in order to compare obtained results with those presented in other research 
 papers using other methods.
 That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), 
-implemented in tools like Weka\footnote{http://wiki.pentaho.com/display/DATAMINING} \cite{Witten2011} 
-or R\footnote{https://www.otexts.org/fpp/2/5} \cite{Hyndman2013}, are
+implemented in tools like Weka \cite{pentaho,Witten2011} 
+or R \cite{otexts,Hyndman2013}, are
 proposed.
-% no se deben usar footnotes donde debiera haber referencias. - JJ
 Specifically, in order to compute the forecasting errors of the different methods, 
-%FERGU: quitar este salto de linea y unirlo al párrafo de arriba.    ok
 Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute 
 error (RAE) and Root relative squared error (RRSE) have been selected:
 
@@ -735,16 +730,17 @@ been selected: \emph{number of reprints, total points of sale, print-run, total 
 Then, an exhaustive analisys of the SOM results was carried out in order to 
 determine the best variables to be considered to buid the forecasting model.
 
+
 %
 % TODO: falta incluir aquí el análisis de los mapas SOM.
-%*************************************** Determinar las variables a usar, según el SOM
+%***************************************
 \textbf{ TODO: add the SOM analysis }
 
 After the SOM analysis, the following variables have been selected: 
 \emph{retail pricer, reprints, number of reprints, gifts, units distributed as novelty, print-run, total sales }.
 
 \textbf{ TODO: add the SOM analysis }
-% una vez hecho, hay que hacer las ejecuciones para ese dataset.
+
 
 \begin{table}
 \begin{tabular}[htb]{|c|c|c|c|c|}
