@@ -175,31 +175,31 @@ real dataset. Finally, conclusions and future work are presented in Section
 % [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
 %  por eso quiero comenzar hablando de la aplicación de métodos
 %  de predicción en la industria en general, que sí hay bastante bibliografía.
+% Antonio - me parece bien
 
-% In the literature several proposals to perform the prediction of sales in different fields can be found. 
-In the last years, different analysis and forecasting methods, such as
-regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} 
-or fuzzy systems \cite{Mastorocostas2001} 
-have been applied in different industry sectors, i.e. electricity
-consumption, traffic flow or sales forecasting. % ¿Y qué? Esta frase
-                                % no aporta nada. La primera frase
-                                % tiene que enmarcar el estado del
-                                % arte - JJ
+% Antonio - Cosas generales a mejorar en el SotA:
+% - habría que comparar más veces este trabajo con lo que hacen otros, destacando nuestras diferencias. Sólo se menciona al final de la sección
+% - habría que destacar claramente ls aportes de este trabajo al SotA, cómo hace que avance ;)
+% - habría que incluir citas a artículos de la revista que elijamos y comentarlos aquí
 
-Specifically, using time series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
+Sales forecasting is a problem which has been addressed several times in the literature. Most of the studies have been conducted using different analysis and forecasting methods, such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001}, applied to different industrial sectors.
+% ¿Y qué? Esta frase
+% no aporta nada. La primera frase
+% tiene que enmarcar el estado del
+% arte - JJ
+% Antonio - la he intentado mejorar.
+
+Specifically, Time-Series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
 is perhaps the most used technique to tackle the sales forecasting problems. 
 %FERGU: terminar esta frase con punto en vez de coma para que no sea larga.   OK
-The efficiency of these techniques depends largely on the field of application 
-and the problem data as they require a large amount of data for predicting 
-sales of new products are not the most suitable for this task \cite{ChingChin2010}.
+The efficiency of these techniques strongly depends on the field of application 
+and the correctness of the problem data. However, since they require a large amount of data for predicting sales, these methods are not the most suitable for this task \cite{ChingChin2010}.
 
-This is the new book sales forecasting case, a problem with issues such as 
-dealing with limited data, finding adequate forecasting methods and selecting 
-the best method to use \cite{ChingChin2010}.
-In the case of new unpublished-books, there is no historical data to define 
-patterns, and only some descriptive data about the new book is available 
-\cite{ChingChin2010,FaderHardie2005,Madsen2008}.
-Thus, not any timeseries-based forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
+This is the case of new book sales forecasting, a problem with issues such as 
+dealing with quite limited data (just a few variables are known in advance) or the existence of several categorical values (which are harder to be processed). Given these issues, finding adequate forecasting techniques and selecting 
+the best method to use is also a problem \cite{ChingChin2010}.
+Moreover, in the case of new unpublished-books, there is no historical data to define patterns, and only some descriptive data about the new book are available 
+\cite{ChingChin2010,FaderHardie2005,Madsen2008}. Thus, not any time-series forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
 
 %This is the new book sales forecasting case, for which no historical data to make predictions is available \cite{ChingChin2010,FaderHardie2005,Madsen2008} and only some descriptive variables relative to the new unpublished-book are available.
 
@@ -211,13 +211,8 @@ Thus, not any timeseries-based forecasting method can be used \cite{Madsen2008,C
 
 %An additional issue is the difficulty to compare our model with classical forecasting methods, such as time series prediction methods, since books do not have specific sales time series.
 
-Methods used to predict book sales have been generally based on experts' 
-experience who analyzed data about sales, and taking into account their knowledge 
-in industry experience and their perception about trends, could make decisions
-on the companies production (how many books should be printed when a new book is published).
-This a complex problem as the predictions are influenced by external variables 
-that must be taken into account, such as seasonality, promotions or fashions 
-that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}.
+For this reason, usually the methods used to predict book sales have been generally based on experts' experience. They analyze data about sales and, taking into account their knowledge in industry, their experience, and their perception about trends, could make decisions on the companies production (how many books should be printed when a new book is published).
+This is a complex problem, since the predictions are influenced by external variables that must be taken into account, such as seasonality, promotions or fashions that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}.
 
   %[pedro] sobre la industria editorial no hay trabajos sobre predicción de ventas.
   % Lo habitual ha sido usar el conocimiento de expertos para realizar predicciones 
@@ -227,14 +222,12 @@ that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,Che
   %     Moon2010ICSSSM
   %     Moon2010ICEC
 Recently, some works propose analyzing relationships between on-line information 
-and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}.
-Specifically, authors propose using the number of blog references as an indicator 
-of book sales.
-Different sales patterns are observed by analyzing data obtained.
-In any case, Moon et al \cite{Moon2010ICSSSM,Moon2010ICEC} used historical data from published books, 
+and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon et al. propose using the number of blog references as an indicator of the success of a book, and thus its sales. Different sales patterns are observed by analyzing data obtained.
+% Antonio - describir esos 'sales patterns'. ;)
+%
+However, the authors used in these papers historical data from published books, 
 %FERGU: a qué research se refiere? A la nuestra o a la de la referencia? Dejarlo más claro, por si acaso.   ok
-and the proposed methodology can not be usable in the problem of unpublished-books 
-sales prediction.
+so their proposed methodology can not be applied in the problem of unpublished-books sales prediction.
 
 %
 % pasar a contar los casos de la predicción de ventas en la 
@@ -246,56 +239,45 @@ sales prediction.
 % Hay que echar mano de productos similares o simplemente de los datos que describen el nuevo producto.
 %
 
-Some authors have faced the problem of forecasting sales of new products using 
-different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
-Thomassey et al \cite{SThomassey2014} propose using a clustering method and 
-decision trees for sales forecasting in textile-apparel fashion industry, %FERGU: appared? apparel, creo.  ¡sí!
-a very similar issue to the new book publishing problem.
-The same problem was previously faced by Xia et al \cite{Xia2012} using a 
-forecasting method based on extreme learning machine with adaptive metrics of inputs.
-Complexity of this problem is due to the lack of historical data, short lifetime 
-of the large number of items, and due to the influence of variables such as 
-promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}.
+In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
+% Antonio - quizá habría que comentar alguno o todos bervemente...
+%
+In the same line, Thomassey et al. \cite{SThomassey2014} propose using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, %FERGU: appared? apparel, creo.  ¡sí!
+a very similar issue to the new book publishing one.
+The same problem was previously faced by Xia et al. \cite{Xia2012} using a 
+forecasting method based on extreme machine learning with adaptive metrics of inputs.
+% Antonio - of -> as???
+The complexity of this problem relies on the lack of historical data, on the short lifetime of the majority of items, 
+% Antonio - ver si está bien el cambio 'large number' -> 'majority'
+and on the influence of variables such as promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}, as mentioned above.
 
   %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
   % New tea product
   % New cosmetic product
   % New soft drink product
 In \cite{ChingChin2010}, a decision-support system for new product sales %FERGU: The work of Chinchin et al.?
-forecasting is proposed to solve three real-world sales forecasting problems 
-involving new tea, cosmetic, and soft drink products taking into account 
-quantitative variables. 
-In this study, it is assumed that products are classified based on their sales 
-pattern so that products in the same class would have a similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? ok
-However, as the authors state, proposed system can not deal with qualitative 
-date related to the products, and even more real-world cases, such as consumer 
-electronics and fashion products, should be examined, as these industries 
-introduce new products every season. 
+forecasting is proposed to solve three real-world sales forecasting problems, namely: new tea, cosmetics, and soft drink products. This is addressed taking into account quantitative variables.
+% Antonio - qué significa eso?
+In that study, products are classified based on their sales patterns, so it is assumed that products in the same class would follow a similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? ok
+However, as the authors state, the proposed system can not deal with qualitative 
+data related to the products. Moreover, real-world cases, such as consumer 
+electronics and fashion products, should be deeply analyzed, as these industries 
+present/launch new products every season. 
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
 In those cases where historical data is available, classical time series 
-forecasting methods can be applied, which is what they do in \cite{Chang2009}, where a hybrid 
-model integrating K-means and fuzzy neural networks to forecast the future sales 
-of a printed circuit board is proposed.
-A similar method is proposed by Chern et al \cite{Chern2015}, who analyze 
+forecasting methods can be applied, which is what the authors do in \cite{Chang2009}, where a hybrid model integrating K-means and fuzzy neural networks to forecast the future sales of a printed circuit board is proposed.
+A similar method is described by Chern et al. \cite{ChernWSF15}, who analyze 
 historical data along online reviews, reviewer characteristics and review 
-influences to understand how electronic word-of-mouth affects product sales. 
-The proposed method is suitable in those sales forecasting problems with abundant %FERGU: _The_ proposed method?    ok
-online reviews and historical data.
+influences to understand how electronic `word-of-mouth' influences product sales. The proposed method is suitable for those sales forecasting problems with a big amount of online reviews and historical data.
 
-Taking into account the kind of problem we address in this paper,
-prediction of sales of 
-a new product for which no historical data is available,
-the classical forecasting methods based on time series are not
-adequate, although they can obviously be used once the book has been
-for sale. 
-Thus, in this paper the relevant variables in the prediction of sales are determined
-using data visualization tools and then, standard data mining software 
-to predict sales is used to deduce print-run.
+Thus, taking into account the kind of problem we address in this paper, i.e. the prediction of sales of a new product for which no historical data is available, the classical forecasting methods based on time-series are not
+adequate, although they can obviously be used once the book has been launched for sale. 
+In our work the relevant variables in the prediction of sales are identified
+by means of data visualization and feature selection methods. Then, machine learning techniques are applied to predict sales and to infer the ideal print-run of a book.
 In addition, since publishers need models to explain obtained predictions, 
-black box forecasting methods may not be suitable for this problem, so 
-models based on rules are tested as an alternative.
+`black box' forecasting methods may not be suitable, so models based on decision rules have been tested as an alternative.
 
 
 
@@ -506,7 +488,7 @@ In addition, among the variables describing a new book, some may affect
 predictions (those variables provide information), while others may not be 
 necessary and even redundant.
 
-Moreover, the algorithm runing times grow with the number of features, and thus 
+Moreover, the algorithm running times grow with the number of features, and thus 
 making the algorithm impractical for problems with a large number of features 
 \cite{Selvakuberan2008}. Feature reduction is a task that is usually applied in these kind of situations, having two ways of performance \cite{kittler1986feature}: feature extraction and feature selection. 
 %Feature selection task is usually carried out by 
