@@ -683,12 +683,12 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
-\subsubsection{Experimental setup}
+\subsection{Experimental setup}
 
     \textbf{ TODO: details about the method parameters }
 
 
-\subsubsection{Obtained results}
+\subsection{Obtained results}
 
 Once the methods to be applied have been chosen, they must be applied to datasets 
 to obtain the prediction models for each one. 
@@ -772,32 +772,27 @@ Finally, the resulted dataset consisted of ten features including the new Total 
 
 Figure \ref{fig:componentplanes} shows the U-matrix and component variables resulted from SOM training. The term component is used in SOM to refer to the features. The component planes in Figure \ref{fig:componentplanes} show the trend of values of the the prototype vectors of the SOM map units. These values are represented as colors. The colorbar on the right of each component plane shows the indication of each color. On the other side, the U-matrix on the top left corner shows the distances between the adjacent units. It is important to note that high values in the matrix indicates large distance between the units of the map. It can be noticed also that there are more hexagons in the U-matrix than component planes since the distances between units is also represented as hexagons.
 
-In Figure \ref{fig:Umatrix} we label the U-matrix with the Total Sales categories. It can be clearly shown that the SOM algorithm has successfully clustered the labels of the Total Sales into clear identified regions. In the top of the U-matrix the VL category is located. The L category appears in the middle of the matrix. Most of the M category appears in bottom-right corner while the H and VH categories are concentrated in the bottom-left corner. 
+In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales categories. It can be clearly shown that the SOM algorithm has successfully clustered the labels of the Total Sales into clear identified regions. In the top of the U-matrix the VL category is located. The L category appears in the middle of the matrix. Most of the M category appears in bottom-right corner while the H and VH categories are concentrated in the bottom-left corner. 
 Inspecting the component \texttt{distrib\_novelity}, \texttt{tot\_points\_sale}, \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run} components have the highest similarity to the clusters shown in the U-matrix. Based on this analysis, those features will be selected for the next stage. 
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.80]{SOM_figure.eps}
+\includegraphics[scale=0.4]{SOM_figure.eps}
 \end{center}
 \caption{U-matrix and component planes.}
 \label{fig:componentplanes}
 \end{figure*}
 
-\begin{figure*}[http]
-\centering
-    \begin{subfigure}[b]{0.32\textwidth}            
-            \includegraphics[scale=0.50]{Umatrix.eps}
-            \caption{U-matrix}
-            \label{fig:Um}
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.32\textwidth}  
-            \includegraphics[scale=0.50]{Labels.eps}
-            \caption{Labels}
-            \label{L}
-    \end{subfigure}
- 
-    \caption{Labeling the U-matrix using the Total Sales variable.}
-\label{fig:Umatrix}
+\begin{figure*}[http] 
+\begin{center} 
+\begin{tabular}{cc}
+\includegraphics[scale=0.55]{Umatrix.eps}  &
+\includegraphics[scale=0.55]{Labels.eps}  \\
+U-matrix & Labels 
+\end{tabular}
+\end{center} 
+\caption{Labeling the U-matrix using the total-sales variable.}
+\label{fig:Umatrix} 
 \end{figure*}
 
 %*************************************** SOM ANALISYS
@@ -976,134 +971,78 @@ MLP & 0.9047 & 369.3486 & 646.1241 & 64.52\% & 46.09\% & 10.93\tabularnewline
     \textbf{ TODO: comment the following figures: conv2 , conv2ReliefAttributeEval , conv2CfsSubsetEval , conv2SOM }
 
 
-\begin{figure*}[http]
-\centering
-    \begin{subfigure}[b]{0.32\textwidth}            
-            \includegraphics[scale=0.32]{m5p.eps}
-            \caption{M5P}
-            \label{fig:M5P}
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.32\textwidth}  
-            \includegraphics[scale=0.32]{lr.eps}
-            \caption{LR}
-            \label{fig:LR}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{svm.eps}
-            \caption{SVM}
-            \label{SVM}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{knn.eps}
-            \caption{k-NN}
-            \label{fig:k-NN}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{mlp.eps}
-            \caption{MLP}
-            \label{MLP}
-    \end{subfigure}
-    \caption{Actual VS predicted sales for M5P, LR, SVM, k-NN, MLP models.}
+\begin{figure*}[http] 
+\begin{center} 
+\begin{tabular}{ccc}
+\includegraphics[scale=0.22]{m5p.eps}  &
+\includegraphics[scale=0.22]{lr.eps}   &
+\includegraphics[scale=0.22]{svm.eps}  \\
+M5P & LR & SVM 
+\end{tabular}
+\begin{tabular}{cc}
+\includegraphics[scale=0.22]{knn.eps}  &
+\includegraphics[scale=0.22]{mlp.eps}  \\
+k-NN & MLP
+\end{tabular}
+\end{center} 
+\caption{Actual VS predicted sales for M5P, LR, SVM, k-NN, MLP models.}
 \label{conv2}
 \end{figure*}
 
 
-\begin{figure*}[http]
-\centering
-    \begin{subfigure}[b]{0.32\textwidth}            
-            \includegraphics[scale=0.32]{m5p_RAE.eps}
-            \caption{M5P}
-            \label{fig:M5P1}
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.32\textwidth}  
-            \includegraphics[scale=0.32]{lr_RAE.eps}
-            \caption{LR}
-            \label{fig:LR1}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{svm_RAE.eps}
-            \caption{SVM}
-            \label{SVM1}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{knn_RAE.eps}
-            \caption{k-NN}
-            \label{fig:k-NN1}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{mlp_RAE.eps}
-            \caption{MLP}
-            \label{MLP1}
-    \end{subfigure}
-    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
+\begin{figure*}[http] 
+\begin{center} 
+\begin{tabular}{ccc}
+\includegraphics[scale=0.22]{m5p_RAE.eps}  &
+\includegraphics[scale=0.22]{lr_RAE.eps}   &
+\includegraphics[scale=0.22]{svm_RAE.eps}  \\
+M5P & LR & SVM 
+\end{tabular}
+\begin{tabular}{cc}
+\includegraphics[scale=0.22]{knn_RAE.eps}  &
+\includegraphics[scale=0.22]{mlp_RAE.eps}  \\
+k-NN & MLP
+\end{tabular}
+\end{center} 
+\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
 \label{conv2ReliefAttributeEval}
 \end{figure*}
 
 
-\begin{figure*}[http]
-\centering
-    \begin{subfigure}[b]{0.32\textwidth}            
-            \includegraphics[scale=0.32]{m5p_CFS.eps}
-            \caption{M5P}
-            \label{fig:M5P2}
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.32\textwidth}  
-            \includegraphics[scale=0.32]{lr_CFS.eps}
-            \caption{LR}
-            \label{fig:LR2}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{svm_CFS.eps}
-            \caption{SVM}
-            \label{SVM2}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{knn_CFS.eps}
-            \caption{k-NN}
-            \label{fig:k-NN2}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{mlp_CFS.eps}
-            \caption{MLP}
-            \label{MLP2}
-    \end{subfigure}
-    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
+\begin{figure*}[http] 
+\begin{center} 
+\begin{tabular}{ccc}
+\includegraphics[scale=0.22]{m5p_CFS.eps}  &
+\includegraphics[scale=0.22]{lr_CFS.eps}   &
+\includegraphics[scale=0.22]{svm_CFS.eps}  \\
+M5P & LR & SVM 
+\end{tabular}
+\begin{tabular}{cc}
+\includegraphics[scale=0.22]{knn_CFS.eps}  &
+\includegraphics[scale=0.22]{mlp_CFS.eps}  \\
+k-NN & MLP
+\end{tabular}
+\end{center} 
+\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
 \label{conv2CfsSubsetEval}
 \end{figure*}
 
 
-\begin{figure*}[http]
-\centering
-    \begin{subfigure}[b]{0.32\textwidth}            
-            \includegraphics[scale=0.32]{m5p_SOM.eps}
-            \caption{M5P}
-            \label{fig:M5P2}
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.32\textwidth}  
-            \includegraphics[scale=0.32]{lr_SOM.eps}
-            \caption{LR}
-            \label{fig:LR2}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{svm_SOM.eps}
-            \caption{SVM}
-            \label{SVM2}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{knn_SOM.eps}
-            \caption{k-NN}
-            \label{fig:k-NN2}
-    \end{subfigure}
-      \begin{subfigure}[b]{0.32\textwidth}
-            \includegraphics[scale=0.32]{mlp_SOM.eps}
-            \caption{MLP}
-            \label{MLP2}
-    \end{subfigure}
-    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
+\begin{figure*}[http] 
+\begin{center} 
+\begin{tabular}{ccc}
+\includegraphics[scale=0.22]{m5p_SOM.eps}  &
+\includegraphics[scale=0.22]{lr_SOM.eps}   &
+\includegraphics[scale=0.22]{svm_SOM.eps}  \\
+M5P & LR & SVM 
+\end{tabular}
+\begin{tabular}{cc}
+\includegraphics[scale=0.22]{knn_SOM.eps}  &
+\includegraphics[scale=0.22]{mlp_SOM.eps}  \\
+k-NN & MLP
+\end{tabular}
+\end{center} 
+\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
 \label{conv2SOM}
 \end{figure*}
 
