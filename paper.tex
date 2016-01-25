@@ -683,6 +683,13 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
+\subsubsection{Experimental setup}
+
+    \textbf{ TODO: details about the method parameters }
+
+
+\subsubsection{Obtained results}
+
 Once the methods to be applied have been chosen, they must be applied to datasets 
 to obtain the prediction models for each one. 
 Later on, the models ability must be validated on non-previously seen data.
@@ -719,37 +726,81 @@ Using the CfsSubsetEval feature selection method, the following variables have
 been selected: \emph{number of reprints, total points of sale, print-run, total sales}.
 %FERGU: podeis quitar estos parrafos de variables porque ya está la tabla :)
 
+%*************************************** SOM ANALISYS
 % como tercer método, se ha usado el SOM; tras interpretar los mapas, se
 % seleccionaron las variables más adecuadas.
 Then, an exhaustive analisys of the SOM results was carried out in order to 
 determine the best variables to be considered to buid the forecasting model.
 
+Further important prepocessing steps are carried out before applying the SOM analysis.
+First, in order to label the U-matrix with total-sales values, this variable is converted from numerical to categorical. Five categories have been created to represent the quantities of sales of each book: Very Low (VL), Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total-sales that correspond to each category along with the number of books that fall in. Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the book are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the SOM analysis.
 
-%
-% TODO: falta incluir aquí el análisis de los mapas SOM.
-%***************************************
-\textbf{ TODO: add the SOM analysis }
+\begin{table*}[ht]
+\caption{Categories corresponding to total-sales variable. }
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Category & Range of total sales & Count & Ratio\tabularnewline
+\hline 
+\hline 
+Very Low & 1-100 & 2233 & 36.71\%\tabularnewline
+\hline 
+Low & 100-500 & 2323 & 38.19\%\tabularnewline
+\hline 
+Medium & 500-2000 & 1239 & 20.37\%\tabularnewline
+\hline 
+High & 2000-5000 & 224 & 3.68\%\tabularnewline
+\hline 
+Very High & $>$5000 & 64 & 1.05\%\tabularnewline
+\hline 
+\end{tabular}
+\label{table:freq}
+\end{table*}
 
-\begin{figure}[!ht] 
+
+\begin{figure*}[ht]
 \begin{center}
-  \epsfig{file=SOM_25x16_pre_venta.eps,width=15cm}
-\caption{\small{SOM analysis.}}
-\label{fig:somanalysis}
+\includegraphics[scale=0.60]{freq-sales}
 \end{center}
-\end{figure}
+\caption{Number of books in each category.}
+\label{fig:count}
+\end{figure*}
 
-\begin{figure}[!ht] 
+Second, two categorical features (i.e; Editorial and Collection) are removed from the analysis since they have large number of unique different values and therefore they are less informative. Moreover, four features (i.e; Subject1, Subject2, Subject3 and Book-bining) have more than 10\% missing values so they are removed also.
+
+Finally, the resulted dataset consisted of ten features including the new Total Sales categorical feature. The SOM algorithm is trained based on the nine numerical variables while the new total-sales variable is used to label this data. The SOM algorithm is applied with a large map size of $26 \times 16$  in order to represent the data. The best SOM training results are obtained with a final quantization error of 0.691 and topographic error of 0.046.
+
+Figure \ref{fig:componentplanes} shows the U-matrix and component variables resulted from SOM training. The term component is used in SOM to refer to the features. The component planes in Figure \ref{fig:componentplanes} show the trend of values of the the prototype vectors of the SOM map units. These values are represented as colors. The colorbar on the right of each component plane shows the indication of each color. On the other side, the U-matrix on the top left corner shows the distances between the adjacent units. It is important to note that high values in the matrix indicates large distance between the units of the map. It can be noticed also that there are more hexagons in the U-matrix than component planes since the distances between units is also represented as hexagons.
+
+In Figure \ref{fig:Umatrix} we label the U-matrix with the Total Sales categories. It can be clearly shown that the SOM algorithm has successfully clustered the labels of the Total Sales into clear identified regions. In the top of the U-matrix the VL category is located. The L category appears in the middle of the matrix. Most of the M category appears in bottom-right corner while the H and VH categories are concentrated in the bottom-left corner. 
+Inspecting the component \texttt{distrib\_novelity}, \texttt{tot\_points\_sale}, \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run} components have the highest similarity to the clusters shown in the U-matrix. Based on this analysis, those features will be selected for the next stage. 
+
+\begin{figure*}[ht]
 \begin{center}
-  \epsfig{file=UMATRIX_25x16_pre_venta.eps,width=15cm}
-\caption{\small{SOM UMATRIX.}}
-\label{fig:somumatrix}
+\includegraphics[scale=0.80]{fig1}
 \end{center}
-\end{figure}
+\caption{U-matrix and component planes.}
+\label{fig:componentplanes}
+\end{figure*}
 
-After the SOM analysis (see Figures \ref{fig:somanalysis} and \ref{fig:somumatrix}), the following variables have been selected: 
-\emph{retail pricer, reprints, number of reprints, gifts, units distributed as novelty, print-run, total sales }.
+\begin{figure*}[http]
+\centering
+    \begin{subfigure}[b]{0.32\textwidth}            
+            \includegraphics[scale=0.50]{Umatrix.eps}
+            \caption{U-matrix}
+            \label{fig:Um}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.32\textwidth}  
+            \includegraphics[scale=0.50]{Labels.eps}
+            \caption{Labels}
+            \label{L}
+    \end{subfigure}
+ 
+    \caption{Labeling the U-matrix using the Total Sales variable.}
+\label{fig:Umatrix}
+\end{figure*}
 
-\textbf{ TODO: add the SOM analysis }
+%*************************************** SOM ANALISYS
 
 
 \begin{table}
@@ -804,59 +855,56 @@ what makes harder to process the instances and build the different models.
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
-\begin{table*}[!ht]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline 
- Method 	& Time (sec.) 	      & MAE 		& RMSE 		& RAE (\%) & RRSE (\%) 		\\
-\hline
-  M5P 		& 24.24 $\pm$ 0.96    & 197.48  & 577.28  & 35.21    & 41.85  \\
-\hline
-  LR 		  & 3533.84 $\pm$ 178.38& 247.22 & 561.67  & 44.08    & 40.71    \\
-\hline
-  SVM 		& 5586.96 $\pm$ 139.71& 215.69  & 574.76  & 38.46    & 41.66  \\
-\hline
-  kNN 		& 0.02 $\pm$ 0.00     & 302.07 	& 924.94 	& 53.86 	 & 67.05 	\\
-\hline
-  MLP 		& - 	  & - 	& - 	& - 	& - 	\\
-\hline
-\end{tabular}
-\end{center}
-\caption{\small{Results (errors and time) obtained using the different
-    forecasting methods on the original dataset (16 variables per book). 
-    In this case, due to the categorial variables, the MLP could not be run.}} 
+\begin{table*}[h]
+\caption{Results (errors and time) obtained using the different forecasting
+methods on the original dataset (16 variables per book). In this case,
+due to the categorial variables, the MLP could not be run.}
 \label{tabla:resultsT}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+Base & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
+\hline 
+\hline 
+M5P & 0.9076 & \textbf{202.1547} & 591.0257 & \textbf{35.31}\% & 42.10\% & 39.73\tabularnewline
+\hline 
+LR & 0.9204 & 255.0526 & 548.0975 & 44.5527 & 39.10\% & 0.03\tabularnewline
+\hline 
+SVM & \textbf{0.9402} & 203.4416 & \textbf{481.7528} & 35.54\% & \textbf{34.37}\% & 308.31\tabularnewline
+\hline 
+kNN & 0.7273 & 310.4078 & 993.2663 & 54.22\% & 70.85\% & 0\tabularnewline
+\hline 
+MLP & 0.9197 & 289.7393 & 585.6445 & 50.61\% & 41.78\% & 82.08\tabularnewline
+\hline 
+\end{tabular}
 \end{table*}
 
 
 Obtained results (time to build the model and error) using the different 
 forecasting methods on the dataset with 7 variables per book (obtained 
 using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
-%In this dataset, every book is described using numerical variables, and thus, 
-%processing the data to build the different models is a fast task.
-%***************************************
-% TODO: falta rellenar la tabla, una vez que hagamos el análisis con el SOM y decidamos qué variables incluir en este dataset
-\begin{table*}[!ht]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline 
- Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%) & RRSE (\%)      \\
-\hline
-  M5P     & 1.74 $\pm$ 0.10     & 218.81  & 661.85  & 39.01    & 47.98  \\
-\hline
-  LR      & 0.27 $\pm$ 0.02     & 258.82  & 582.74  & 46.15    & 42.24  \\
-\hline
-  SVM     & 45.58 $\pm$ 1.89    & 240.18  & 614.30  & 42.82    & 44.53  \\
-\hline
-  kNN     & 0.04 $\pm$ 0.00     & 221.21  & 520.17  & 39.44    & 37.71  \\
-\hline
-  MLP     & 8.99 $\pm$ 0.10   & 353.70 $\pm$ 57.74 & 624.87 $\pm$ 86.77  & 63.06 $\pm$ 10.29  & 45.30 $\pm$ 6.29   \\
-\hline
-\end{tabular}
-\end{center}
-\caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset obtained after the SOM analysis (7 variables per book).}}
+\begin{table*}[h]
+\caption{Results (errors and time) obtained using the different forecasting methods
+on the dataset obtained using the SOM feature selection method (6 variables
+per book).}
 \label{tabla:resultsSOM}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+Base  & Correlation coefficient (\%)  & MAE  & RMSE  & RAE(\%)  & RRSE (\%)  & Time(sec)\tabularnewline
+\hline 
+\hline 
+M5P  & 0.9161 & \textbf{198.8864} & 562.2113 & \textbf{34.74}\% & 40.11\% & 0.76\tabularnewline
+\hline 
+LR  & 0.9179 & 263.1702 & 556.3372 & 45.97\% & 39.69\% & 0.07\tabularnewline
+\hline 
+SVM  & \textbf{0.9388} & 207.7159 & \textbf{486.8913} & 36.28\% & \textbf{34.73}\% & 157.87\tabularnewline
+\hline 
+kNN  & 0.9304 & 202.0939 & 525.4642 & 35.30\% & 37.48\% & 0\tabularnewline
+\hline 
+MLP  & 0.9193 & 305.78 & 590.8412 & 53.41\% & 42.15\% & 25.83\tabularnewline
+\hline 
+\end{tabular}
 \end{table*}
 
 
@@ -867,28 +915,28 @@ in Table \ref{tabla:results9}.
 In this dataset, every book is described using numerical variables, and thus, 
 processing the data to build the different models is a fast task.
 
-\begin{table*}[!ht]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline 
- Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%) & RRSE (\%)      \\
-\hline
-  M5P     & 2.27 $\pm$ 0.02     & 195.97  & 629.33  & 34.94    & 45.62  \\
-\hline
-  LR      & 0.38 $\pm$ 0.01     & 256.19  & 549.19  & 45.68    & 39.81   \\
-\hline
-  SVM     & 132.64 $\pm$ 2.86   & 230.66  & 613.27  & 41.12    & 44.45   \\
-\hline
-  kNN     & 0.06 $\pm$ 0.01     & 214.76  & 551.33  & 38.29    & 39.96   \\
-\hline
-  MLP     & 130.77 $\pm$ 1.51   & 326.60 $\pm$ 75.77 & 687.61 $\pm$ 55.70  & 58.23 $\pm$ 13.51  & 49.84 $\pm$ 4.04   \\
-\hline
-\end{tabular}
-\end{center}
-\caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset obtained using the ReliefFAttributeEval 
-feature selection method (8 variables per book).}}
+\begin{table*}[h]
+\caption{Results (errors and time) obtained using the different forecasting methods
+on the dataset obtained using the ReliefFAttributeEval feature selection method (8
+variables per book).}
 \label{tabla:results9}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+RAE & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
+\hline 
+\hline 
+M5P & 0.9131 & \textbf{197.2886} & 580.328 & \textbf{34.46}\% & 41.40\% & 0.74\tabularnewline
+\hline 
+LR & 0.9209 & 254.3979 & 546.3899 & 44.44\% & 38.98\% & 0.03\tabularnewline
+\hline 
+SVM & \textbf{0.9394} & 204.2075 & \textbf{484.2617} & 35.67\% & \textbf{34.54}\% & 232.99\tabularnewline
+\hline 
+kNN & 0.9103 & 222.0827 & 597.8885 & 38.79\% & 42.65\% & 0\tabularnewline
+\hline 
+MLP & 0.9199 & 296.3581 & 575.9623 & 51.77\% & 41.09\% & 32.52\tabularnewline
+\hline 
+\end{tabular}
 \end{table*}
 
 
@@ -900,50 +948,186 @@ As in the previous case, in this dataset every book is described using numerical
 variables. Thus, due to the number of features per book, building the different 
 models is faster than in the previous cases.
 
-\begin{table*}[!ht]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline 
- Method   & Time (sec.)         & MAE     & RMSE    & RAE (\%)  & RRSE (\%)      \\
-\hline
-  M5P     & 2.02 $\pm$ 0.01     & 205.52  & 556.90  & 36.64     & 40.37  \\
-\hline
-  LR      & 0.32 $\pm$ 0.00     & 261.04  & 547.42  & 46.54     & 39.68   \\
-\hline
-  SVM     & 81.74 $\pm$ 1.66    & 242.26  & 606.07   & 43.19    & 43.93   \\
-\hline
-  kNN     & 0.05 $\pm$ 0.00     & 216.05  & 506.34  & 38.52    & 36.70   \\
-\hline
-  MLP     & 47.80 $\pm$ 0.51    & 318.29 $\pm$ 43.96 & 587.50 $\pm$ 51.50  & 56.75 $\pm$ 7.84  & 42.59 $\pm$ 3.73   \\
-\hline
-\end{tabular}
-\end{center}
-\caption{\small{Results (errors and time) obtained using the different 
-forecasting methods on the dataset obtained using the CfsSubsetEval 
-feature selection method (4 variables per book).}}
+\begin{table*}[h]
+\caption{Results (errors and time) obtained using the different forecasting methods
+on the dataset obtained using the CfsSubsetEval feature selection method (4 variables
+per book).}
 \label{tabla:results4}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+CFS & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
+\hline 
+\hline 
+M5P & 0.9255 & \textbf{206.6638} & 531.306 & \textbf{36.10}\% & 37.90\% & 0.56\tabularnewline
+\hline 
+LR & 0.9194 & 259.3791 & 551.2005 & 45.31\% & 39.32\% & 0.05\tabularnewline
+\hline 
+SVM & \textbf{0.9342} & 213.0254 &\textbf{ 502.4048} & 37.21\% & \textbf{35.84}\% & 70.12\tabularnewline
+\hline 
+kNN & 0.9285 & 220.6548 & 527.7374 & 38.54\% & 37.65\% & 0\tabularnewline
+\hline 
+MLP & 0.9047 & 369.3486 & 646.1241 & 64.52\% & 46.09\% & 10.93\tabularnewline
+\hline 
+\end{tabular}
 \end{table*}
 
-\begin{figure}[!ht] 
-\begin{center}
-  \epsfig{file=fig_time.eps,width=11cm}
-\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
-\label{fig:time}
-\end{center}
-\end{figure}
 
-\begin{figure}[!ht] 
-\begin{center}
-  \epsfig{file=fig_rae.eps,width=11cm}
-\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
-\label{fig:rae}
-\end{center}
-\end{figure}
+    \textbf{ TODO: comment the following figures: conv2 , conv2ReliefAttributeEval , conv2CfsSubsetEval , conv2SOM }
+
+
+\begin{figure*}[http]
+\centering
+    \begin{subfigure}[b]{0.32\textwidth}            
+            \includegraphics[scale=0.32]{m5p.eps}
+            \caption{M5P}
+            \label{fig:M5P}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.32\textwidth}  
+            \includegraphics[scale=0.32]{lr.eps}
+            \caption{LR}
+            \label{fig:LR}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{svm.eps}
+            \caption{SVM}
+            \label{SVM}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{knn.eps}
+            \caption{k-NN}
+            \label{fig:k-NN}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{mlp.eps}
+            \caption{MLP}
+            \label{MLP}
+    \end{subfigure}
+    \caption{Actual VS predicted sales for M5P, LR, SVM, k-NN, MLP models.}
+\label{conv2}
+\end{figure*}
+
+
+\begin{figure*}[http]
+\centering
+    \begin{subfigure}[b]{0.32\textwidth}            
+            \includegraphics[scale=0.32]{m5p_RAE.eps}
+            \caption{M5P}
+            \label{fig:M5P1}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.32\textwidth}  
+            \includegraphics[scale=0.32]{lr_RAE.eps}
+            \caption{LR}
+            \label{fig:LR1}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{svm_RAE.eps}
+            \caption{SVM}
+            \label{SVM1}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{knn_RAE.eps}
+            \caption{k-NN}
+            \label{fig:k-NN1}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{mlp_RAE.eps}
+            \caption{MLP}
+            \label{MLP1}
+    \end{subfigure}
+    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
+\label{conv2ReliefAttributeEval}
+\end{figure*}
+
+
+\begin{figure*}[http]
+\centering
+    \begin{subfigure}[b]{0.32\textwidth}            
+            \includegraphics[scale=0.32]{m5p_CFS.eps}
+            \caption{M5P}
+            \label{fig:M5P2}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.32\textwidth}  
+            \includegraphics[scale=0.32]{lr_CFS.eps}
+            \caption{LR}
+            \label{fig:LR2}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{svm_CFS.eps}
+            \caption{SVM}
+            \label{SVM2}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{knn_CFS.eps}
+            \caption{k-NN}
+            \label{fig:k-NN2}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{mlp_CFS.eps}
+            \caption{MLP}
+            \label{MLP2}
+    \end{subfigure}
+    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
+\label{conv2CfsSubsetEval}
+\end{figure*}
+
+
+\begin{figure*}[http]
+\centering
+    \begin{subfigure}[b]{0.32\textwidth}            
+            \includegraphics[scale=0.32]{m5p_SOM.eps}
+            \caption{M5P}
+            \label{fig:M5P2}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.32\textwidth}  
+            \includegraphics[scale=0.32]{lr_SOM.eps}
+            \caption{LR}
+            \label{fig:LR2}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{svm_SOM.eps}
+            \caption{SVM}
+            \label{SVM2}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{knn_SOM.eps}
+            \caption{k-NN}
+            \label{fig:k-NN2}
+    \end{subfigure}
+      \begin{subfigure}[b]{0.32\textwidth}
+            \includegraphics[scale=0.32]{mlp_SOM.eps}
+            \caption{MLP}
+            \label{MLP2}
+    \end{subfigure}
+    \caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
+\label{conv2SOM}
+\end{figure*}
+
+
+%\begin{figure}[!ht] 
+%\begin{center}
+%  \epsfig{file=fig_time.eps,width=11cm}
+%\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
+%\label{fig:time}
+%\end{center}
+%\end{figure}
+
+%\begin{figure}[!ht] 
+%\begin{center}
+%  \epsfig{file=fig_rae.eps,width=11cm}
+%\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
+%\label{fig:rae}
+%\end{center}
+%\end{figure}
+
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
 Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
-\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4}, 
-as well as the figures \ref{fig:time} and \ref{fig:rae}, 
+\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4},
 using those categorical variables as part of a big dataset makes the problem 
 hard to solve, both in required time to build the forecasting models as well as 
 in the obtained errors.
