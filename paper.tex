@@ -685,8 +685,9 @@ published.
 
 \subsection{Experimental setup}
 
-    \textbf{ TODO: details about the method parameters }
+In most of data mining and machine algorithms, the values of some parameters could have a high influence on its performance. In our experiments, the best value of $k$ in the $k$-nearest neighbor was empirically found at $k=3$. For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyze higher dimensional data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important parameters should be tuned in SVM: the Cost $(C)$ and $(\gamma)$ of the RBF kernel. We apply grid search which is the most common approach to find $C$ and $\gamma$. The best performance of SVM was found at $C=200$ and Gamma $\gamma = 0.01$. For MLP, we apply it with one hidden layer since it was proven in the literature that an MLP with one hidden layer can approximate any continuous or discontinuous function \cite{hornik1989multilayer,mirjalili2014let}. However, there is no rule of thumb on selecting the best number of neurons in the hidden layer. One suggested method that is followed in this work is to set the number of neurons in the hidden layer to $2 \times I + 1$ where $I$ is the number of inputs in the dataset \cite{wdaa2008differential,mirjalili2014let,mirjalili2015effective}.
 
+All experiments are performed using 10-folds cross validation. The dataset is partitioned into 10 parts where the training process is carried out on 9 parts then the resulted model is tested on the left 10th part. This process is repeated 10 times, each time the model is trained using different 9 parts. At the end of the process the 10 evaluation results on the testing parts are averaged.
 
 \subsection{Obtained results}
 
@@ -968,7 +969,12 @@ MLP & 0.9047 & 369.3486 & 646.1241 & 64.52\% & 46.09\% & 10.93\tabularnewline
 \end{table*}
 
 
-    \textbf{ TODO: comment the following figures: conv2 , conv2ReliefAttributeEval , conv2CfsSubsetEval , conv2SOM }
+In Figures \ref{conv2}, \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} we depict scatter plots for the values of the actual total sales values against the predicted ones obtained by the developed models. 
+Those figures also show the correlation between the two variables and the proportion of variation in actual total sales that is explained by the predicted ones. 
+Figure \ref{conv2} corresponds to the results obtained using all available features without performing any feature selection method. In this figure, it can be noticed that SVM achieved the best results by explaining 88.2\% of the actual values while $k$-NN showed very poor results with only 49.8\%. 
+Figures \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} show same plots after performing ReliefAttributeEval, CfsSubsetEval and SOM feature selection methods, respectively. 
+According to these figures, we can notice that there wasn't almost any significant degradation in the performance of the M5P, LR, SVM and MLP. 
+On the other side, the performance of $k$-NN was dramatically improved after the feature selection process by explaining 84.5\% of variation on average.
 
 
 \begin{figure*}[http] 
