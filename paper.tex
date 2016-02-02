@@ -284,29 +284,18 @@ In addition, since publishers need models to explain obtained predictions,
 
 
 %********************************************************************************
-\section{The problem}
+\section{Problem description}
 \label{sec:problem}
 
 
-The main issue of this paper is to forecast sales for 
-unpublished books for which no historical data is available, just some
-descriptive variables relative to the new book. In order to do that,
-training data includes historical sales data for all books published
-in Spain for several years, including those descriptive variables. 
+The main objective of this paper is to forecast sales for 
+unpublished books for which no historical data is available. Instead, just some
+descriptive and pre-sales known variables related to the new book. In order to do that, we have used a training dataset which includes historical sales data for a big amount of books published in Spain for several years, with a set of 50 features or variables per pattern. 
 
-%%% Principio de párrafos a eliminar o mover a estado del arte.
-%% Fin de párrafos a eliminar.
-  % [pedro] eliminados
-
-The initial dataset, provided in the framework of a contract by
-Trevenque Editorial, included 3159 books, and included descriptive information 
-for each book, such as price, points of sale, subject, publisher, sales, returns, 
-among other information.
-Table \ref{tabla:paramsOrig50} shows the original set of parameters describing 
-each book.
+The initial dataset, provided in the framework of a contract by Trevenque Editorial S.L., included 3159 books. Table \ref{tabla:paramsOrig50} shows the initial set of variables describing each book.
 
 \begin{table}[!ht]
-\caption{Parameters describing a book, as provided by the company Trevenque.}
+\caption{Parameters describing a book, provided by the company Trevenque S.L.}
 \label{tabla:paramsOrig50}
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -348,7 +337,7 @@ total returns
 returns - dept stores
 delegates returns
 rest of returns
-total returns firt year
+total returns first year
 returns -  dept stores 1st year
 delegates returns 1st year
 rest of returns 1st year
@@ -373,13 +362,16 @@ negative sales environment
 \end{center}
 \end{table}
 
+% Antonio - briefly describe the variables
+
 In this prediction problem there are other external variables that also affect 
 the sales of a new book, such as those related to seasonality, trends or 
 promotions, that classical prediction methods can not deal with.
 However, an expert can consider them to modify the forecast obtained by 
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
-external data. %so what? 
+external data. 
+Thus, the proposed method, will analyse the provided data and variables and will yield a forecast of sales according to them. This result could be used as a reference for a human expert, who would consider it in his/her own prediction process.
 
 
 %********************************************************************************
@@ -851,7 +843,7 @@ what makes harder to process the instances and build the different models.
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
-\begin{table*}[h]
+\begin{table*}[ht]
 \caption{Results (errors and time) obtained using the different forecasting
 methods on the original dataset (16 variables per book). In this case,
 due to the categorial variables, the MLP could not be run.}
@@ -879,7 +871,7 @@ MLP & 0.9197 & 289.7393 & 585.6445 & 50.61\% & 41.78\% & 82.08\tabularnewline
 Obtained results (time to build the model and error) using the different 
 forecasting methods on the dataset with 7 variables per book (obtained 
 using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
-\begin{table*}[h]
+\begin{table*}[ht]
 \caption{Results (errors and time) obtained using the different forecasting methods
 on the dataset obtained using the SOM feature selection method (6 variables
 per book).}
@@ -911,7 +903,7 @@ in Table \ref{tabla:results9}.
 In this dataset, every book is described using numerical variables, and thus, 
 processing the data to build the different models is a fast task.
 
-\begin{table*}[h]
+\begin{table*}[ht]
 \caption{Results (errors and time) obtained using the different forecasting methods
 on the dataset obtained using the ReliefFAttributeEval feature selection method (8
 variables per book).}
@@ -944,7 +936,7 @@ As in the previous case, in this dataset every book is described using numerical
 variables. Thus, due to the number of features per book, building the different 
 models is faster than in the previous cases.
 
-\begin{table*}[h]
+\begin{table*}[ht]
 \caption{Results (errors and time) obtained using the different forecasting methods
 on the dataset obtained using the CfsSubsetEval feature selection method (4 variables
 per book).}
