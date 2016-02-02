@@ -378,83 +378,49 @@ Thus, the proposed method, will analyse the provided data and variables and will
 \section{Methodology}
 \label{sec:methodology}
 
-There are several issues inherent to the problem of predicting sales of new 
-products: the limitation on the amount of data available, the application of 
-different methods and choose the most suitable of them.
-In addition, there is no a standard methodology to solve the general problem 
-of sales forecasting. %FERGU: hacer más hincapié de esto en la intro entonces
-Usually, a preliminary analysis of the data is carried out to eliminate those 
-variables that describe the product but do not provide useful information during 
-the prediction process.
+There is no a standard methodology to solve the general problem of sales forecasting. %FERGU: hacer más hincapié de esto en la intro entonces
+In this work we have followed these steps:
 
 \hspace{2cm}
 \begin{verbatim}
-  Stage 1: Collecting and analyze data
-		- Variables selection
- 		- Data preprocesing
-  Stage 2: Select the best forecasting method
- 		- Obtaining and evaluating forecasting models
- 		- Calculate forecasting values
-  Stage 3: Subjectively adjust obtained results
-	 	- Apply additional expert knowledge, such as information 
- 	 	  about seasonality, trends, etc.
+  Step 1: Collect and analyse data
+       - Data preprocessing
+       - Feature selection
+  Step 2: Select the best forecasting method
+       - Evaluate forecasting models
+       - Perform forecast
+  Step 3: Subjectively adjust obtained results
+      - Apply additional expert knowledge, such as information 
+        about seasonality or trends.
 \end{verbatim}
 
-% Maribel: quito la figura por el issue asignado por antonio mora.
-%\begin{figure}[!ht] 
-%\begin{center}
-%  \epsfig{file=stages.eps,width=7cm}
-%\caption{\small{Three main stages in a typical sales prediction process: data analysis, (2) forecasting 
-%methods testing, and (3) subjectively adjusting the obtained results.}}
-%\label{fig:stages}
-%\end{center}
-%\end{figure}
+%Usually, a preliminary analysis of the data is carried out to eliminate those 
+%variables that describe the product but do not provide useful information during 
+%the prediction process.
 
-Thus, in this study two main stages are proposed: 
-\begin{itemize}
+The steps are described i the following paragraphs.
 
-  \item  First, after the editorial company has provided the raw data, taken 
-  directly from its database, a feature selection is carried out, as it is 
-  an effective dimensionality reduction technique and an essential preprocessing 
-  method to remove noise features \cite{Krishnapuram2004}. The idea of these 
-  algorithms is searching the space of attribute subsets to find out which one 
-  in the data works best for classification or prediction.
-  In this stage, the information obtained using several feature selection 
-  methods as well as analyzing the SOM cluster method results is used to 
-  remove some unrelated variables and selects the best variables to be 
-  considered in the forecasted model. % we will use pre-sales data.
-  This task may help to identify leading indicators to be used by the 
-  forecasting methods in order to improve the accuracy of future forecasts.
+First, after the editorial company has provided the raw data, extracted directly from its database, a preprocessing method is performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. Moreover, the initial set of variables is reduced by an expert to use just those that can be known in advance when a new book is launched, i.e. \textit{pre-sales data}.
 
-  \item  Then, several forecasting methods have to be tested. In this stage 
-  different forecasting methods are used to obtain sales forecasts from the 
-  data provided.
+Then, a Feature Selection process \cite{kittler1986feature} is carried out, as it is an effective dimensionality reduction technique and an essential preprocessing method to remove `noisy' (non-useful) features \cite{Krishnapuram2004}. The aim of these algorithms is exploring the space of attributes to find out which subset of them yield the best results in a classification or prediction problem.
+  In this stage, both, numerical and visualisation-based approaches has been applied, in order to select the best variables for the forecasting methods.
+  This task may also help to identify leading indicators to be considered by a human expert ti do predictions.
 
-\end{itemize}
-
-%In some cases, depending on the company needs and after obtaining the forecasting  results, it is necessary a third stage where experienced managers adjust subject1ively the results obtained using the forecasting methods (see Figure \ref{fig:stages} for details). Esta frase no aporta nada que no esté dicho ya antes en los comentarios de las tres etapas que antes estaban en una figura, así que quito la frase entera: Maribel
-
-They might manually adjust the forecasting results taking into account their 
-knowledge in industry experience and their perception about trends.
+After this process, several forecasting methods have been tested, considering different approaches, such as rule- or tree-based, together with numerical methods. 
+% Antonio - is 'numerical' the best term for these kind of methods?
+The obtained results are then compared.
 
 %Finally, although different authors have proposed metrics to determine 
 %the accuracy of estimates, most companies use metrics based on the analysis 
 %of errors, i.e. MAE or RMSE \cite{ChingChin2010,Madsen2008}.
 
-Finally, in the literature different error measures can be found to report 
-the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008}. 
+In the literature different error measures can be found to evaluate the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008}. 
 Those error measurements are also called error functions or cost functions. 
 %One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
-In any case, we recommend using widely accepted standard 
-equations \cite{gepsoft} in order to compare obtained results with those presented in other research 
-papers using other methods.
-That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), 
-implemented in tools like Weka \cite{pentaho,Witten2011} 
-or R \cite{otexts,Hyndman2013}, are
-proposed.
-Specifically, in order to compute the forecasting errors of the different methods, 
-Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute 
-error (RAE) and Root relative squared error (RRSE) have been selected:
+We have used the widely accepted standard equations \cite{gepsoft} in order to compare the obtained results with those presented in other research papers using other methods.
+That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka \cite{pentaho,Witten2011} 
+or R \cite{otexts,Hyndman2013}, are considered.
+Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
@@ -479,15 +445,16 @@ error (RAE) and Root relative squared error (RRSE) have been selected:
 \end{itemize}
 where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained prediction.
 
+The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
+
 
 %-------------------------------------------------
 \subsection{Data collection and analysis}
 
 In general, historical data is used to make time series, and from them extracting 
 common patterns and obtaining accurate predictions.
-However, in the case of new products, such as the issue of new books, past patterns 
-are difficult to observe as there is no available historical sales data 
-\cite{ChingChin2010} (only pre-sales data is available in this problem).
+However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
+\cite{ChingChin2010} (only pre-sales data are available in this problem).
 % (Paloma) - Se deberían evitar paréntetis.
 
 In addition, among the variables describing a new book, some may affect 
@@ -505,7 +472,7 @@ making the algorithm impractical for problems with a large number of features
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-Feature extraction is a ``transformation-based approach", therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
+Feature extraction is a ``transformation-based approach'', therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
 
 In addition, in order to reduce the dimensionality of the input data and to choose an 
 appropriate set of variables, the SOM \cite{kohonen1998} method has been also applied.
