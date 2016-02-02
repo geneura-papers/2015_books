@@ -733,7 +733,7 @@ Finally, the resulted dataset consisted of ten features including the new Total 
 Figure \ref{fig:componentplanes} shows the U-matrix and component variables resulted from SOM training. The term component is used in SOM to refer to the features. The component planes in Figure \ref{fig:componentplanes} show the trend of values of the the prototype vectors of the SOM map units. These values are represented as colors. The colorbar on the right of each component plane shows the indication of each color. On the other side, the U-matrix on the top left corner shows the distances between the adjacent units. It is important to note that high values in the matrix indicates large distance between the units of the map. It can be noticed also that there are more hexagons in the U-matrix than component planes since the distances between units is also represented as hexagons.
 
 In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales categories. It can be clearly shown that the SOM algorithm has successfully clustered the labels of the Total Sales into clear identified regions. In the top of the U-matrix the VL category is located. The L category appears in the middle of the matrix. Most of the M category appears in bottom-right corner while the H and VH categories are concentrated in the bottom-left corner. 
-Inspecting the component \texttt{distrib\_novelity}, \texttt{tot\_points\_sale}, \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run} components have the highest similarity to the clusters shown in the U-matrix. Based on this analysis, those features will be selected for the next stage. 
+By inspecting \texttt{num\_novility}, \texttt{gifts}, \texttt{distrib\_novelity}, \texttt{tot\_points\_sale}, \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run} components, it can be noticed that they have the highest similarity to the clusters shown in the U-matrix. Based on this analysis, those features will be selected for the next stage. 
 
 \begin{figure*}[ht]
 \begin{center}
@@ -768,13 +768,13 @@ subject3    & $\checkmark$  &   &   &   \\ \hline
 editorial   & $\checkmark$  &   &   &   \\ \hline
 collection  & $\checkmark$  &   &   &   \\ \hline
 binding   & $\checkmark$  &   &   &   \\ \hline
-ret\_pricer    & $\checkmark$  &   & $\checkmark$  &   \\ \hline
-reprints    & $\checkmark$  & $\checkmark$  & $\checkmark$  &   \\ \hline
+ret\_pricer    & $\checkmark$  &   &   &   \\ \hline
+reprints    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
 num\_reprints    & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
 gifts   & $\checkmark$  &   & $\checkmark$  &   \\ \hline
 distrib\_novelty   & $\checkmark$  & $\checkmark$  & $\checkmark$  &   \\ \hline
-tot\_points\_sale   & $\checkmark$  & $\checkmark$  &   & $\checkmark$  \\ \hline
-tot\_points\_sale\_1st\_year    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
+tot\_points\_sale   & $\checkmark$  & $\checkmark$  & $\checkmark$   & $\checkmark$  \\ \hline
+tot\_points\_sale\_1st\_year    & $\checkmark$  & $\checkmark$  &  $\checkmark$ &   \\ \hline
 weeks\_sale    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
 print\_run   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
 total\_sales   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
