@@ -35,9 +35,9 @@ $^2$Business Information Technology Department. King Abdullah II School for Info
 When a new book is launched the publisher faces the problem of
 how many books should be printed for delivery to bookstores. Printing too many is the main issue,
 since it implies a loss of investment due to inventory excess. In this
-paper we are tackling the problem of predicting total sales in order to 
+paper, we are tackling the problem of predicting total sales in order to 
 print the right amount of books, doing so even before the book has
-reached shelves. 
+reached the shelves. 
 Several years 
 % Antonio - Decir cuántos años son, que no me acuerdo.
 of data on published books in Spain have been processed by means of data visualisation and other feature selection techniques. The aim is to find out what are the variables that have more impact on sales, and then use machine learning and forecasting methods to predict sales, and, from them, estimate the print-run.
@@ -64,8 +64,9 @@ only be based on the experience of other similar products.
 In this scope, having accurate estimations of future sales of the new
 product is extremely important \cite{ChingChin2010}, so that production
 runs do not exceed predicted sales. 
-Indeed, several studies have demonstrated that improving sale predictions 
+Indeed, several studies have demonstrated that improving sales predictions 
 (a reduction of forecasting errors) results in an enhancing in the 
+%FERGU: an enhancing está bien dicho? Mejor "an enhacement", no?
 production process \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
 
 % In this sense, the publishing industry is based on very particular and
@@ -89,6 +90,7 @@ adequate number of copies but not too many, as the unsold volumes will
 lead to losses and sunk inventory cost, 
 % Antonio - 'sunk inventory cost' es corecto?
 whereas if the number of printed copies was not enough, you can always print more. 
+%FERGU: el you ese es muy coloquial, reescribir
 % Antonio - Esto habría que matizarlo más, de hecho, decirlo va un poco en contra de nuestro artículo, ya que simplifica el problema. Yo indicaría que errores en predicciones por exceso o por defecto tienen MUCHAS pegas (ambos casos), si bien el exceso es peor, claro, pero decir que lo otro es también muy negativo y por eso hay que ajustar muy bien la predicción. ;)
 % Se podría señalar, por ejemplo:
 % - repetición de costes de distribución
@@ -96,14 +98,18 @@ whereas if the number of printed copies was not enough, you can always print mor
 % - algunas más... :D
 In this sense, errors in one or the other direction do not have the same impact, although a temporal scarcity of a book that is selling well is also a problem.
 % Antonio - esto habría que rescribirlo de acuerdo a lo anterior que comento. ;)
+%FERGU: lo de one or the other direction creo que confunde
 
 Thus, it is extremely important to develop an accurate predictive tool which could accurately forecast the future sales a new book will achieve, in order to optimise production and to improve the publishing company profits or minimise losses \cite{Zhao2001}. This is the main objective of this paper.
+%FERGU: entonces el objetivo es desarrollar una herramienta? La metodología? Dejarlo más claro en todos los sitios
 An example is the optimisation of sales \cite{Mattila2002} by
 improving profit margins by selling the whole print-run. 
 % Antonio - podrías extender un poco el ejemplo? Es decir, describir un poco más lo que se hace en ese trabajo. ;)
 
-However, designing such an accurate predictive tool is a difficult task in this scope, as book sales are influenced by several factors that make them fluctuate and, moreover, usually they might be not controllable and even unknown. 
-For instance, some are related with decisions on purchases, others with freight 
+However, designing such an accurate predictive tool is a difficult task in this scope, as book sales are influenced by several factors that make them fluctuate and, moreover, usually they might be not controllable and even unknown.
+%FERGU: "moreover, usually" son dos adverbios juntos y queda un poco raro 
+For instance, some are related to decisions on purchases, others with freight 
+%FERGU: some factors para dejarlo claro
 traffic, or others with the distribution strategy \cite{Little1998}. 
 
 Thus, it is very important to know the product and the variables that
@@ -114,6 +120,7 @@ might affect the sales, and how an expert manager takes them into account \cite{
 Their impact is difficult to estimate and it is not constant over time, 
 hence the difficulty to adequately identify and measure their influence \cite{DeToni2000}.
 In addition, some may have correlations between them. 
+%FERGU: some ... variables, no?
 However, these correlations can be detected using data analysis methods, 
 such as Self-Organizing Maps (SOM) \cite{kohonen1998} 
 or stepwise regression analysis (SRA) \cite{Chang2009}. % What do they do? What are the results?
@@ -134,6 +141,7 @@ and applied their knowledge using external variables to compute correct estimati
 %interpretable and understandable model. 
 However, carrying out the analysis and forecasting process as a human expert,
 may lead to a `fuzzy-like' analysis, which may not take all the variables into account. 
+%FERGU: fuzzy-like existe? suena raruno :P
 In addition, the process might be tedious, especially when the amount
 of data is quite large, and even, different experts can reach different
 predictions from the same dataset \cite{ChingChin2010,Sanders1994}.
@@ -193,7 +201,6 @@ Sales forecasting is a problem which has been addressed several times in the lit
 
 Specifically, Time-Series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
 is perhaps the most used technique to tackle the sales forecasting problems. 
-%FERGU: terminar esta frase con punto en vez de coma para que no sea larga.   OK
 The efficiency of these techniques strongly depends on the field of application 
 and the correctness of the problem data. However, since they require a large amount of data for predicting sales, these methods are not the most suitable for this task \cite{ChingChin2010}.
 
@@ -204,6 +211,7 @@ Moreover, in the case of new unpublished-books, there are no historical data to 
 \cite{ChingChin2010,FaderHardie2005,Madsen2008}. Thus, not any time-series forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
 
 For this reason, usually the methods used to predict book sales have been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge in industry, their experience, and their perception about trends, could make decisions on the companies production (how many books should be printed when a new book is published).
+%FERGU: quitad los paréntesis :)
 This is a complex problem, since the predictions are influenced by external variables that must be taken into account, such as seasonality, promotions or fashions that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}.
 
   %[pedro] sobre la industria editorial no hay trabajos sobre predicción de ventas.
@@ -213,12 +221,13 @@ This is a complex problem, since the predictions are influenced by external vari
   %  sobre "Use Blog Information As Book Sales Prediction":
   %     Moon2010ICSSSM
   %     Moon2010ICEC
-Recently, some works propose analyzing relationships between on-line information 
-and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon et al. propose using the number of blog references as an indicator of the success of a book, and thus its sales. Different sales patterns are observed by analysing data obtained.
+Recently, some works have proposed analyzing relationships between on-line information 
+and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon et al. propose using the number of blog references as an indicator of the success of a book, and thus, its sales. Different sales patterns are observed by analysing data obtained.
 % Antonio - describir esos 'sales patterns'. ;)
-%
+% FERGU: y también cuales son esos 'data obtained'
 However, the authors used in these papers historical data from published books, 
-so their proposed methodology can not be applied in the problem of unpublished-books sales prediction.
+so their proposed methodology can not be applied to the problem of unpublished-books sales prediction.
+%FERGU: pero nosotros también usamos historical data, no? qué diferencia hay con lo nuestro? por qué lo nuestro es lo mejor?
 
 %
 % pasar a contar los casos de la predicción de ventas en la 
@@ -233,7 +242,7 @@ so their proposed methodology can not be applied in the problem of unpublished-b
 In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
 % Antonio - quizá habría que comentar alguno o todos bervemente...
 %
-In the same line, Thomassey et al. \cite{SThomassey2014} propose using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, %FERGU: appared? apparel, creo.  ¡sí!
+In the same line, Thomassey et al. \cite{SThomassey2014} propose using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, 
 a very similar issue to the new book publishing one.
 The same problem was previously faced by Xia et al. \cite{Xia2012} using a 
 forecasting method based on extreme machine learning with adaptive metrics of inputs.
@@ -241,6 +250,7 @@ forecasting method based on extreme machine learning with adaptive metrics of in
 The complexity of this problem relies on the lack of historical data, on the short lifetime of the majority of items, 
 % Antonio - ver si está bien el cambio 'large number' -> 'majority'
 and on the influence of variables such as promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}, as mentioned above.
+%FERGU: completar con: "In our case, these ideas ..."
 
   %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
   % New tea product
@@ -249,7 +259,7 @@ and on the influence of variables such as promotions, fashions, or economic envi
 In \cite{ChingChin2010}, a decision-support system for new product sales %FERGU: The work of Chinchin et al.?
 forecasting is proposed to solve three real-world sales forecasting problems, namely: new tea, cosmetics, and soft drink products. This is addressed taking into account quantitative variables.
 % Antonio - qué significa eso?
-In that study, products are classified based on their sales patterns, so it is assumed that products in the same class would follow a similar sales pattern. %FERGU: "_a_ similar sales pattern", mejor? ok
+In that study, products are classified based on their sales patterns, so it is assumed that products in the same class would follow a similar sales pattern. 
 However, as the authors state, the proposed system can not deal with qualitative 
 data related to the products. Moreover, real-world cases, such as consumer 
 electronics and fashion products, should be deeply analyzed, as these industries 
@@ -278,7 +288,9 @@ In addition, since publishers need models to explain obtained predictions,
 
 
 The main objective of this paper is to forecast sales for 
+%FERGU: el objetivo es la herramienta o la predicción?
 unpublished books for which no historical data are available. Instead, just some
+%FERGU: pero usamos datos históricos de otros para la predicción, no? Como otros papers...
 descriptive and variables known in advance related to the new book. In order to do that, we have used a training dataset which includes historical sales data for a big amount of books published in Spain for several years, with a set of 50 features or variables per pattern. 
 
 The initial dataset, provided in the framework of a contract by Trevenque Editorial S.L., included 3159 books. Table \ref{tabla:paramsOrig50} shows the initial set of variables describing each book.
@@ -355,7 +367,7 @@ negative sales environment
 
 In this prediction problem there are other external variables that also affect 
 the sales of a new book, such as those related to seasonality, trends or 
-promotions, that classical prediction methods can not deal with.
+promotions, that classical prediction methods can not deal with. %FERGU: por qué?
 However, an expert can consider them to modify the forecast obtained by 
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
@@ -368,7 +380,7 @@ Thus, the proposed method, will analyse the provided data and variables and will
 \label{sec:methodology}
 
 There is no a standard methodology to solve the general problem of sales forecasting. %FERGU: hacer más hincapié de esto en la intro entonces
-In this work we have followed these steps:
+In this work we have followed these steps: %FERGU: por qué estos steps y no otros? Ponerlo aquí. Esta metodología es general o solo para este paper?
 %\hspace{2cm}
 \begin{verbatim}
   Step 1: Collect and analyse data
@@ -389,11 +401,12 @@ In this work we have followed these steps:
 First, after the editorial company has provided the raw data, extracted directly from its database, a preprocessing method is performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. Moreover, the initial set of variables is reduced by an expert to use just those that can be known in advance when a new book is launched, i.e. \textit{pre-sales data}.
 
 Then, a Feature Selection process \cite{kittler1986feature} is carried out, as it is an effective dimensionality reduction technique and an essential preprocessing method to remove `noisy' (non-useful) features \cite{Krishnapuram2004}. The aim of these algorithms is exploring the space of attributes to find out which subset of them yield the best results in a classification or prediction problem.
-  In this stage, both, numerical and visualisation-based approaches has been applied, in order to select the best variables for the forecasting methods.
-  This task may also help to identify leading indicators to be considered by a human expert ti do predictions.
+  In this stage, both, numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting methods.
+  This task may also help to identify leading indicators to be considered by a human expert to make predictions.
 
 After this process, several forecasting methods have been tested, considering different approaches, such as rule- or tree-based, together with numerical methods. 
 % Antonio - is 'numerical' the best term for these kind of methods?
+%FERGU: OJO que en esta sección a veces usáis el presente perfecto (have been) y otras el presente (is performed)
 The obtained results are then compared.
 
 %Finally, although different authors have proposed metrics to determine 
@@ -407,6 +420,7 @@ We have used the widely accepted standard equations \cite{gepsoft} in order to c
 That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka \cite{pentaho,Witten2011} 
 or R \cite{otexts,Hyndman2013}, are considered.
 Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+%FERGU: have been selected for this methodology, for this work... algo así
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
@@ -433,9 +447,11 @@ where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained pre
 
 The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
 
+%FERGU: poner aquí algo de un párrafo que explique como se valida la metodología
 
 %-------------------------------------------------
 \subsection{Data collection and analysis}
+%FERGU: The first step in our methodology is... 
 
 In general, historical data are used to make time series, and from them extracting 
 common patterns and obtaining accurate predictions.
@@ -458,7 +474,7 @@ making the algorithm impractical for problems with a large number of features
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-Feature extraction is a ``transformation-based approach'', therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
+Feature extraction is a ``transformation-based approach'', therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus it is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
 
 In addition, in order to reduce the dimensionality of the input data and to choose an 
 appropriate set of variables, the SOM \cite{kohonen1998} method has been also applied.
@@ -467,7 +483,8 @@ appropriate set of variables, the SOM \cite{kohonen1998} method has been also ap
 SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organisation, configures the output units into a topological representation of the original data. It tries to imitate the self-organisation done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organise data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
 SOM is further processed using Ultsch method \cite{UmatUlts}, the Unified distance matrix (U-matrix), which uses SOM's codevectors (vectors of variables of the problem) as data source and generates a matrix where each component is a distance measure between two adjacent neurons. It allows us to visualise any multi-variated dataset in a two-dimensional display, so we can detect topological relations among neurons and infer about the input data structure. High values in the U-matrix represent a frontier region between clusters, and low values represent a high degree of similarities among neurons on that region, clusters.
 
-SOMs (and U-Matrix) are usually applied for visualise natural structures in the data and their relations, as well as the natural groupings that could be among them. In addition, SOM makes easy the estimation of the variables that have more influence on these groupings. Other statistical and soft computing tools can also be used for this purpose, but since Kohonen's SOMs offers a visual way of doing it, it is much more intuitive, and takes advantage of the capabilities of the human brain as a pattern recogniser.
+SOMs (and U-Matrix) are usually applied to visualise natural structures in the data and their relations, as well as the natural groupings that could be among them. In addition, SOM makes easy the estimation of the variables that have more influence on these groupings. Other statistical and soft computing tools can also be used for this purpose, but since Kohonen's SOMs offers a visual way of doing it, it is much more intuitive, and takes advantage of the capabilities of the human brain as a pattern recogniser.
+%FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
  
 
 This method is usually applied to analyse data as similar items tend to be 
@@ -477,7 +494,8 @@ with high training sample concentration and fewer where the samples are scarce.
 %FERGU: mencionarlo en la intro
 
 
-As far as the feature selection methods are concerned, Weka separates the process in two parts:
+As far as the feature selection methods are concerned, Weka separates the process into two parts:
+%FERGU: por qué mencionamos a Weka aquí y no antes?
 \begin{itemize}
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method (CfsSubsetEval) and an adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation method are used. 
   
@@ -499,7 +517,7 @@ As previously stated, there are many prediction methods available in the
 literature, each one with a different parameter set that may affect the 
 obtained results.
 
-However, as in the case of new books only some descriptive data are available %FERGU: data es plural. is->are
+However, as in the case of new books only some descriptive data are available 
 (compared to those cases in which historical data on sales of published books 
 is available), not all forecasting methods can be used in this specific problem.
 
