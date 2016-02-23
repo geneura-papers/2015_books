@@ -651,32 +651,44 @@ practise. %, limiting at the same time the overfitting problem.
 % - se han realizado 30 ejecuciones con cada método
 % - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU at 3.00GHz (4 cores) and 16 GB RAM
 To do so, in a first stage, the feature selection process has been carried out 
-using both the CfsSubsetEval \cite{Hall1998} (a correlation-based feature subset 
+using both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset 
 evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an 
 adaptation of relief for attribute estimation) evaluation methods, implemented 
 in the Weka tool.
 
 % con ReliefFAttributeEval salen seleccionadas (9):
 % print_run num_reprints tot_points_sale tot_points_sale_1st_year reprints distrib_novelty weeks_sale + total_sales
-Using the ReliefFAttributeEval feature selection method, and taking into account 
+Using the {\tt ReliefFAttributeEval} feature selection method, and taking into account 
 the best ranked attributes, the following variables have been selected: 
 \emph{print-run, number of reprints, total points of sale, total points of sale 
 1st year, reprints, units distributed as novelty, weeks for sale, total sales}.
 
 % con CfsSubsetEval salen seleccionadas (4):
 % num_reprints tot_points_sale print_run + total_sales
-Using the CfsSubsetEval feature selection method, the following variables have 
+Using the {\tt CfsSubsetEval} feature selection method, the following variables have 
 been selected: \emph{number of reprints, total points of sale, print-run, total sales}.
 %FERGU: podeis quitar estos parrafos de variables porque ya está la tabla :)
 
 %*************************************** SOM ANALISYS
 % como tercer método, se ha usado el SOM; tras interpretar los mapas, se
 % seleccionaron las variables más adecuadas.
-Then, an exhaustive analysis of the SOM results was carried out in order to 
+Then, an analysis of the SOM results has been carried out in order to 
 determine the best variables to be considered to build the forecasting model.
 
 Further important preprocessing steps are carried out before applying the SOM analysis.
-First, in order to label the U-matrix with total-sales values, this variable is converted from numerical to categorical. Five categories have been created to represent the quantities of sales of each book: Very Low (VL), Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total-sales that correspond to each category along with the number of books that fall in. Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the book are categorised as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the SOM analysis.
+First, in order to label the U-matrix with total-sales values, this
+variable is converted from numerical to categorical. Five categories
+have been created to represent the quantities of sales of each book:
+Very Low (VL), Low (L), Medium (M), High (H) and Very High (VH). Table
+\ref{table:freq} shows the ranges of total-sales that correspond to
+each category along with the number of books that fall in. Table
+\ref{table:freq} and Figure \ref{fig:count} reveal more information
+about the nature of the dataset. We can notice that most of 77\% of
+the book are categorised as VL and L with limited number of sales. On
+the other side, the books that achieved more than 2000 sold copies are
+just around 4\%. This makes the problem of identifying those two
+categories much harder. The new categorical feature is used to replace
+the old numerical Total Sales feature in the SOM analysis. 
 
 \begin{table*}[ht]
 \caption{Categories corresponding to total-sales variable. }
@@ -709,14 +721,46 @@ Very High & $>$5000 & 64 & 1.05\%\tabularnewline
 \label{fig:count}
 \end{figure*}
 
-Second, two categorical features (i.e; Editorial and Collection) are removed from the analysis since they have large number of unique different values and therefore they are less informative. Moreover, four features (i.e; Subject1, Subject2, Subject3 and Book-binding) have more than 10\% missing values so they are removed also.
+Second, two categorical features (i.e; Editorial and Collection) are
+removed from the analysis since they have large number of unique
+different values and therefore they are less informative. Moreover,
+four features (i.e; Subject1, Subject2, Subject3 and Book-binding)
+have more than 10\% missing values so they are removed also. 
 
-Finally, the resulted dataset consisted of ten features including the new Total Sales categorical feature. The SOM algorithm is trained based on the nine numerical variables while the new total-sales variable is used to label this data. The SOM algorithm is applied with a large map size of $26 \times 16$  in order to represent the data. The best SOM training results are obtained with a final quantisation error of 0.691 and topographic error of 0.046.
+Finally, the resulted dataset consisted of ten features including the
+new Total Sales categorical feature. The SOM algorithm is trained
+based on the nine numerical variables while the new total-sales
+variable is used to label this data. The SOM algorithm is applied with
+a large map size of $26 \times 16$  in order to represent the
+data. The best SOM training results are obtained with a final
+quantisation error of 0.691 and topographic error of 0.046. 
 
-Figure \ref{fig:componentplanes} shows the U-matrix and component variables resulted from SOM training. The term component is used in SOM to refer to the features. The component planes in Figure \ref{fig:componentplanes} show the trend of values of the prototype vectors of the SOM map units. These values are represented as colours. The colorbar on the right of each component plane shows the indication of each colour. On the other side, the U-matrix on the top left corner shows the distances between the adjacent units. It is important to note that high values in the matrix indicates large distance between the units of the map. It can be noticed also that there are more hexagons in the U-matrix than component planes since the distances between units is also represented as hexagons.
+Figure \ref{fig:componentplanes} shows the U-matrix and component
+variables resulted from SOM training. The term component is used in
+SOM to refer to the features. The component planes in Figure
+\ref{fig:componentplanes} show the trend of values of the prototype
+vectors of the SOM map units. These values are represented as
+colours. The colorbar on the right of each component plane shows the
+indication of each colour. On the other side, the U-matrix on the top
+left corner shows the distances between the adjacent units. It is
+important to note that high values in the matrix indicates large
+distance between the units of the map. It can be noticed also that
+there are more hexagons in the U-matrix than component planes since
+the distances between units is also represented as hexagons. 
 
-In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales categories. It can be clearly shown that the SOM algorithm has successfully clustered the labels of the Total Sales into clear identified regions. In the top of the U-matrix the VL category is located. The L category appears in the middle of the matrix. Most of the M category appears in bottom-right corner while the H and VH categories are concentrated in the bottom-left corner. 
-By inspecting \texttt{num\_reprints}, \texttt{gifts}, \texttt{distrib\_novelty}, \texttt{tot\_points\_sale}, \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run} components, it can be noticed that they have the highest similarity to the clusters shown in the U-matrix. Based on this analysis, those features will be selected for the next stage. 
+In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales
+categories. It can be clearly shown that the SOM algorithm has
+successfully clustered the labels of the Total Sales into clear
+identified regions. In the top of the U-matrix the VL category is
+located. The L category appears in the middle of the matrix. Most of
+the M category appears in bottom-right corner while the H and VH
+categories are concentrated in the bottom-left corner.
+By inspecting \texttt{num\_reprints}, \texttt{gifts},
+\texttt{distrib\_novelty}, \texttt{tot\_points\_sale},
+\texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run}
+components, it can be noticed that they have the highest similarity to
+the clusters shown in the U-matrix. Based on this analysis, those
+features will be selected for the next stage.
 
 \begin{figure*}[ht]
 \begin{center}
@@ -784,15 +828,16 @@ Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz
 
 Table \ref{tabla:resultsT} shows obtained results (time to build the model and 
 error) after applying the proposed forecasting methods on the original dataset,
-using the 16 available variables per book.
+using the 16 variables that describe each book.
 In this dataset, every book is described using not only numerical variables, 
-but using two additional categorical variables, \emph{editorial} and \emph{collection}, 
-what makes harder to process the instances and build the different models.
+but also two additional categorical variables, \emph{editorial} and \emph{collection}, 
+which could, a priori, make harder to process the instances and build the different models.
 
 % Mean absolute error MAE / Root mean squared error RMSE /  Relative absolute error RAE / Root relative squared error RRSE
   % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
   %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
   % en algunos calculan muchos más, pero estos son los más usados. 
+% OK
 \begin{table*}[ht]
 \caption{Results (errors and time) obtained using the different forecasting
 methods on the original dataset (16 variables per book). In this case,
