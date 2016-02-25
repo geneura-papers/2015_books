@@ -20,7 +20,7 @@
 P.A. Castillo$^1$, A.M. Mora$^1$, J.J. Merelo$^1$, H. Faris$^2$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, M.G. Arenas$^1$, P. de las Cuevas$^1$
 }
 \institute{
-$^1$Department of Computer Architecture and Computer Technology. CITIC. University of Granada (Spain)\\
+$^1$Department of Computer Architecture and Computer Technology. CITIC, ETSIIT. University of Granada (Spain)\\
 $^2$Business Information Technology Department. King Abdullah II School for Information Technology. The University of Jordan. Amman (Jordan)\\
            e-mail: {\tt pacv@ugr.es}
 }
@@ -379,46 +379,44 @@ Thus, the proposed method, will analyse the provided data and variables and will
 \section{Methodology}
 \label{sec:methodology}
 
-There is no a standard methodology to solve the general problem of sales forecasting. %FERGU: hacer más hincapié de esto en la intro entonces
-In this work we have followed these steps: %FERGU: por qué estos steps y no otros? Ponerlo aquí. Esta metodología es general o solo para este paper?
+There is not a standard methodology to solve the general problem of sales forecasting. The steps we have followed in this paper are described below.
+% Antonio - quito esto porque ya no es lo que se ha hecho. El objetivo del paper no es la metodología a seguir, eso es estándar. ;)
+%FERGU: hacer más hincapié de esto en la intro entonces
+%In this work we have followed these steps: %FERGU: por qué estos steps y no otros? Ponerlo aquí. Esta metodología es general o solo para este paper?
 %\hspace{2cm}
-\begin{verbatim}
-  Step 1: Collect and analyse data
-       - Data preprocessing
-       - Feature selection
-  Step 2: Select the best forecasting method
-       - Evaluate forecasting models
-       - Perform forecast
-  Step 3: Subjectively adjust obtained results
-      - Apply additional expert knowledge, such as information 
-        about seasonality or trends.
-\end{verbatim}
+%\begin{verbatim}
+%  Step 1: Collect and analyse data
+%       - Data preprocessing
+%       - Feature selection
+%  Step 2: Select the best forecasting method
+%       - Evaluate forecasting models
+%       - Perform forecast
+%  Step 3: Subjectively adjust obtained results
+%      - Apply additional expert knowledge, such as information 
+%        about seasonality or trends.
+%\end{verbatim}
 
 %Usually, a preliminary analysis of the data is carried out to eliminate those 
 %variables that describe the product but do not provide useful information during 
 %the prediction process.
 
-First, after the editorial company has provided the raw data, extracted directly from its database, a preprocessing method is performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. Moreover, the initial set of variables is reduced by an expert to use just those that can be known in advance when a new book is launched, i.e. \textit{pre-sales data}.
+First, after the editorial company has provided the raw data (extracted directly from its database), a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. Moreover, the initial set of variables (presented in Table \ref{tabla:paramsOrig50}) has been reduced by an expert to use just those that can be known in advance when a new book is launched, i.e. \textit{pre-sales data}.
 
-Then, a Feature Selection process \cite{kittler1986feature} is carried out, as it is an effective dimensionality reduction technique and an essential preprocessing method to remove `noisy' (non-useful) features \cite{Krishnapuram2004}. The aim of these algorithms is exploring the space of attributes to find out which subset of them yield the best results in a classification or prediction problem.
-  In this stage, both, numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting methods.
+Then, a Feature Selection (FS) process \cite{kittler1986feature} has been carried out, as it is an effective dimensionality reduction technique and an essential preprocessing method to discard `noisy' (non-useful) features \cite{Krishnapuram2004}. The aim of these algorithms is exploring the space of attributes to find out which subset of them yields the best results in a classification or prediction problem.
+  In this stage, both, numerical and visualisation-based approaches have been applied in this paper, in order to select the best variables for the forecasting 
+methods.
+% Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
   This task may also help to identify leading indicators to be considered by a human expert to make predictions.
+
+Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (editors).
 
 After this process, several forecasting methods have been tested, considering different approaches, such as rule- or tree-based, together with numerical methods. 
 % Antonio - is 'numerical' the best term for these kind of methods?
 %FERGU: OJO que en esta sección a veces usáis el presente perfecto (have been) y otras el presente (is performed)
-The obtained results are then compared.
+% Antonio - Corregido. ;)
 
-%Finally, although different authors have proposed metrics to determine 
-%the accuracy of estimates, most companies use metrics based on the analysis 
-%of errors, i.e. MAE or RMSE \cite{ChingChin2010,Madsen2008}.
-
-In the literature different error measures can be found to evaluate the results obtained using the prediction methods \cite{ChingChin2010,Madsen2008}. 
-Those error measurements are also called error functions or cost functions. 
-%One of the most commonly used is the mean absolute error (see equation \ref{eq:MAE}).
-We have used the widely accepted standard equations \cite{gepsoft} in order to compare the obtained results with those presented in other research papers using other methods.
-That is why different standard error measurements (Equations \ref{eq:MAE} to \ref{eq:RRSE}), implemented in tools like Weka \cite{pentaho,Witten2011} 
-or R \cite{otexts,Hyndman2013}, are considered.
+The obtained results are then compared and analysed, considering, in addition to the obtained \textit{correlation coefficient}, some error measurements from the literature \cite{ChingChin2010,Madsen2008}. Those are also called error functions or cost functions. We have considered the widely accepted standard equations \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} 
+or R \cite{otexts,Hyndman2013}.
 Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
 %FERGU: have been selected for this methodology, for this work... algo así
 
@@ -448,6 +446,8 @@ where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained pre
 The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
 
 %FERGU: poner aquí algo de un párrafo que explique como se valida la metodología
+% Antonio - TODO: esto habrá que explicarlo mejor cuando esté hecho y veamos lo que sale. ;)
+
 
 %-------------------------------------------------
 \subsection{Data collection and analysis}
