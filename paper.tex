@@ -410,15 +410,15 @@ methods.
 
 Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (editors).
 
-After this process, several forecasting methods have been tested, considering different approaches, such as rule- or tree-based, together with numerical methods. 
+After this process, several forecasting techniques have been tested, such as rule- or tree-based, together with numerical methods. 
 % Antonio - is 'numerical' the best term for these kind of methods?
 %FERGU: OJO que en esta sección a veces usáis el presente perfecto (have been) y otras el presente (is performed)
 % Antonio - Corregido. ;)
-
-The obtained results are then compared and analysed, considering, in addition to the obtained \textit{correlation coefficient}, some error measurements from the literature \cite{ChingChin2010,Madsen2008}. Those are also called error functions or cost functions. We have considered the widely accepted standard equations \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} 
-or R \cite{otexts,Hyndman2013}.
+%
+The obtained results have been compared and analysed, computing, in addition to the obtained \textit{correlation coefficient}, some error measures from the literature \cite{ChingChin2010,Madsen2008}. We have considered the widely accepted standard formulae \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
 Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
 %FERGU: have been selected for this methodology, for this work... algo así
+% Antonio - ya se ha dicho. ;)
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
@@ -443,7 +443,10 @@ Specifically, in order to compute the forecasting errors of the different method
 \end{itemize}
 where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained prediction.
 
-The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
+Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (editorials) in order to prove the value of the proposal.
+Some specific interpretable models have been created as a final result of the work. The aim is that these will cold be used as a decision-aid tool for the experts who have to take decide about the best print-run quantity for new published books, in order to, logically maximise the benefit (or minimise the costs).
+
+%The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
 
 %FERGU: poner aquí algo de un párrafo que explique como se valida la metodología
 % Antonio - TODO: esto habrá que explicarlo mejor cuando esté hecho y veamos lo que sale. ;)
