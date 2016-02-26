@@ -456,8 +456,7 @@ Some specific interpretable models have been created as a final result of the wo
 \subsection{Data collection and analysis}
 %FERGU: The first step in our methodology is... 
 
-In general, historical data are used to make time series, and from them extracting 
-common patterns and obtaining accurate predictions.
+In general, historical data are used to make time series, and from them extracting common patterns and obtaining accurate predictions.
 However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
 \cite{ChingChin2010} (only pre-sales data are available in this problem).
 % (Paloma) - Se deberían evitar paréntetis.
@@ -479,28 +478,25 @@ making the algorithm impractical for problems with a large number of features
 
 Feature extraction is a ``transformation-based approach'', therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus it is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
 
-In addition, in order to reduce the dimensionality of the input data and to choose an 
-appropriate set of variables, the SOM \cite{kohonen1998} method has been also applied.
+In addition, in order to reduce the dimensionality of the input data and to choose an appropriate set of variables, the Self-Organizing Map (SOM) \cite{kohonen1998} method has been also applied.
 
-
-SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organisation, configures the output units into a topological representation of the original data. It tries to imitate the self-organisation done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organise data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
+Kohonen's SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organisation, configures the output units into a topological representation of the original data. It tries to imitate the self-organisation done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organise data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
 SOM is further processed using Ultsch method \cite{UmatUlts}, the Unified distance matrix (U-matrix), which uses SOM's codevectors (vectors of variables of the problem) as data source and generates a matrix where each component is a distance measure between two adjacent neurons. It allows us to visualise any multi-variated dataset in a two-dimensional display, so we can detect topological relations among neurons and infer about the input data structure. High values in the U-matrix represent a frontier region between clusters, and low values represent a high degree of similarities among neurons on that region, clusters.
 
 SOMs (and U-Matrix) are usually applied to visualise natural structures in the data and their relations, as well as the natural groupings that could be among them. In addition, SOM makes easy the estimation of the variables that have more influence on these groupings. Other statistical and soft computing tools can also be used for this purpose, but since Kohonen's SOMs offers a visual way of doing it, it is much more intuitive, and takes advantage of the capabilities of the human brain as a pattern recogniser.
 %FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
- 
+% Antonio - arreglado 
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
-Also, the SOM graph represents and highlight very clearly those regions (clusters) 
-with high training sample concentration and fewer where the samples are scarce. 
+Also, the SOM graph represents and highlight very clearly those regions (clusters) with high training sample concentration and fewer where the samples are scarce. 
 %FERGU: mencionarlo en la intro
 
-
-As far as the feature selection methods are concerned, Weka separates the process into two parts:
+As far as the feature selection methods are concerned, Weka software separates the process into two parts:
 %FERGU: por qué mencionamos a Weka aquí y no antes?
+% Antonio - se ha mencionado, pero sí, habría que destacarlo un poco más desde la intro quizá.
 \begin{itemize}
-  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method (CfsSubsetEval) and an adaptation of relief for attribute estimation (ReliefFAttributeEval) evaluation method are used. 
+  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretised. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
@@ -562,35 +558,6 @@ required non-linearity in dealing with the regression problem
 and both the predicted values at the answer-nodes along with the path from the 
 root to that node is given as a result.
 
- % weka.classifiers.functions.LinearRegression
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
- \item \emph{Linear Regression}:
- Linear regression \cite{Cohen2003,Yan2009,Rencher2102} method models the 
-relationship between a scalar dependent variable (outcome) and several independent 
-variables (predictor) over the range of values in the dataset. 
-In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
-
-This method of regression provides an adequate and interpretable description of 
-how the input affects the output as it models the dependent variable as a linear 
-function of the independent variables. Moreover, the linear relation can be 
-solved using the least squares method, that minimises the error between the 
-actual data and the regression line \cite{McClendon2015}.
-
- % weka.classifiers.functions.SMOreg
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item \emph{Support Vector Machine for Regression (SVM)}:
-Support vector machine (SVM) \cite{Cortes1995,Shevade1999} method is based on  
-statistical learning theory and has successfully used in classification and  
-regression problems \cite{Cao2003,Jari2008}.
-
-In classification problems the algorithm searches for an optimal hyperplane 
-that separates two classes, maximising the margin between two classes. 
-In the case of regression the algorithm chooses a hyperplane close to as many 
-of the data points as possible, minimising the sum of the distances from 
-the data points to the hyperplane. 
-In both cases, the hyperplane is defined by a subset of training set samples 
-(called support vectors).
-%This method works well even if the space is highly dimensional and the problem is not linearly separable.
 
  % weka.classifiers.lazy.IBk 
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
@@ -609,32 +576,71 @@ In order to improve the robustness of the model, several neighbours can be
 located, assigning the resulting class to an unclassified vector using the 
 closest $k$ vectors found in the training set by majority vote.
 
+
+ \item \emph{Random Forest}: This method is based in the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution.
+The result is the average of the generated trees during the process.
+
+
+ % weka.classifiers.functions.LinearRegression
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
+ \item \emph{Linear Regression}:
+ Linear regression \cite{Cohen2003,Yan2009,Rencher2102} method models the 
+relationship between a scalar dependent variable (outcome) and several independent 
+variables (predictor) over the range of values in the dataset. 
+In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
+
+This method of regression provides an adequate and interpretable description of 
+how the input affects the output as it models the dependent variable as a linear 
+function of the independent variables. Moreover, the linear relation can be 
+solved using the least squares method, that minimises the error between the 
+actual data and the regression line \cite{McClendon2015}.
+
+
+ % weka.classifiers.functions.SMOreg
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
+ \item \emph{Support Vector Machine for Regression (SVM)}:
+Support vector machine (SVM) \cite{Cortes1995,Shevade1999} method is based on  
+statistical learning theory and has successfully used in classification and  
+regression problems \cite{Cao2003,Jari2008}.
+
+In classification problems the algorithm searches for an optimal hyperplane 
+that separates two classes, maximising the margin between two classes. 
+In the case of regression the algorithm chooses a hyperplane close to as many 
+of the data points as possible, minimising the sum of the distances from 
+the data points to the hyperplane. 
+In both cases, the hyperplane is defined by a subset of training set samples 
+(called support vectors).
+%This method works well even if the space is highly dimensional and the problem is not linearly separable.
+
+
+% Antonio - MLP no se ha aplicado al final...
+
  % weka.classifiers.functions.MultilayerPerceptron
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
- \item \emph{Multilayer Perceptron}:
-A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
-artificial neural network model that maps the input data onto an appropriate output. 
-It is an artificial neural network generally used for classification or 
-approximation problems.
-
-This model is a generalisation of the standard linear perceptron that uses several 
-layers of nodes (called neurons) and that is able to solve linearly inseparable 
-problems \cite{SteinwenderBitzer2003}.
-Each neuron consists of a linear combination of weighted inputs which is passed 
-though a non-linear activation function to produce its output.
-
-This kind of artificial neural network is trained using a supervised learning 
-technique called back-propagation.
-This training method was developed independently by Werbos \cite{Werbos1974}, 
-Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
-in updating the weights of the output layer neurons once the erroneous output 
-has been obtained, and then, propagating the successive weight layers back to 
-the input layer.
-
-A key issue when designing an MLP is the number of hidden layers of neurons.
-Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
-create classifying regions of any kind. This result was then confirmed in later 
-works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
+% \item \emph{Multilayer Perceptron}:
+%A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
+%artificial neural network model that maps the input data onto an appropriate output. 
+%It is an artificial neural network generally used for classification or 
+%approximation problems.
+%
+%This model is a generalisation of the standard linear perceptron that uses several 
+%layers of nodes (called neurons) and that is able to solve linearly inseparable 
+%problems \cite{SteinwenderBitzer2003}.
+%Each neuron consists of a linear combination of weighted inputs which is passed 
+%though a non-linear activation function to produce its output.
+%
+%This kind of artificial neural network is trained using a supervised learning 
+%technique called back-propagation.
+%This training method was developed independently by Werbos \cite{Werbos1974}, 
+%Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
+%in updating the weights of the output layer neurons once the erroneous output 
+%has been obtained, and then, propagating the successive weight layers back to 
+%the input layer.
+%
+%A key issue when designing an MLP is the number of hidden layers of neurons.
+%Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
+%create classifying regions of any kind. This result was then confirmed in later 
+%works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
 
 \end{itemize}
 
