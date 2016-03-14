@@ -784,9 +784,10 @@ Well known forecasting methods implemented in the Weka tool
 \cite{Hall2009,Witten2011} have been chosen, as these methods are
 widely known, and could be very helpful for practitioners to reproduce
 experiments and even to solve similar sales prediction problems using
-these methods.
+these methods. % Why these and not others? Exploratory data analysis?
+               % - JJ
 
-Specifically, the following forecasting methods are proposed:
+Specifically, the following forecasting methods are proposed: % Proposed why? - JJ
 \begin{itemize}
 
  % weka.classifiers.trees.M5P
@@ -910,11 +911,37 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
+%An intro should go here - JJ
+
 \subsection{Experimental setup}
 
-In most of data mining and machine algorithms, the values of some parameters could have a high influence on its performance. In our experiments, the best value of $k$ in the $k$-nearest neighbour was empirically found at $k=3$. For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyse higher dimensional data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important parameters should be tuned in SVM: the Cost $(C)$ and $(\gamma)$ of the RBF kernel. We apply grid search which is the most common approach to find $C$ and $\gamma$. The best performance of SVM was found at $C=200$ and Gamma $\gamma = 0.01$. For MLP, we apply it with one hidden layer since it was proven in the literature that an MLP with one hidden layer can approximate any continuous or discontinuous function \cite{hornik1989multilayer,mirjalili2014let}. However, there is no rule of thumb on selecting the best number of neurons in the hidden layer. One suggested method that is followed in this work is to set the number of neurons in the hidden layer to $2 \times I + 1$ where $I$ is the number of inputs in the dataset \cite{wdaa2008differential,mirjalili2014let,mirjalili2015effective}.
+In most data mining and machine learning algorithms, the values of
+some parameters have a high influence on its performance. In our
+experiments, the best value of $k$ in the $k$-nearest neighbour was
+empirically found at $k=3$. % What???? - JJ
+ For SVM, the widely used Radial Basis
+Function (RBF) kernel is selected. As reported in several studies, RBF
+kernel has a reliable performance and can analyse higher dimensional
+data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important
+parameters should be tuned in SVM: the Cost $(C)$ and $(\gamma)$ of
+the RBF kernel. We apply grid search which is the most common approach
+to find $C$ and $\gamma$. The best performance of SVM was found at
+$C=200$ and Gamma $\gamma = 0.01$. For MLP, we apply it with one
+hidden layer since it was proven in the literature that an MLP with
+one hidden layer can approximate any continuous or discontinuous
+function \cite{hornik1989multilayer,mirjalili2014let}. However, there
+is no rule of thumb on selecting the best number of neurons in the
+hidden layer. One suggested method that is followed in this work is to
+set the number of neurons in the hidden layer to $2 \times I + 1$
+where $I$ is the number of inputs in the dataset
+\cite{wdaa2008differential,mirjalili2014let,mirjalili2015effective}. 
 
-All experiments are performed using 10-folds cross validation. The dataset is partitioned into 10 parts where the training process is carried out on 9 parts then the resulted model is tested on the left 10th part. This process is repeated 10 times, each time the model is trained using different 9 parts. At the end of the process the 10 evaluation results on the testing parts are averaged.
+All experiments are performed using 10-fold cross validation. The
+dataset is partitioned into 10 parts where the training process is
+carried out on 9 parts then the resulted model is tested on the left
+10th part. This process is repeated 10 times, each time the model is
+trained using different 9 parts. At the end of the process the 10
+evaluation results on the testing parts are averaged. 
 
 \subsection{Obtained results}
 
@@ -1002,6 +1029,8 @@ Very High & $>$5000 & 64 & 1.05\%\tabularnewline
 \includegraphics[scale=0.60]{freq_sales.eps}
 \end{center}
 \caption{Number of books in each category.}
+%This should go also to exploratory data analysis, that is, problem
+%description - JJ
 \label{fig:count}
 \end{figure*}
 
@@ -1033,18 +1062,28 @@ there are more hexagons in the U-matrix than component planes since
 the distances between units is also represented as hexagons. 
 
 In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales
-categories. It can be clearly shown that the SOM algorithm has
+categories. It can be clearly seen that the SOM algorithm has
 successfully clustered the labels of the Total Sales into clear
-identified regions. In the top of the U-matrix the VL category is
+identified regions. %So what? - JJ
+ In the top of the U-matrix the VL category is
 located. The L category appears in the middle of the matrix. Most of
 the M category appears in bottom-right corner while the H and VH
 categories are concentrated in the bottom-left corner.
+% OK, this means that these features are more or less clearly
+% separable. But the problem is that the UMatrix shows only 2, maybe 3
+% clusters: vh and H. That's it. If you know UMatrix, that's what you
+% see - JJ
 By inspecting \texttt{num\_reprints}, \texttt{gifts},
 \texttt{distrib\_novelty}, \texttt{tot\_points\_sale},
 \texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run}
 components, it can be noticed that they have the highest similarity to
 the clusters shown in the U-matrix. Based on this analysis, those
 features will be selected for the next stage.
+%  This is not a result, it is data preprocessing. You should have
+%  included it in the 4th section. All results do not need to go into
+%  the "REsults" section, only the final results. 
+% Besides, are you using this or feature selection for selecting
+% features? 
 
 \begin{figure*}[ht]
 \begin{center}
@@ -1262,7 +1301,11 @@ M5P & LR & SVM
 k-NN & MLP
 \end{tabular}
 \end{center} 
-\caption{Actual VS predicted sales for M5P, LR, SVM, k-NN, MLP models.}
+\caption{Actual vs. predicted sales for M5P, LR, SVM, k-NN, MLP
+  models.}
+% You should use a log-log scale here to see it more clearly. Besides,
+% please say in a comment the script you are using to generate it, we
+% are going to need it later on - JJ
 \label{conv2}
 \end{figure*}
 
