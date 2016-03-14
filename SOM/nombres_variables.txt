@@ -1,6 +1,6 @@
 referencia - REFERENCE
 autor - AUTHOR [author]
-* pvp - RETAIL PRICER [ret_pricer]
+* pvp - RETAIL PRICE [ret_price]
 * materia1 - SUBJECT1 [subject_123]
 * materia2 - SUBJECT2
 * materia3 - SUBJECT3

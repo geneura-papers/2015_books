@@ -3,7 +3,7 @@ Necesito ayuda para traducir los nombres de las variables que describen cada lib
 
 referencia - REFERENCE
 autor - AUTHOR
-pvp - RETAIL PRICER
+pvp - RETAIL PRICE
 materia1 - SUBJECT1
 materia2 - SUBJECT2
 materia3 - SUBJECT3
