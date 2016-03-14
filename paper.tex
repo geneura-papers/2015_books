@@ -364,7 +364,7 @@ forecasting methods can be applied, which is what the authors do in
 \cite{Chang2009}, where a hybrid model integrating K-Means and fuzzy
 neural networks to forecast the future sales of a printed circuit
 board is proposed. % We have been talking above that above and SAID IT
-                   % DIDN'T WORK? Why do we say it here again?
+                   % DIDN'T WORK? Why do we say it here again? - JJ
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analyse 
 historical data along online reviews, reviewer characteristics and review 
 influences to understand how electronic `word-of-mouth' influences product sales. The proposed method is suitable for those sales forecasting problems with a big amount of online reviews and historical data.
@@ -388,9 +388,15 @@ The main objective of this paper is to forecast sales for
 %FERGU: el objetivo es la herramienta o la predicción?
 unpublished books for which no historical data are available. Instead, just some
 %FERGU: pero usamos datos históricos de otros para la predicción, no? Como otros papers...
-descriptive and variables known in advance related to the new book. In order to do that, we have used a training dataset which includes historical sales data for a big amount of books published in Spain for several years, with a set of 50 features or variables per pattern. 
+descriptive and variables known in advance related to the new book. In
+order to do that, we have used a training dataset which includes
+historical sales data for a big amount of books published in Spain for
+several years, with a set of 50 features or variables per pattern.  
 
-The initial dataset, provided in the framework of a contract by Trevenque Editorial S.L., included 3159 books. Table \ref{tabla:paramsOrig50} shows the initial set of variables describing each book.
+The initial dataset, provided in the framework of a contract by
+Trevenque Editorial S.L., included 3159 books. Table
+\ref{tabla:paramsOrig50} shows the initial set of variables describing
+each book. 
 
 \begin{table}[!ht]
 \caption{Parameters describing a book, provided by the company Trevenque S.L.}
@@ -469,7 +475,17 @@ However, an expert can consider them to modify the forecast obtained by
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
 external data. 
-Thus, the proposed method, will analyse the provided data and variables and will yield a forecast of sales according to them. This result could be used as a reference for a human expert, who would consider it in his/her own prediction process.
+Thus, the proposed method, will analyse the provided data and
+variables and will yield a forecast of sales according to them. This
+result could be used as a reference for a human expert, who would
+consider it in his/her own prediction process. 
+
+% This section is too short and really does not describe the problem
+% to its full extent. First, it should say if some of these variables
+% were discarded for some reason. Group the variables we have in those
+% available to publisher and those that can be used afterwards. And
+% then give an idea of the complexity of the problem and how difficult
+% it should be to find a solution - JJ
 
 
 %********************************************************************************
@@ -497,11 +513,32 @@ There is not a standard methodology to solve the general problem of sales foreca
 %variables that describe the product but do not provide useful information during 
 %the prediction process.
 
-First, after the editorial company has provided the raw data (extracted directly from its database), a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. Moreover, the initial set of variables (presented in Table \ref{tabla:paramsOrig50}) has been reduced by an expert to use just those that can be known in advance when a new book is launched, i.e. \textit{pre-sales data}.
+First, after the editorial company has provided the raw data
+(extracted directly from its database), a preprocessing method has
+% This should go to the previous section. 
+been performed in order to remove incorrect or incoherent patterns,
+such as those with null values in required variables, or with negative
+sales, for instance. Moreover, the initial set of variables (presented
+in Table \ref{tabla:paramsOrig50}) has been reduced by an expert to
+use just those that can be known in advance when a new book is
+launched, i.e. \textit{pre-sales data}. 
 
-Then, a Feature Selection (FS) process \cite{kittler1986feature} has been carried out, as it is an effective dimensionality reduction technique and an essential preprocessing method to discard `noisy' (non-useful) features \cite{Krishnapuram2004}. The aim of these algorithms is exploring the space of attributes to find out which subset of them yields the best results in a classification or prediction problem.
+% You have to present the problem and not the solution. It's not "what
+% you did last summer", it is SCIENCE. Why did you think FS was
+% needed? What procedure did you use for it?
+Then, a Feature Selection (FS) process \cite{kittler1986feature} has
+been carried out, as it is an effective dimensionality reduction
+technique and an essential preprocessing method to discard `noisy'
+(non-useful) features \cite{Krishnapuram2004}. The aim of these
+% Did you know there were noisy features? Why? 
+% You should include in the previous section an exploratory data
+% analysis that describes the range of variables, how many categories
+% those variables have, and so an do forth - JJ 
+algorithms is exploring the space of attributes to find out which
+subset of them yields the best results in a classification or
+prediction problem. 
   In this stage, both, numerical and visualisation-based approaches have been applied in this paper, in order to select the best variables for the forecasting 
-methods.
+methods.  
 % Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
   This task may also help to identify leading indicators to be considered by a human expert to make predictions.
 
@@ -560,7 +597,10 @@ Moreover, the initial set of features in the dataset must be revised in order to
 
 
 \begin{table}
-\caption{Considered pre-sales features and their types. It also shows the names of the variables used in the applied methods.}
+% Shouldn't this table go to "Problem description"? It is a
+% preliminary selection - JJ
+\caption{Considered pre-sales features and their types. It also shows
+  the names of the variables used in the applied methods.} 
 \label{tabla:params_pre_sales}
 \begin{center}
 \begin{tabular}{|c|l|l|c|c|}
@@ -599,16 +639,39 @@ Therefore, in order to create simpler and more accurate prediction models, and w
 %-------------------------------------------------
 \subsection{Data preprocessing and initial analysis}
 
-Once a dataset has been composed it must be preprocessed, i.e. it should be revised in order to fix the existing errors (such as wrong or duplicated patterns), or to complete (or address) the absence of information, for instance. The aim is looking for the correctness, homogeneity and completeness of the data.
+Once a dataset has been composed it must be preprocessed, i.e. it
+should be revised in order to fix the existing errors (such as wrong
+or duplicated patterns), or to complete (or address) the absence of
+information, for instance. The aim is looking for the correctness,
+homogeneity and completeness of the data. % useless paragraph - JJ
+
+%You need to lay out to the reader what you are going to do here. In
+%order to reach objective x, we need to do y, that is why we use
+%z. After using z, we prove that we have done y and thus reached
+%objective x. For instance
+% A exploratory data analysis that shows the distribution of variables
+% as well as a priori clusters is the first phase in any data
+% processing method
+% (BTW, you should include data visualization in problem description,
+% because it shows the distribution of problem variables and then
+% suggests ways to deal with it) - JJ
+% and so on...
 
 After this, the features describing every pattern are frequently analysed.
 In this case, among the variables describing a new book, some may affect 
 predictions (those variables provide information), while others may not be 
 necessary and even redundant.
 
-Moreover, the algorithm running times grow with the number of features, and thus 
-making the algorithm impractical for problems with a large number of features 
-\cite{Selvakuberan2008}. Feature reduction is a task that is usually applied in these kind of situations, having two ways of performance \cite{kittler1986feature}: feature extraction and feature selection. 
+% You have to justify its application to this particular problem. What
+% was the runnning time with all variables? What reduction was your
+% target? - JJ
+Moreover, the algorithm running time grows with the number of
+features, making it impractical for problems with a large number of features 
+\cite{Selvakuberan2008}. Feature reduction is a task that is usually
+applied in these kind of situations, having two ways of performance
+\cite{kittler1986feature}: feature extraction and feature selection.  
+% two ways of performance? WTF? Do you mean "being performed in two
+% different ways?" - JJ
 %Feature selection task is usually carried out by 
 %searching through all possible combinations of features, evaluating each one. 
 
@@ -617,21 +680,74 @@ making the algorithm impractical for problems with a large number of features
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-Feature extraction is a ``transformation-based approach'', therefore it transforms the original meaning of the features. This approach involves creating a subset of new features by combinations of the existing features, thus it is employed when the semantics of the original dataset will not be needed by any future process. On the contrary, feature selection attempts to retain the meaning of the original feature set. It is part of what is called semantic-preserving techniques, known as ``selection-based approaches". By searching through all possible combinations of features, the aim of these techniques is to determine a minimal feature subset to reduce processing time, while obtaining the same or higher accuracy as the initial feature set \cite{liu1998feature}. In the problem this work assesses, it is very important to maintain the semantics of the set of initial variables, and therefore several feature selection methods have been applied.
+Feature extraction is a ``transformation-based approach'', therefore
+it transforms the original meaning of the features. This approach
+involves creating a subset of new features by combinations of the
+existing features, thus it is employed when the semantics of the
+original dataset will not be needed by any future process. On the
+contrary, feature selection attempts to retain the meaning of the
+original feature set. It is part of what is called semantic-preserving
+techniques, known as ``selection-based approaches". By searching
+through all possible combinations of features, the aim of these
+techniques is to determine a minimal feature subset to reduce
+processing time, while obtaining the same or higher accuracy as the
+initial feature set \cite{liu1998feature}. In the problem this work
+addresses, it is very important to maintain the semantics of the set of
+initial variables, and therefore several feature selection methods
+have been applied. 
 
-In addition, in order to reduce the dimensionality of the input data and to choose an appropriate set of variables, the Self-Organizing Map (SOM) \cite{kohonen1998} method has been also applied.
+In addition, in order to reduce the dimensionality of the input data
+and to choose an appropriate set of variables, the Self-Organizing Map
+(SOM) \cite{kohonen1998} method has been also applied. % Why? Is that
+                                % one of the two forms of feature
+                                % selection? What do we expect to
+                                % learn from it? - JJ 
 
-Kohonen's SOM is a feedforward neural network \cite{Haykin98_NNC} that uses an unsupervised training algorithm and which, through a process called self-organisation, configures the output units into a topological representation of the original data. It tries to imitate the self-organisation done in the sensory cortex of the human brain, where neighbouring neurons are activated by similar stimulus. SOM belongs to a general class of neural network methods, which are non-linear regression techniques that can be trained to learn or find relationships between inputs and outputs or to organise data so as to disclose so far unknown patterns or structures. It is usually used as a clustering/classification tool or used to find unknown relationships between a set of variables that describe a problem. The main property of the SOM is that it makes a nonlinear projection from a high-dimensional data space (one dimension per variable) on a regular, low-dimensional (usually 2D) grid of neurons, called units.
-SOM is further processed using Ultsch method \cite{UmatUlts}, the Unified distance matrix (U-matrix), which uses SOM's codevectors (vectors of variables of the problem) as data source and generates a matrix where each component is a distance measure between two adjacent neurons. It allows us to visualise any multi-variated dataset in a two-dimensional display, so we can detect topological relations among neurons and infer about the input data structure. High values in the U-matrix represent a frontier region between clusters, and low values represent a high degree of similarities among neurons on that region, clusters.
+Kohonen's SOM is a feedforward neural network \cite{Haykin98_NNC} that
+uses an unsupervised training algorithm and which, through a process
+called self-organisation, configures the output units into a
+topological representation of the original data. It tries to imitate
+the self-organisation done in the sensory cortex of the human brain,
+where neighbouring neurons are activated by similar stimulus. SOM
+belongs to a general class of neural network methods, which are
+non-linear regression techniques that can be trained to learn or find
+relationships between inputs and outputs or to organise data so as to
+disclose so far unknown patterns or structures. It is usually used as
+a clustering/classification tool or used to find unknown relationships
+between a set of variables that describe a problem. The main property
+of the SOM is that it makes a nonlinear projection from a
+high-dimensional data space (one dimension per variable) on a regular,
+low-dimensional (usually 2D) grid of neurons, called units. 
+SOM is further processed using Ultsch method \cite{UmatUlts}, the
+Unified distance matrix (U-matrix), which uses SOM's codevectors
+(vectors of variables of the problem) as data source and generates a
+matrix where each component is a distance measure between two adjacent
+neurons. It allows us to visualise any multi-variated dataset in a
+two-dimensional display, so we can detect topological relations among
+neurons and infer about the input data structure. High values in the
+U-matrix represent a frontier region between clusters, and low values
+represent a high degree of similarities among neurons on that region,
+clusters .
 
-SOMs (and U-Matrix) are usually applied to visualise natural structures in the data and their relations, as well as the natural groupings that could be among them. In addition, SOM makes easy the estimation of the variables that have more influence on these groupings. Other statistical and soft computing tools can also be used for this purpose, but since Kohonen's SOMs offers a visual way of doing it, it is much more intuitive, and takes advantage of the capabilities of the human brain as a pattern recogniser.
+SOMs (and U-Matrix) are usually applied to visualise natural
+structures in the data and their relations, as well as the natural
+groupings that could be among them. In addition, SOM makes easy the
+estimation of the variables that have more influence on these
+groupings. Other statistical and soft computing tools can also be used
+for this purpose, but since Kohonen's SOMs offers a visual way of
+doing it, it is much more intuitive, and takes advantage of the
+capabilities of the human brain as a pattern recogniser. 
 %FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
 % Antonio - arreglado 
+% And this is going to be useful because... - JJ
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
-Also, the SOM graph represents and highlight very clearly those regions (clusters) with high training sample concentration and fewer where the samples are scarce. 
+Also, the SOM graph represents and highlight very clearly those
+regions (clusters) with high training sample concentration and fewer
+where the samples are scarce.  
 %FERGU: mencionarlo en la intro
+% Which is interesting because... JJ
 
 As far as the feature selection methods are concerned, Weka software separates the process into two parts:
 %FERGU: por qué mencionamos a Weka aquí y no antes?
