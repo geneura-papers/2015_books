@@ -40,13 +40,37 @@ paper, we are tackling the problem of predicting total sales in order to
 print the right amount of books, doing so even before the book has
 reached the shelves. 
 Several years 
-% Antonio - Decir cuántos años son, que no me acuerdo.
-of data on published books in Spain have been processed by means of data visualisation and other feature selection techniques. The aim is to find out what are the variables that have more impact on sales, and then use machine learning and forecasting methods to predict sales, and, from them, estimate the print-run.
-The described methodology improves the forecasting running time and is eventually able to predict sales with remarkable accuracy. Moreover, the proposed method has been validated by the company that provided the data and incorporated in a business intelligence tool for publishers,
+% % Antonio - Decir cuántos años son, que no me acuerdo.
+% of data on published books in Spain have been processed by means of
+% data visualisation %visualization does not "process". I propose an alternative
+%  and other feature selection techniques. 
+We have been working on a data set that includes the complete sales
+data for books published in Spain across several years. After an
+initial exploratory phase using visualization techniques, we have
+applied several feature selection techniques in order
+to find out what are the variables that have more impact on sales, and
+then used machine learning to create a model and forecast sales. 
+The described methodology improves the forecasting running time  %with
+                                %respect to what?- JJ
+and is
+eventually able to predict sales with remarkable accuracy. Moreover,
+the proposed method was validated by the company that provided
+the data and incorporated in a business intelligence tool for
+publishers, % We shouldn't say this, it's outside the bounds of the
+            % paper. Besides, it was a different technique - JJ
 since the obtained models provide a reliable guidance on the decision process of
 publishing a book, without human intervention 
 either for the operation or for interpretation.
 % Antonio - esto es cierto??? :D
+% We should simply say: 
+% The method presented here provides a reliable data processing
+% technique for editorial data and also yields a reasonable result
+% that allows publishers to forecast sales and then create the
+% appropriate print run without incurring in losses. 
+%
+% Besides, if this is true:
+% It also provides a method that is able to provide insight on the
+% decisions that have an influence on the print run for publishers. 
 \end{abstract}
 
 
@@ -54,21 +78,25 @@ either for the operation or for interpretation.
 
 \section{Introduction}
 
-Publishing a book, as releasing any other product, implies several
+Publishing a book, as releasing any other cultural product with a
+physical substrate, implies several
 types of risks and costs due to
-the complexity and derived expenses of the production and distribution processes. 
-% tienes que enmarcar el problema. Se trata de productos culturales
-% con soporte físico y con ventas relativamente pequeñas. Libros,
-% discos, no sé si alguna cosa más. - JJ
-A newly launched product could be, additionally, completely new to the company (not a new version or edition of a previous product), and sales forecasts can
-only be based on the experience of other similar products. 
-In this scope, having accurate estimations of future sales of the new
+the complexity, and derived expenses, of the production and
+distribution processes.  When a company is faced with the problem or
+releasing a completely new product, in the sense that it is an unknown
+author or a new topic with no track record, sales forecasts can
+only be based on the experience obtained from other similar products,
+but the definition of ``similar'' itself is obscure and, sometimes,
+subjective. Even if it is a known author or topic, having accurate
+estimations of future sales of the new 
 product is extremely important \cite{ChingChin2010}, so that production
-runs do not exceed predicted sales. 
+runs do not exceed predicted sales by too much. 
 Indeed, several studies have demonstrated that improving sales predictions 
-(a reduction of forecasting errors) results in an enhancing in the 
+(a reduction of forecasting errors) results in an enhancement in the 
 %FERGU: an enhancing está bien dicho? Mejor "an enhacement", no?
 production process \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
+%which should be obvious from the get go, don't know why you need 4
+%papers to affirm that - JJ
 
 % In this sense, the publishing industry is based on very particular and
 % established production process, and publishing a book requires several
@@ -84,34 +112,53 @@ production process \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
 % the operations and challenges facing the publishing industry and its
 % supply chain. % ¿eso es lo que vamos a hacer? - JJ
 
-Book publishers, as well as other content producers, release new {\em
-  products} more frequently than other industries, so that they face the
+The problem is specially acute for book publishers, who, among other
+content providers, release new {\em products} more frequently than
+other industries, so that they face the 
 problem of predicting sales quite often. The issue, in this case, is to print an
 adequate number of copies but not too many, as the unsold volumes will
 lead to losses and sunk inventory cost, 
 % Antonio - 'sunk inventory cost' es corecto?
-whereas if the number of printed copies was not enough, you can always print more. 
+% Sí, pero corecto no lo es. - JJ
+whereas if the number of printed copies was not enough, a new print
+run can be made, resulting in temporary losses due to lack of supply;
+a real problem, to be sure, but less dire than having too many unsold
+books.  
 %FERGU: el you ese es muy coloquial, reescribir
 % Antonio - Esto habría que matizarlo más, de hecho, decirlo va un poco en contra de nuestro artículo, ya que simplifica el problema. Yo indicaría que errores en predicciones por exceso o por defecto tienen MUCHAS pegas (ambos casos), si bien el exceso es peor, claro, pero decir que lo otro es también muy negativo y por eso hay que ajustar muy bien la predicción. ;)
 % Se podría señalar, por ejemplo:
 % - repetición de costes de distribución
 % - mala impresión al cliente/lector, que pueden repercutir negativamente en las ventas
 % - algunas más... :D
-In this sense, errors in one or the other direction do not have the same impact, although a temporal scarcity of a book that is selling well is also a problem.
+% Corregido - JJ
+In this sense, errors in one or the other direction do not have the same impact.
 % Antonio - esto habría que rescribirlo de acuerdo a lo anterior que comento. ;)
 %FERGU: lo de one or the other direction creo que confunde
+% Lo que habría que decir es hablar de cómo hemos tratado una u otra
+% cosa. ¿Estamos sesgando hacia predecir menos ventas de las que
+% habría? ¿O simplemente es por tener un poco de background? Igual
+% deberíamos haberlas tratado de forma diferente. - JJ
 
-Thus, it is extremely important to develop an accurate predictive tool which could accurately forecast the future sales a new book will achieve, in order to optimise production and to improve the publishing company profits or minimise losses \cite{Zhao2001}. This is the main objective of this paper.
+Thus, it is extremely important to develop an accurate predictive method
+which could accurately forecast the future sales a new book will
+achieve, in order to optimise production, improve the publishing
+company profits or minimise losses \cite{Zhao2001}. This is the main
+objective of this paper. 
 %FERGU: entonces el objetivo es desarrollar una herramienta? La metodología? Dejarlo más claro en todos los sitios
 An example is the optimisation of sales \cite{Mattila2002} by
 improving profit margins by selling the whole print-run. 
-% Antonio - podrías extender un poco el ejemplo? Es decir, describir un poco más lo que se hace en ese trabajo. ;)
+% Antonio - podrías extender un poco el ejemplo? Es decir, describir
+% un poco más lo que se hace en ese trabajo. ;)
+% An example of what? Does that go there? - JJ
 
-However, designing such an accurate predictive tool is a difficult task in this scope, as book sales are influenced by several factors that make them fluctuate and, moreover, usually they might be not controllable and even unknown.
+However, designing such an accurate predictive tool is a difficult
+task in this scope, as book sales are influenced by several factors
+that make them fluctuate and, moreover, usually they might be not
+controllable and even unknown. 
 %FERGU: "moreover, usually" son dos adverbios juntos y queda un poco raro 
 For instance, some are related to decisions on purchases, others with freight 
 %FERGU: some factors para dejarlo claro
-traffic, or others with the distribution strategy \cite{Little1998}. 
+traffic, or others with the distribution strategy \cite{Little1998}. % This paragraph is rather useless - JJ
 
 Thus, it is very important to know the product and the variables that
 might affect the sales, and how an expert manager takes them into account \cite{Armstrong2001,SThomassey2014}. 
@@ -124,17 +171,22 @@ In addition, some may have correlations between them.
 %FERGU: some ... variables, no?
 However, these correlations can be detected using data analysis methods, 
 such as Self-Organizing Maps (SOM) \cite{kohonen1998} 
-or stepwise regression analysis (SRA) \cite{Chang2009}. % What do they do? What are the results?
+or stepwise regression analysis (SRA) \cite{Chang2009}. % What do they
+                                % do? What are the results?
+% This is a state of the art? Are we already in the state of the art?
+% - JJ
 
-In this research, the problem of how many units should be printed 
+In the research published in this paper, the problem of how many units should be printed 
 when a new book is published is faced using data provided by the 
 Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}},
-a company that provides management systems and services for book shops,
+a company that provides management systems and services for bookshops,
 % Antonio - 'libraries' o 'book shops'? Supongo que lo segundo. ;D
 publishers and distributors. 
 Usually, the company's expert sales managers analysed historical data 
-and applied their knowledge using external variables to compute correct estimations (predictions), for instance, she can decide increasing or decreasing the sales prediction based on season or sales period.
-                        % varias citas - JJ
+and applied their knowledge using external variables to compute
+correct estimations (predictions), for instance, she can decide
+increasing or decreasing the sales prediction based on season or sales
+period.                         % varias citas - JJ
                         % [Pedro] lo modifico para comentar quienes nos facilitaron los datos
                         %  y que así era como funcionaban hasta ese momento.
 %In any case, in general companies usually use a forecasting model and then, 
@@ -149,18 +201,26 @@ predictions from the same dataset \cite{ChingChin2010,Sanders1994}.
 
 For these reasons, the industry requires the best suited forecasting
 techniques to be adopted so that, estimating sales task is carried out
-reliably, accurately, and in an automatic way. 
+reliably, accurately, and in an automatic way. % Iterative. Another
+                                % useless paragraph - JJ
 
-With this issue in mind, in this paper a data visualisation and preprocessing strategy to find out what are the relevant variables describing a book in the prediction of book sales is proposed; then several standard data mining models 
+With this issue in mind, in this paper a data visualisation and
+preprocessing strategy to find out what are the relevant variables
+describing a book in the prediction of book sales is proposed; then
+several standard data mining models  
 for sales forecasting are evaluated so a publishing company 
 can deduce and optimise print-run.
 % Antonio - cambiar este párrafo para describirlo como un proceso en dos pasos:
 % - análisis y extracción
 % - predicción
+After this initial processing phase, we apply machine learning
+techniques to create a sales model and use it to predict them. 
 
 % Antonio - Además habría que justificar bien (con citas) el por qué de la extracción/selección de características, por ejemplo:
 % - menor tiempo de procesamiento
 % - mejores resultados (si algunas variables interfieren entre sí)
+% - Permiten saber qué variables son las que influyen realmente en el
+% resultado. Esto es lo único importante - JJ
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
@@ -193,28 +253,56 @@ real dataset. Finally, conclusions and future work are presented in Section
 % - habría que destacar claramente ls aportes de este trabajo al SotA, cómo hace que avance ;)
 % - habría que incluir citas a artículos de la revista que elijamos y comentarlos aquí
 
-Sales forecasting is a problem which has been addressed several times in the literature. Most of the studies have been conducted using different analysis and forecasting methods, such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001}, applied to different industrial sectors.
+Sales forecasting is a problem which has been addressed several times
+in the literature. Most of the studies have been conducted using
+different analysis and forecasting methods, such as regression models
+\cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy
+systems \cite{Mastorocostas2001}, applied to different industrial
+sectors. 
 % ¿Y qué? Esta frase
 % no aporta nada. La primera frase
 % tiene que enmarcar el estado del
 % arte - JJ
 % Antonio - la he intentado mejorar.
+% Muchas cosas de la intro tendrían que venir aquí, al estado del
+% arte. Habría que reescribir la intro. - JJ
 
 Specifically, Time-Series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
-is perhaps the most used technique to tackle the sales forecasting problems. 
-The efficiency of these techniques strongly depends on the field of application 
-and the correctness of the problem data. However, since they require a large amount of data for predicting sales, these methods are not the most suitable for this task \cite{ChingChin2010}.
+is perhaps the most used technique to tackle the sales forecasting
+problems. The efficiency of these techniques strongly depends on the field of application 
+and the correctness of the problem data. However, since they require a
+large amount of data for predicting sales, these methods are not the
+most suitable for this task \cite{ChingChin2010}. And they cannot be
+applied before the book is published, as is the objective of this
+paper. 
 
-This is the case of new book sales forecasting, a problem with issues such as 
-dealing with quite limited data (just a few variables are known in advance) or the existence of several categorical values (which are harder to be processed). Given these issues, finding adequate forecasting techniques and selecting 
-the best method to use is also a problem \cite{ChingChin2010}.
-Moreover, in the case of new unpublished-books, there are no historical data to define patterns, and only some descriptive data about the new book are available 
-\cite{ChingChin2010,FaderHardie2005,Madsen2008}. Thus, not any time-series forecasting method can be used \cite{Madsen2008,ChernWSF15}. 
+In this case, just a few variables are known in advance
+\cite{ChingChin2010,FaderHardie2005,Madsen2008}, and some of 
+them are categorical, harder to process, even more so if the number
+of categories is high. Given these issues, finding adequate
+forecasting techniques and selecting  
+the best method to use is also a problem \cite{ChingChin2010}. % Qualify this citation - jj
 
-For this reason, usually the methods used to predict book sales have been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge in industry, their experience, and their perception about trends, could make decisions on the companies production (how many books should be printed when a new book is published).
+% Thus, not any time-series forecasting method can be used
+% \cite{Madsen2008,ChernWSF15}. 
+% Qualify those references!!! What do they say? 
+
+For this reason, usually the methods used to predict book sales have
+been generally based on experts' experience.% Reference - JJ
+ They analyse data about
+sales and, taking into account their knowledge in industry, their
+experience, and their perception about trends, could make decisions on
+the companies production (how many books should be printed when a new
+book is published). 
 %FERGU: quitad los paréntesis :)
-This is a complex problem, since the predictions are influenced by external variables that must be taken into account, such as seasonality, promotions or fashions that expert managers might subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}.
-
+% Fergu: quítalos tú, tío, aquí puede editar todo el mundo - JJ
+This is a complex problem, since the predictions are influenced by
+external variables that must be taken into account, such as
+seasonality, promotions or fashions that expert managers might
+subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}. % This
+                                % has something to do with the
+                                % previous paragraph? Put it there!!! 
+%
   %[pedro] sobre la industria editorial no hay trabajos sobre predicción de ventas.
   % Lo habitual ha sido usar el conocimiento de expertos para realizar predicciones 
   %  o aconsejar acerca de la cantidad de libros a imprimir.
@@ -223,7 +311,10 @@ This is a complex problem, since the predictions are influenced by external vari
   %     Moon2010ICSSSM
   %     Moon2010ICEC
 Recently, some works have proposed analyzing relationships between on-line information 
-and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon et al. propose using the number of blog references as an indicator of the success of a book, and thus, its sales. Different sales patterns are observed by analysing data obtained.
+and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon
+et al. propose using the number of blog references as an indicator of
+the success of a book, and thus, its sales. Different sales patterns
+are observed by analysing data obtained. 
 % Antonio - describir esos 'sales patterns'. ;)
 % FERGU: y también cuales son esos 'data obtained'
 However, the authors used in these papers historical data from published books, 
@@ -269,7 +360,11 @@ present/launch new products every season.
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
 In those cases where historical data are available, classical time series 
-forecasting methods can be applied, which is what the authors do in \cite{Chang2009}, where a hybrid model integrating K-Means and fuzzy neural networks to forecast the future sales of a printed circuit board is proposed.
+forecasting methods can be applied, which is what the authors do in
+\cite{Chang2009}, where a hybrid model integrating K-Means and fuzzy
+neural networks to forecast the future sales of a printed circuit
+board is proposed. % We have been talking above that above and SAID IT
+                   % DIDN'T WORK? Why do we say it here again?
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analyse 
 historical data along online reviews, reviewer characteristics and review 
 influences to understand how electronic `word-of-mouth' influences product sales. The proposed method is suitable for those sales forecasting problems with a big amount of online reviews and historical data.
@@ -279,7 +374,8 @@ adequate, although they can obviously be used once the book has been launched fo
 In our work the relevant variables in the prediction of sales are identified
 by means of data visualisation and feature selection methods. Then, machine learning techniques are applied to predict sales and to infer the ideal print-run of a book.
 In addition, since publishers need models to explain obtained predictions, 
-`black box' forecasting methods may not be suitable, so models based on decision rules have been tested as an alternative.
+`black box' forecasting methods may not be suitable, so models based
+on decision rules have been tested as an alternative. 
 
 
 
