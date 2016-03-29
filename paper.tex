@@ -14,12 +14,10 @@
 %%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
 \title{Enhancing the sales prediction of newly published books by means of computational intelligence methods} 
 
-% Antonio - El título habría que cambiarlo a otro más descriptivo, creo yo. A ver si os gusta este
-% Pedro - me gusta.
 
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
 \author {
-P.A. Castillo$^1$, A.M. Mora$^1$, J.J. Merelo$^1$, H. Faris$^2$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, M.G. Arenas$^1$, P. de las Cuevas$^1$
+P.A. Castillo$^1$, A.M. Mora$^1$, H. Faris$^2$, J.J. Merelo$^1$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, M.G. Arenas$^1$, P. de las Cuevas$^1$
 }
 \institute{
 $^1$Department of Computer Architecture and Computer Technology. CITIC, ETSIIT. University of Granada (Spain)\\
@@ -47,7 +45,7 @@ Several years
 %  and other feature selection techniques. 
 We have been working on a data set that includes the complete sales
 data for books published in Spain across several years. After an
-initial exploratory phase using visualization techniques, we have
+initial exploratory phase using visualisation techniques, we have
 applied several feature selection techniques in order
 to find out what are the variables that have more impact on sales, and
 then used machine learning to create a model and forecast sales. 
@@ -235,7 +233,7 @@ problem of how many books should be printed when a new book is published,
  followed by Section \ref{sec:methodology} where the
 experimental setup and the methodology considered in the study is
 presented.  %FERGU: mejor described para no repetir
-Section \ref{sec:experiments} reports and analyzes the obtained results with a 
+Section \ref{sec:experiments} reports and analyses the obtained results with a 
 real dataset. Finally, conclusions and future work are presented in Section
 \ref{sec:conclusionsAndFutureWork}. 
 % Antonio - TODO: rescribir con los contenidos finales del artículo. ;)
@@ -311,7 +309,7 @@ subjectively apply \cite{Lapide1999,ChingChin2010,ChernWSF15}. % This
   %  sobre "Use Blog Information As Book Sales Prediction":
   %     Moon2010ICSSSM
   %     Moon2010ICEC
-Recently, some works have proposed analyzing relationships between on-line information 
+Recently, some works have proposed analysing relationships between on-line information 
 and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon
 et al. propose using the number of blog references as an indicator of
 the success of a book, and thus, its sales. Different sales patterns
@@ -355,7 +353,7 @@ forecasting is proposed to solve three real-world sales forecasting problems, na
 In that study, products are classified based on their sales patterns, so it is assumed that products in the same class would follow a similar sales pattern. 
 However, as the authors state, the proposed system can not deal with qualitative 
 data related to the products. Moreover, real-world cases, such as consumer 
-electronics and fashion products, should be deeply analyzed, as these industries 
+electronics and fashion products, should be deeply analysed, as these industries 
 present/launch new products every season. 
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
@@ -643,6 +641,7 @@ Therefore, in order to create simpler and more accurate prediction models, and w
 
 %-------------------------------------------------
 \subsection{Data preprocessing and initial analysis}
+\label{subsec:data_preproces}
 
 Once a dataset has been composed it must be preprocessed, i.e. it
 should be revised in order to fix the existing errors (such as wrong
@@ -918,7 +917,16 @@ published.
 \section{Experiments and Results}
 \label{sec:experiments}
 
-%An intro should go here - JJ
+% An intro should go here - JJ
+% Antonio - done
+
+This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
+Feature selection techniques have been also applied in order to test their utility by comparing the obtained results.
+
+We have analysed the whole dataset (all the editorials), but also performed some experiments considering specific editorials as example cases.
+The obtained decision trees have been plotted to show their simplicity and their real value as a decision-aid tool for editors.
+
+%--------------------------------------------------------------------------
 
 \subsection{Experimental setup}
 
@@ -943,117 +951,73 @@ set the number of neurons in the hidden layer to $2 \times I + 1$
 where $I$ is the number of inputs in the dataset
 \cite{wdaa2008differential,mirjalili2014let,mirjalili2015effective}. 
 
-All experiments are performed using 10-fold cross validation. The
-dataset is partitioned into 10 parts where the training process is
-carried out on 9 parts then the resulted model is tested on the left
-10th part. This process is repeated 10 times, each time the model is
-trained using different 9 parts. At the end of the process the 10
-evaluation results on the testing parts are averaged. 
+All experiments are performed using 10-fold cross validation \cite{Geisser1993,Kohavi1995,Devijver1982}. The dataset is partitioned into 10 parts where the training process is carried out on 9 parts then the resulted model is tested on the left 10th part. This process is repeated 10 times, each time the model is trained using different 9 parts. At the end of the process the 10 evaluation results on the testing parts are averaged. 
+This technique is used to estimate how accurately the predictive model will perform in practise, limiting, at the same time, the overfitting problem.
 
-\subsection{Obtained results}
+In addition, due to the stochastic component present in some of the methods and also in order to evaluate the running time, 30 repetitions of each experiment have been done per method. Then the average and standard deviation have been computed.
 
-Once the methods to be applied have been chosen, they must be applied to the datasets to obtain the prediction models for each one. 
-Later on, the models ability must be validated on non-previously seen data.
-Specifically, instead of using the conventional validation strategy based on 
-using a training set and later on a testing set (unknown data against which 
-the model must be tested), a cross-validation technique \cite{Geisser1993,Kohavi1995,Devijver1982} 
-has been used to estimate how accurately the predictive model will perform in 
-practise. %, limiting at the same time the overfitting problem.
+***TODO***: talking about the machines used
 
-%
-% TODO: explicar los resultados obtenidos en la selección de variables: 
-%  (1) con el SOM, (2) con los métodos de selecc. vars.
-%
-% CONTAR COMO SE HAN PLANIFICADO LAS EJECUCIONES CON LOS DIFERENTES METODOS:
-% - se ha usado la implementación de estos 5 métodos del paquete WEKA
-% - se han realizado 30 ejecuciones con cada método
-% - se ha usado una máquina Linux, Intel(R) Core(TM) i5-4430 CPU at 3.00GHz (4 cores) and 16 GB RAM
-To do so, in a first stage, the feature selection process has been carried out 
-using both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset 
-evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an 
-adaptation of relief for attribute estimation) evaluation methods, implemented 
-in the Weka tool.
+%Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
+%(4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
 
-% con ReliefFAttributeEval salen seleccionadas (9):
-% print_run num_reprints tot_points_sale tot_points_sale_1st_year reprints distrib_novelty weeks_sale + total_sales
-Using the {\tt ReliefFAttributeEval} feature selection method, and taking into account 
-the best ranked attributes, the following variables have been selected: 
-\emph{print-run, number of reprints, total points of sale, total points of sale 
-1st year, reprints, units distributed as novelty, weeks for sale, total sales}.
 
-% con CfsSubsetEval salen seleccionadas (4):
-% num_reprints tot_points_sale print_run + total_sales
-Using the {\tt CfsSubsetEval} feature selection method, the following variables have 
-been selected: \emph{number of reprints, total points of sale, print-run, total sales}.
-%FERGU: podeis quitar estos parrafos de variables porque ya está la tabla :)
+%--------------------------------------------------------------------------
 
-%*************************************** SOM ANALISYS
-% como tercer método, se ha usado el SOM; tras interpretar los mapas, se
-% seleccionaron las variables más adecuadas.
-Then, an analysis of the SOM results has been carried out in order to 
-determine the best variables to be considered to build the forecasting model.
+\subsection{Results for all the editors}
+\label{subsec:results_all_editors}
 
-Further important preprocessing steps are carried out before applying the SOM analysis.
-First, in order to label the U-matrix with total-sales values, this
-variable is converted from numerical to categorical. Five categories
-have been created to represent the quantities of sales of each book:
-Very Low (VL), Low (L), Medium (M), High (H) and Very High (VH). Table
-\ref{table:freq} shows the ranges of total-sales that correspond to
-each category along with the number of books that fall in. Table
-\ref{table:freq} and Figure \ref{fig:count} reveal more information
-about the nature of the dataset. We can notice that most of 77\% of
-the book are categorised as VL and L with limited number of sales. On
-the other side, the books that achieved more than 2000 sold copies are
-just around 4\%. This makes the problem of identifying those two
-categories much harder. The new categorical feature is used to replace
-the old numerical Total Sales feature in the SOM analysis. 
+In the first experiment, forecasting methods have been applied to the whole dataset. All the pre-sales features have been considered. Obtained results are presented in Table \ref{tab:all_editors_no_fs}.
 
-\begin{table*}[ht]
-\caption{Categories corresponding to total-sales variable. }
+\begin{table}
+\caption{Predicting Total sales for all editors (all the features). 30 repetitions, 10-fold cross validation.
+\label{tab:all_editors_no_fs}}
 \centering{}%
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
-Category & Range of total sales & Count & Ratio\tabularnewline
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
+K-NN & 0.787 $\pm$ 0.08 & 272.294 $\pm$ 32.38 & 840.594 $\pm$ 240.11 & 47.475 $\pm$ 3.39 & 63.072 $\pm$ 10.29 & 0.001 $\pm$ 0.01\tabularnewline
+\hline
+M5P & 0.890 $\pm$ 0.09 & 214.365 $\pm$ 22.96 & 634.229 $\pm$ 307.76 & 37.457 $\pm$ 3.12 & 48.324 $\pm$ 25.16 & 18.845 $\pm$ 0.61\tabularnewline
 \hline 
-Very Low & 1-100 & 2233 & 36.71\%\tabularnewline
+Random Forest & 0.840 $\pm$ 0.05 & 253.365 $\pm$ 29.43 & 788.937 $\pm$ 282.01 & 44.164 $\pm$ 2.76 & 57.766 $\pm$ 8.15 & 4.906 $\pm$ 0.12\tabularnewline
 \hline 
-Low & 100-500 & 2323 & 38.19\%\tabularnewline
+Linear Regression & 0.872 $\pm$ 0.07 & 308.679 $\pm$ 25.44 & 680.905 $\pm$ 226.41 & 54.053 $\pm$ 4.38 & 52.130 $\pm$ 18.29 & 984.687 $\pm$ 128.21\tabularnewline
 \hline 
-Medium & 500-2000 & 1239 & 20.37\%\tabularnewline
-\hline 
-High & 2000-5000 & 224 & 3.68\%\tabularnewline
-\hline 
-Very High & $>$5000 & 64 & 1.05\%\tabularnewline
+SVM & 0.876 $\pm$ 0.04 & 248.763 $\pm$ 27.49 & 732.641 $\pm$ 260.56 & 43.371 $\pm$ 2.35 & 53.471 $\pm$ 6.29 & 6169.239 $\pm$ 281.49\tabularnewline
 \hline 
 \end{tabular}
-\label{table:freq}
-\end{table*}
+\end{table}
+
+***TODO***: the results show...
 
 
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.60]{freq_sales.eps}
-\end{center}
-\caption{Number of books in each category.}
-%This should go also to exploratory data analysis, that is, problem
-%description - JJ
-\label{fig:count}
-\end{figure*}
+%--------------------------------------------------------------------------
 
-Second, two categorical features (i.e; Editorial and Collection) are
-removed from the analysis since they have large number of unique
-different values and therefore they are less informative. Moreover,
+\subsection{Feature selection}
+\label{subsec:feature_selection}
+
+In this second experiment, different feature selection processes have been applied.
+
+***TODO***: The aim of these techniques is to reduce the number of features to consider...
+% Antonio - TODO: explain the aim of FS in these experiments.
+
+We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
+
+Then, the dataset has been projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
+An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features Editorial and Collection have been
+removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
+
+
+Moreover,
 four features (i.e; Subject1, Subject2, Subject3 and Book-binding)
-have more than 10\% missing values so they are removed also. 
+have more than 10\% missing values so they are removed also.
 
-Finally, the resulted dataset consisted of ten features including the
-new Total Sales categorical feature. The SOM algorithm is trained
-based on the nine numerical variables while the new total-sales
-variable is used to label this data. The SOM algorithm is applied with
-a large map size of $26 \times 16$  in order to represent the
-data. The best SOM training results are obtained with a final
-quantisation error of 0.691 and topographic error of 0.046. 
+***TODO***: describe the parameters of SOM (size, neighbourhood shape, etc) and obtained quantisation and topographical errors.
+
+% The SOM algorithm is applied with a large map size of $26 \times 16$  in order to represent the data. The best SOM training results are obtained with a final quantisation error of 0.691 and topographic error of 0.046. 
+
 
 Figure \ref{fig:componentplanes} shows the U-matrix and component
 variables resulted from SOM training. The term component is used in
@@ -1068,87 +1032,77 @@ distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
 the distances between units is also represented as hexagons. 
 
-In Figure \ref{fig:Umatrix} we label the U-matrix with the total-sales
-categories. It can be clearly seen that the SOM algorithm has
-successfully clustered the labels of the Total Sales into clear
-identified regions. %So what? - JJ
- In the top of the U-matrix the VL category is
-located. The L category appears in the middle of the matrix. Most of
-the M category appears in bottom-right corner while the H and VH
-categories are concentrated in the bottom-left corner.
-% OK, this means that these features are more or less clearly
-% separable. But the problem is that the UMatrix shows only 2, maybe 3
-% clusters: vh and H. That's it. If you know UMatrix, that's what you
-% see - JJ
-By inspecting \texttt{num\_reprints}, \texttt{gifts},
-\texttt{distrib\_novelty}, \texttt{tot\_points\_sale},
-\texttt{tot\_points\_sale\_1st\_year} and \texttt{print\_run}
-components, it can be noticed that they have the highest similarity to
-the clusters shown in the U-matrix. Based on this analysis, those
-features will be selected for the next stage.
-%  This is not a result, it is data preprocessing. You should have
-%  included it in the 4th section. All results do not need to go into
-%  the "REsults" section, only the final results. 
-% Besides, are you using this or feature selection for selecting
-% features? 
+***TODO***: Justify the selected features by SOM (why have we chosen them?).
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.4]{SOM_figure.eps}
+\includegraphics[scale=0.4]{som_planes.eps}
 \end{center}
 \caption{U-matrix and component planes.}
 \label{fig:componentplanes}
 \end{figure*}
 
-\begin{figure*}[http] 
-\begin{center} 
-\begin{tabular}{cc}
-\includegraphics[scale=0.55]{Umatrix.eps}  &
-\includegraphics[scale=0.55]{Labels.eps}  \\
-U-matrix & Labels 
-\end{tabular}
-\end{center} 
-\caption{Labeling the U-matrix using the total-sales variable.}
-\label{fig:Umatrix} 
-\end{figure*}
+%\begin{figure*}[http] 
+%\begin{center} 
+%\begin{tabular}{cc}
+%\includegraphics[scale=0.55]{Umatrix.eps}  &
+%\includegraphics[scale=0.55]{Labels.eps}  \\
+%U-matrix & Labels 
+%\end{tabular}
+%\end{center} 
+%\caption{Labeling the U-matrix using the total-sales variable.}
+%\label{fig:Umatrix} 
+%\end{figure*}
 
-%*************************************** SOM ANALISYS
-
+The selected features per method are shown in Table \ref{tab:features_selected}.
 
 \begin{table}
-\begin{tabular}[htb]{|c|c|c|c|c|}
-\hline
-Variable  & Pre-Sales & ReliefFAttributeEval  & SOM & CfsSubsetEval \\ \hline \hline
-subject1    & $\checkmark$  &   &   &   \\ \hline
-subject2    & $\checkmark$  &   &   &   \\ \hline
-subject3    & $\checkmark$  &   &   &   \\ \hline
-editorial   & $\checkmark$  &   &   &   \\ \hline
-collection  & $\checkmark$  &   &   &   \\ \hline
-binding   & $\checkmark$  &   &   &   \\ \hline
-ret\_price    & $\checkmark$  &   &   &   \\ \hline
-reprints    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
-num\_reprints    & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
-gifts   & $\checkmark$  &   & $\checkmark$  &   \\ \hline
-distrib\_novelty   & $\checkmark$  & $\checkmark$  & $\checkmark$  &   \\ \hline
-tot\_points\_sale   & $\checkmark$  & $\checkmark$  & $\checkmark$   & $\checkmark$  \\ \hline
-tot\_points\_sale\_1st\_year    & $\checkmark$  & $\checkmark$  &  $\checkmark$ &   \\ \hline
-weeks\_sale    & $\checkmark$  & $\checkmark$  &   &   \\ \hline
-print\_run   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
-total\_sales   & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$  \\ \hline
-
+\caption{Features selected by each method 
+\label{tab:features_selected}}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+No. & Feature & ReliefFAttributeEva & CfsSubsetEval & SOM\tabularnewline
+\hline 
+1 & ret\_price & $\checkmark$ &  & $\checkmark$\tabularnewline
+\hline 
+2 & subject1 & $\checkmark$ & $\checkmark$ & $\checkmark$\tabularnewline
+\hline 
+3 &  Editorial+Collection &  &  & \tabularnewline
+\hline 
+4 & binding &  &  & \tabularnewline
+\hline 
+5 & gifts & $\checkmark$ &  & $\checkmark$\tabularnewline
+\hline 
+6 & distrib\_novelty & $\checkmark$ &  & \tabularnewline
+\hline 
+7 & tot\_points\_sale & $\checkmark$ &  & $\checkmark$\tabularnewline
+\hline 
+8 & tot\_points\_sale\_1st\_year & $\checkmark$ &  & \tabularnewline
+\hline 
+9 & weeks\_sale & $\checkmark$ &  & $\checkmark$\tabularnewline
+\hline 
+10 & print\_run & $\checkmark$ & $\checkmark$ & $\checkmark$\tabularnewline
+\hline 
 \end{tabular}
-\caption{Variables used in each method.} %PABLO: Poned este caption bien
-\label{tab:varmethods}
 \end{table}
 
-Table \ref{tab:varmethods} shows the used variables used in each step. %Pablo: poner también esta frase mejor 
-Once the different reduced datasets have been obtained, proposed methods 
-(M5P, LR, SVM, kNN, MLP) have been selected for this study from 
-the Weka implementation, and they were run 30 times with the Weka default parameter 
-settings and a different random initialisation seed for each run and each dataset.
+% Antonio - TODO: change the names (and font format) to the same as variables in previous tables
 
-Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
-(4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
+
+
+*************** TO CHANGE WITH THE NEW RESULTS **************
+
+
+
+\subsection{Obtained results}
+
+
+
+
+
+
+
 
 % datasets:
 %  original (16 vars)
