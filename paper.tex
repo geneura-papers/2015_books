@@ -32,6 +32,8 @@ $^2$Business Information Technology Department. King Abdullah II School for Info
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
+***TO DO***: rewrite this considering the new contents and results\\
+
 When a new book is launched the publisher faces the problem of
 how many books should be printed for delivery to bookstores. Printing too many is the main issue,
 since it implies a loss of investment due to inventory excess. In this
@@ -76,6 +78,8 @@ either for the operation or for interpretation.
 %********************************************************************************
 
 \section{Introduction}
+
+***TO DO***: complete this considering the new contents and results\\
 
 Publishing a book, as releasing any other cultural product with a
 physical substrate, implies several
@@ -220,6 +224,8 @@ techniques to create a sales model and use it to predict them.
 % - mejores resultados (si algunas variables interfieren entre sí)
 % - Permiten saber qué variables son las que influyen realmente en el
 % resultado. Esto es lo único importante - JJ
+
+***TO DO***: rewrite this considering the new structure of the paper\\
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
@@ -603,12 +609,12 @@ Moreover, the initial set of features in the dataset must be revised in order to
 % Shouldn't this table go to "Problem description"? It is a
 % preliminary selection - JJ
 \caption{Considered pre-sales features and their types. It also shows
-  the names of the variables used in the applied methods.} 
+  the names of the variables used in the applied methods and if everyone is an input (independent) or an output (dependent) variable.} 
 \label{tabla:params_pre_sales}
 \begin{center}
 \begin{tabular}{|c|l|l|c|c|}
 \hline 
-No. & Feature Name & Variable & Type & Input/Output\\
+No. & Feature Name & Variable & Type & In/Out\\
 \hline 
 1 & retail price (when launched) & \texttt{ret\_price} & numerical & input\\
 2 & main subject (code) & \texttt{subject1} & numerical & input\\
@@ -967,30 +973,74 @@ In addition, due to the stochastic component present in some of the methods and 
 \subsection{Results for all the editors}
 \label{subsec:results_all_editors}
 
-In the first experiment, forecasting methods have been applied to the whole dataset. All the pre-sales features have been considered. Obtained results are presented in Table \ref{tab:all_editors_no_fs}.
+In the first experiment, forecasting methods have been applied to the whole dataset. All the pre-sales features have been considered, also including the categorical ones, which make harder to process the instances and build the different models. SVM for instance, must previously transform these categories into numbers in order to deal with the data, which means the creation of a different (and new) variable per possible value. Thus, in the case of editorial or collection this would imply the definition of hundreds of new variables.
+% Antonio - Sam, verify this, please
+
+Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_editors_no_fs}.
 
 \begin{table}
 \caption{Predicting Total sales for all editors (all the features). 30 repetitions, 10-fold cross validation.
 \label{tab:all_editors_no_fs}}
 \centering{}%
+%{\scriptsize
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & Corr. coeffic  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
-K-NN & 0.787 $\pm$ 0.08 & 272.294 $\pm$ 32.38 & 840.594 $\pm$ 240.11 & 47.475 $\pm$ 3.39 & 63.072 $\pm$ 10.29 & 0.001 $\pm$ 0.01\tabularnewline
+M5P & 0.890 $\pm$ 0.09 & 214.365 $\pm$ 22.96 & 634.229 $\pm$ 307.76 & 37.457 $\pm$ 3.12 & 48.324 $\pm$ 25.16 & 18.845 $\pm$ 0.61\\
 \hline
-M5P & 0.890 $\pm$ 0.09 & 214.365 $\pm$ 22.96 & 634.229 $\pm$ 307.76 & 37.457 $\pm$ 3.12 & 48.324 $\pm$ 25.16 & 18.845 $\pm$ 0.61\tabularnewline
+K-NN & 0.787 $\pm$ 0.08 & 272.294 $\pm$ 32.38 & 840.594 $\pm$ 240.11 & 47.475 $\pm$ 3.39 & 63.072 $\pm$ 10.29 & 0.001 $\pm$ 0.01\\
 \hline 
-Random Forest & 0.840 $\pm$ 0.05 & 253.365 $\pm$ 29.43 & 788.937 $\pm$ 282.01 & 44.164 $\pm$ 2.76 & 57.766 $\pm$ 8.15 & 4.906 $\pm$ 0.12\tabularnewline
+Random Forest & 0.840 $\pm$ 0.05 & 253.365 $\pm$ 29.43 & 788.937 $\pm$ 282.01 & 44.164 $\pm$ 2.76 & 57.766 $\pm$ 8.15 & 4.906 $\pm$ 0.12\\
 \hline 
-Linear Regression & 0.872 $\pm$ 0.07 & 308.679 $\pm$ 25.44 & 680.905 $\pm$ 226.41 & 54.053 $\pm$ 4.38 & 52.130 $\pm$ 18.29 & 984.687 $\pm$ 128.21\tabularnewline
+Linear Regression & 0.872 $\pm$ 0.07 & 308.679 $\pm$ 25.44 & 680.905 $\pm$ 226.41 & 54.053 $\pm$ 4.38 & 52.130 $\pm$ 18.29 & 984.687 $\pm$ 128.21\\
 \hline 
-SVM & 0.876 $\pm$ 0.04 & 248.763 $\pm$ 27.49 & 732.641 $\pm$ 260.56 & 43.371 $\pm$ 2.35 & 53.471 $\pm$ 6.29 & 6169.239 $\pm$ 281.49\tabularnewline
+SVM & 0.876 $\pm$ 0.04 & 248.763 $\pm$ 27.49 & 732.641 $\pm$ 260.56 & 43.371 $\pm$ 2.35 & 53.471 $\pm$ 6.29 & 6169.239 $\pm$ 281.49\\
 \hline 
 \end{tabular}
+%}
 \end{table}
 
-***TODO***: the results show...
+***TODO***: Revise and fix the following text...
+
+As far as the different methods is concerned, M5P model obtained good results, 
+both in time and error, and as stated before, this method can learn and tackle 
+tasks with high dimensionality and it generates reproducible and comprehensible 
+representations that provide information on the decision process and does not 
+require human intervention either for the operation or for interpretation. 
+Thus, it is very suitable in order to be incorporated in a publishing company 
+processes.
+
+The Linear Regression model outperforms some other complex methods, both in time 
+(as it is a simple method to train) and in obtained errors.
+However not in all cases, as more powerful models that obtain better results 
+can be obtained in comparable time.
+
+Taking into account the SVM model obtained results, this method obtains comparable 
+errors to those of M5P. Even when used using the default parameter values it exhibit 
+a good generalisation performance.
+However, it is much slower than the others to build the model, not only when 
+using the dataset with categorical input variables, but also when using the 
+datasets with numerical variables.
+
+kNN is the faster method used in this study, as it is the simpler method.
+However, the model is slow when classifying (as there are a large number of 
+training examples), and it exhibit a poor generalisation ability, as it does not 
+learn anything from the training data.
+
+Moreover, in these experiments it has been seen the difficulty to process 
+information related to categorical variables, such as \emph{editorial} and 
+\emph{collection}.
+
+%[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
+
+Finally, paying attention to the cost in time to obtain the forecasting models 
+and their accuracy, the M5P model is the most adequate to solve the problem of 
+how many books should be printed when a new book is published.
+This forecasting method, as an additional advantage, can be used for products 
+with historical sales data and for new products with little or no historical 
+data available.
+
 
 
 %--------------------------------------------------------------------------
@@ -1054,278 +1104,200 @@ the distances between units is also represented as hexagons.
 %\label{fig:Umatrix} 
 %\end{figure*}
 
-The selected features per method are shown in Table \ref{tab:features_selected}.
+The selected features per method are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
 
 \begin{table}
-\caption{Features selected by each method 
+\caption{Input features/variables selected by each method
 \label{tab:features_selected}}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
-No. & Feature & ReliefFAttributeEva & CfsSubsetEval & SOM\tabularnewline
+No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \hline 
-1 & ret\_price & $\checkmark$ &  & $\checkmark$\tabularnewline
+1 & \texttt{ret\_price} & $\checkmark$ &  & $\checkmark$\\
 \hline 
-2 & subject1 & $\checkmark$ & $\checkmark$ & $\checkmark$\tabularnewline
+2 & \texttt{subject1} & $\checkmark$ & $\checkmark$ & $\checkmark$\\
 \hline 
-3 &  Editorial+Collection &  &  & \tabularnewline
+3 &  \texttt{collection} &  &  & \\
 \hline 
-4 & binding &  &  & \tabularnewline
+4 & \texttt{binding} &  &  & \\
 \hline 
-5 & gifts & $\checkmark$ &  & $\checkmark$\tabularnewline
+5 & \texttt{gifts} & $\checkmark$ &  & $\checkmark$\\
 \hline 
-6 & distrib\_novelty & $\checkmark$ &  & \tabularnewline
+6 & \texttt{distrib\_novelty} & $\checkmark$ &  & \\
 \hline 
-7 & tot\_points\_sale & $\checkmark$ &  & $\checkmark$\tabularnewline
+7 & \texttt{tot\_points\_sale} & $\checkmark$ &  & $\checkmark$\\
 \hline 
-8 & tot\_points\_sale\_1st\_year & $\checkmark$ &  & \tabularnewline
+8 & \texttt{tot\_points\_sale\_1st\_year} & $\checkmark$ &  & \\
 \hline 
-9 & weeks\_sale & $\checkmark$ &  & $\checkmark$\tabularnewline
+9 & \texttt{weeks\_sale} & $\checkmark$ &  & $\checkmark$\\
 \hline 
-10 & print\_run & $\checkmark$ & $\checkmark$ & $\checkmark$\tabularnewline
+10 & \texttt{print\_run} & $\checkmark$ & $\checkmark$ & $\checkmark$\\
 \hline 
 \end{tabular}
 \end{table}
 
-% Antonio - TODO: change the names (and font format) to the same as variables in previous tables
 
+Thus, we have run the same experiments as in Section \ref{subsec:results_all_editors} with the whole dataset (all the editors), but considering the selected features by each method. The results are shown in Table
 
+\begin{table}
 
-*************** TO CHANGE WITH THE NEW RESULTS **************
-
-
-
-\subsection{Obtained results}
-
-
-
-
-
-
-
-
-% datasets:
-%  original (16 vars)
-%  4 vars
-%  9 vars
-%  SOM selected vars
-
-Table \ref{tabla:resultsT} shows obtained results (time to build the model and 
-error) after applying the proposed forecasting methods on the original dataset,
-using the 16 variables that describe each book.
-In this dataset, every book is described using not only numerical variables, 
-but also two additional categorical variables, \emph{editorial} and \emph{collection}, 
-which could, a priori, make harder to process the instances and build the different models.
-
-% Mean absolute error MAE / Root mean squared error RMSE /  Relative absolute error RAE / Root relative squared error RRSE
-  % ¿Qué sentido tiene usar los 4 métodos de error? ¿Es que vamos a seleccionar uno? - JJ
-  %[pedro] es lo habitual en los trabajos en los que se realizan tareas de predicción
-  % en algunos calculan muchos más, pero estos son los más usados. 
-% OK
-\begin{table*}[ht]
-\caption{Results (errors and time) obtained using the different forecasting
-methods on the original dataset (16 variables per book). In this case,
-due to the categorical variables, the MLP could not be run.}
-\label{tabla:resultsT}
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\caption{Predicting Total sales for all editors based on features selected
+by each method.
+\label{tab:results_all_editors_fs}}
+
+% RELIEFATTRIBUTEEVAL
+\begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
-Base & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
+\multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
 \hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
-M5P & 0.9076 & \textbf{202.1547} & 591.0257 & \textbf{35.31}\% & 42.10\% & 39.73\tabularnewline
+M5P & 0.892 $\pm$0.102 & 211.147 $\pm$22.41 & 616.347 $\pm$321.254 & 36.928 $\pm$3.414 & 47.299 $\pm$26.827 & 0.4906 $\pm$0.0223\\
 \hline 
-LR & 0.9204 & 255.0526 & 548.0975 & 44.5527 & 39.10\% & 0.03\tabularnewline
+K-NN & 0.869 $\pm$0.087 & 231.782 $\pm$24.246 & 668.028 $\pm$205.135 & 40.483 $\pm$3.058 & 51.276 $\pm$16.807 & 0.0015 $\pm$0.0042\\
 \hline 
-SVM & \textbf{0.9402} & 203.4416 & \textbf{481.7528} & 35.54\% & \textbf{34.37}\% & 308.31\tabularnewline
+Random Forest & 0.91 $\pm$0.048 & 198.16 $\pm$19.499 & 589.353 $\pm$195.801 & 34.61 $\pm$2.27 & 44.209 $\pm$11.634 & 3.633 $\pm$0.2039\\
 \hline 
-kNN & 0.7273 & 310.4078 & 993.2663 & 54.22\% & 70.85\% & 0\tabularnewline
+Linear Regression & 0.864 $\pm$0.081 & 346.875 $\pm$25.395 & 695.897 $\pm$242.49 & 60.754 $\pm$4.549 & 53.164 $\pm$19.432 & 0.0124 $\pm$0.0072\\
 \hline 
-MLP & 0.9197 & 289.7393 & 585.6445 & 50.61\% & 41.78\% & 82.08\tabularnewline
+SVM & 0.842 $\pm$0.039 & 252.868 $\pm$33.384 & 858.26 $\pm$318.225 & 44.012 $\pm$3.038 & 62.22 $\pm$7.148 & 38.9667 $\pm$5.7518\\
 \hline 
 \end{tabular}
-\end{table*}
 
+% CFSSUBEVAL
+\begin{tabular}{|c|l|l|l|l|l|l|}
+\hline 
+\multicolumn{7}{|c|}{\textit{CfsSubEval}}\\
+\hline
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+\hline 
+M5P & 0.873 $\pm$0.09 & 266.777 $\pm$23.117 & 662.319 $\pm$245.272 & 46.66 $\pm$3.247 & 50.9 $\pm$20.35 & 0.4103 $\pm$0.0428\\
+\hline 
+K-NN & 0.84 $\pm$0.099 & 289.092 $\pm$22.834 & 743.917 $\pm$260.45 & 50.591 $\pm$3.496 & 57.301 $\pm$22.899 & 0.001 $\pm$0.0006\\
+\hline 
+Random Forest & 0.85 $\pm$0.106 & 278.417 $\pm$23.073 & 714.134 $\pm$278.654 & 48.713 $\pm$3.434 & 55.264 $\pm$24.412 & 2.479 $\pm$0.1264\\
+\hline 
+Linear Regression & 0.859 $\pm$0.062 & 356.35 $\pm$22.43 & 708.056 $\pm$195.145 & 62.423 $\pm$4.216 & 53.974 $\pm$14.053 & 0.0067 $\pm$0.0009\\
+\hline 
+SVM & 0.86 $\pm$0.063 & 288.474 $\pm$30.322 & 817.562 $\pm$253.237 & 50.302 $\pm$2.375 & 60.266 $\pm$5.675 & 32.7252 $\pm$5.7438\\
+\hline
+\end{tabular}\\
 
-Obtained results (time to build the model and error) using the different 
-forecasting methods on the dataset with 7 variables per book (obtained 
-using the SOM analysis) can be shown in Table \ref{tabla:resultsSOM}.
-\begin{table*}[ht]
-\caption{Results (errors and time) obtained using the different forecasting methods
-on the dataset obtained using the SOM feature selection method (6 variables
-per book).}
-\label{tabla:resultsSOM}
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
+% SOM
+\begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
-Base  & Correlation coefficient (\%)  & MAE  & RMSE  & RAE(\%)  & RRSE (\%)  & Time(sec)\tabularnewline
+\multicolumn{7}{|c|}{\textit{SOM}}\\
+\hline
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
+M5P & 0.866 $\pm$0.104 & 234.091 $\pm$23.186 & 699.563 $\pm$317.196 & 40.924 $\pm$3.248 & 53.698 $\pm$26.867 & 0.4754 $\pm$0.1228\\
 \hline 
-M5P  & 0.9161 & \textbf{198.8864} & 562.2113 & \textbf{34.74}\% & 40.11\% & 0.76\tabularnewline
+K-NN & 0.868 $\pm$0.086 & 237.91 $\pm$25.344 & 665.639 $\pm$212.05 & 41.547 $\pm$3.141 & 50.96 $\pm$16.721 & 0.0009 $\pm$0.0035\\
 \hline 
-LR  & 0.9179 & 263.1702 & 556.3372 & 45.97\% & 39.69\% & 0.07\tabularnewline
+Random Forest & 0.898 $\pm$0.051 & 211.867 $\pm$20.072 & 617.776 $\pm$187.155 & 37.017 $\pm$2.461 & 46.581 $\pm$11.144 & 2.932 $\pm$0.1083\\
 \hline 
-SVM  & \textbf{0.9388} & 207.7159 & \textbf{486.8913} & 36.28\% & \textbf{34.73}\% & 157.87\tabularnewline
+Linear Regression & 0.855 $\pm$0.075 & 351.993 $\pm$23.72 & 714.756 $\pm$214.213 & 61.65 $\pm$4.278 & 54.665 $\pm$16.881 & 0.0113 $\pm$0.0074\\
 \hline 
-kNN  & 0.9304 & 202.0939 & 525.4642 & 35.30\% & 37.48\% & 0\tabularnewline
-\hline 
-MLP  & 0.9193 & 305.78 & 590.8412 & 53.41\% & 42.15\% & 25.83\tabularnewline
+SVM & 0.845 $\pm$0.035 & 267.706 $\pm$33.819 & 888.331 $\pm$308.932 & 46.604 $\pm$2.865 & 64.62 $\pm$5.445 & 32.2689 $\pm$4.7404\\
 \hline 
 \end{tabular}
-\end{table*}
+
+\end{table}
 
 
-Obtained results (time to build the model and error) using the different 
-forecasting methods on the dataset with 8 variables per book (obtained 
-using the ReliefFAttributeEval feature selection method) can be shown 
-in Table \ref{tabla:results9}.
-In this dataset, every book is described using numerical variables, and thus, 
-processing the data to build the different models is a fast task.
-
-\begin{table*}[ht]
-\caption{Results (errors and time) obtained using the different forecasting methods
-on the dataset obtained using the ReliefFAttributeEval feature selection method (8
-variables per book).}
-\label{tabla:results9}
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-RAE & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
-\hline 
-\hline 
-M5P & 0.9131 & \textbf{197.2886} & 580.328 & \textbf{34.46}\% & 41.40\% & 0.74\tabularnewline
-\hline 
-LR & 0.9209 & 254.3979 & 546.3899 & 44.44\% & 38.98\% & 0.03\tabularnewline
-\hline 
-SVM & \textbf{0.9394} & 204.2075 & \textbf{484.2617} & 35.67\% & \textbf{34.54}\% & 232.99\tabularnewline
-\hline 
-kNN & 0.9103 & 222.0827 & 597.8885 & 38.79\% & 42.65\% & 0\tabularnewline
-\hline 
-MLP & 0.9199 & 296.3581 & 575.9623 & 51.77\% & 41.09\% & 32.52\tabularnewline
-\hline 
-\end{tabular}
-\end{table*}
+***TO DO***: comment the results
 
 
-Finally, obtained results (time to build the model and error) using the different 
-forecasting methods on the dataset with 4 variables per book (obtained 
-using the CfsSubsetEval feature selection method) can be shown 
-in Table \ref{tabla:results4}.
-As in the previous case, in this dataset every book is described using numerical 
-variables. Thus, due to the number of features per book, building the different 
-models is faster than in the previous cases.
+***TO DO***: Think if including the graphs (scatter plots).
 
-\begin{table*}[ht]
-\caption{Results (errors and time) obtained using the different forecasting methods
-on the dataset obtained using the CfsSubsetEval feature selection method (4 variables
-per book).}
-\label{tabla:results4}
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-CFS & Correlation coefficient (\%) & MAE & RMSE & RAE(\%) & RRSE (\%) & Time(sec)\tabularnewline
-\hline 
-\hline 
-M5P & 0.9255 & \textbf{206.6638} & 531.306 & \textbf{36.10}\% & 37.90\% & 0.56\tabularnewline
-\hline 
-LR & 0.9194 & 259.3791 & 551.2005 & 45.31\% & 39.32\% & 0.05\tabularnewline
-\hline 
-SVM & \textbf{0.9342} & 213.0254 &\textbf{ 502.4048} & 37.21\% & \textbf{35.84}\% & 70.12\tabularnewline
-\hline 
-kNN & 0.9285 & 220.6548 & 527.7374 & 38.54\% & 37.65\% & 0\tabularnewline
-\hline 
-MLP & 0.9047 & 369.3486 & 646.1241 & 64.52\% & 46.09\% & 10.93\tabularnewline
-\hline 
-\end{tabular}
-\end{table*}
-
-
-In Figures \ref{conv2}, \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} we depict scatter plots for the values of the actual total sales values against the predicted ones obtained by the developed models. 
-Those figures also show the correlation between the two variables and the proportion of variation in actual total sales that is explained by the predicted ones. 
-Figure \ref{conv2} corresponds to the results obtained using all available features without performing any feature selection method. In this figure, it can be noticed that SVM achieved the best results by explaining 88.2\% of the actual values while $k$-NN showed very poor results with only 49.8\%. 
-Figures \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} show same plots after performing ReliefAttributeEval, CfsSubsetEval and SOM feature selection methods, respectively. 
-According to these figures, we can notice that there wasn't almost any significant degradation in the performance of the M5P, LR, SVM and MLP. 
-On the other side, the performance of $k$-NN was dramatically improved after the feature selection process by explaining 84.5\% of variation on average.
-
-
-\begin{figure*}[http] 
-\begin{center} 
-\begin{tabular}{ccc}
-\includegraphics[scale=0.22]{m5p.eps}  &
-\includegraphics[scale=0.22]{lr.eps}   &
-\includegraphics[scale=0.22]{svm.eps}  \\
-M5P & LR & SVM 
-\end{tabular}
-\begin{tabular}{cc}
-\includegraphics[scale=0.22]{knn.eps}  &
-\includegraphics[scale=0.22]{mlp.eps}  \\
-k-NN & MLP
-\end{tabular}
-\end{center} 
-\caption{Actual vs. predicted sales for M5P, LR, SVM, k-NN, MLP
-  models.}
+%In Figures \ref{conv2}, \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} we depict scatter plots for the values of the actual total sales values against the predicted ones obtained by the developed models. 
+%Those figures also show the correlation between the two variables and the proportion of variation in actual total sales that is explained by the predicted ones. 
+%Figure \ref{conv2} corresponds to the results obtained using all available features without performing any feature selection method. In this figure, it can be noticed that SVM achieved the best results by explaining 88.2\% of the actual values while $k$-NN showed very poor results with only 49.8\%. 
+%Figures \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} show same plots after performing ReliefAttributeEval, CfsSubsetEval and SOM feature selection methods, respectively. 
+%According to these figures, we can notice that there wasn't almost any significant degradation in the performance of the M5P, LR, SVM and MLP. 
+%On the other side, the performance of $k$-NN was dramatically improved after the feature selection process by explaining 84.5\% of variation on average.
+%
+%
+%\begin{figure*}[http] 
+%\begin{center} 
+%\begin{tabular}{ccc}
+%\includegraphics[scale=0.22]{m5p.eps}  &
+%\includegraphics[scale=0.22]{lr.eps}   &
+%\includegraphics[scale=0.22]{svm.eps}  \\
+%M5P & LR & SVM 
+%\end{tabular}
+%\begin{tabular}{cc}
+%\includegraphics[scale=0.22]{knn.eps}  &
+%\includegraphics[scale=0.22]{mlp.eps}  \\
+%k-NN & MLP
+%\end{tabular}
+%\end{center} 
+%\caption{Actual vs. predicted sales for M5P, LR, SVM, k-NN, MLP
+%  models.}
 % You should use a log-log scale here to see it more clearly. Besides,
 % please say in a comment the script you are using to generate it, we
 % are going to need it later on - JJ
-\label{conv2}
-\end{figure*}
-
-
-\begin{figure*}[http] 
-\begin{center} 
-\begin{tabular}{ccc}
-\includegraphics[scale=0.22]{m5p_RAE.eps}  &
-\includegraphics[scale=0.22]{lr_RAE.eps}   &
-\includegraphics[scale=0.22]{svm_RAE.eps}  \\
-M5P & LR & SVM 
-\end{tabular}
-\begin{tabular}{cc}
-\includegraphics[scale=0.22]{knn_RAE.eps}  &
-\includegraphics[scale=0.22]{mlp_RAE.eps}  \\
-k-NN & MLP
-\end{tabular}
-\end{center} 
-\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
-\label{conv2ReliefAttributeEval}
-\end{figure*}
-
-
-\begin{figure*}[http] 
-\begin{center} 
-\begin{tabular}{ccc}
-\includegraphics[scale=0.22]{m5p_CFS.eps}  &
-\includegraphics[scale=0.22]{lr_CFS.eps}   &
-\includegraphics[scale=0.22]{svm_CFS.eps}  \\
-M5P & LR & SVM 
-\end{tabular}
-\begin{tabular}{cc}
-\includegraphics[scale=0.22]{knn_CFS.eps}  &
-\includegraphics[scale=0.22]{mlp_CFS.eps}  \\
-k-NN & MLP
-\end{tabular}
-\end{center} 
-\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
-\label{conv2CfsSubsetEval}
-\end{figure*}
-
-
-\begin{figure*}[http] 
-\begin{center} 
-\begin{tabular}{ccc}
-\includegraphics[scale=0.22]{m5p_SOM.eps}  &
-\includegraphics[scale=0.22]{lr_SOM.eps}   &
-\includegraphics[scale=0.22]{svm_SOM.eps}  \\
-M5P & LR & SVM 
-\end{tabular}
-\begin{tabular}{cc}
-\includegraphics[scale=0.22]{knn_SOM.eps}  &
-\includegraphics[scale=0.22]{mlp_SOM.eps}  \\
-k-NN & MLP
-\end{tabular}
-\end{center} 
-\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
-\label{conv2SOM}
-\end{figure*}
+%\label{conv2}
+%\end{figure*}
+%
+%
+%\begin{figure*}[http] 
+%\begin{center} 
+%\begin{tabular}{ccc}
+%\includegraphics[scale=0.22]{m5p_RAE.eps}  &
+%\includegraphics[scale=0.22]{lr_RAE.eps}   &
+%\includegraphics[scale=0.22]{svm_RAE.eps}  \\
+%M5P & LR & SVM 
+%\end{tabular}
+%\begin{tabular}{cc}
+%\includegraphics[scale=0.22]{knn_RAE.eps}  &
+%\includegraphics[scale=0.22]{mlp_RAE.eps}  \\
+%k-NN & MLP
+%\end{tabular}
+%\end{center} 
+%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
+%\label{conv2ReliefAttributeEval}
+%\end{figure*}
+%
+%
+%\begin{figure*}[http] 
+%\begin{center} 
+%\begin{tabular}{ccc}
+%\includegraphics[scale=0.22]{m5p_CFS.eps}  &
+%\includegraphics[scale=0.22]{lr_CFS.eps}   &
+%\includegraphics[scale=0.22]{svm_CFS.eps}  \\
+%M5P & LR & SVM 
+%\end{tabular}
+%\begin{tabular}{cc}
+%\includegraphics[scale=0.22]{knn_CFS.eps}  &
+%\includegraphics[scale=0.22]{mlp_CFS.eps}  \\
+%k-NN & MLP
+%\end{tabular}
+%\end{center} 
+%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
+%\label{conv2CfsSubsetEval}
+%\end{figure*}
+%
+%
+%\begin{figure*}[http] 
+%\begin{center} 
+%\begin{tabular}{ccc}
+%\includegraphics[scale=0.22]{m5p_SOM.eps}  &
+%\includegraphics[scale=0.22]{lr_SOM.eps}   &
+%\includegraphics[scale=0.22]{svm_SOM.eps}  \\
+%M5P & LR & SVM 
+%\end{tabular}
+%\begin{tabular}{cc}
+%\includegraphics[scale=0.22]{knn_SOM.eps}  &
+%\includegraphics[scale=0.22]{mlp_SOM.eps}  \\
+%k-NN & MLP
+%\end{tabular}
+%\end{center} 
+%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
+%\label{conv2SOM}
+%\end{figure*}
 
 
 %\begin{figure}[!ht] 
@@ -1346,12 +1318,13 @@ k-NN & MLP
 
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
-Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
-\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4},
-using those categorical variables as part of a big dataset makes the problem 
-hard to solve, both in required time to build the forecasting models as well as 
-in the obtained errors.
-Moreover, some methods are unable to build the models in a reasonable time.
+%Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
+%\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4},
+%using those categorical variables as part of a big dataset makes the problem 
+%hard to solve, both in required time to build the forecasting models as well as 
+%in the obtained errors.
+
+%Moreover, some methods are unable to build the models in a reasonable time.
 %However, as stated before, Trevenque expert sales manager, taking into account 
 %his knowledge in industry experience and their perceptions, decided that 
 %\emph{EDITORIAL} and \emph{SUBJECT} should be taken into account.
@@ -1361,52 +1334,511 @@ Moreover, some methods are unable to build the models in a reasonable time.
 % - indicar qué método da mejores resultados
 % - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables" 
 
-As far as the different methods is concerned, M5P model obtained good results, 
-both in time and error, and as stated before, this method can learn and tackle 
-tasks with high dimensionality and it generates reproducible and comprehensible 
-representations that provide information on the decision process and does not 
-require human intervention either for the operation or for interpretation. 
-Thus, it is very suitable in order to be incorporated in a publishing company 
-processes.
 
-The Linear Regression model outperforms some other complex methods, both in time 
-(as it is a simple method to train) and in obtained errors.
-However not in all cases, as more powerful models that obtain better results 
-can be obtained in comparable time.
+%********************************************************************************
 
-Taking into account the SVM model obtained results, this method obtains comparable 
-errors to those of M5P. Even when used using the default parameter values it exhibit 
-a good generalisation performance.
-However, it is much slower than the others to build the model, not only when 
-using the dataset with categorical input variables, but also when using the 
-datasets with numerical variables.
+\section{Example Cases}
+\label{example_cases}
 
-kNN is the faster method used in this study, as it is the simpler method.
-However, the model is slow when classifying (as there are a large number of 
-training examples), and it exhibit a poor generalisation ability, as it does not 
-learn anything from the training data.
+This section will present some experiments conducted on the data concerning four different example cases, namely:
+\begin{itemize}
+    \item best seller editorial
+    \item medium seller editorial
+    \item best varied editorial
+    \item medium varied editorial
+\end{itemize}
 
-As far as the Multilayer Perceptron, its main drawbacks are both the cost of model 
-building (not only parameter and weights setting, but also time to train the 
-network) and the fact that it is a back-box model, and thus, it is difficult 
-to explain how the forecasts are obtained.
-Moreover, in these experiments it has been seen the difficulty to process 
-information related to categorical variables, such as \emph{editorial} and 
-\emph{collection}.
+***TO DO ***: better describe (number of instances) and justify the special cases (why we have chosen them).
 
-%[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
+%--------------------------------------------------------------------------
 
-Finally, paying attention to the cost in time to obtain the forecasting models 
-and their accuracy, the M5P model is the most adequate to solve the problem of 
-how many books should be printed when a new book is published.
-This forecasting method, as an additional advantage, can be used for products 
-with historical sales data and for new products with little or no historical 
-data available.
+\subsection{Sales forecasting with all pre-sales features}
+\label{subsec:case_sales_all_features}
 
+Case 1-A: Developing prediction models to predict Total sales for
+Editor704 (An editor with the most number of different books sold) - 293
+instances.
+
+\begin{table}
+\caption{Predicting Total sales for Editor704}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.889 $\pm$0.074 & 71.258 $\pm$21.291 & 125.19 $\pm$50.085 & 39.251 $\pm$11.769 & 47.495 $\pm$15.933 & 0.046 $\pm$0.0278\tabularnewline
+\hline 
+K-NN & 0.826 $\pm$0.1 & 87.602 $\pm$23.206 & 158.629 $\pm$54.164 & 47.621 $\pm$10.32 & 59.168 $\pm$14.428 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.871 $\pm$0.082 & 74.634 $\pm$22.166 & 139.743 $\pm$54.357 & 40.618 $\pm$10.214 & 52.219 $\pm$16.267 & 0.1069 $\pm$0.0053\tabularnewline
+\hline 
+Linear Regression & 0.838 $\pm$0.089 & 97.513 $\pm$18.874 & 155.273 $\pm$45.562 & 54.172 $\pm$13.598 & 60.314 $\pm$21.168 & 0.0069 $\pm$0.0012\tabularnewline
+\hline 
+SVM & 0.874 $\pm$0.066 & 78.743 $\pm$22.254 & 147.295 $\pm$57.99 & 42.428 $\pm$7.826 & 53.286 $\pm$9.351 & 0.0598 $\pm$0.0157\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-B: Developing prediction models to predict Total sales for
+Editor-UDLU11 (An editor with a medium number of different books sold) - 180
+instances.
+
+\begin{table}
+\caption{Predicting Total sales for Editor-UDLU11}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.775 $\pm$0.15 & 573.405 $\pm$192.219 & 860.313 $\pm$456.217 & 58.26 $\pm$15.867 & 65.997 $\pm$29.447 & 0.0238 $\pm$0.0018\tabularnewline
+\hline 
+K-NN & 0.732 $\pm$0.163 & 596.615 $\pm$205.368 & 933.058 $\pm$356.108 & 60.619 $\pm$17.854 & 71.363 $\pm$22.336 & 0 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.867 $\pm$0.073 & 449.161 $\pm$127.796 & 671.758 $\pm$212.739 & 45.575 $\pm$9.8 & 51.372 $\pm$11.159 & 0.0606 $\pm$0.005\tabularnewline
+\hline 
+Linear Regression & 0.733 $\pm$0.195 & 680.157 $\pm$263.788 & 1103.971 $\pm$850.685 & 69.775 $\pm$27.238 & 86.106 $\pm$71.316 & 0.0024 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.804 $\pm$0.122 & 529.349 $\pm$172.496 & 846.013 $\pm$341.117 & 53.26 $\pm$11.915 & 63.539 $\pm$18.247 & 0.029 $\pm$0.0151\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-A: Developing prediction models to predict Total sales for
+Editor-UDL929 (The best selling editor) - 216 instances.
+
+\begin{table}
+\caption{Predicting Total sales for Editor-UDL929 (460752 sales) }
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.9 $\pm$0.098 & 670.244 $\pm$181.047 & 1065.337 $\pm$413.835 & 40.833 $\pm$10.858 & 43.561 $\pm$19.866 & 0.0302 $\pm$0.0016\tabularnewline
+\hline 
+K-NN & 0.733 $\pm$0.192 & 1057.212 $\pm$385.036 & 1875.849 $\pm$916.958 & 61.879 $\pm$12.366 & 68.747 $\pm$15.978 & 0 $\pm$0.0001\tabularnewline
+\hline 
+Random Forest & 0.876 $\pm$0.108 & 771.825 $\pm$326.339 & 1490.492 $\pm$930.576 & 45.399 $\pm$14.137 & 55.912 $\pm$31.703 & 0.0777 $\pm$0.0041\tabularnewline
+\hline 
+Linear Regression & 0.863 $\pm$0.118 & 922.334 $\pm$289.01 & 1399.844 $\pm$619.623 & 56.107 $\pm$16.171 & 56.425 $\pm$25.091 & 0.0045 $\pm$0.0006\tabularnewline
+\hline 
+SVM & 0.867 $\pm$0.1 & 873.222 $\pm$345.164 & 1621.478 $\pm$985.241 & 50.847 $\pm$11.83 & 57.232 $\pm$20.404 & 0.0423 $\pm$0.016\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-B: Developing prediction models to predict Total sales for
+Editor-UDLW12 (The median selling editor)- 97 instances.
+
+\begin{table}
+\caption{Predicting Total sales for Editor-UDLW12 (2635 sales) }
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.832 $\pm$0.24 & 14.179 $\pm$6.615 & 23.82 $\pm$11.86 & 43.405 $\pm$20.387 & 55.787 $\pm$30.474 & 0.0089 $\pm$0.0016\tabularnewline
+\hline 
+K-NN & 0.793 $\pm$0.236 & 15.34 $\pm$8.706 & 26.571 $\pm$16.635 & 46.2 $\pm$23.768 & 60.09 $\pm$35.205 & 0.0001 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.858 $\pm$0.172 & 14.185 $\pm$6.692 & 23.569 $\pm$11.831 & 42.534 $\pm$16.799 & 53.295 $\pm$23.408 & 0.0321 $\pm$0.0044\tabularnewline
+\hline 
+Linear Regression & 0.821 $\pm$0.252 & 14.62 $\pm$7.917 & 24.793 $\pm$15.076 & 44.573 $\pm$24.265 & 56.854 $\pm$35.071 & 0.0019 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.835 $\pm$0.21 & 14.01 $\pm$7.608 & 25.612 $\pm$15.297 & 40.663 $\pm$16.026 & 53.276 $\pm$18.45 & 0.0198 $\pm$0.0146\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+%--------------------------------------------------------------------------
+
+\subsection{Sales forecasting with feature selection}
+\label{subsec:case_sales_feature_selection}
+
+***TO DO***: choose the best Feature selection method and apply just this one (ReliefAttributeEval???). There are too many tables I think.
+We could add an appendix or so with the rest of results if you want.
+
+
+Case 1-A: Developing prediction models to predict Total sales for
+Editor704 with ReliefFAttributeEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor704 (ReliefFAttributeEval-FS) }
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.893 $\pm$0.075 & 69.699 $\pm$19.853 & 122.48 $\pm$47.284 & 38.486 $\pm$11.531 & 46.677 $\pm$16.018 & 0.0275 $\pm$0.003\tabularnewline
+\hline 
+K-NN & 0.856 $\pm$0.101 & 78.393 $\pm$24.118 & 147.075 $\pm$58.023 & 42.577 $\pm$10.988 & 54.416 $\pm$15.542 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.877 $\pm$0.079 & 73.134 $\pm$22.949 & 137.604 $\pm$56.143 & 39.785 $\pm$10.689 & 51.348 $\pm$16.98 & 0.1282 $\pm$0.0137\tabularnewline
+\hline 
+Linear Regression & 0.873 $\pm$0.06 & 89.719 $\pm$18.306 & 140.653 $\pm$47.12 & 49.452 $\pm$10.495 & 53.196 $\pm$14.156 & 0.0008 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.877 $\pm$0.069 & 77.301 $\pm$22.249 & 146.462 $\pm$57.679 & 41.665 $\pm$7.994 & 53.098 $\pm$9.505 & 0.045 $\pm$0.0159\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-A: Developing prediction models to predict Total sales for
+Editor704 with CfsSubsetEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor704 (CfsSubsetEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.801 $\pm$0.092 & 104.874 $\pm$21.376 & 174.571 $\pm$47.332 & 58.111 $\pm$14.731 & 67.577 $\pm$22.612 & 0.0178 $\pm$0.0028\tabularnewline
+\hline 
+K-NN & 0.782 $\pm$0.116 & 99.45 $\pm$24.305 & 170.827 $\pm$46.342 & 54.529 $\pm$12.277 & 65.864 $\pm$18.338 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.776 $\pm$0.128 & 101.933 $\pm$23.664 & 180.557 $\pm$51.203 & 56.098 $\pm$13.624 & 69.862 $\pm$23.274 & 0.0738 $\pm$0.003\tabularnewline
+\hline 
+Linear Regression & 0.801 $\pm$0.096 & 106.617 $\pm$21.523 & 173.179 $\pm$46.584 & 59.109 $\pm$14.958 & 67.527 $\pm$24.529 & 0.0004 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.818 $\pm$0.075 & 94.285 $\pm$25.516 & 180.536 $\pm$62.67 & 50.792 $\pm$8.477 & 65.624 $\pm$6.245 & 0.0382 $\pm$0.0183\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-A: Developing prediction models to predict Total sales for
+Editor704 with SOM feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor704 (SOM-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.892 $\pm$0.066 & 71.536 $\pm$18.953 & 123.061 $\pm$42.132 & 39.426 $\pm$10.597 & 47.204 $\pm$15.159 & 0.0307 $\pm$0.0067\tabularnewline
+\hline 
+K-NN & 0.858 $\pm$0.093 & 79.422 $\pm$21.473 & 140.948 $\pm$44.928 & 43.342 $\pm$10.072 & 53.313 $\pm$14.374 & 0.0001 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.877 $\pm$0.08 & 73.981 $\pm$20.909 & 134.107 $\pm$51.698 & 40.475 $\pm$10.512 & 50.413 $\pm$16.378 & 0.1035 $\pm$0.0076\tabularnewline
+\hline 
+Linear Regression & 0.875 $\pm$0.062 & 88.697 $\pm$16.338 & 135.029 $\pm$35.176 & 49.076 $\pm$10.471 & 51.972 $\pm$13.648 & 0.0006 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.878 $\pm$0.057 & 81.087 $\pm$22.477 & 154.823 $\pm$59.93 & 43.651 $\pm$7.364 & 55.716 $\pm$7.153 & 0.0309 $\pm$0.0033\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-B: Developing prediction models to predict Total sales for
+Editor-UDLU11 with ReliefFAttributeEval feature selection
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLU11 (ReliefFAttributeEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.766 $\pm$0.168 & 592.493 $\pm$209.249 & 894.757 $\pm$508.14 & 60.206 $\pm$18.221 & 69.138 $\pm$37.353 & 0.0166 $\pm$0.0011\tabularnewline
+\hline 
+K-NN & 0.827 $\pm$0.093 & 486.96 $\pm$140.273 & 741.808 $\pm$238.557 & 49.268 $\pm$10.504 & 56.62 $\pm$12.591 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.853 $\pm$0.089 & 455.7 $\pm$123.958 & 686.536 $\pm$198.157 & 46.319 $\pm$10.195 & 53.029 $\pm$13.054 & 0.07 $\pm$0.0028\tabularnewline
+\hline 
+Linear Regression & 0.644 $\pm$0.202 & 817.214 $\pm$331.164 & 1324.047 $\pm$1090.851 & 83.217 $\pm$32.006 & 101.895 $\pm$87.829 & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.714 $\pm$0.142 & 644.424 $\pm$203.425 & 1009.656 $\pm$371.828 & 64.474 $\pm$11.701 & 75.542 $\pm$15.994 & 0.0182 $\pm$0.0012\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-B: Developing prediction models to predict Total sales for
+Editor-UDLU11 with CfsSubsetEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLU11 (CfsSubsetEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.64 $\pm$0.232 & 777.935 $\pm$342.04 & 1305.28 $\pm$1075.291 & 78.373 $\pm$30.4 & 99.857 $\pm$85.431 & 0.0134 $\pm$0.0012\tabularnewline
+\hline 
+K-NN & 0.648 $\pm$0.181 & 702.701 $\pm$181.407 & 1008.391 $\pm$305.871 & 71.407 $\pm$13.951 & 78.469 $\pm$22.695 & 0.0001 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.653 $\pm$0.193 & 685.556 $\pm$195.277 & 1021.374 $\pm$352.882 & 69.74 $\pm$16.956 & 79.373 $\pm$26.977 & 0.0466 $\pm$0.0023\tabularnewline
+\hline 
+Linear Regression & 0.67 $\pm$0.234 & 857.222 $\pm$308.686 & 1352.26 $\pm$945.314 & 86.095 $\pm$24.253 & 102.893 $\pm$74.43 & 0.0003 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.648 $\pm$0.23 & 879.912 $\pm$280.326 & 1402.822 $\pm$593.437 & 87.739 $\pm$15.273 & 105.402 $\pm$37.729 & 0.0168 $\pm$0.001\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 1-B: Developing prediction models to predict Total sales for
+Editor-UDLU11 with SOM feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLU11 (SOM-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.79 $\pm$0.138 & 573.246 $\pm$167.882 & 827.554 $\pm$388.162 & 58.421 $\pm$14.138 & 63.975 $\pm$25.632 & 0.0153 $\pm$0.0015\tabularnewline
+\hline 
+K-NN & 0.836 $\pm$0.098 & 492.179 $\pm$126.856 & 727.326 $\pm$209.877 & 50.117 $\pm$10.688 & 56.136 $\pm$12.894 & 0 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.856 $\pm$0.084 & 446.245 $\pm$119.79 & 673.455 $\pm$189.06 & 45.384 $\pm$9.778 & 52.236 $\pm$13.088 & 0.0594 $\pm$0.0049\tabularnewline
+\hline 
+Linear Regression & 0.71 $\pm$0.188 & 723.735 $\pm$247.959 & 1108.74 $\pm$736.165 & 74.136 $\pm$24.906 & 85.956 $\pm$59.994 & 0.0004 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.716 $\pm$0.147 & 640.136 $\pm$206.459 & 1017.018 $\pm$376.134 & 63.961 $\pm$11.873 & 76.103 $\pm$16.796 & 0.0189 $\pm$0.0014\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-A: Developing prediction models to predict Total sales for
+Editor-UDL929 with ReliefFAttributeEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDL929 (ReliefFAttributeEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.905 $\pm$0.1 & 661.81 $\pm$186.171 & 1070.235 $\pm$425.658 & 40.176 $\pm$10.502 & 43.555 $\pm$19.769 & 0.0198 $\pm$0.0018\tabularnewline
+\hline 
+K-NN & 0.878 $\pm$0.114 & 751.542 $\pm$270.905 & 1257.821 $\pm$615.656 & 44.571 $\pm$10.886 & 48.616 $\pm$18.727 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.883 $\pm$0.11 & 735.044 $\pm$326.9 & 1420.43 $\pm$941.619 & 43.561 $\pm$15.883 & 54.357 $\pm$35.307 & 0.095 $\pm$0.0086\tabularnewline
+\hline 
+Linear Regression & 0.884 $\pm$0.113 & 868.179 $\pm$208.648 & 1231.227 $\pm$454.862 & 53.383 $\pm$14.672 & 50.598 $\pm$22.037 & 0.0006 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.876 $\pm$0.099 & 860.485 $\pm$334.669 & 1560.048 $\pm$962.637 & 49.978 $\pm$9.607 & 55.069 $\pm$17.762 & 0.0232 $\pm$0.0028\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-A: Developing prediction models to predict Total sales for
+Editor-UDL929 with CfsSubsetEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDL929 (CfsSubsetEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.88 $\pm$0.126 & 738.28 $\pm$188.534 & 1141.786 $\pm$472.025 & 45.452 $\pm$13.622 & 47.58 $\pm$24.835 & 0.0169 $\pm$0.0016\tabularnewline
+\hline 
+K-NN & 0.853 $\pm$0.145 & 825.191 $\pm$235.337 & 1280.334 $\pm$523.058 & 50.228 $\pm$14.065 & 51.419 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.864 $\pm$0.138 & 790.09 $\pm$225.858 & 1245.227 $\pm$584.231 & 48.216 $\pm$13.792 & 50.01 $\pm$21.97 & 0.063 $\pm$0.0039\tabularnewline
+\hline 
+Linear Regression & 0.866 $\pm$0.123 & 936.557 $\pm$204.458 & 1329.237 $\pm$480.786 & 58.037 $\pm$16.921 & 55.408 $\pm$25.623 & 0.0004 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.868 $\pm$0.12 & 940.386 $\pm$344.161 & 1648.503 $\pm$1026.038 & 54.498 $\pm$7.122 & 56.166 $\pm$7.8 & 0.0201 $\pm$0.0021\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-A: Developing prediction models to predict Total sales for
+Editor-UDL929 with SOM feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDL929 (SOM-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.897 $\pm$0.098 & 685.667 $\pm$185.988 & 1116.42 $\pm$478.062 & 42.092 $\pm$12.822 & 46.308 $\pm$24.612 & 0.02 $\pm$0.0035\tabularnewline
+\hline 
+K-NN & 0.89 $\pm$0.101 & 746.448 $\pm$250.762 & 1203.407 $\pm$564.836 & 44.361 $\pm$9.734 & 46.251 $\pm$14.413 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.895 $\pm$0.094 & 708.244 $\pm$264.518 & 1270.262 $\pm$708.817 & 42.135 $\pm$12.446 & 49.066 $\pm$26.594 & 0.0801 $\pm$0.0058\tabularnewline
+\hline 
+Linear Regression & 0.866 $\pm$0.129 & 894.084 $\pm$206.603 & 1282.833 $\pm$451.866 & 55.287 $\pm$15.923 & 53.738 $\pm$24.698 & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.871 $\pm$0.101 & 908.562 $\pm$348.195 & 1608.767 $\pm$972.552 & 52.632 $\pm$8.746 & 55.945 $\pm$12.493 & 0.0221 $\pm$0.0024\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-B: Developing prediction models to predict Total sales for
+Editor-UDLW12 with ReliefFAttributeEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLW12 (ReliefFAttributeEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.837 $\pm$0.241 & 13.853 $\pm$6.557 & 23.189 $\pm$11.795 & 42.353 $\pm$20.326 & 54.078 $\pm$30.055 & 0.0063 $\pm$0.0014\tabularnewline
+\hline 
+K-NN & 0.772 $\pm$0.296 & 14.178 $\pm$6.631 & 23.645 $\pm$11.029 & 43.367 $\pm$19.229 & 56.996 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
+\hline 
+Random Forest & 0.867 $\pm$0.161 & 13.628 $\pm$6.673 & 22.797 $\pm$11.806 & 41.066 $\pm$17.705 & 52.431 $\pm$26.232 & 0.0304 $\pm$0.0025\tabularnewline
+\hline 
+Linear Regression & 0.844 $\pm$0.246 & 12.789 $\pm$6.645 & 21.521 $\pm$12.543 & 39.467 $\pm$23.345 & 50.14 $\pm$35.261 & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.852 $\pm$0.187 & 13.217 $\pm$7.386 & 24.407 $\pm$15.087 & 38.24 $\pm$15.41 & 50.463 $\pm$17.973 & 0.0139 $\pm$0.0016\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-B: Developing prediction models to predict Total sales for
+Editor-UDLW12 with CfsSubsetEval feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLW12 (CfsSubsetEval-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.816 $\pm$0.219 & 15.671 $\pm$6.584 & 25.632 $\pm$11.838 & 47.931 $\pm$18.812 & 60.719 $\pm$31.747 & 0.0059 $\pm$0.0015\tabularnewline
+\hline 
+K-NN & 0.752 $\pm$0.267 & 15.732 $\pm$7.726 & 26.68 $\pm$14.816 & 48.578 $\pm$24.769 & 66.231 $\pm$48.588 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+Random Forest & 0.751 $\pm$0.264 & 15.61 $\pm$7.191 & 26.831 $\pm$13.355 & 47.381 $\pm$20.099 & 64.652 $\pm$38.664 & 0.0224 $\pm$0.0027\tabularnewline
+\hline 
+Linear Regression & 0.816 $\pm$0.218 & 15.674 $\pm$6.546 & 25.492 $\pm$11.628 & 47.97 $\pm$18.85 & 60.276 $\pm$30.617 & 0.0002 $\pm$0.0004\tabularnewline
+\hline 
+SVM & 0.818 $\pm$0.211 & 17.711 $\pm$9.704 & 31.951 $\pm$19.261 & 50.073 $\pm$14.926 & 65.121 $\pm$16.362 & 0.0129 $\pm$0.0009\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Case 2-B: Developing prediction models to predict Total sales for
+Editor-UDLW12 with SOM feature selection.
+
+\begin{table}[h!]
+\caption{Predicting Total sales for Editor-UDLW12 (SOM-FS)}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 0.86 $\pm$0.188 & 13.84 $\pm$6.753 & 23.94 $\pm$11.638 & 41.65 $\pm$17.557 & 55.439 $\pm$27.128 & 0.006 $\pm$0.0012\tabularnewline
+\hline 
+K-NN & 0.74 $\pm$0.293 & 15.926 $\pm$8.521 & 28.281 $\pm$16.283 & 48.827 $\pm$25.885 & 68.75 $\pm$48.849 & 0 $\pm$0.0002\tabularnewline
+\hline 
+Random Forest & 0.855 $\pm$0.187 & 13.661 $\pm$6.469 & 22.51 $\pm$11.026 & 41.378 $\pm$17.87 & 52.198 $\pm$27.088 & 0.0262 $\pm$0.0019\tabularnewline
+\hline 
+Linear Regression & 0.854 $\pm$0.214 & 14.586 $\pm$7.129 & 24.404 $\pm$12.87 & 44.813 $\pm$23.647 & 57.727 $\pm$38.631 & 0.0003 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 0.844 $\pm$0.184 & 14.177 $\pm$7.959 & 26.487 $\pm$16.539 & 40.931 $\pm$16.652 & 54.366 $\pm$20.004 & 0.0133 $\pm$0.0013\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+%--------------------------------------------------------------------------
+
+\subsection{Decision trees for best seller}
+\label{subsec:decision_trees}
+
+In this section we show the output of one of the models built during the regression, namely we present one of the decision trees generated by M5P method, to demonstrate the value of the proposal to generate an useful decision-aid tool for and expert (editor) to see what sales can be expected for the different values of the input variables (including the print-run).
+
+***TO DO:*** better explain this
+
+We have considered the best seller editorial as a good example case to show.
+
+Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree for the best seller editorial (UDL929). The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. This tree has been created considering the 10 pre-sales features.
+
+\begin{figure}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_no_fs.eps,width=12cm}
+\caption{Decision Tree built by the M5P method for the best seller editorial with all the pre-sales features.}
+\label{fig:decision_tree_best_seller}
+\end{center}
+\end{figure}
+
+***TO DO***: comments on the figure\\
+
+Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same editorial (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results.
+
+***TO DO***: better justify this\\
+
+\begin{figure}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_fs.eps,width=12cm}
+\caption{Decision Tree built by the M5P method for the best seller editorial with the features selected by the ReliefAttributeEval method.}
+\label{fig:decision_tree_best_seller_fs}
+\end{center}
+\end{figure}
+
+***TO DO***: comments on the figure\\
 
 %********************************************************************************
 \section{Conclusions and Future Work}
 \label{sec:conclusionsAndFutureWork}
+
+***TO DO***: rewrite these conclusions with the new experiments, examples and results\\
 
 In this paper, the problem of how many books should be printed 
 when a new book is published is faced using several data-mining and
@@ -1476,6 +1908,8 @@ obtain desired sales. This is left as future work.
 
 %********************************************************************************
 \section*{Acknowledgements}
+
+***TO DO***: revise the projects\\
 
 This work has been supported in part by projects 
 PreTEL (PRM Consultores - Trevenque S.L.),
