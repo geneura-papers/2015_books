@@ -32,7 +32,7 @@ $^2$Business Information Technology Department. King Abdullah II School for Info
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-% ***TO DO***: rewrite this considering the new contents and results\\
+***TO DO***: rewrite this considering the new contents and results\\
 
 When a new book is launched the publisher faces the problem of
 how many books should be printed for delivery to bookstores. Printing too many is the main issue,
@@ -79,7 +79,7 @@ either for the operation or for interpretation.
 
 \section{Introduction}
 
-%***TO DO***: complete this considering the new contents and results\\
+***TO DO***: complete this considering the new contents and results\\
 
 Publishing a book, as releasing any other cultural product with a
 physical substrate, implies several
@@ -225,7 +225,7 @@ techniques to create a sales model and use it to predict them.
 % - Permiten saber qué variables son las que influyen realmente en el
 % resultado. Esto es lo único importante - JJ
 
-% ***TO DO***: rewrite this considering the new structure of the paper\\
+***TO DO***: rewrite this considering the new structure of the paper\\
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
@@ -985,19 +985,19 @@ Correlation coefficient, error measures and time to build the model have been co
 %{\scriptsize
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
- & Corr. coeffic  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
-M5P & 0.890 $\pm$ 0.09 & 214.365 $\pm$ 22.96 & 634.229 $\pm$ 307.76 & 37.457 $\pm$ 3.12 & 48.324 $\pm$ 25.16 & 18.845 $\pm$ 0.61\\
-\hline
-K-NN & 0.787 $\pm$ 0.08 & 272.294 $\pm$ 32.38 & 840.594 $\pm$ 240.11 & 47.475 $\pm$ 3.39 & 63.072 $\pm$ 10.29 & 0.001 $\pm$ 0.01\\
+M5P  & 89.0 $\pm$ 0.09  & 214.37 $\pm$ 22.96  & 634.23 $\pm$ 307.76  & 37.46 $\pm$ 3.12  & 48.32 $\pm$ 25.16  & 18.85 $\pm$ 0.61\tabularnewline
 \hline 
-Random Forest & 0.840 $\pm$ 0.05 & 253.365 $\pm$ 29.43 & 788.937 $\pm$ 282.01 & 44.164 $\pm$ 2.76 & 57.766 $\pm$ 8.15 & 4.906 $\pm$ 0.12\\
+K-NN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  & 0.001 $\pm$ 0.01\tabularnewline
 \hline 
-Linear Regression & 0.872 $\pm$ 0.07 & 308.679 $\pm$ 25.44 & 680.905 $\pm$ 226.41 & 54.053 $\pm$ 4.38 & 52.130 $\pm$ 18.29 & 984.687 $\pm$ 128.21\\
+RF & 84.0 $\pm$ 0.05  & 253.37 $\pm$ 29.43  & 788.94 $\pm$ 282.01  & 44.16 $\pm$ 2.76  & 57.77 $\pm$ 8.15  & 4.91 $\pm$ 0.12\tabularnewline
 \hline 
-SVM & 0.876 $\pm$ 0.04 & 248.763 $\pm$ 27.49 & 732.641 $\pm$ 260.56 & 43.371 $\pm$ 2.35 & 53.471 $\pm$ 6.29 & 6169.239 $\pm$ 281.49\\
+LR & 87.2 $\pm$ 0.07  & 308.68 $\pm$ 25.44  & 680.91 $\pm$ 226.41  & 54.05 $\pm$ 4.38  & 52.13 $\pm$ 18.29  & 984.68 $\pm$ 128.21\tabularnewline
 \hline 
-\end{tabular}
+SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\pm$ 2.35  & 53.47 $\pm$ 6.29  & 6169.24 $\pm$ 281.49\tabularnewline
+\hline 
+\end{tabular}%}
 %}
 \end{table}
 
@@ -1152,17 +1152,17 @@ by each method.
 \hline 
 \multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
-M5P & 0.892 $\pm$0.102 & 211.147 $\pm$22.41 & 616.347 $\pm$321.254 & 36.928 $\pm$3.414 & 47.299 $\pm$26.827 & 0.4906 $\pm$0.0223\\
+M5P & 89.2 $\pm$0.10 & 211.15 $\pm$22.41 & 616.35 $\pm$321.25 & 36.93 $\pm$3.41 & 47.30 $\pm$26.83 & 0.49 $\pm$0.02\\
 \hline 
-K-NN & 0.869 $\pm$0.087 & 231.782 $\pm$24.246 & 668.028 $\pm$205.135 & 40.483 $\pm$3.058 & 51.276 $\pm$16.807 & 0.0015 $\pm$0.0042\\
+K-NN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 & 0.002 $\pm$0.004\\
 \hline 
-Random Forest & 0.91 $\pm$0.048 & 198.16 $\pm$19.499 & 589.353 $\pm$195.801 & 34.61 $\pm$2.27 & 44.209 $\pm$11.634 & 3.633 $\pm$0.2039\\
+RF & 91.0 $\pm$0.05 & 198.16 $\pm$19.50 & 589.35 $\pm$195.80 & 34.61 $\pm$2.27 & 44.21 $\pm$11.63 & 3.63 $\pm$0.20\\
 \hline 
-Linear Regression & 0.864 $\pm$0.081 & 346.875 $\pm$25.395 & 695.897 $\pm$242.49 & 60.754 $\pm$4.549 & 53.164 $\pm$19.432 & 0.0124 $\pm$0.0072\\
+LR & 86.4 $\pm$0.08 & 346.88 $\pm$25.40 & 695.90 $\pm$242.49 & 60.75 $\pm$4.55 & 53.16 $\pm$19.43 & 0.01 $\pm$0.01\\
 \hline 
-SVM & 0.842 $\pm$0.039 & 252.868 $\pm$33.384 & 858.26 $\pm$318.225 & 44.012 $\pm$3.038 & 62.22 $\pm$7.148 & 38.9667 $\pm$5.7518\\
+SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 & 62.22 $\pm$7.15 & 38.97 $\pm$5.75\\
 \hline 
 \end{tabular}
 
@@ -1171,46 +1171,46 @@ SVM & 0.842 $\pm$0.039 & 252.868 $\pm$33.384 & 858.26 $\pm$318.225 & 44.012 $\pm
 \hline 
 \multicolumn{7}{|c|}{\textit{CfsSubEval}}\\
 \hline
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
-M5P & 0.873 $\pm$0.09 & 266.777 $\pm$23.117 & 662.319 $\pm$245.272 & 46.66 $\pm$3.247 & 50.9 $\pm$20.35 & 0.4103 $\pm$0.0428\\
+M5P & 87.0 $\pm$0.09 & 266.78 $\pm$23.12 & 662.32 $\pm$245.27 & 46.66 $\pm$3.25 & 50.9 $\pm$20.35 & 0.41 $\pm$0.04\\
 \hline 
-K-NN & 0.84 $\pm$0.099 & 289.092 $\pm$22.834 & 743.917 $\pm$260.45 & 50.591 $\pm$3.496 & 57.301 $\pm$22.899 & 0.001 $\pm$0.0006\\
+K-NN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 & 0.001 $\pm$0.001\\
 \hline 
-Random Forest & 0.85 $\pm$0.106 & 278.417 $\pm$23.073 & 714.134 $\pm$278.654 & 48.713 $\pm$3.434 & 55.264 $\pm$24.412 & 2.479 $\pm$0.1264\\
+RF & 85.0 $\pm$0.11 & 278.42 $\pm$23.07 & 714.13 $\pm$278.65 & 48.71 $\pm$3.43 & 55.26 $\pm$24.41 & 2.48 $\pm$0.13\\
 \hline 
-Linear Regression & 0.859 $\pm$0.062 & 356.35 $\pm$22.43 & 708.056 $\pm$195.145 & 62.423 $\pm$4.216 & 53.974 $\pm$14.053 & 0.0067 $\pm$0.0009\\
+LR & 85.9 $\pm$0.06 & 356.35 $\pm$22.43 & 708.06 $\pm$195.15 & 62.42 $\pm$4.22 & 53.97 $\pm$14.05 & 0.01 $\pm$0.001\\
 \hline 
-SVM & 0.86 $\pm$0.063 & 288.474 $\pm$30.322 & 817.562 $\pm$253.237 & 50.302 $\pm$2.375 & 60.266 $\pm$5.675 & 32.7252 $\pm$5.7438\\
+SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 & 60.27 $\pm$5.68 & 32.73 $\pm$5.74\\
 \hline
 \end{tabular}\\
 
 % SOM
-\begin{tabular}{|c|l|l|l|l|l|l|}
+\centering{}% SOM
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-\multicolumn{7}{|c|}{\textit{SOM}}\\
-\hline
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+\multicolumn{7}{|c|}{\textit{SOM}}\tabularnewline
 \hline 
-M5P & 0.866 $\pm$0.104 & 234.091 $\pm$23.186 & 699.563 $\pm$317.196 & 40.924 $\pm$3.248 & 53.698 $\pm$26.867 & 0.4754 $\pm$0.1228\\
+ &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
-K-NN & 0.868 $\pm$0.086 & 237.91 $\pm$25.344 & 665.639 $\pm$212.05 & 41.547 $\pm$3.141 & 50.96 $\pm$16.721 & 0.0009 $\pm$0.0035\\
+M5P  & 86.6 $\pm$0.10  & 234.09 $\pm$23.19  & 699.56 $\pm$317.20  & 40.92 $\pm$3.25  & 53.70 $\pm$26.87  & 0.475 $\pm$0.12\tabularnewline
 \hline 
-Random Forest & 0.898 $\pm$0.051 & 211.867 $\pm$20.072 & 617.776 $\pm$187.155 & 37.017 $\pm$2.461 & 46.581 $\pm$11.144 & 2.932 $\pm$0.1083\\
+K-NN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  & 0.001 $\pm$0.004\tabularnewline
 \hline 
-Linear Regression & 0.855 $\pm$0.075 & 351.993 $\pm$23.72 & 714.756 $\pm$214.213 & 61.65 $\pm$4.278 & 54.665 $\pm$16.881 & 0.0113 $\pm$0.0074\\
+RF & 89.8 $\pm$0.05  & 211.87 $\pm$20.07  & 617.78 $\pm$187.16  & 37.02 $\pm$2.46  & 46.58 $\pm$11.14  & 2.93 $\pm$0.11\tabularnewline
 \hline 
-SVM & 0.845 $\pm$0.035 & 267.706 $\pm$33.819 & 888.331 $\pm$308.932 & 46.604 $\pm$2.865 & 64.62 $\pm$5.445 & 32.2689 $\pm$4.7404\\
+LR  & 85.5 $\pm$0.08  & 351.99 $\pm$23.72  & 714.76 $\pm$214.21  & 61.65 $\pm$4.28  & 54.67 $\pm$16.88  & 0.01 $\pm$0.01\tabularnewline
+\hline 
+SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2.87  & 64.62 $\pm$5.45  & 32.27 $\pm$4.74\tabularnewline
 \hline 
 \end{tabular}
-
 \end{table}
 
 
-% ***TO DO***: comment the results
+***TO DO***: comment the results
 
 
-% ***TO DO***: Think about including the graphs (scatter plots).
+***TO DO***: Think if including the graphs (scatter plots).
 
 %In Figures \ref{conv2}, \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} we depict scatter plots for the values of the actual total sales values against the predicted ones obtained by the developed models. 
 %Those figures also show the correlation between the two variables and the proportion of variation in actual total sales that is explained by the predicted ones. 
@@ -1348,7 +1348,7 @@ This section will present some experiments conducted on the data concerning four
     \item medium varied editorial
 \end{itemize}
 
-% ***TO DO ***: describe better  (number of instances) and justify the special cases (why we have chosen them).
+***TO DO ***: better describe (number of instances) and justify the special cases (why we have chosen them).
 
 %--------------------------------------------------------------------------
 
@@ -1366,21 +1366,22 @@ instances.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.889 $\pm$0.074 & 71.258 $\pm$21.291 & 125.19 $\pm$50.085 & 39.251 $\pm$11.769 & 47.495 $\pm$15.933 & 0.046 $\pm$0.0278\tabularnewline
+M5P  & 88.9 $\pm$0.07 & 71.26 $\pm$21.29  & 125.19 $\pm$50.09  & 39.25 $\pm$11.77  & 47.50 $\pm$15.93  & 0.05 $\pm$0.03\tabularnewline
 \hline 
-K-NN & 0.826 $\pm$0.1 & 87.602 $\pm$23.206 & 158.629 $\pm$54.164 & 47.621 $\pm$10.32 & 59.168 $\pm$14.428 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.871 $\pm$0.082 & 74.634 $\pm$22.166 & 139.743 $\pm$54.357 & 40.618 $\pm$10.214 & 52.219 $\pm$16.267 & 0.1069 $\pm$0.0053\tabularnewline
+RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
 \hline 
-Linear Regression & 0.838 $\pm$0.089 & 97.513 $\pm$18.874 & 155.273 $\pm$45.562 & 54.172 $\pm$13.598 & 60.314 $\pm$21.168 & 0.0069 $\pm$0.0012\tabularnewline
+LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.60  & 60.31 $\pm$21.17  & 0.01 $\pm$0.001\tabularnewline
 \hline 
-SVM & 0.874 $\pm$0.066 & 78.743 $\pm$22.254 & 147.295 $\pm$57.99 & 42.428 $\pm$7.826 & 53.286 $\pm$9.351 & 0.0598 $\pm$0.0157\tabularnewline
+SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
+
 
 
 Case 1-B: Developing prediction models to predict Total sales for
@@ -1394,18 +1395,18 @@ instances.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.775 $\pm$0.15 & 573.405 $\pm$192.219 & 860.313 $\pm$456.217 & 58.26 $\pm$15.867 & 65.997 $\pm$29.447 & 0.0238 $\pm$0.0018\tabularnewline
+M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.732 $\pm$0.163 & 596.615 $\pm$205.368 & 933.058 $\pm$356.108 & 60.619 $\pm$17.854 & 71.363 $\pm$22.336 & 0 $\pm$0.0002\tabularnewline
+K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  & 0 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.867 $\pm$0.073 & 449.161 $\pm$127.796 & 671.758 $\pm$212.739 & 45.575 $\pm$9.8 & 51.372 $\pm$11.159 & 0.0606 $\pm$0.005\tabularnewline
+RF & 86.7 $\pm$0.07  & 449.16 $\pm$127.80  & 671.76 $\pm$212.74  & 45.58 $\pm$9.80  & 51.37 $\pm$11.16  & 0.06 $\pm$0.01\tabularnewline
 \hline 
-Linear Regression & 0.733 $\pm$0.195 & 680.157 $\pm$263.788 & 1103.971 $\pm$850.685 & 69.775 $\pm$27.238 & 86.106 $\pm$71.316 & 0.0024 $\pm$0.0005\tabularnewline
+LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
 \hline 
-SVM & 0.804 $\pm$0.122 & 529.349 $\pm$172.496 & 846.013 $\pm$341.117 & 53.26 $\pm$11.915 & 63.539 $\pm$18.247 & 0.029 $\pm$0.0151\tabularnewline
+SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1421,18 +1422,18 @@ Editor-UDL929 (The best selling editor) - 216 instances.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.9 $\pm$0.098 & 670.244 $\pm$181.047 & 1065.337 $\pm$413.835 & 40.833 $\pm$10.858 & 43.561 $\pm$19.866 & 0.0302 $\pm$0.0016\tabularnewline
+M5P  & 90.0 $\pm$0.10 & 670.24 $\pm$181.05  & 1065.34 $\pm$413.84  & 40.83 $\pm$10.86  & 43.56 $\pm$19.87  & 0.03 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.733 $\pm$0.192 & 1057.212 $\pm$385.036 & 1875.849 $\pm$916.958 & 61.879 $\pm$12.366 & 68.747 $\pm$15.978 & 0 $\pm$0.0001\tabularnewline
+K-NN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  & 0 $\pm$0.0001\tabularnewline
 \hline 
-Random Forest & 0.876 $\pm$0.108 & 771.825 $\pm$326.339 & 1490.492 $\pm$930.576 & 45.399 $\pm$14.137 & 55.912 $\pm$31.703 & 0.0777 $\pm$0.0041\tabularnewline
+RF  & 87.6 $\pm$0.11  & 771.83 $\pm$326.34  & 1490.49 $\pm$930.58  & 45.40 $\pm$14.14  & 55.91 $\pm$31.70  & 0.08 $\pm$0.004\tabularnewline
 \hline 
-Linear Regression & 0.863 $\pm$0.118 & 922.334 $\pm$289.01 & 1399.844 $\pm$619.623 & 56.107 $\pm$16.171 & 56.425 $\pm$25.091 & 0.0045 $\pm$0.0006\tabularnewline
+LR  & 86.3 $\pm$0.12  & 922.33 $\pm$289.01  & 1399.84 $\pm$619.62  & 56.11 $\pm$16.17  & 56.43 $\pm$25.09  & 0.005 $\pm$0.001\tabularnewline
 \hline 
-SVM & 0.867 $\pm$0.1 & 873.222 $\pm$345.164 & 1621.478 $\pm$985.241 & 50.847 $\pm$11.83 & 57.232 $\pm$20.404 & 0.0423 $\pm$0.016\tabularnewline
+SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$11.83  & 57.23 $\pm$20.40  & 0.04 $\pm$0.016\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1444,24 +1445,28 @@ Editor-UDLW12 (The median selling editor)- 97 instances.
 \begin{table}
 \caption{Predicting Total sales for Editor-UDLW12 (2635 sales) }
 
+
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.832 $\pm$0.24 & 14.179 $\pm$6.615 & 23.82 $\pm$11.86 & 43.405 $\pm$20.387 & 55.787 $\pm$30.474 & 0.0089 $\pm$0.0016\tabularnewline
+M5P  & 83.2 $\pm$0.24  & 14.18 $\pm$6.62  & 23.82 $\pm$11.86  & 43.41 $\pm$20.39  & 55.79 $\pm$30.47  & 0.009 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.793 $\pm$0.236 & 15.34 $\pm$8.706 & 26.571 $\pm$16.635 & 46.2 $\pm$23.768 & 60.09 $\pm$35.205 & 0.0001 $\pm$0.0002\tabularnewline
+K-NN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.858 $\pm$0.172 & 14.185 $\pm$6.692 & 23.569 $\pm$11.831 & 42.534 $\pm$16.799 & 53.295 $\pm$23.408 & 0.0321 $\pm$0.0044\tabularnewline
+RF & 85.8 $\pm$0.17  & 14.19 $\pm$6.69  & 23.57 $\pm$11.83  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
 \hline 
-Linear Regression & 0.821 $\pm$0.252 & 14.62 $\pm$7.917 & 24.793 $\pm$15.076 & 44.573 $\pm$24.265 & 56.854 $\pm$35.071 & 0.0019 $\pm$0.0005\tabularnewline
+LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  & 56.85 $\pm$35.07  & 0.002 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.835 $\pm$0.21 & 14.01 $\pm$7.608 & 25.612 $\pm$15.297 & 40.663 $\pm$16.026 & 53.276 $\pm$18.45 & 0.0198 $\pm$0.0146\tabularnewline
+SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03  & 53.28 $\pm$18.45  & 0.02 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
+
+
+
 
 
 %--------------------------------------------------------------------------
@@ -1478,23 +1483,21 @@ Editor704 with ReliefFAttributeEval feature selection.
 
 \begin{table}[h!]
 \caption{Predicting Total sales for Editor704 (ReliefFAttributeEval-FS) }
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.893 $\pm$0.075 & 69.699 $\pm$19.853 & 122.48 $\pm$47.284 & 38.486 $\pm$11.531 & 46.677 $\pm$16.018 & 0.0275 $\pm$0.003\tabularnewline
+M5P  & 89.3 $\pm$0.08  & 69.70 $\pm$19.85  & 122.48 $\pm$47.28  & 38.49 $\pm$11.53  & 46.68 $\pm$16.02 & 0.028 $\pm$0.003\tabularnewline
 \hline 
-K-NN & 0.856 $\pm$0.101 & 78.393 $\pm$24.118 & 147.075 $\pm$58.023 & 42.577 $\pm$10.988 & 54.416 $\pm$15.542 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.877 $\pm$0.079 & 73.134 $\pm$22.949 & 137.604 $\pm$56.143 & 39.785 $\pm$10.689 & 51.348 $\pm$16.98 & 0.1282 $\pm$0.0137\tabularnewline
+RF & 87.7 $\pm$0.08  & 73.13 $\pm$22.95  & 137.60 $\pm$56.14  & 39.79 $\pm$10.69  & 51.35 $\pm$17.00  & 0.13 $\pm$0.01\tabularnewline
 \hline 
-Linear Regression & 0.873 $\pm$0.06 & 89.719 $\pm$18.306 & 140.653 $\pm$47.12 & 49.452 $\pm$10.495 & 53.196 $\pm$14.156 & 0.0008 $\pm$0.0005\tabularnewline
+LR  & 87.3 $\pm$0.06  & 89.72 $\pm$18.31  & 140.65 $\pm$47.12  & 49.45 $\pm$10.50  & 53.20 $\pm$14.16  & 0.0008 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.877 $\pm$0.069 & 77.301 $\pm$22.249 & 146.462 $\pm$57.679 & 41.665 $\pm$7.994 & 53.098 $\pm$9.505 & 0.045 $\pm$0.0159\tabularnewline
+SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.99  & 53.10 $\pm$9.51  & 0.05 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1510,18 +1513,18 @@ Editor704 with CfsSubsetEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.801 $\pm$0.092 & 104.874 $\pm$21.376 & 174.571 $\pm$47.332 & 58.111 $\pm$14.731 & 67.577 $\pm$22.612 & 0.0178 $\pm$0.0028\tabularnewline
+M5P & 80.1 $\pm$0.09 & 104.87 $\pm$21.38 & 174.57 $\pm$47.33 & 58.11 $\pm$14.73 & 67.58 $\pm$22.61 & 0.018 $\pm$0.003\tabularnewline
 \hline 
-K-NN & 0.782 $\pm$0.116 & 99.45 $\pm$24.305 & 170.827 $\pm$46.342 & 54.529 $\pm$12.277 & 65.864 $\pm$18.338 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 78.2 $\pm$0.12 & 99.45 $\pm$24.31 & 170.83 $\pm$46.34 & 54.53 $\pm$12.28 & 65.86 $\pm$18.34 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.776 $\pm$0.128 & 101.933 $\pm$23.664 & 180.557 $\pm$51.203 & 56.098 $\pm$13.624 & 69.862 $\pm$23.274 & 0.0738 $\pm$0.003\tabularnewline
+RF & 77.6 $\pm$0.13 & 101.93 $\pm$23.66 & 180.56 $\pm$51.20 & 56.10 $\pm$13.62 & 69.86 $\pm$23.27 & 0.0738 $\pm$0.003\tabularnewline
 \hline 
-Linear Regression & 0.801 $\pm$0.096 & 106.617 $\pm$21.523 & 173.179 $\pm$46.584 & 59.109 $\pm$14.958 & 67.527 $\pm$24.529 & 0.0004 $\pm$0.0005\tabularnewline
+LR & 80.1 $\pm$0.10 & 106.62 $\pm$21.52 & 173.18 $\pm$46.58 & 59.11 $\pm$14.96 & 67.53 $\pm$24.53 & 0.0004 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.818 $\pm$0.075 & 94.285 $\pm$25.516 & 180.536 $\pm$62.67 & 50.792 $\pm$8.477 & 65.624 $\pm$6.245 & 0.0382 $\pm$0.0183\tabularnewline
+SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 65.62 $\pm$6.25 & 0.040 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1537,18 +1540,18 @@ Editor704 with SOM feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.892 $\pm$0.066 & 71.536 $\pm$18.953 & 123.061 $\pm$42.132 & 39.426 $\pm$10.597 & 47.204 $\pm$15.159 & 0.0307 $\pm$0.0067\tabularnewline
+M5P & 89.2 $\pm$0.07 & 71.536 $\pm$18.95 & 123.06 $\pm$42.13 & 39.43 $\pm$10.58 & 47.20 $\pm$15.16 & 0.031 $\pm$0.007\tabularnewline
 \hline 
-K-NN & 0.858 $\pm$0.093 & 79.422 $\pm$21.473 & 140.948 $\pm$44.928 & 43.342 $\pm$10.072 & 53.313 $\pm$14.374 & 0.0001 $\pm$0.0002\tabularnewline
+K-NN & 85.8 $\pm$0.09 & 79.42 $\pm$21.47 & 140.95 $\pm$44.93 & 43.34 $\pm$10.07 & 53.31 $\pm$14.37 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.877 $\pm$0.08 & 73.981 $\pm$20.909 & 134.107 $\pm$51.698 & 40.475 $\pm$10.512 & 50.413 $\pm$16.378 & 0.1035 $\pm$0.0076\tabularnewline
+RF & 87.7 $\pm$0.08 & 73.98 $\pm$20.91 & 134.11 $\pm$51.70 & 40.48 $\pm$10.51 & 50.41 $\pm$16.38 & 0.10 $\pm$0.0076\tabularnewline
 \hline 
-Linear Regression & 0.875 $\pm$0.062 & 88.697 $\pm$16.338 & 135.029 $\pm$35.176 & 49.076 $\pm$10.471 & 51.972 $\pm$13.648 & 0.0006 $\pm$0.0005\tabularnewline
+LR & 87.5 $\pm$0.06 & 88.70 $\pm$16.34 & 135.03 $\pm$35.18 & 49.08 $\pm$10.47 & 51.97 $\pm$13.65 & 0.0006 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.878 $\pm$0.057 & 81.087 $\pm$22.477 & 154.823 $\pm$59.93 & 43.651 $\pm$7.364 & 55.716 $\pm$7.153 & 0.0309 $\pm$0.0033\tabularnewline
+SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 55.72 $\pm$7.15 & 0.031 $\pm$0.003\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1564,18 +1567,18 @@ Editor-UDLU11 with ReliefFAttributeEval feature selection
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.766 $\pm$0.168 & 592.493 $\pm$209.249 & 894.757 $\pm$508.14 & 60.206 $\pm$18.221 & 69.138 $\pm$37.353 & 0.0166 $\pm$0.0011\tabularnewline
+M5P & 76.6 $\pm$0.17 & 592.49 $\pm$209.25 & 894.76 $\pm$508.14 & 60.21 $\pm$18.22 & 69.14 $\pm$37.35 & 0.02$\pm$0.001\tabularnewline
 \hline 
-K-NN & 0.827 $\pm$0.093 & 486.96 $\pm$140.273 & 741.808 $\pm$238.557 & 49.268 $\pm$10.504 & 56.62 $\pm$12.591 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.853 $\pm$0.089 & 455.7 $\pm$123.958 & 686.536 $\pm$198.157 & 46.319 $\pm$10.195 & 53.029 $\pm$13.054 & 0.07 $\pm$0.0028\tabularnewline
+RF & 85.3 $\pm$0.09 & 455.7 $\pm$123.96 & 686.54 $\pm$198.16 & 46.32 $\pm$10.20 & 53.03 $\pm$13.05 & 0.07 $\pm$0.003\tabularnewline
 \hline 
-Linear Regression & 0.644 $\pm$0.202 & 817.214 $\pm$331.164 & 1324.047 $\pm$1090.851 & 83.217 $\pm$32.006 & 101.895 $\pm$87.829 & 0.0005 $\pm$0.0005\tabularnewline
+LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.01 & 101.90 $\pm$87.83 & 0.0005 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.714 $\pm$0.142 & 644.424 $\pm$203.425 & 1009.656 $\pm$371.828 & 64.474 $\pm$11.701 & 75.542 $\pm$15.994 & 0.0182 $\pm$0.0012\tabularnewline
+SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1591,18 +1594,18 @@ Editor-UDLU11 with CfsSubsetEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.64 $\pm$0.232 & 777.935 $\pm$342.04 & 1305.28 $\pm$1075.291 & 78.373 $\pm$30.4 & 99.857 $\pm$85.431 & 0.0134 $\pm$0.0012\tabularnewline
+M5P & 64.0 $\pm$0.23 & 777.94 $\pm$342.04 & 1305.28 $\pm$1075.29 & 78.37 $\pm$30.4 & 99.86 $\pm$85.43 & 0.013 $\pm$0.001\tabularnewline
 \hline 
-K-NN & 0.648 $\pm$0.181 & 702.701 $\pm$181.407 & 1008.391 $\pm$305.871 & 71.407 $\pm$13.951 & 78.469 $\pm$22.695 & 0.0001 $\pm$0.0002\tabularnewline
+K-NN & 64.8 $\pm$0.18 & 702.70 $\pm$181.41 & 1008.39 $\pm$305.87 & 71.41 $\pm$13.95 & 78.47 $\pm$22.70 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.653 $\pm$0.193 & 685.556 $\pm$195.277 & 1021.374 $\pm$352.882 & 69.74 $\pm$16.956 & 79.373 $\pm$26.977 & 0.0466 $\pm$0.0023\tabularnewline
+RF & 65.3 $\pm$0.19 & 685.56 $\pm$195.28 & 1021.37 $\pm$352.88 & 69.74 $\pm$16.96 & 79.37 $\pm$26.98 & 0.0466 $\pm$0.0023\tabularnewline
 \hline 
-Linear Regression & 0.67 $\pm$0.234 & 857.222 $\pm$308.686 & 1352.26 $\pm$945.314 & 86.095 $\pm$24.253 & 102.893 $\pm$74.43 & 0.0003 $\pm$0.0005\tabularnewline
+LR & 67.0 $\pm$0.23\ & 857.22 $\pm$308.69 & 1352.26 $\pm$945.31 & 86.10 $\pm$24.25 & 102.89 $\pm$74.43 & 0.0003 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.648 $\pm$0.23 & 879.912 $\pm$280.326 & 1402.822 $\pm$593.437 & 87.739 $\pm$15.273 & 105.402 $\pm$37.729 & 0.0168 $\pm$0.001\tabularnewline
+SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.27 & 105.40 $\pm$37.73 & 0.017 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1618,18 +1621,18 @@ Editor-UDLU11 with SOM feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.79 $\pm$0.138 & 573.246 $\pm$167.882 & 827.554 $\pm$388.162 & 58.421 $\pm$14.138 & 63.975 $\pm$25.632 & 0.0153 $\pm$0.0015\tabularnewline
+M5P & 79.0 $\pm$0.14 & 573.25 $\pm$167.88 & 827.55 $\pm$388.16 & 58.42 $\pm$14.14 & 63.98 $\pm$25.63 & 0.0153 $\pm$0.0015\tabularnewline
 \hline 
-K-NN & 0.836 $\pm$0.098 & 492.179 $\pm$126.856 & 727.326 $\pm$209.877 & 50.117 $\pm$10.688 & 56.136 $\pm$12.894 & 0 $\pm$0.0002\tabularnewline
+K-NN & 83.6 $\pm$0.10 & 492.18 $\pm$126.86 & 727.33 $\pm$209.88 & 50.12 $\pm$10.69 & 56.14 $\pm$12.89 & 0 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.856 $\pm$0.084 & 446.245 $\pm$119.79 & 673.455 $\pm$189.06 & 45.384 $\pm$9.778 & 52.236 $\pm$13.088 & 0.0594 $\pm$0.0049\tabularnewline
+RF & 85.6 $\pm$0.08 & 446.25 $\pm$119.79 & 673.46 $\pm$189.06 & 45.38 $\pm$9.78 & 52.24 $\pm$13.09 & 0.0594 $\pm$0.0049\tabularnewline
 \hline 
-Linear Regression & 0.71 $\pm$0.188 & 723.735 $\pm$247.959 & 1108.74 $\pm$736.165 & 74.136 $\pm$24.906 & 85.956 $\pm$59.994 & 0.0004 $\pm$0.0005\tabularnewline
+LR & 71.0 $\pm$0.19 & 723.74 $\pm$247.96 & 1108.74 $\pm$736.17 & 74.14 $\pm$24.91 & 85.96 $\pm$59.99 & 0.0004 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.716 $\pm$0.147 & 640.136 $\pm$206.459 & 1017.018 $\pm$376.134 & 63.961 $\pm$11.873 & 76.103 $\pm$16.796 & 0.0189 $\pm$0.0014\tabularnewline
+SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.87 & 76.10 $\pm$16.80 & 0.019 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1645,18 +1648,18 @@ Editor-UDL929 with ReliefFAttributeEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.905 $\pm$0.1 & 661.81 $\pm$186.171 & 1070.235 $\pm$425.658 & 40.176 $\pm$10.502 & 43.555 $\pm$19.769 & 0.0198 $\pm$0.0018\tabularnewline
+M5P & 90.5 $\pm$0.1 & 661.81 $\pm$186.17 & 1070.24 $\pm$425.66 & 40.18 $\pm$10.50 & 43.56 $\pm$19.77 & 0.02 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.878 $\pm$0.114 & 751.542 $\pm$270.905 & 1257.821 $\pm$615.656 & 44.571 $\pm$10.886 & 48.616 $\pm$18.727 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.883 $\pm$0.11 & 735.044 $\pm$326.9 & 1420.43 $\pm$941.619 & 43.561 $\pm$15.883 & 54.357 $\pm$35.307 & 0.095 $\pm$0.0086\tabularnewline
+RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
 \hline 
-Linear Regression & 0.884 $\pm$0.113 & 868.179 $\pm$208.648 & 1231.227 $\pm$454.862 & 53.383 $\pm$14.672 & 50.598 $\pm$22.037 & 0.0006 $\pm$0.0005\tabularnewline
+LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.67 & 50.60 $\pm$22.04 & 0.0006 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.876 $\pm$0.099 & 860.485 $\pm$334.669 & 1560.048 $\pm$962.637 & 49.978 $\pm$9.607 & 55.069 $\pm$17.762 & 0.0232 $\pm$0.0028\tabularnewline
+SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1672,18 +1675,18 @@ Editor-UDL929 with CfsSubsetEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.88 $\pm$0.126 & 738.28 $\pm$188.534 & 1141.786 $\pm$472.025 & 45.452 $\pm$13.622 & 47.58 $\pm$24.835 & 0.0169 $\pm$0.0016\tabularnewline
+M5P & 88.0 $\pm$0.13 & 738.28 $\pm$188.53 & 1141.79 $\pm$472.025 & 45.45 $\pm$13.62 & 47.58 $\pm$24.84 & 0.017 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.853 $\pm$0.145 & 825.191 $\pm$235.337 & 1280.334 $\pm$523.058 & 50.228 $\pm$14.065 & 51.419 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
+K-NN & 85.3 $\pm$0.15& 825.19 $\pm$235.34 & 1280.33 $\pm$523.06 & 50.23 $\pm$14.07 & 51.42 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.864 $\pm$0.138 & 790.09 $\pm$225.858 & 1245.227 $\pm$584.231 & 48.216 $\pm$13.792 & 50.01 $\pm$21.97 & 0.063 $\pm$0.0039\tabularnewline
+RF & 86.4 $\pm$0.14 & 790.09 $\pm$225.86 & 1245.23 $\pm$584.23 & 48.22 $\pm$13.79 & 50.01 $\pm$21.97 & 0.063 $\pm$0.0039\tabularnewline
 \hline 
-Linear Regression & 0.866 $\pm$0.123 & 936.557 $\pm$204.458 & 1329.237 $\pm$480.786 & 58.037 $\pm$16.921 & 55.408 $\pm$25.623 & 0.0004 $\pm$0.0005\tabularnewline
+LR & 86.6 $\pm$0.12 & 936.56 $\pm$204.46 & 1329.24 $\pm$480.79 & 58.04 $\pm$16.92 & 55.41 $\pm$25.62 & 0.0004 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.868 $\pm$0.12 & 940.386 $\pm$344.161 & 1648.503 $\pm$1026.038 & 54.498 $\pm$7.122 & 56.166 $\pm$7.8 & 0.0201 $\pm$0.0021\tabularnewline
+SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.12 & 56.17 $\pm$7.8 & 0.020 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1699,18 +1702,18 @@ Editor-UDL929 with SOM feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.897 $\pm$0.098 & 685.667 $\pm$185.988 & 1116.42 $\pm$478.062 & 42.092 $\pm$12.822 & 46.308 $\pm$24.612 & 0.02 $\pm$0.0035\tabularnewline
+M5P & 89.7 $\pm$0.10 & 685.67 $\pm$185.99 & 1116.42 $\pm$478.06 & 42.09 $\pm$12.8 & 46.31 $\pm$24.61 & 0.02 $\pm$0.004\tabularnewline
 \hline 
-K-NN & 0.89 $\pm$0.101 & 746.448 $\pm$250.762 & 1203.407 $\pm$564.836 & 44.361 $\pm$9.734 & 46.251 $\pm$14.413 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 89.0 $\pm$0.10 & 746.45 $\pm$250.76 & 1203.41 $\pm$564.84 & 44.36 $\pm$9.73 & 46.25 $\pm$14.41 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.895 $\pm$0.094 & 708.244 $\pm$264.518 & 1270.262 $\pm$708.817 & 42.135 $\pm$12.446 & 49.066 $\pm$26.594 & 0.0801 $\pm$0.0058\tabularnewline
+RF & 89.5 $\pm$0.09 & 708.24 $\pm$264.52 & 1270.26 $\pm$708.82 & 42.14 $\pm$12.45 & 49.07 $\pm$26.59 & 0.080 $\pm$0.0058\tabularnewline
 \hline 
-Linear Regression & 0.866 $\pm$0.129 & 894.084 $\pm$206.603 & 1282.833 $\pm$451.866 & 55.287 $\pm$15.923 & 53.738 $\pm$24.698 & 0.0005 $\pm$0.0005\tabularnewline
+LR & 86.6 $\pm$0.13 & 894.08 $\pm$206.60 & 1282.83 $\pm$451.87 & 55.29 $\pm$15.92 & 53.74 $\pm$24.70 & 0.0005 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.871 $\pm$0.101 & 908.562 $\pm$348.195 & 1608.767 $\pm$972.552 & 52.632 $\pm$8.746 & 55.945 $\pm$12.493 & 0.0221 $\pm$0.0024\tabularnewline
+SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.75 & 55.95 $\pm$12.49 & 0.022 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1726,18 +1729,18 @@ Editor-UDLW12 with ReliefFAttributeEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.837 $\pm$0.241 & 13.853 $\pm$6.557 & 23.189 $\pm$11.795 & 42.353 $\pm$20.326 & 54.078 $\pm$30.055 & 0.0063 $\pm$0.0014\tabularnewline
+M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
 \hline 
-K-NN & 0.772 $\pm$0.296 & 14.178 $\pm$6.631 & 23.645 $\pm$11.029 & 43.367 $\pm$19.229 & 56.996 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
+K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
 \hline 
-Random Forest & 0.867 $\pm$0.161 & 13.628 $\pm$6.673 & 22.797 $\pm$11.806 & 41.066 $\pm$17.705 & 52.431 $\pm$26.232 & 0.0304 $\pm$0.0025\tabularnewline
+RF & 86.7 $\pm$0.16 & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
 \hline 
-Linear Regression & 0.844 $\pm$0.246 & 12.789 $\pm$6.645 & 21.521 $\pm$12.543 & 39.467 $\pm$23.345 & 50.14 $\pm$35.261 & 0.0005 $\pm$0.0005\tabularnewline
+LR & 84.4 $\pm$0.25 & 12.79 $\pm$6.65 & 21.52 $\pm$12.54 & 39.47 $\pm$23.35 & 50.14 $\pm$35.26 & 0.0005 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.852 $\pm$0.187 & 13.217 $\pm$7.386 & 24.407 $\pm$15.087 & 38.24 $\pm$15.41 & 50.463 $\pm$17.973 & 0.0139 $\pm$0.0016\tabularnewline
+SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1753,18 +1756,18 @@ Editor-UDLW12 with CfsSubsetEval feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.816 $\pm$0.219 & 15.671 $\pm$6.584 & 25.632 $\pm$11.838 & 47.931 $\pm$18.812 & 60.719 $\pm$31.747 & 0.0059 $\pm$0.0015\tabularnewline
+M5P & 81.6 $\pm$0.22 & 15.67 $\pm$6.58 & 25.63 $\pm$11.84 & 47.93 $\pm$18.81 & 60.72 $\pm$31.75 & 0.006 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 0.752 $\pm$0.267 & 15.732 $\pm$7.726 & 26.68 $\pm$14.816 & 48.578 $\pm$24.769 & 66.231 $\pm$48.588 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 75.2 $\pm$0.27 & 15.73 $\pm$7.73 & 26.68 $\pm$14.82 & 48.58 $\pm$24.77 & 66.23 $\pm$48.59 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
-Random Forest & 0.751 $\pm$0.264 & 15.61 $\pm$7.191 & 26.831 $\pm$13.355 & 47.381 $\pm$20.099 & 64.652 $\pm$38.664 & 0.0224 $\pm$0.0027\tabularnewline
+RF & 75.1 $\pm$0.26 & 15.61 $\pm$7.19 & 26.83 $\pm$13.36 & 47.38 $\pm$20.10 & 64.65 $\pm$38.66 & 0.0224 $\pm$0.0027\tabularnewline
 \hline 
-Linear Regression & 0.816 $\pm$0.218 & 15.674 $\pm$6.546 & 25.492 $\pm$11.628 & 47.97 $\pm$18.85 & 60.276 $\pm$30.617 & 0.0002 $\pm$0.0004\tabularnewline
+LR & 81.6 $\pm$0.22 & 15.67 $\pm$6.55 & 25.49 $\pm$11.63 & 47.97 $\pm$18.85 & 60.28 $\pm$30.62 & 0.0002 $\pm$0.0004\tabularnewline
 \hline 
-SVM & 0.818 $\pm$0.211 & 17.711 $\pm$9.704 & 31.951 $\pm$19.261 & 50.073 $\pm$14.926 & 65.121 $\pm$16.362 & 0.0129 $\pm$0.0009\tabularnewline
+SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 65.12 $\pm$16.36 & 0.013 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1780,18 +1783,18 @@ Editor-UDLW12 with SOM feature selection.
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
- & Corr. coefficient  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 0.86 $\pm$0.188 & 13.84 $\pm$6.753 & 23.94 $\pm$11.638 & 41.65 $\pm$17.557 & 55.439 $\pm$27.128 & 0.006 $\pm$0.0012\tabularnewline
+M5P & 86.0 $\pm$0.19 & 13.84 $\pm$6.75 & 23.94 $\pm$11.64 & 41.65 $\pm$17.56 & 55.44 $\pm$27.13 & 0.006 $\pm$0.001\tabularnewline
 \hline 
-K-NN & 0.74 $\pm$0.293 & 15.926 $\pm$8.521 & 28.281 $\pm$16.283 & 48.827 $\pm$25.885 & 68.75 $\pm$48.849 & 0 $\pm$0.0002\tabularnewline
+K-NN & 74.0 $\pm$0.29 & 15.93 $\pm$8.52 & 28.28 $\pm$16.28 & 48.83 $\pm$25.89 & 68.75 $\pm$48.85 & 0 $\pm$0.0002\tabularnewline
 \hline 
-Random Forest & 0.855 $\pm$0.187 & 13.661 $\pm$6.469 & 22.51 $\pm$11.026 & 41.378 $\pm$17.87 & 52.198 $\pm$27.088 & 0.0262 $\pm$0.0019\tabularnewline
+RF & 85.5 $\pm$0.19 & 13.66 $\pm$6.47 & 22.51 $\pm$11.03 & 41.38 $\pm$17.87 & 52.20 $\pm$27.09 & 0.026 $\pm$0.0019\tabularnewline
 \hline 
-Linear Regression & 0.854 $\pm$0.214 & 14.586 $\pm$7.129 & 24.404 $\pm$12.87 & 44.813 $\pm$23.647 & 57.727 $\pm$38.631 & 0.0003 $\pm$0.0005\tabularnewline
+LR & 85.4 $\pm$0.21 & 14.59 $\pm$7.13 & 24.40 $\pm$12.87 & 44.81 $\pm$23.65 & 57.73 $\pm$38.63 & 0.0003 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 0.844 $\pm$0.184 & 14.177 $\pm$7.959 & 26.487 $\pm$16.539 & 40.931 $\pm$16.652 & 54.366 $\pm$20.004 & 0.0133 $\pm$0.0013\tabularnewline
+SVM & 84.4 $\pm$0.18 & 14.18 $\pm$7.96 & 26.49 $\pm$16.54 & 40.93 $\pm$16.65 & 54.37 $\pm$20.00 & 0.01 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
