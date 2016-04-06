@@ -1348,7 +1348,32 @@ This section will present some experiments conducted on the data concerning four
     \item medium varied editorial
 \end{itemize}
 
-***TO DO ***: better describe (number of instances) and justify the special cases (why we have chosen them).
+***TO DO ***: Justify the special cases (why we have chosen them).
+
+Table XX shows the details of each of these editorials.
+
+\begin{table}
+\caption{Description of editorials considered as special cases.
+\label{tab:desc_editorials}}
+\centering{}%
+\begin{tabular}{|r|l|l|l|}
+\hline 
+ & Different books sold & Total copies sold & Description\\
+\hline 
+\textit{All editorials} & 6083 & 3201645 & 209 editorials\\
+\hline 
+\textit{UDL704} & 293 & 58236 & Editorial with most different\\ 
+       &     &       & books sold\\
+\hline 
+\textit{UDLU11} & 180 & 249481 & Editorial with medium number\\ 
+       &     &       &  of different books sold\\
+\hline 
+\textit{UDL929} & 216 & 460752 & Best selling editorial\\
+\hline 
+\textit{UDLW12} & 97 & 2635 & Medium selling editorial\\
+\hline 
+\end{tabular}
+\end{table}
 
 %--------------------------------------------------------------------------
 
@@ -1481,7 +1506,7 @@ We could add an appendix or so with the rest of results if you want.
 Case 1-A: Developing prediction models to predict Total sales for
 Editor704 with ReliefFAttributeEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor704 (ReliefFAttributeEval-FS) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1506,7 +1531,7 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 Case 1-A: Developing prediction models to predict Total sales for
 Editor704 with CfsSubsetEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor704 (CfsSubsetEval-FS)}
 
 
@@ -1533,7 +1558,7 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
 Case 1-A: Developing prediction models to predict Total sales for
 Editor704 with SOM feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor704 (SOM-FS)}
 
 
@@ -1560,7 +1585,7 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 Case 1-B: Developing prediction models to predict Total sales for
 Editor-UDLU11 with ReliefFAttributeEval feature selection
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLU11 (ReliefFAttributeEval-FS)}
 
 
@@ -1587,7 +1612,7 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 Case 1-B: Developing prediction models to predict Total sales for
 Editor-UDLU11 with CfsSubsetEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLU11 (CfsSubsetEval-FS)}
 
 
@@ -1614,7 +1639,7 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 Case 1-B: Developing prediction models to predict Total sales for
 Editor-UDLU11 with SOM feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLU11 (SOM-FS)}
 
 
@@ -1641,7 +1666,7 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 Case 2-A: Developing prediction models to predict Total sales for
 Editor-UDL929 with ReliefFAttributeEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDL929 (ReliefFAttributeEval-FS)}
 
 
@@ -1668,7 +1693,7 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 Case 2-A: Developing prediction models to predict Total sales for
 Editor-UDL929 with CfsSubsetEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDL929 (CfsSubsetEval-FS)}
 
 
@@ -1695,7 +1720,7 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 Case 2-A: Developing prediction models to predict Total sales for
 Editor-UDL929 with SOM feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDL929 (SOM-FS)}
 
 
@@ -1722,7 +1747,7 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 Case 2-B: Developing prediction models to predict Total sales for
 Editor-UDLW12 with ReliefFAttributeEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLW12 (ReliefFAttributeEval-FS)}
 
 
@@ -1749,7 +1774,7 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 5
 Case 2-B: Developing prediction models to predict Total sales for
 Editor-UDLW12 with CfsSubsetEval feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLW12 (CfsSubsetEval-FS)}
 
 
@@ -1776,7 +1801,7 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
 Case 2-B: Developing prediction models to predict Total sales for
 Editor-UDLW12 with SOM feature selection.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{Predicting Total sales for Editor-UDLW12 (SOM-FS)}
 
 
@@ -1823,7 +1848,7 @@ Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree fo
 
 ***TO DO***: comments on the figure\\
 
-Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same editorial (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results.
+Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same editorial (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results).
 
 ***TO DO***: better justify this\\
 
