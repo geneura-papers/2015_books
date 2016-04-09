@@ -83,13 +83,15 @@ either for the operation or for interpretation.
 
 \section{Introduction}
 
-***TO DO***: complete this considering the new contents and results\\
-
-Publishing a book, as releasing any other cultural product with a
+%***TO DO***: complete this considering the new contents and results\\
+% Instead of just writing this you should say what has changed and
+% what should be changed. For instance, the paragraph below probably
+% shouldn't - JJ 
+Publishing a book, in the same way as releasing any other cultural product with a
 physical substrate, implies several
 types of risks and costs due to
 the complexity, and derived expenses, of the production and
-distribution processes.  When a company is faced with the problem or
+distribution and storage processes.  When a company is faced with the problem or
 releasing a completely new product, in the sense that it is an unknown
 author or a new topic with no track record, sales forecasts can
 only be based on the experience obtained from other similar products,
@@ -147,25 +149,25 @@ In this sense, errors in one or the other direction do not have the same impact.
 % deberíamos haberlas tratado de forma diferente. - JJ
 
 Thus, it is extremely important to develop an accurate predictive method
-which could accurately forecast the future sales a new book will
-achieve, in order to optimise production, improve the publishing
+which could forecast the future sales a new book will
+achieve, in order to optimise production schedules, improve the publishing
 company profits or minimise losses \cite{Zhao2001}. This is the main
 objective of this paper. 
-%FERGU: entonces el objetivo es desarrollar una herramienta? La metodología? Dejarlo más claro en todos los sitios
+%FERGU: entonces el objetivo es desarrollar una herramienta? La
+%metodología? Dejarlo más claro en todos los sitios
+% Un método predictivo. Lo deja muy claro - JJ
 An example is the optimisation of sales \cite{Mattila2002} by
 improving profit margins by selling the whole print-run. 
 % Antonio - podrías extender un poco el ejemplo? Es decir, describir
 % un poco más lo que se hace en ese trabajo. ;)
-% An example of what? Does that go there? - JJ
+% An example of what? Does that go there or to the state of the art? - JJ
 
-However, designing such an accurate predictive tool is a difficult
-task in this scope, as book sales are influenced by several factors
-that make them fluctuate and, moreover, usually they might be not
-controllable and even unknown. 
-%FERGU: "moreover, usually" son dos adverbios juntos y queda un poco raro 
-For instance, some are related to decisions on purchases, others with freight 
-%FERGU: some factors para dejarlo claro
-traffic, or others with the distribution strategy \cite{Little1998}. % This paragraph is rather useless - JJ
+The accuracy of the predictive method we intend to design is affected
+negatively by several factors, related to decisions on purchases, to freight 
+traffic, or with the distribution strategy \cite{Little1998}. % This
+                                % paragraph is rather useless - JJ
+% I have changed the paragraph completely, but still don't know what
+% this is doing here - JJ
 
 Thus, it is very important to know the product and the variables that
 might affect the sales, and how an expert manager takes them into account \cite{Armstrong2001,SThomassey2014}. 
@@ -187,29 +189,20 @@ In the research published in this paper, the problem of how many units should be
 when a new book is published is faced using data provided by the 
 Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}},
 a company that provides management systems and services for bookshops,
-% Antonio - 'libraries' o 'book shops'? Supongo que lo segundo. ;D
 publishers and distributors. 
 Usually, the company's expert sales managers analysed historical data 
 and applied their knowledge using external variables to compute
 correct estimations (predictions), for instance, she can decide
-increasing or decreasing the sales prediction based on season or sales
-period.                         % varias citas - JJ
-                        % [Pedro] lo modifico para comentar quienes nos facilitaron los datos
-                        %  y que así era como funcionaban hasta ese momento.
-%In any case, in general companies usually use a forecasting model and then, 
-%an expert applies his knowledge, as the company might require an 
-%interpretable and understandable model. 
+increasing or decreasing the sales forecast based on season or sales
+period.                          
 However, carrying out the analysis and forecasting process as a human expert,
-may lead to a `fuzzy-like' analysis, which may not take all the variables into account. 
-%FERGU: fuzzy-like existe? suena raruno :P
+may lead to imprecise predictions which may not take all the variables into account. 
 In addition, the process might be tedious, especially when the amount
 of data is quite large, and even, different experts can reach different
-predictions from the same dataset \cite{ChingChin2010,Sanders1994}.
-
-For these reasons, the industry requires the best suited forecasting
-techniques to be adopted so that, estimating sales task is carried out
-reliably, accurately, and in an automatic way. % Iterative. Another
-                                % useless paragraph - JJ
+predictions from the same dataset \cite{ChingChin2010,Sanders1994}. A
+initial version of this method was developed under contract with that
+company and eventually integrated in their product. This paper
+represents an improved version of that method based on the same data. 
 
 With this issue in mind, in this paper a data visualisation and
 preprocessing strategy to find out what are the relevant variables
@@ -229,7 +222,7 @@ techniques to create a sales model and use it to predict them.
 % - Permiten saber qué variables son las que influyen realmente en el
 % resultado. Esto es lo único importante - JJ
 
-***TO DO***: rewrite this considering the new structure of the paper\\
+%***TO DO***: rewrite this considering the new structure of the paper\\
 
 The rest of this paper is structured as follows: next, 
 Section \ref{sec:soa} presents a comprehensive review of the
@@ -237,13 +230,9 @@ approaches found in the bibliography related to the prediction of
 sales from product characteristics. 
 Then, Section \ref{sec:problem} describes the 
 problem of how many books should be printed when a new book is published, 
-        % no es el problema de publicación, es el problema de venta
-        % de libros sin publicar. Habrá que buscar un nombre - JJ
-        %[Pedro] cierto, lo cambio, aunque me ha quedado un nombre muy largo  :)
- followed by Section \ref{sec:methodology} where the
+followed by Section \ref{sec:methodology} where the
 experimental setup and the methodology considered in the study is
-presented.  %FERGU: mejor described para no repetir
-Section \ref{sec:experiments} reports and analyses the obtained results with a 
+presented.  Section \ref{sec:experiments} reports and analyses the obtained results with a 
 real dataset. Finally, conclusions and future work are presented in Section
 \ref{sec:conclusionsAndFutureWork}. 
 % Antonio - TODO: rescribir con los contenidos finales del artículo. ;)
