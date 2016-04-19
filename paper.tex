@@ -35,37 +35,28 @@ e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 %***TO DO***: rewrite this considering the new contents and results\\
+% Has it been done?
 
-When a new book is launched the publisher faces the problem of
-how many books should be printed for delivery to bookstores. Printing too many is the main issue,
-since it implies a loss of investment due to inventory excess. In this
-paper, we are tackling the problem of predicting total sales in order to 
-print the right amount of books, doing so even before the book has
-reached the shelves. 
-% % Antonio - Decir cuántos años son, que no me acuerdo.
-% of data on published books in Spain have been processed by means of
-% data visualisation %visualization does not "process". I propose an alternative
-%  and other feature selection techniques. 
-We have been working on a data set that includes the complete sales
-data for books published in Spain across several years. After an
-initial exploratory analysis phase using visualisation techniques, we have
-applied several feature selection techniques in order
-to find out what are the variables that have more impact on sales, and
-then used machine learning to create a model and forecast sales. The
-initial methodology was used in a commercial product by Grupo
-Trevenque, but the methodology described here improves the forecasting running time  %with
+When a new book is launched the publisher faces the problem of how
+many books should be printed for delivery to bookstores; printing too
+many is the main issue, since it implies a loss of investment due to
+inventory excess. In this paper, we are tackling the problem of
+predicting total sales in order to print the right amount of books and
+doing so even before the book has reached the stores.  We have been
+working on a data set that includes the complete sales data for books
+published in Spain across several years. After an initial exploratory
+analysis phase using visualisation techniques, we have applied several
+feature selection techniques in order to find out what are the
+variables that have more impact on sales, and then used machine
+learning to create a model and forecast sales. The initial methodology
+was used in a commercial product by Grupo Trevenque, but the
+methodology described here improves the running time %with
                                 %respect to what?- JJ
-and is
-eventually able to predict sales from pre-publication data with
-remarkable accuracy, thus creating a useful tool for publishers, for whom
-% Moreover,
-% the proposed method was validated by the company that provided
-% the data and incorporated in a business intelligence tool for
-% publishers, % We shouldn't say this, it's outside the bounds of the
-            % paper. Besides, it was a different technique - JJ
-obtained models provide a reliable guidance on the decision process of
-publishing a book, without human intervention 
-either for the operation or for interpretation. 
+and is eventually able to predict sales from pre-publication data with
+remarkable accuracy, thus creating a useful tool for publishers, for
+whom obtained models can provide a reliable guidance on the decision
+process of publishing a book, without human intervention either for
+the operation or for interpretation.
 % Antonio - esto es cierto??? :D
 % We should simply say: 
 % The method presented here provides a reliable data processing
@@ -90,9 +81,10 @@ either for the operation or for interpretation.
 Publishing a book, in the same way as releasing any other cultural product with a
 physical substrate, implies several
 types of risks and costs due to
-the complexity, and derived expenses, of the production and
-distribution and storage processes.  When a company is faced with the problem or
-releasing a completely new product, in the sense that it is an unknown
+the complexity, and derived expenses, of the production,
+distribution and storage processes; most of these costs are associated
+to the number of books actually printed. But the problem is further
+complicated for completely new products, in the sense that it is an unknown
 author or a new topic with no track record, sales forecasts can
 only be based on the experience obtained from other similar products,
 but the definition of ``similar'' itself is obscure and, sometimes,
@@ -106,6 +98,7 @@ Indeed, several studies have demonstrated that improving sales predictions
 production process \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
 %which should be obvious from the get go, don't know why you need 4
 %papers to affirm that - JJ
+%please someone address this - JJ
 
 % In this sense, the publishing industry is based on very particular and
 % established production process, and publishing a book requires several
@@ -194,7 +187,7 @@ Usually, the company's expert sales managers analysed historical data
 and applied their knowledge using external variables to compute
 correct estimations (predictions), for instance, she can decide
 increasing or decreasing the sales forecast based on season or sales
-period.                          
+period.
 However, carrying out the analysis and forecasting process as a human expert,
 may lead to imprecise predictions which may not take all the variables into account. 
 In addition, the process might be tedious, especially when the amount
