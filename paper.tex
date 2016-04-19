@@ -244,10 +244,11 @@ real dataset. Finally, conclusions and future work are presented in Section
 % - habría que destacar claramente ls aportes de este trabajo al SotA, cómo hace que avance ;)
 % - habría que incluir citas a artículos de la revista que elijamos y comentarlos aquí
 
-Sales forecasting is a problem which has been addressed several times
-in the literature. Most of the studies have been conducted using
-different analysis and forecasting methods, such as regression models
-\cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy
+% Sales forecasting is a problem which has been addressed several times
+% in the literature.
+% This sentence is useless
+In the past, sales prediction has been performed using methods such as  regression models
+\cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy 
 systems \cite{Mastorocostas2001}, applied to different industrial
 sectors. 
 % ¿Y qué? Esta frase
@@ -257,8 +258,10 @@ sectors.
 % Antonio - la he intentado mejorar.
 % Muchas cosas de la intro tendrían que venir aquí, al estado del
 % arte. Habría que reescribir la intro. - JJ
+% ¿Qué usan esos métodos? - JJ
 
-Specifically, Time-Series prediction methods \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990} 
+Specifically, time-series prediction methods
+\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}  
 is perhaps the most used technique to tackle the sales forecasting
 problems. The efficiency of these techniques strongly depends on the field of application 
 and the correctness of the problem data. However, since they require a
@@ -269,10 +272,11 @@ paper.
 
 In this case, just a few variables are known in advance
 \cite{ChingChin2010,FaderHardie2005,Madsen2008}, and some of 
-them are categorical, harder to process, even more so if the number
+them are categorical, which makes them harder to process, even more so if the number
 of categories is high. Given these issues, finding adequate
 forecasting techniques and selecting  
 the best method to use is also a problem \cite{ChingChin2010}. % Qualify this citation - jj
+% And it's the 3rd time you cite ChingChin!!! - JJ
 
 % Thus, not any time-series forecasting method can be used
 % \cite{Madsen2008,ChernWSF15}. 
@@ -364,7 +368,10 @@ influences to understand how electronic `word-of-mouth' influences product sales
 The proposed method is suitable for those sales forecasting problems 
 with a big amount of online reviews and historical data.
 
-Thus, taking into account the kind of problem we address in this paper, i.e. the prediction of sales of a new product for which no historical data are available, the classical forecasting methods based on time-series are not
+Thus, taking into account the kind of problem we address in this
+paper, i.e. the prediction of sales of a new product for which no
+historical data are available, the classical forecasting methods based
+on time-series are not 
 adequate, although they can obviously be used once the book has been launched for sale. 
 In our work the relevant variables in the prediction of sales are identified
 by means of data visualisation and feature selection methods. Then, machine learning techniques are applied to predict sales and to infer the ideal print-run of a book.
