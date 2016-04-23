@@ -707,43 +707,26 @@ and to choose an appropriate set of variables, the Self-Organizing Map
                                 % selection? What do we expect to
                                 % learn from it? - JJ 
 
-Kohonen's SOM is a feedforward neural network \cite{Haykin98_NNC} that
-uses an unsupervised training algorithm and which, through a process
-called self-organisation, configures the output units into a
-topological representation of the original data. It tries to imitate
-the self-organisation done in the sensory cortex of the human brain,
-where neighbouring neurons are activated by similar stimulus. SOM
-belongs to a general class of neural network methods, which are
-non-linear regression techniques that can be trained to learn or find
-relationships between inputs and outputs or to organise data so as to
-disclose so far unknown patterns or structures. It is usually used as
-a clustering/classification tool or used to find unknown relationships
-between a set of variables that describe a problem. The main property
-of the SOM is that it makes a nonlinear projection from a
-high-dimensional data space (one dimension per variable) on a regular,
-low-dimensional (usually 2D) grid of neurons, called units. 
-SOM is further processed using Ultsch method \cite{UmatUlts}, the
-Unified distance matrix (U-matrix), which uses SOM's codevectors
-(vectors of variables of the problem) as data source and generates a
-matrix where each component is a distance measure between two adjacent
-neurons. It allows us to visualise any multi-variated dataset in a
-two-dimensional display, so we can detect topological relations among
-neurons and infer about the input data structure. High values in the
-U-matrix represent a frontier region between clusters, and low values
-represent a high degree of similarities among neurons on that region,
-clusters .
+%--- new SOM description % -Sam
 
-SOMs (and U-Matrix) are usually applied to visualise natural
-structures in the data and their relations, as well as the natural
-groupings that could be among them. In addition, SOM makes easy the
-estimation of the variables that have more influence on these
-groupings. Other statistical and soft computing tools can also be used
-for this purpose, but since Kohonen's SOMs offers a visual way of
-doing it, it is much more intuitive, and takes advantage of the
-capabilities of the human brain as a pattern recogniser. 
+SOM is a type of unsupervised neural networks inspired by the topographical organization of the sensory cortex of human brain \cite{kohonen1998}. It maps highly dimensional data into a lower dimensional space where similar data patterns are located in more adjacent areas on the grid.
+
+SOM is a very useful analysis tool for visualizing complex data with high number of variables in a simple geometric planes. Therefore, it could be used for different tasks like features reduction and data clustering and visualization.
+
+Basically, SOM consists of two layers; input layer and output layer (also known as Kohen layer). Input layer is fully connected with the Kohen layer which is usually a two dimensional grid of neurons (i.e.; units). This means that every neuron is linked to every input in the input layer.
+
+The learning process of SOM is an iterative process applied in two stages. First, the weights of the network are initialized randomly then the n-dimensional input vectors are presented to the network sequentially so the distance between the weights of the neurons and the inputs are computed using the simple Euclidean distance. In the second stage, the neuron which has the shortest distance with the presented input vector is updated along with its neighbor neurons. This neuron is called the best matching unit (BMU). The goal of the learning process is to minimize the neighborhood distance in the output clusters. 
+
+When the learning process is done a visual representation method like the Unified Distance Matrix, or U-matrix for short, is used to visualize the distances between neurons in the output space. In the U-matrix, the distance between adjacent neurons is measured and assigned different colors. Dark colors between neurons indicate large distances (boundaries) while light colors represent similar areas (clusters).
+
+%---
+
+
+
 %FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
 % Antonio - arreglado 
 % And this is going to be useful because... - JJ
+
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
