@@ -75,13 +75,8 @@ the operation or for interpretation.
 
 \section{Introduction}
 
-%***TO DO***: complete this considering the new contents and results\\
-% Instead of just writing this you should say what has changed and
-% what should be changed. For instance, the paragraph below probably
-% shouldn't - JJ 
 Publishing a book, in the same way as releasing any other cultural product with a
-physical substrate, implies several
-types of risks and costs due to
+physical substrate, implies several types of risks and costs due to
 the complexity, and derived expenses, of the production,
 distribution and storage processes; most of these costs are associated
 to the number of books actually printed. But the problem is further
@@ -90,16 +85,11 @@ author or a new topic with no track record, sales forecasts can
 only be based on the experience obtained from other similar products,
 but the definition of ``similar'' itself is obscure and, sometimes,
 subjective. Even if it is a known author or topic, having accurate
-estimations of future sales of the new 
-product is extremely important \cite{ChingChin2010}, so that production
-runs do not exceed predicted sales by too much. 
+estimations of future sales of the new product is extremely important, so 
+that production runs do not exceed predicted sales by too much. 
 Indeed, several studies have demonstrated that improving sales predictions 
 (a reduction of forecasting errors) results in an enhancement in the 
-%FERGU: an enhancing está bien dicho? Mejor "an enhacement", no?
-production process \cite{Bayraktar2008,Fildes2010,Saeed2008,Zhao2002}.
-%which should be obvious from the get go, don't know why you need 4
-%papers to affirm that - JJ
-%please someone address this - JJ
+production process \cite{Fildes2010,Saeed2008}.
 
 % In this sense, the publishing industry is based on very particular and
 % established production process, and publishing a book requires several
@@ -121,8 +111,6 @@ other industries, so that they face the
 problem of predicting sales quite often. The issue, in this case, is to print an
 adequate number of copies but not too many, as the unsold volumes will
 lead to losses and sunk inventory cost, 
-% Antonio - 'sunk inventory cost' es corecto?
-% Sí, pero corecto no lo es. - JJ
 whereas if the number of printed copies was not enough, a new print
 run can be made, resulting in temporary losses due to lack of supply;
 a real problem, to be sure, but less dire than having too many unsold
@@ -235,31 +223,14 @@ real dataset. Finally, conclusions and future work are presented in Section
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 
-% [Pedro] no se encuentra gran cosa sobre predicción de ventas de libros
-%  por eso quiero comenzar hablando de la aplicación de métodos
-%  de predicción en la industria en general, que sí hay bastante bibliografía.
-% Antonio - me parece bien
+As far as we know, no previous attempt can be found in the literature in which 
+prediction methods have been applied to estimate the print run. 
+However, similar techniques to those proposed in this paper, e.g. 
+regression models \cite{Papalexopoulos1990}, 
+neural networks \cite{Yoo1999} 
+or fuzzy systems \cite{Mastorocostas2001}, 
+have been applied to solve sales prediction problems in other industrial sectors.
 
-% Antonio - Cosas generales a mejorar en el SotA:
-% - habría que comparar más veces este trabajo con lo que hacen otros, destacando nuestras diferencias. Sólo se menciona al final de la sección
-% - habría que destacar claramente ls aportes de este trabajo al SotA, cómo hace que avance ;)
-% - habría que incluir citas a artículos de la revista que elijamos y comentarlos aquí
-
-% Sales forecasting is a problem which has been addressed several times
-% in the literature.
-% This sentence is useless
-In the past, sales prediction has been performed using methods such as  regression models
-\cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy 
-systems \cite{Mastorocostas2001}, applied to different industrial
-sectors. 
-% ¿Y qué? Esta frase
-% no aporta nada. La primera frase
-% tiene que enmarcar el estado del
-% arte - JJ
-% Antonio - la he intentado mejorar.
-% Muchas cosas de la intro tendrían que venir aquí, al estado del
-% arte. Habría que reescribir la intro. - JJ
-% ¿Qué usan esos métodos? - JJ
 
 Specifically, time-series prediction methods
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}  
@@ -288,10 +259,8 @@ been generally based on experts' experience.% Reference - JJ
  They analyse data about
 sales and, taking into account their knowledge in industry, their
 experience, and their perception about trends, could make decisions on
-the companies production (how many books should be printed when a new
-book is published). 
-%FERGU: quitad los paréntesis :)
-% Fergu: quítalos tú, tío, aquí puede editar todo el mundo - JJ
+the companies production, i.e. how many books should be printed when a new
+book is published. 
 This is a complex problem, since the predictions are influenced by
 external variables that must be taken into account, such as
 seasonality, promotions or fashions that expert managers might
