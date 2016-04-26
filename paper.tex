@@ -197,6 +197,9 @@ initial version of this method was developed under contract with that
 company and eventually integrated in their product. This paper
 represents an improved version of that method based on the same data. 
 
+% We should also mention what data we actually mean, I don't think
+% we've published it here. - JJ
+
 With this issue in mind, in this paper a data visualisation and
 preprocessing strategy to find out what are the relevant variables
 describing a book in the prediction of book sales is proposed; then
@@ -743,6 +746,8 @@ capabilities of the human brain as a pattern recogniser.
 %FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
 % Antonio - arreglado 
 % And this is going to be useful because... - JJ
+% This is copied from the HIV paper. Please rephrase and adapt to the
+% particular venue - JJ
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
@@ -955,19 +960,28 @@ This technique is used to estimate how accurately the predictive model will perf
 
 In addition, due to the stochastic component present in some of the methods and also in order to evaluate the running time, 30 repetitions of each experiment have been done per method. Then the average and standard deviation have been computed.
 
-***TODO***: talking about the machines used
-
+%***TODO***: talking about the machines used
+% Please don't use real text for TODOs- JJ
 %Experiments have been conducted on an Intel(R) Core(TM) i5-4430 CPU at 3.00GHz 
 %(4 cores) and 16 GB RAM, running Ubuntu Linux 14.04.1 LTS and Java JRE\_1.7.0\_72.
 
 
 %--------------------------------------------------------------------------
 
-\subsection{Results for all the editors}
+\subsection{Results for all editors}
 \label{subsec:results_all_editors}
 
-In the first experiment, forecasting methods have been applied to the whole dataset. All the pre-sales features have been considered, also including the categorical ones, which make harder to process the instances and build the different models. SVM for instance, must previously transform these categories into numbers in order to deal with the data, which means the creation of a different (and new) variable per possible value. Thus, in the case of editorial or collection this would imply the definition of hundreds of new variables.
+In the first experiment, forecasting methods have been applied to the
+whole dataset. All the pre-sales features have been considered, also
+including the categorical ones, which make harder to process the
+instances and build the different models. SVM for instance, must
+previously transform these categories into numbers in order to deal
+with the data, which means the creation of a different (and new)
+variable per possible value. Thus, in the case of editorial or
+collection this would imply the definition of hundreds of new
+variables. 
 % Antonio - Sam, verify this, please
+% Sam is Hossam? - JJ
 
 Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_editors_no_fs}.
 
@@ -994,7 +1008,7 @@ SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\p
 %}
 \end{table}
 
-***TODO***: Revise and fix the following text...
+%***TODO***: Revise and fix the following text...
 
 As far as the different methods is concerned, M5P model obtained good results, 
 both in time and error, and as stated before, this method can learn and tackle 
