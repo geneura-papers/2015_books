@@ -1202,11 +1202,15 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
 \caption{Description of editorials considered as special cases.
 \label{tab:desc_editorials}}
 \centering{}%
-\begin{tabular}{|r|l|l|l|}
+\begin{tabular}{|c|l|l|l|}
 \hline 
- & Different books sold & Total copies sold & Description\\
+ Case & Different books sold & Total copies sold & Description\\
 \hline 
 \textit{All editorials} & 6083 & 3201645 & 209 editorials\\
+\hline 
+\textit{UDL929} & 216 & 460752 & Best selling editorial\\
+\hline 
+\textit{UDLW12} & 97 & 2635 & Medium selling editorial\\
 \hline 
 \textit{UDL704} & 293 & 58236 & Editorial with most different\\ 
        &     &       & books sold\\
@@ -1214,75 +1218,18 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
 \textit{UDLU11} & 180 & 249481 & Editorial with medium number\\ 
        &     &       &  of different books sold\\
 \hline 
-\textit{UDL929} & 216 & 460752 & Best selling editorial\\
-\hline 
-\textit{UDLW12} & 97 & 2635 & Medium selling editorial\\
-\hline 
+
 \end{tabular}
 \label{Table:special_cases}
 \end{table}
 
-The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (ReliefAttributeEval, CfsSubsetEval and SOM) are used to reduce the features in each case. Finally, the classification models are applied again on the reduce datasets to evaluate their performance.
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (ReliefAttributeEval, CfsSubsetEval and SOM) are used to reduce the set of features in each case. Finally, the classification models are applied again on the reduced datasets to evaluate their performance.
 
+Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Table \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. 
 
-
-Case 1-A: Developing prediction models to predict Total sales for
-Editorial704 (An editorial with the most number of different books sold) - 293
-instances.
 
 \begin{table}
-\caption{Predicting Total sales for Editorial704}
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  & 88.9 $\pm$0.07 & 71.26 $\pm$21.29  & 125.19 $\pm$50.09  & 39.25 $\pm$11.77  & 47.50 $\pm$15.93  & 0.05 $\pm$0.03\tabularnewline
-\hline 
-K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  & 0.0001 $\pm$0.0003\tabularnewline
-\hline 
-RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
-\hline 
-LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.60  & 60.31 $\pm$21.17  & 0.01 $\pm$0.001\tabularnewline
-\hline 
-SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-
-
-Case 1-B: Developing prediction models to predict Total sales for
-Editorial-UDLU11 (An editorial with a medium number of different books sold) - 180 instances.
-
-\begin{table}
-\caption{Predicting Total sales for Editorial-UDLU11}
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
-\hline 
-K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  & 0 $\pm$0.0002\tabularnewline
-\hline 
-RF & 86.7 $\pm$0.07  & 449.16 $\pm$127.80  & 671.76 $\pm$212.74  & 45.58 $\pm$9.80  & 51.37 $\pm$11.16  & 0.06 $\pm$0.01\tabularnewline
-\hline 
-LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
-\hline 
-SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-
-Case 2-A: Developing prediction models to predict Total sales for
-Editorial-UDL929 (The best selling editorial) - 216 instances.
-
-\begin{table}
-\caption{Predicting Total sales for Editorial-UDL929 (460752 sales) }
+\caption{Predicting Total sales for Editorial-UDL929 (The best selling editorial) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1300,14 +1247,12 @@ LR  & 86.3 $\pm$0.12  & 922.33 $\pm$289.01  & 1399.84 $\pm$619.62  & 56.11 $\pm$
 SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$11.83  & 57.23 $\pm$20.40  & 0.04 $\pm$0.016\tabularnewline
 \hline 
 \end{tabular}
+\label{Table:case1results}
 \end{table}
 
 
-Case 2-B: Developing prediction models to predict Total sales for
-Editorial-UDLW12 (The median selling editor)- 97 instances.
-
 \begin{table}
-\caption{Predicting Total sales for Editorial-UDLW12 (2635 sales) }
+\caption{Predicting Total sales for Editorial-UDLW12 (The median selling editorial) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1325,7 +1270,59 @@ LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  
 SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03  & 53.28 $\pm$18.45  & 0.02 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+\label{Table:case2results}
 \end{table}
+
+\begin{table}
+\caption{Predicting Total sales for Editorial704 (highest number of different titles sold)}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  & 88.9 $\pm$0.07 & 71.26 $\pm$21.29  & 125.19 $\pm$50.09  & 39.25 $\pm$11.77  & 47.50 $\pm$15.93  & 0.05 $\pm$0.03\tabularnewline
+\hline 
+K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
+\hline 
+LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.60  & 60.31 $\pm$21.17  & 0.01 $\pm$0.001\tabularnewline
+\hline 
+SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
+\hline 
+\end{tabular}
+\label{Table:case3results}
+\end{table}
+
+
+
+
+\begin{table}
+\caption{Predicting Total sales for Editorial-UDLU11 (medium number of different books sold))}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
+\hline 
+K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  & 0 $\pm$0.0002\tabularnewline
+\hline 
+RF & 86.7 $\pm$0.07  & 449.16 $\pm$127.80  & 671.76 $\pm$212.74  & 45.58 $\pm$9.80  & 51.37 $\pm$11.16  & 0.06 $\pm$0.01\tabularnewline
+\hline 
+LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
+\hline 
+SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
+\hline 
+\end{tabular}
+\label{Table:case4results}
+\end{table}
+
+
+
+
 
 
 
