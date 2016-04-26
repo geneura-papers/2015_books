@@ -1160,101 +1160,7 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 %On the other side, the performance of $k$-NN was dramatically improved after the feature selection process by explaining 84.5\% of variation on average.
 %
 %
-%\begin{figure*}[http] 
-%\begin{center} 
-%\begin{tabular}{ccc}
-%\includegraphics[scale=0.22]{m5p.eps}  &
-%\includegraphics[scale=0.22]{lr.eps}   &
-%\includegraphics[scale=0.22]{svm.eps}  \\
-%M5P & LR & SVM 
-%\end{tabular}
-%\begin{tabular}{cc}
-%\includegraphics[scale=0.22]{knn.eps}  &
-%\includegraphics[scale=0.22]{mlp.eps}  \\
-%k-NN & MLP
-%\end{tabular}
-%\end{center} 
-%\caption{Actual vs. predicted sales for M5P, LR, SVM, k-NN, MLP
-%  models.}
-% You should use a log-log scale here to see it more clearly. Besides,
-% please say in a comment the script you are using to generate it, we
-% are going to need it later on - JJ
-%\label{conv2}
-%\end{figure*}
-%
-%
-%\begin{figure*}[http] 
-%\begin{center} 
-%\begin{tabular}{ccc}
-%\includegraphics[scale=0.22]{m5p_RAE.eps}  &
-%\includegraphics[scale=0.22]{lr_RAE.eps}   &
-%\includegraphics[scale=0.22]{svm_RAE.eps}  \\
-%M5P & LR & SVM 
-%\end{tabular}
-%\begin{tabular}{cc}
-%\includegraphics[scale=0.22]{knn_RAE.eps}  &
-%\includegraphics[scale=0.22]{mlp_RAE.eps}  \\
-%k-NN & MLP
-%\end{tabular}
-%\end{center} 
-%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using ReliefAttributeEval.}
-%\label{conv2ReliefAttributeEval}
-%\end{figure*}
-%
-%
-%\begin{figure*}[http] 
-%\begin{center} 
-%\begin{tabular}{ccc}
-%\includegraphics[scale=0.22]{m5p_CFS.eps}  &
-%\includegraphics[scale=0.22]{lr_CFS.eps}   &
-%\includegraphics[scale=0.22]{svm_CFS.eps}  \\
-%M5P & LR & SVM 
-%\end{tabular}
-%\begin{tabular}{cc}
-%\includegraphics[scale=0.22]{knn_CFS.eps}  &
-%\includegraphics[scale=0.22]{mlp_CFS.eps}  \\
-%k-NN & MLP
-%\end{tabular}
-%\end{center} 
-%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using CfsSubsetEval.}
-%\label{conv2CfsSubsetEval}
-%\end{figure*}
-%
-%
-%\begin{figure*}[http] 
-%\begin{center} 
-%\begin{tabular}{ccc}
-%\includegraphics[scale=0.22]{m5p_SOM.eps}  &
-%\includegraphics[scale=0.22]{lr_SOM.eps}   &
-%\includegraphics[scale=0.22]{svm_SOM.eps}  \\
-%M5P & LR & SVM 
-%\end{tabular}
-%\begin{tabular}{cc}
-%\includegraphics[scale=0.22]{knn_SOM.eps}  &
-%\includegraphics[scale=0.22]{mlp_SOM.eps}  \\
-%k-NN & MLP
-%\end{tabular}
-%\end{center} 
-%\caption{Actual VS predicted sale for M5P, LR, SVM, k-NN, MLP models applied on the selected features using SOM analysis.}
-%\label{conv2SOM}
-%\end{figure*}
 
-
-%\begin{figure}[!ht] 
-%\begin{center}
-%  \epsfig{file=fig_time.eps,width=11cm}
-%\caption{\small{Running time in seconds, obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). Plot shows that using categorical variables as part of the dataset makes the problem hard to solve. As expected, simpler methods are much faster to build the model than the complex ones.}}
-%\label{fig:time}
-%\end{center}
-%\end{figure}
-
-%\begin{figure}[!ht] 
-%\begin{center}
-%  \epsfig{file=fig_rae.eps,width=11cm}
-%\caption{\small{Relative absolute error (RAE $\%$) obtained after applying the five methods to the reduced datasets (16, 8, 7 and 4 features each one). The M5P model obtains the lowest errors, whatever the dataset used.}}
-%\label{fig:rae}
-%\end{center}
-%\end{figure}
 
 
 % - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
@@ -1277,7 +1183,7 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 
 %********************************************************************************
 
-\section{Example Cases}
+\section{Experiments of special editorial cases}
 \label{example_cases}
 
 This section presents further experiments conducted on data concerning four interesting special editorial cases. These editorials were selected as representative cases which could be very interesting for decision makers and managers in the domain. The four cases are described as follows:
@@ -1290,7 +1196,7 @@ This section presents further experiments conducted on data concerning four inte
 \end{itemize}
 
 
-Table \ref{Table:special_cases} shows the details of each of the selected editorials.
+Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected editorials.
 
 \begin{table}
 \caption{Description of editorials considered as special cases.
@@ -1316,10 +1222,9 @@ Table \ref{Table:special_cases} shows the details of each of the selected editor
 \label{Table:special_cases}
 \end{table}
 
-%--------------------------------------------------------------------------
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (ReliefAttributeEval, CfsSubsetEval and SOM) are used to reduce the features in each case. Finally, the classification models are applied again on the reduce datasets to evaluate their performance.
 
-\subsection{Sales forecasting with all pre-sales features}
-\label{subsec:case_sales_all_features}
+
 
 Case 1-A: Developing prediction models to predict Total sales for
 Editorial704 (An editorial with the most number of different books sold) - 293
@@ -1327,8 +1232,6 @@ instances.
 
 \begin{table}
 \caption{Predicting Total sales for Editorial704}
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1355,8 +1258,6 @@ Editorial-UDLU11 (An editorial with a medium number of different books sold) - 1
 
 \begin{table}
 \caption{Predicting Total sales for Editorial-UDLU11}
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1382,8 +1283,6 @@ Editorial-UDL929 (The best selling editorial) - 216 instances.
 
 \begin{table}
 \caption{Predicting Total sales for Editorial-UDL929 (460752 sales) }
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1409,8 +1308,6 @@ Editorial-UDLW12 (The median selling editor)- 97 instances.
 
 \begin{table}
 \caption{Predicting Total sales for Editorial-UDLW12 (2635 sales) }
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1435,8 +1332,8 @@ SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03
 %--------------------------------------------------------------------------
 
 
-\subsection{Sales forecasting with feature selection}
-\label{subsec:case_sales_feature_selection}
+%\subsection{Sales forecasting with feature selection}
+%\label{subsec:case_sales_feature_selection}
 
 ***TO DO***: explain we have chosen the best Feature selection method (ReliefAttributeEval???). The rest of tables have been moved to an appendix.
 
