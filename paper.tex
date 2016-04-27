@@ -660,11 +660,10 @@ and to choose an appropriate set of variables, the Self-Organizing Map
 
 %--- new SOM description % -Sam
 
-SOM is a type of unsupervised neural networks inspired by the topographical organization of the sensory cortex of human brain \cite{kohonen1998}. It maps highly dimensional data into a lower dimensional space where similar data patterns are located in more adjacent areas on the grid.
+SOM is a type of unsupervised neural network inspired by the topographical organization of the sensory cortex of human brain \cite{kohonen1998}. It maps highly dimensional data into a lower dimensional space where similar data patterns are located in more adjacent areas on the grid.
+It is a very useful analysis tool for visualizing complex data with high number of variables in a simple geometric plane. Therefore, it could be used for different tasks such as feature selection and data clustering and visualization.
 
-SOM is a very useful analysis tool for visualizing complex data with high number of variables in a simple geometric planes. Therefore, it could be used for different tasks like features reduction and data clustering and visualization.
-
-Basically, SOM consists of two layers; input layer and output layer (also known as Kohen layer). Input layer is fully connected with the Kohen layer which is usually a two dimensional grid of neurons (i.e.; units). This means that every neuron is linked to every input in the input layer.
+Basically, SOM consists of two layers; input layer and output layer (also known as Kohen layer). Input layer is fully connected with the Kohen layer which is usually a two dimensional grid of neurons (i.e. units). This means that every neuron is linked to every input in the input layer.
 
 The learning process of SOM is an iterative process applied in two stages. First, the weights of the network are initialized randomly then the n-dimensional input vectors are presented to the network sequentially so the distance between the weights of the neurons and the inputs are computed using the simple Euclidean distance. In the second stage, the neuron which has the shortest distance with the presented input vector is updated along with its neighbor neurons. This neuron is called the best matching unit (BMU). The goal of the learning process is to minimize the neighborhood distance in the output clusters. 
 
