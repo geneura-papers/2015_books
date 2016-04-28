@@ -366,7 +366,7 @@ retail price
 subject1
 subject2
 subject3
-editorial
+publisher
 collection
 bookbinding
 print-run
@@ -467,7 +467,7 @@ There is not a standard methodology to solve the general problem of sales foreca
 %variables that describe the product but do not provide useful information during 
 %the prediction process.
 
-First, after the editorial company has provided the raw data
+First, after the publishing house has provided the raw data
 (extracted directly from its database), a preprocessing method has
 % This should go to the previous section. 
 been performed in order to remove incorrect or incoherent patterns,
@@ -496,7 +496,7 @@ methods.
 % Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
   This task may also help to identify leading indicators to be considered by a human expert to make predictions.
 
-Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (editors).
+Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (publishers).
 
 After this process, several forecasting techniques have been tested, such as rule- or tree-based, together with numerical methods. 
 % Antonio - is 'numerical' the best term for these kind of methods?
@@ -531,7 +531,7 @@ Specifically, in order to compute the forecasting errors of the different method
 \end{itemize}
 where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained prediction.
 
-Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (editorials) in order to prove the value of the proposal.
+Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (publishing houses) in order to prove the value of the proposal.
 Some specific interpretable models have been created as a final result of the work. The aim is that these will cold be used as a decision-aid tool for the experts who have to take decide about the best print-run quantity for new published books, in order to, logically maximise the benefit (or minimise the costs).
 
 %The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
@@ -563,7 +563,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 \hline 
 1 & retail price (when launched) & \texttt{ret\_price} & numerical & input\\
 2 & main subject (code) & \texttt{subject1} & numerical & input\\
-3 &  editorial + collection (joint code) & \texttt{collection} & categorical & input\\
+3 &  publisher + collection (joint code) & \texttt{collection} & categorical & input\\
 4 & bookbinding (code) & \texttt{binding} & categorical & input\\
 5 & gifts (promotional books) & \texttt{gifts} & numerical & input\\
 6 & units distributed as novelty & \texttt{distrib\_novelty} & numerical & input\\
@@ -579,14 +579,14 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{center}
 \end{table}
 
-As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by an editor. In addition, this variable could be interesting to be used to test the prediction model, once it is built. So the editor could try different values for it and see what the predictor yields, in order to take the best decision.
+As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. So the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
 
 Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
 
-Regarding the feature \textit{editorial}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, editors will not consider the results in other editorials for predicting its own sales.
+Regarding the feature \textit{publisher}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers will not consider the results in other publishing houses for predicting its own sales.
 % Antonio - Think about this... should we mention this?
 
-Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the editor, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \footnote{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
+Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \footnote{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
 
 
 
@@ -858,8 +858,8 @@ published.
 This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
 Feature selection techniques have been also applied in order to test their utility by comparing the obtained results.
 
-We have analysed the whole dataset (all the editorials), but also performed some experiments considering specific editorials as example cases.
-The obtained decision trees have been plotted to show their simplicity and their real value as a decision-aid tool for editors.
+We have analysed the whole dataset (all the publishing houses), but also performed some experiments considering specific publishing houses as example cases.
+The obtained decision trees have been plotted to show their simplicity and their real value as a decision-aid tool for publishers.
 
 %--------------------------------------------------------------------------
 
@@ -896,8 +896,8 @@ All experiments have been conducted on an  Intel(R) Core(TM) i5-2400 CPU at 3.10
 
 %--------------------------------------------------------------------------
 
-\subsection{Results for all editors}
-\label{subsec:results_all_editors}
+\subsection{Results for all publishers}
+\label{subsec:results_all_publishers}
 
 In the first stage of the experiments, forecasting methods have been
 applied to the whole dataset. All the pre-sales features have been
@@ -906,14 +906,14 @@ process the instances and build the different models. SVM for
 instance, must previously transform these categories into binary
 variables in order to deal with the data, which means the creation of
 a different (and new) variable per each possible value. Thus, in the
-case of editorial or collection this would imply the definition of
+case of \emph{publisher} or \emph{collection} this would imply the definition of
 hundreds of new variables. 
 
-Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_editors_no_fs}.
+Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
 
 \begin{table}
-\caption{Predicting Total sales for all editors (all the features). 30 repetitions, 10-fold cross validation.
-\label{tab:all_editors_no_fs}}
+\caption{Predicting Total sales for all publishers (all the features). 30 repetitions, 10-fold cross validation.
+\label{tab:all_publishers_no_fs}}
 \centering{}%
 %{\scriptsize
 \begin{tabular}{|c|l|l|l|l|l|l|}
@@ -962,7 +962,7 @@ training examples), and it exhibit a poor generalisation ability, as it does not
 learn anything from the training data.
 
 Moreover, in these experiments it has been seen the difficulty to process 
-information related to categorical variables, such as \emph{editorial} and 
+information related to categorical variables, such as \emph{publisher} and 
 \emph{collection}.
 
 %[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
@@ -986,7 +986,7 @@ In the second stage of the experiments, different feature selection methods have
 We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
 Then, the dataset has been projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
-An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features Editorial and Collection have been
+An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features \emph{publisher} and \emph{collection} have been
 removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 
@@ -1067,14 +1067,14 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-Thus, we have run the same experiments as in Section \ref{subsec:results_all_editors} with the whole dataset (all the editors), but considering the selected features by each method. The results are shown in Table
+Thus, we have run the same experiments as in Section \ref{subsec:results_all_publishers} with the whole dataset (all the publishers), but considering the selected features by each method. The results are shown in Table
 
 \begin{table}
 
 \centering{}%
-\caption{Predicting Total sales for all editors based on features selected
+\caption{Predicting Total sales for all publishers based on features selected
 by each method.
-\label{tab:results_all_editors_fs}}
+\label{tab:results_all_publishers_fs}}
 
 % RELIEFATTRIBUTEEVAL
 \begin{tabular}{|c|l|l|l|l|l|l|}
@@ -1172,39 +1172,39 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 
 %********************************************************************************
 
-\section{Experiments of special editorial cases}
+\section{Experiments of special publishing houses cases}
 \label{example_cases}
 
-This section presents further experiments conducted on data concerning four interesting special editorial cases. These editorials were selected as representative cases which could be very interesting for decision makers and managers in the domain. The four cases are described as follows:
+This section presents further experiments conducted on data concerning four interesting special publishing house cases. These publishing houses were selected as representative cases which could be very interesting for decision makers and managers in the domain. The four cases are described as follows:
 
 \begin{itemize}
-    \item Best seller editorial: this case represents the editorial that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
-    \item Medium seller editorial: this represents an editorial that sells medium number of copies compared to the other editorials (Medium business scale). 
-    \item Highest variation editorial: this is an example of an editorial that follows a strategy in publishing a very wide range of different titles.
-    \item Medium varied editorial: this case represents an editorial that has a median rank between the other editorial regarding the variety of titles sold.
+    \item Best seller publishing house: this case represents the publishing house that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
+    \item Medium seller publishing house: this represents an publishing house that sells medium number of copies compared to the other publishing houses (Medium business scale). 
+    \item Highest variation publishing house: this is an example of an publishing house that follows a strategy in publishing a very wide range of different titles.
+    \item Medium varied publishing house: this case represents an publishing house that has a median rank between the other publishing house regarding the variety of titles sold.
 \end{itemize}
 
 
-Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected editorials.
+Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected publishing houses.
 
 \begin{table}
-\caption{Description of editorials considered as special cases.
-\label{tab:desc_editorials}}
+\caption{Description of publishing houses considered as special cases.
+\label{tab:desc_publishing houses}}
 \centering{}%
 \begin{tabular}{|c|l|l|l|}
 \hline 
  Case & Different books sold & Total copies sold & Description\\
 \hline 
-\textit{All editorials} & 6083 & 3201645 & 209 editorials\\
+\textit{All publishing houses} & 6083 & 3201645 & 209 publishing houses\\
 \hline 
-\textit{UDL929} & 216 & 460752 & Best selling editorial\\
+\textit{UDL929} & 216 & 460752 & Best selling publishing house\\
 \hline 
-\textit{UDLW12} & 97 & 2635 & Medium selling editorial\\
+\textit{UDLW12} & 97 & 2635 & Medium selling publishing house\\
 \hline 
-\textit{UDL704} & 293 & 58236 & Editorial with most different\\ 
+\textit{UDL704} & 293 & 58236 & Publishing house with most different\\ 
        &     &       & books sold\\
 \hline 
-\textit{UDLU11} & 180 & 249481 & Editorial with medium number\\ 
+\textit{UDLU11} & 180 & 249481 & Publishing house with medium number\\ 
        &     &       &  of different books sold\\
 \hline 
 
@@ -1218,7 +1218,7 @@ Evaluation results of the developed models (without performing any feature selec
 
 
 \begin{table}
-\caption{Predicting Total sales for Editorial-UDL929 (The best selling editorial) }
+\caption{Predicting Total sales for PublishingHouse-UDL929 (The best selling publishing house) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1241,7 +1241,7 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 
 
 \begin{table}
-\caption{Predicting Total sales for Editorial-UDLW12 (The median selling editorial) }
+\caption{Predicting Total sales for PublishingHouse-UDLW12 (The median selling publishing house) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1263,7 +1263,7 @@ SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03
 \end{table}
 
 \begin{table}
-\caption{Predicting Total sales for Editorial704 (highest number of different titles sold)}
+\caption{Predicting Total sales for PublishingHouse704 (highest number of different titles sold)}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1288,7 +1288,7 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 
 
 \begin{table}
-\caption{Predicting Total sales for Editorial-UDLU11 (medium number of different books sold))}
+\caption{Predicting Total sales for PublishingHouse-UDLU11 (medium number of different books sold))}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1326,10 +1326,10 @@ SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$
 
 
 Case 1-A: Developing prediction models to predict Total sales for
-Editorial704 with ReliefFAttributeEval feature selection.
+PublishingHouse704 with ReliefFAttributeEval feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for Editorial704 (ReliefFAttributeEval-FS) }
+\caption{Predicting Total sales for PublishingHouse704 (ReliefFAttributeEval-FS) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1351,10 +1351,10 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 
 
 Case 1-B: Developing prediction models to predict Total sales for
-Editorial-UDLU11 with ReliefFAttributeEval feature selection
+PublishingHouse-UDLU11 with ReliefFAttributeEval feature selection
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for Editorial-UDLU11 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingHouse-UDLU11 (ReliefFAttributeEval-FS)}
 
 
 \centering{}%
@@ -1379,10 +1379,10 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 
 
 Case 2-A: Developing prediction models to predict Total sales for
-Editorial-UDL929 with ReliefFAttributeEval feature selection.
+PublishingHouse-UDL929 with ReliefFAttributeEval feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for Editorial-UDL929 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingHouse-UDL929 (ReliefFAttributeEval-FS)}
 
 
 \centering{}%
@@ -1407,10 +1407,10 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 
 
 Case 2-B: Developing prediction models to predict Total sales for
-Editorial-UDLW12 with ReliefFAttributeEval feature selection.
+PublishingHouse-UDLW12 with ReliefFAttributeEval feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for Editorial-UDLW12 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingHouse-UDLW12 (ReliefFAttributeEval-FS)}
 
 
 \centering{}%
@@ -1438,33 +1438,33 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 5
 \subsection{Decision trees for best seller}
 \label{subsec:decision_trees}
 
-In this section we show the output of one of the models built during the regression, namely we present one of the decision trees generated by M5P method, to demonstrate the value of the proposal to generate an useful decision-aid tool for and expert (editor) to see what sales can be expected for the different values of the input variables (including the print-run).
+In this section we show the output of one of the models built during the regression, namely we present one of the decision trees generated by M5P method, to demonstrate the value of the proposal to generate an useful decision-aid tool for and expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).
 
 %***TO DO:*** better explain this
 % Sam will do it 
 
 We have considered the publisher that sells the most as a good example case to show.
 
-Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree for the best seller editorial (UDL929). The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. This tree has been created considering the 10 pre-sales features.
+Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree for the best seller publishing house (UDL929). The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. This tree has been created considering the 10 pre-sales features.
 
 \begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=decision_tree_no_fs.eps,width=12cm}
-\caption{Decision Tree built by the M5P method for the best seller editorial with all the pre-sales features.}
+\caption{Decision Tree built by the M5P method for the best seller publishing house with all the pre-sales features.}
 \label{fig:decision_tree_best_seller}
 \end{center}
 \end{figure}
 
 %***TO DO***: comments on the figure\\
 
-Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same editorial (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results).
+Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same publishing house (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results).
 
 %***TO DO***: better justify this\\
 
 \begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=decision_tree_fs.eps,width=12cm}
-\caption{Decision Tree built by the M5P method for the best seller editorial with the features selected by the ReliefAttributeEval method.}
+\caption{Decision Tree built by the M5P method for the best seller publishing house with the features selected by the ReliefAttributeEval method.}
 \label{fig:decision_tree_best_seller_fs}
 \end{center}
 \end{figure}
@@ -1518,7 +1518,7 @@ business intelligence tool for publishing houses. %FERGU: no hay más info de est
 
 Overall, this study contributes to the literature by proposing the use of different 
 soft-computing standard techniques to solve a new challenging problem.
-Moreover, proposed method could be implemented, not only in the editorial 
+Moreover, proposed method could be implemented, not only in the publishing 
 industry, but also in other domains where the specificity of products is similar, 
 and might be of interest to other academic researches and industrial practitioners.
 
