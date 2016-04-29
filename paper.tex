@@ -912,10 +912,11 @@ hundreds of new variables.
 Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
 
 \begin{table}
-\caption{Predicting Total sales for all publishers (all the features). 30 repetitions, 10-fold cross validation.
+\caption{Predicting Total sales for all publishers (all the features). 10 repetitions, 10-fold cross validation.
 \label{tab:all_publishers_no_fs}}
 \centering{}%
-%{\scriptsize
+\scalebox{0.85}{
+
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -930,47 +931,36 @@ LR & 87.2 $\pm$ 0.07  & 308.68 $\pm$ 25.44  & 680.91 $\pm$ 226.41  & 54.05 $\pm$
 \hline 
 SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\pm$ 2.35  & 53.47 $\pm$ 6.29  & 6169.24 $\pm$ 281.49\tabularnewline
 \hline 
-\end{tabular}%}
-%}
+\end{tabular}
+}
 \end{table}
 
 %***TODO***: Revise and fix the following text...
 
-As far as the different methods are concerned, M5P model obtained good results, 
-both in time and error, and as stated before, this method can learn and tackle 
-tasks with high dimensionality and it generates reproducible and comprehensible 
-representations that provide information on the decision process and does not 
-require human intervention either for the operation or for interpretation. 
-Thus, it is very suitable in order to be incorporated in a publishing company 
+As far as the different methods are concerned, M5P model obtained the best results, 
+both in time and error. The advantage of M5P is that it can learn and tackle 
+classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is very suitable model be incorporated in a publishing company 
 processes.
 
-The Linear Regression model outperforms some other complex methods, both in time 
-(as it is a simple method to train) and in obtained errors.
-However not in all cases, as more powerful models that obtain better results 
-can be obtained in comparable time.
+Taking into account the obtained results by SVM model, this method obtains comparable 
+errors to those of M5P. Even when using roughly tuned parameter values, it shows 
+a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, but also when using the 
+datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
-Taking into account the SVM model obtained results, this method obtains comparable 
-errors to those of M5P. Even when used using the default parameter values it exhibit 
-a good generalisation performance.
-However, it is much slower than the others to build the model, not only when 
-using the dataset with categorical input variables, but also when using the 
-datasets with numerical variables.
+According to Table \ref{tab:all_publishers_no_fs}, it can be noticed also that the Linear Regression model outperformed some other complex methods like the random forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
 
-kNN is the faster method used in this study, as it is the simpler method.
-However, the model is slow when classifying (as there are a large number of 
-training examples), and it exhibit a poor generalisation ability, as it does not 
+
+kNN is the fastest method used in this study in terms of training time, as it is the simplest method. However, the model is slow when classifying large number of 
+training examples, and it exhibits a poor generalisation ability since it does not 
 learn anything from the training data.
 
-Moreover, in these experiments it has been seen the difficulty to process 
-information related to categorical variables, such as \emph{publisher} and 
+Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{publisher} and 
 \emph{collection}.
-
-%[Pedro] ¿aplicamos tests estadísticos para ver si hay diferencias entre métodos?
 
 Finally, paying attention to the cost in time to obtain the forecasting models 
 and their accuracy, the M5P model is the most adequate to solve the problem of 
 how many books should be printed when a new book is published.
-This forecasting method, as an additional advantage, can be used for products 
+This forecasting method, with these additional advantages, can be used for products 
 with historical sales data and for new products with little or no historical 
 data available.
 
@@ -1077,6 +1067,7 @@ by each method.
 \label{tab:results_all_publishers_fs}}
 
 % RELIEFATTRIBUTEEVAL
+
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
 \multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
