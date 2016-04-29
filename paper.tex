@@ -954,8 +954,8 @@ kNN is the fastest method used in this study in terms of training time, as it is
 training examples, and it exhibits a poor generalisation ability since it does not 
 learn anything from the training data.
 
-Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{publisher} and 
-\emph{collection}.
+Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{collection} and 
+\emph{binding}.
 
 Finally, paying attention to the cost in time to obtain the forecasting models 
 and their accuracy, the M5P model is the most adequate to solve the problem of 
@@ -975,14 +975,11 @@ In the second stage of the experiments, different feature selection methods have
   
 We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
-Then, the dataset has been projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
-An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features \emph{publisher} and \emph{collection} have been
+The dataset has been also projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
+An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features \emph{collection} and \emph{binding} have been
 removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 
-Moreover,
-four features (i.e; Subject1, Subject2, Subject3 and Book-binding)
-have more than 10\% missing values so they are removed also.
 
 The SOM algorithm is applied with a large map size of $26 \times 16$  in order to represent the data. The best SOM training results are obtained with a final quantisation error of 0.691 and topographic error of 0.046. 
 
@@ -999,6 +996,8 @@ important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
 the distances between units is also represented as hexagons. 
+
+Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
 %***TODO***: Justify the selected features by SOM (why have we chosen them?).
 % Sam will do it 
