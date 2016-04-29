@@ -999,8 +999,6 @@ the distances between units is also represented as hexagons.
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
-%***TODO***: Justify the selected features by SOM (why have we chosen them?).
-% Sam will do it 
 
 \begin{figure*}[ht]
 \begin{center}
@@ -1010,17 +1008,6 @@ Examining the component planes shown in Figure \ref{fig:componentplanes}, it can
 \label{fig:componentplanes}
 \end{figure*}
 
-%\begin{figure*}[http] 
-%\begin{center} 
-%\begin{tabular}{cc}
-%\includegraphics[scale=0.55]{Umatrix.eps}  &
-%\includegraphics[scale=0.55]{Labels.eps}  \\
-%U-matrix & Labels 
-%\end{tabular}
-%\end{center} 
-%\caption{Labeling the U-matrix using the total-sales variable.}
-%\label{fig:Umatrix} 
-%\end{figure*}
 
 The selected features per method are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
 
@@ -1056,17 +1043,14 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-Thus, we have run the same experiments as in Section \ref{subsec:results_all_publishers} with the whole dataset (all the publishers), but considering the selected features by each method. The results are shown in Table
+After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}.
 
 \begin{table}
-
 \centering{}%
 \caption{Predicting Total sales for all publishers based on features selected
 by each method.
 \label{tab:results_all_publishers_fs}}
-
 % RELIEFATTRIBUTEEVAL
-
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
 \multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
