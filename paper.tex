@@ -18,15 +18,16 @@
 
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
 \author {
-P.A. Castillo$^1$, A.M. Mora$^1$, H. Faris$^2$, J.J. Merelo$^1$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, M.G. Arenas$^1$, P. de las Cuevas$^1$
+P.A. Castillo$^1$, A.M. Mora$^1$, H. Faris$^2$, J.J. Merelo$^1$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, P. de las Cuevas$^1$, M.G. Arenas$^1$
 }
 \institute{
 $^1$Department of Computer Architecture and Computer Technology. CITIC, ETSIIT. University of Granada (Spain)\\
 $^2$Business Information Technology Department. King Abdullah II School for Information Technology. The University of Jordan. Amman (Jordan)\\
 e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es,
   jmerelo@geneura.ugr.es, pgarcia@geneura.ugr.es,
-  antares.es@gmail.com, mgarenas@ugr.es, palomacd@ugr.es}
+  antares.es@gmail.com, palomacd@ugr.es, mgarenas@ugr.es}
 }
+% Antonio - Hossam add your 'official' e-mail here. ;)
 
 \date{}
 
@@ -35,39 +36,14 @@ e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-%***TO DO***: rewrite this considering the new contents and results\\
-% Has it been done?
-
 When a new book is launched the publisher faces the problem of how
 many books should be printed for delivery to bookstores; printing too
 many is the main issue, since it implies a loss of investment due to
-inventory excess. In this paper, we are tackling the problem of
-predicting total sales in order to print the right amount of books and
-doing so even before the book has reached the stores.  We have been
-working on a data set that includes the complete sales data for books
-published in Spain across several years. After an initial exploratory
-analysis phase using visualisation techniques, we have applied several
-feature selection techniques in order to find out what are the
-variables that have more impact on sales, and then used machine
-learning to create a model and forecast sales. The initial methodology
-was used in a commercial product by Grupo Trevenque, but the
-methodology described here improves the running time %with
-                                %respect to what?- JJ
-and is eventually able to predict sales from pre-publication data with
-remarkable accuracy, thus creating a useful tool for publishers, for
-whom obtained models can provide a reliable guidance on the decision
-process of publishing a book, without human intervention either for
-the operation or for interpretation.
-% Antonio - esto es cierto??? :D
-% We should simply say: 
-% The method presented here provides a reliable data processing
-% technique for editorial data and also yields a reasonable result
-% that allows publishers to forecast sales and then create the
-% appropriate print run without incurring in losses. 
-%
-% Besides, if this is true:
-% It also provides a method that is able to provide insight on the
-% decisions that have an influence on the print run for publishers. 
+inventory excess, but printing too few will have also a negative economical impact. In this paper, we are tackling the problem of predicting total sales in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
+We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualization techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods have been applied to create forecasting models for book sales. 
+The obtained models are able to predict sales from pre-publication data with
+remarkable accuracy, and can be visualized as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
+This is also shown in the paper addressing example cases of four representative publishers, regarding their number of sales and the number of different books they sale.
 \end{abstract}
 
 
@@ -1515,6 +1491,17 @@ run or the books given out as gifts to reviewers or what proportion is
 going to be sent to each possible point of sale. This can be
 incorporated into an optimisation model that optimises those values to
 obtain desired sales. This is left as future work.
+
+% Antonio - TO BE INCLUDED IN THIS SECTION
+% The method presented here provides a reliable data processing
+% technique for editorial data and also yields a reasonable result
+% that allows publishers to forecast sales and then create the
+% appropriate print run without incurring in losses. 
+%
+% Besides, if this is true:
+% It also provides a method that is able to provide insight on the
+% decisions that have an influence on the print run for publishers. 
+
 
 
 %********************************************************************************
