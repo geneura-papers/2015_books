@@ -572,12 +572,6 @@ When the learning process is done a visual representation method like the Unifie
 
 
 
-%FERGUSON: por qué se menciona aquí la palabra "Kohonen" y no antes?
-% Antonio - arreglado 
-% And this is going to be useful because... - JJ
-% This is copied from the HIV paper. Please rephrase and adapt to the
-% particular venue - JJ
-
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
@@ -711,34 +705,7 @@ In both cases, the hyperplane is defined by a subset of training set samples
 %This method works well even if the space is highly dimensional and the problem is not linearly separable.
 
 
-% Antonio - MLP no se ha aplicado al final...
 
- % weka.classifiers.functions.MultilayerPerceptron
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
-% \item \emph{Multilayer Perceptron}:
-%A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
-%artificial neural network model that maps the input data onto an appropriate output. 
-%It is an artificial neural network generally used for classification or 
-%approximation problems.
-%
-%This model is a generalisation of the standard linear perceptron that uses several 
-%layers of nodes (called neurons) and that is able to solve linearly inseparable 
-%problems \cite{SteinwenderBitzer2003}.
-%Each neuron consists of a linear combination of weighted inputs which is passed 
-%though a non-linear activation function to produce its output.
-%
-%This kind of artificial neural network is trained using a supervised learning 
-%technique called back-propagation.
-%This training method was developed independently by Werbos \cite{Werbos1974}, 
-%Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
-%in updating the weights of the output layer neurons once the erroneous output 
-%has been obtained, and then, propagating the successive weight layers back to 
-%the input layer.
-%
-%A key issue when designing an MLP is the number of hidden layers of neurons.
-%Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
-%create classifying regions of any kind. This result was then confirmed in later 
-%works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
 
 \end{itemize}
 
@@ -834,7 +801,7 @@ SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\p
 }
 \end{table}
 
-%***TODO***: Revise and fix the following text...
+
 
 As far as the different methods are concerned, M5P model obtained the best results, 
 both in time and error. The advantage of M5P is that it can learn and tackle 
@@ -942,7 +909,7 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}.
+After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}. Examining the obtained results for each feature selection method, it can be seen that RFE got the best results compared to SOM and CSE. It can be noticed also that the performance of M5P, kNN and RF has been improved with RFE compared to the case of using all features. In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
 
 \begin{table}
 \centering{}%
@@ -1008,39 +975,6 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 \end{tabular}
 \end{table}
 
-
-%***TO DO***: comment the results
-% Sam will do it - JJ
-
-%***TO DO***: Think if including the graphs (scatter plots).
-
-%In Figures \ref{conv2}, \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} we depict scatter plots for the values of the actual total sales values against the predicted ones obtained by the developed models. 
-%Those figures also show the correlation between the two variables and the proportion of variation in actual total sales that is explained by the predicted ones. 
-%Figure \ref{conv2} corresponds to the results obtained using all available features without performing any feature selection method. In this figure, it can be noticed that SVM achieved the best results by explaining 88.2\% of the actual values while $k$-NN showed very poor results with only 49.8\%. 
-%Figures \ref{conv2ReliefAttributeEval}, \ref{conv2CfsSubsetEval} and \ref{conv2SOM} show same plots after performing ReliefAttributeEval, CfsSubsetEval and SOM feature selection methods, respectively. 
-%According to these figures, we can notice that there wasn't almost any significant degradation in the performance of the M5P, LR, SVM and MLP. 
-%On the other side, the performance of $k$-NN was dramatically improved after the feature selection process by explaining 84.5\% of variation on average.
-%
-%
-
-
-
-% - indicar que el uso de las dos variables categóricas hace más difícil de aprender el conjunto
-%Paying attention to the obtained results shown in tables \ref{tabla:resultsT}, 
-%\ref{tabla:resultsSOM}, \ref{tabla:results9} and \ref{tabla:results4},
-%using those categorical variables as part of a big dataset makes the problem 
-%hard to solve, both in required time to build the forecasting models as well as 
-%in the obtained errors.
-
-%Moreover, some methods are unable to build the models in a reasonable time.
-%However, as stated before, Trevenque expert sales manager, taking into account 
-%his knowledge in industry experience and their perceptions, decided that 
-%\emph{EDITORIAL} and \emph{SUBJECT} should be taken into account.
-
-
-% - indicar pros y contras de los diferentes métodos
-% - indicar qué método da mejores resultados
-% - indicar qué método es tipo "caja-negra" y cuáles ofrecen modelos "explicables" 
 
 
 %********************************************************************************
