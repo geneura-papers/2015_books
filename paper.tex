@@ -40,9 +40,9 @@ When a new book is launched the publisher faces the problem of how
 many books should be printed for delivery to bookstores; printing too
 many is the main issue, since it implies a loss of investment due to
 inventory excess, but printing too few will have also a negative economical impact. In this paper, we are tackling the problem of predicting total sales in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
-We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualization techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods have been applied to create forecasting models for book sales. 
+We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualisation techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods have been applied to create forecasting models for book sales. 
 The obtained models are able to predict sales from pre-publication data with
-remarkable accuracy, and can be visualized as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
+remarkable accuracy, and can be visualised as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
 This is also shown in the paper addressing example cases of four representative publishers, regarding their number of sales and the number of different books they sale.
 \end{abstract}
 
@@ -51,138 +51,61 @@ This is also shown in the paper addressing example cases of four representative 
 
 \section{Introduction}
 
-Publishing a book, in the same way as releasing any other cultural product with a
-physical substrate, implies several types of risks and costs due to
+Publishing a book, in the same way as releasing any other cultural product with a physical substrate, implies several types of risks and costs due to
 the complexity, and derived expenses, of the production,
 distribution and storage processes; most of these costs are associated
 to the number of books actually printed. But the problem is further
-complicated for completely new products, in the sense that it is an unknown
-author or a new topic with no track record, sales forecasts can
-only be based on the experience obtained from other similar products,
-but the definition of ``similar'' itself is obscure and, sometimes,
-subjective. Even if it is a known author or topic, having accurate
-estimations of future sales of the new product is extremely important, so 
-that production runs do not exceed predicted sales by too much. 
-Indeed, several studies have demonstrated that improving sales predictions 
+complicated for completely new products, in the sense that there is an unknown
+author or a new topic with no track record. Sales forecasts can
+only be based on the knowledge obtained from other similar products,
+but the definition of ``similar'' itself is fuzzy and, sometimes,
+subjective. Even if the author or the topic is known, doing accurate
+estimations of future sales of the new product is quite difficult, and extremely important, so that production runs heed predicted sales. 
+Indeed,several studies have demonstrated that improving sales predictions 
 (a reduction of forecasting errors) results in an enhancement in the 
 production process \cite{Fildes2010,Saeed2008}.
 
-% In this sense, the publishing industry is based on very particular and
-% established production process, and publishing a book requires several
-% steps, between which the distribution is important and plays an
-% important role. The publishing process and individual decisions at each step are very
-% important. One of those decisions is the number of copies to print. 
-  % ¿Esto que tiene que ver con la frase anterior? - JJ
-% Thus, a suitable prediction system for new books should take into
-% account many details about how the editorial process works. % y? - JJ
-
-% Implementing a good forecasting tool requires not only a good study of
-% the state of the art in this field, but also an accurate knowledge of
-% the operations and challenges facing the publishing industry and its
-% supply chain. % ¿eso es lo que vamos a hacer? - JJ
-
-The problem is specially acute for book publishers, who, among other
+This problem is specially acute for book publishers, who, among other
 content providers, release new {\em products} more frequently than
-other industries, so that they face the 
-problem of predicting sales quite often. The issue, in this case, is to print an
-adequate number of copies but not too many, as the unsold volumes will
-lead to losses and sunk inventory cost, 
+other industries, so that they face the problem of predicting sales quite often. The issue, in this case, is to print an adequate number of copies but not too many, as the unsold volumes will lead to losses and sunk inventory cost, 
 whereas if the number of printed copies was not enough, a new print
-run can be made, resulting in temporary losses due to lack of supply;
-a real problem, to be sure, but less dire than having too many unsold
-books.  
-%FERGU: el you ese es muy coloquial, reescribir
-% Antonio - Esto habría que matizarlo más, de hecho, decirlo va un poco en contra de nuestro artículo, ya que simplifica el problema. Yo indicaría que errores en predicciones por exceso o por defecto tienen MUCHAS pegas (ambos casos), si bien el exceso es peor, claro, pero decir que lo otro es también muy negativo y por eso hay que ajustar muy bien la predicción. ;)
-% Se podría señalar, por ejemplo:
-% - repetición de costes de distribución
-% - mala impresión al cliente/lector, que pueden repercutir negativamente en las ventas
-% - algunas más... :D
-% Corregido - JJ
-In this sense, errors in one or the other direction do not have the same impact.
-% Antonio - esto habría que rescribirlo de acuerdo a lo anterior que comento. ;)
-%FERGU: lo de one or the other direction creo que confunde
-% Lo que habría que decir es hablar de cómo hemos tratado una u otra
-% cosa. ¿Estamos sesgando hacia predecir menos ventas de las que
-% habría? ¿O simplemente es por tener un poco de background? Igual
-% deberíamos haberlas tratado de forma diferente. - JJ
+run can be made, resulting in temporary losses due to a lack of supply or in bad marketing for the customers, for instance.  
 
-Thus, it is extremely important to develop an accurate predictive method
-which could forecast the future sales a new book will
-achieve, in order to optimise production schedules, improve the publishing
-company profits or minimise losses \cite{Zhao2001}, 
-being this the main objective of this paper: optimizing sales and
-improving profit margins by selling the whole print-run. 
+In this sense, errors in one or the other direction do not have the same impact, however, it is extremely important to develop an accurate predictive method
+which could forecast the future sales a new book will achieve, in order to optimise production schedules, improve the publishing company profits and minimise losses \cite{Zhao2001}, being this the main objective of this paper. 
 
-In any case, the accuracy of the predictive method we intend to design is affected
-negatively by several factors, related to decisions on purchases, to freight 
-traffic, or with the distribution strategy \cite{Little1998}.
-Thus, it is very important to know the product and the variables that
+It is important to notice that the accuracy of the predictive method that we intend to design is affected negatively by several factors, related to decisions on purchases, to freight traffic, or with the distribution strategy \cite{Little1998}.
+Thus, it is mandatory to know the product and the variables that
 might affect the sales, and how an expert manager takes them into 
 account \cite{Armstrong2001,SThomassey2014}. 
-Their impact is difficult to estimate and it is not constant over time, 
-hence the difficulty to adequately identify and measure their influence \cite{DeToni2000}.
+Moreover, their impact is difficult to estimate and it is not constant over time, hence the difficulty to adequately identify and measure their influence \cite{DeToni2000}.
 In addition, some may have correlations between them. 
 However, these correlations can be detected using data analysis methods, 
-such as Self-Organizing Maps (SOM) \cite{kohonen1998} 
-or stepwise regression analysis (SRA) \cite{Chang2009}. % What do they
-                                % do? What are the results?
-% This is a state of the art? Are we already in the state of the art?
-% - JJ
+such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression analysis (SRA) \cite{Chang2009}. 
 
-In the research published in this paper, the problem of how many units should be printed 
-when a new book is published is faced using data provided by the 
-Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}},
-a company that provides management systems and services for bookshops,
-publishers and distributors. 
-Usually, the company's expert sales managers analysed historical data 
-and applied their knowledge using external variables to compute
-correct estimations (predictions), for instance, she can decide
-increasing or decreasing the sales forecast based on season or sales
-period.
-However, carrying out the analysis and forecasting process as a human expert,
-may lead to imprecise predictions which may not take all the variables into account. 
+So, we will analyze in this work the data by means of different data mining methods and create predictive models that can be used mainly as decision-aid tools for book publishers. Then, they will be able to combine their expert-knowledge about the market with the created forecasting models in order to get a reliable estimation of book sales.
+
+% Antonio - I think this is the main idea we have to sell in this paper. Due to the  difficulty of the book sales market (and its variables), we cannot give an accurate tool for predicting book sales, but a decision-aid tool for publishers. Do you agree?
+
+In the research published in this paper, the problem of how many units should be printed  when a new book is published is faced using real data provided by the 
+Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers and distributors. 
+Usually, the company's expert sales managers analysed historical data and applied their knowledge using external variables to compute correct estimations (predictions), for instance, they can decide increasing or decreasing the sales forecast based on season or sales period.
+However, just carrying out the analysis and forecasting process as a human expert, may lead to imprecise predictions which may not take all the variables into account. 
 In addition, the process might be tedious, especially when the amount
-of data is quite large, and even, different experts can reach different
-predictions from the same dataset \cite{Sanders1994}. A
-initial version of this method was developed under contract with that
-company and eventually integrated in their product. This paper
-represents an improved version of that method based on the same data. 
+of data is quite large. Moreover, different experts can reach different
+predictions from the same dataset \cite{Sanders1994}. 
 
+%An initial version of this method was developed under a contract with that company and eventually integrated in their product. This paper represents an improved version of that method based on the same data. 
 % We should also mention what data we actually mean, I don't think
 % we've published it here. - JJ
+% Antonio - I think this information is not relevant for the paper...
 
-With this issue in mind, in this paper a data visualisation and
-preprocessing strategy to find out what are the relevant variables
-describing a book in the prediction of book sales is proposed; then
-several standard data mining models  
-for sales forecasting are evaluated so a publishing company 
-can deduce and optimise print-run.
-% Antonio - cambiar este párrafo para describirlo como un proceso en dos pasos:
-% - análisis y extracción
-% - predicción
-After this initial processing phase, we apply machine learning
-techniques to create a sales model and use it to predict them. 
+With this issue in mind, in this paper we firstly present an analysis on the aforementioned real dataset, by means of data mining and visualisation techniques. Then, a feature selection process is conducted using three different methods, in order to find out what are the relevant variables describing a book in the prediction (or regression) procedure. After this, a forecasting stage is performed applying a set of regression algorithms to the different datasets (considering a different number of variables).
+The value of this methodology is contrasted considering four different publishing houses being representative as top sellers, medium sellers, the most varied and one which sells a medium amount of different books.
 
-% Antonio - Además habría que justificar bien (con citas) el por qué de la extracción/selección de características, por ejemplo:
-% - menor tiempo de procesamiento
-% - mejores resultados (si algunas variables interfieren entre sí)
-% - Permiten saber qué variables son las que influyen realmente en el
-% resultado. Esto es lo único importante - JJ
-
-%***TO DO***: rewrite this considering the new structure of the paper\\
-
-The rest of this paper is structured as follows: next, 
-Section \ref{sec:soa} presents a comprehensive review of the
-approaches found in the bibliography related to the prediction of
-sales from product characteristics. 
-Then, Section \ref{sec:problem} describes the 
-problem of how many books should be printed when a new book is published, 
-followed by Section \ref{sec:methodology} where the
-experimental setup and the methodology considered in the study is
-presented.  Section \ref{sec:experiments} reports and analyses the obtained results with a 
-real dataset. Finally, conclusions and future work are presented in Section
-\ref{sec:conclusionsAndFutureWork}. 
-% Antonio - TODO: rescribir con los contenidos finales del artículo. ;)
+The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to the prediction of sales in similar scopes. 
+Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run for new books, along with a description of the considered dataset.
+Section \ref{sec:methodology} details the methodology considered in the study, from the data collection and preprocessing stages, to the selection of the forecasting methods to be applied in the experiments.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets (with different amounts of features) for all the publishing houses. The results obtained for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
 
 %********************************************************************************
 \section{State of the art on sales forecasting} 
@@ -255,7 +178,7 @@ so their proposed methodology can not be applied to the problem of unpublished-b
 %
 
 In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
-% Antonio - quizá habría que comentar alguno o todos bervemente...
+% Antonio - Maybe we should describe them briefly...
 %
 In the same line, Thomassey et al. \cite{SThomassey2014} propose using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, 
 a very similar issue to the new book publishing one.
@@ -636,8 +559,8 @@ and to choose an appropriate set of variables, the Self-Organizing Map
 
 %--- new SOM description % -Sam
 
-SOM is a type of unsupervised neural network inspired by the topographical organization of the sensory cortex of human brain \cite{kohonen1998}. It maps highly dimensional data into a lower dimensional space where similar data patterns are located in more adjacent areas on the grid.
-It is a very useful analysis tool for visualizing complex data with high number of variables in a simple geometric plane. Therefore, it could be used for different tasks such as feature selection and data clustering and visualization.
+SOM is a type of unsupervised neural network inspired by the topographical organisation of the sensory cortex of human brain \cite{kohonen1998}. It maps highly dimensional data into a lower dimensional space where similar data patterns are located in more adjacent areas on the grid.
+It is a very useful analysis tool for visualising complex data with high number of variables in a simple geometric plane. Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation.
 
 Basically, SOM consists of two layers; input layer and output layer (also known as Kohen layer). Input layer is fully connected with the Kohen layer which is usually a two dimensional grid of neurons (i.e. units). This means that every neuron is linked to every input in the input layer.
 
@@ -1123,7 +1046,7 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 %********************************************************************************
 
 \section{Experiments of special publishing houses cases}
-\label{example_cases}
+\label{sec:example_cases}
 
 This section presents further experiments conducted on data concerning four interesting special publishing house cases. These publishing houses were selected as representative cases which could be very interesting for decision makers and managers in the domain. The four cases are described as follows:
 
