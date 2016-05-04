@@ -1014,18 +1014,17 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
 \textit{UDLU11} & 180 & 249481 & Publishing house with medium number\\ 
        &     &       &  of different books sold\\
 \hline 
-
 \end{tabular}
 \label{Table:special_cases}
 \end{table}
 
-The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (ReliefAttributeEval, CfsSubsetEval and SOM) are used to reduce the set of features in each case. Finally, the classification models are applied again on the reduced datasets to evaluate their performance.
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Table \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. 
+Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Table \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the simple classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model is recommended.
 
 
 \begin{table}
-\caption{Predicting Total sales for PublishingHouse-UDL929 (The best selling publishing house) }
+\caption{Predicting Total sales for Publishing house-UDL929 (The best selling publishing house) }
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1131,9 +1130,57 @@ SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$
 %***TO DO***: explain we have chosen the best Feature selection method (ReliefAttributeEval???). The rest of tables have been moved to an appendix.
 %Sam will do it - JJ
 
+In the second stage of the experiments for the special cases, the feature selection methods (RFE, CSE and SOM) are applied for each case independently. For clarity purpose, we present here only the results after applying RFE method for the four cases in Table \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE}, \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}. The RFE  was chosen for representation since the selected features by this method showed higher predictive power in all classifiers than the other selection methods. According to the aforementioned tables, RFE has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher who publishes wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
 
-Case 1-A: Developing prediction models to predict Total sales for
-PublishingHouse704 with ReliefFAttributeEval feature selection.
+
+\begin{table}[!ht]
+\caption{Predicting Total sales for PublishingHouse-UDL929 (ReliefFAttributeEval-FS)}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 90.5 $\pm$0.1 & 661.81 $\pm$186.17 & 1070.24 $\pm$425.66 & 40.18 $\pm$10.50 & 43.56 $\pm$19.77 & 0.02 $\pm$0.002\tabularnewline
+\hline 
+K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 & 0.0001 $\pm$0.0003\tabularnewline
+\hline 
+RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
+\hline 
+LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.67 & 50.60 $\pm$22.04 & 0.0006 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
+\hline 
+\end{tabular}
+\label{Table:case1results-RAE}
+\end{table}
+
+
+
+
+
+\begin{table}[!ht]
+\caption{Predicting Total sales for PublishingHouse-UDLW12 (ReliefFAttributeEval-FS)}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
+\hline 
+K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
+\hline 
+RF & 86.7 $\pm$0.16 & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
+\hline 
+LR & 84.4 $\pm$0.25 & 12.79 $\pm$6.65 & 21.52 $\pm$12.54 & 39.47 $\pm$23.35 & 50.14 $\pm$35.26 & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
+\hline 
+\end{tabular}
+\label{Table:case2results-RAE}
+\end{table}
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingHouse704 (ReliefFAttributeEval-FS) }
@@ -1154,16 +1201,14 @@ LR  & 87.3 $\pm$0.06  & 89.72 $\pm$18.31  & 140.65 $\pm$47.12  & 49.45 $\pm$10.5
 SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.99  & 53.10 $\pm$9.51  & 0.05 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+\label{Table:case3results-RAE}
 \end{table}
 
 
-Case 1-B: Developing prediction models to predict Total sales for
-PublishingHouse-UDLU11 with ReliefFAttributeEval feature selection
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingHouse-UDLU11 (ReliefFAttributeEval-FS)}
-
-
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1181,63 +1226,13 @@ LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.
 SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+\label{Table:case4results-RAE}
 \end{table}
 
 
 
-Case 2-A: Developing prediction models to predict Total sales for
-PublishingHouse-UDL929 with ReliefFAttributeEval feature selection.
-
-\begin{table}[!ht]
-\caption{Predicting Total sales for PublishingHouse-UDL929 (ReliefFAttributeEval-FS)}
 
 
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P & 90.5 $\pm$0.1 & 661.81 $\pm$186.17 & 1070.24 $\pm$425.66 & 40.18 $\pm$10.50 & 43.56 $\pm$19.77 & 0.02 $\pm$0.002\tabularnewline
-\hline 
-K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 & 0.0001 $\pm$0.0003\tabularnewline
-\hline 
-RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
-\hline 
-LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.67 & 50.60 $\pm$22.04 & 0.0006 $\pm$0.0005\tabularnewline
-\hline 
-SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-
-
-Case 2-B: Developing prediction models to predict Total sales for
-PublishingHouse-UDLW12 with ReliefFAttributeEval feature selection.
-
-\begin{table}[!ht]
-\caption{Predicting Total sales for PublishingHouse-UDLW12 (ReliefFAttributeEval-FS)}
-
-
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
-\hline 
-K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
-\hline 
-RF & 86.7 $\pm$0.16 & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
-\hline 
-LR & 84.4 $\pm$0.25 & 12.79 $\pm$6.65 & 21.52 $\pm$12.54 & 39.47 $\pm$23.35 & 50.14 $\pm$35.26 & 0.0005 $\pm$0.0005\tabularnewline
-\hline 
-SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
 
 
 %--------------------------------------------------------------------------
