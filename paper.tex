@@ -24,7 +24,7 @@ P.A. Castillo$^1$, A.M. Mora$^1$, H. Faris$^2$, J.J. Merelo$^1$, \\ P. Garc\'{\i
 $^1$Department of Computer Architecture and Computer Technology. CITIC, ETSIIT. University of Granada (Spain)\\
 $^2$Business Information Technology Department. King Abdullah II School for Information Technology. The University of Jordan. Amman (Jordan)\\
 e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es,
-  jmerelo@geneura.ugr.es, pgarcia@geneura.ugr.es,
+  jmerelo@geneura.ugr.es, pablogarcia@ugr.es,
   antares.es@gmail.com, palomacd@ugr.es, mgarenas@ugr.es}
 }
 % Antonio - Hossam add your 'official' e-mail here. ;)
@@ -917,6 +917,7 @@ After applying the feature selection methods, we have run the same forecasting m
 by each method.
 \label{tab:results_all_publishers_fs}}
 % RELIEFATTRIBUTEEVAL
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
 \multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
@@ -934,8 +935,9 @@ LR & 86.4 $\pm$0.08 & 346.88 $\pm$25.40 & 695.90 $\pm$242.49 & 60.75 $\pm$4.55 &
 SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 & 62.22 $\pm$7.15 & 38.97 $\pm$5.75\\
 \hline 
 \end{tabular}
-
+}
 % CFSSUBEVAL
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
 \multicolumn{7}{|c|}{\textit{CfsSubEval}}\\
@@ -952,10 +954,11 @@ LR & 85.9 $\pm$0.06 & 356.35 $\pm$22.43 & 708.06 $\pm$195.15 & 62.42 $\pm$4.22 &
 \hline 
 SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 & 60.27 $\pm$5.68 & 32.73 $\pm$5.74\\
 \hline
-\end{tabular}\\
-
+\end{tabular}
+}
 % SOM
 \centering{}% SOM
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
 \multicolumn{7}{|c|}{\textit{SOM}}\tabularnewline
@@ -973,6 +976,7 @@ LR  & 85.5 $\pm$0.08  & 351.99 $\pm$23.72  & 714.76 $\pm$214.21  & 61.65 $\pm$4.
 SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2.87  & 64.62 $\pm$5.45  & 32.27 $\pm$4.74\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -995,9 +999,9 @@ This section presents further experiments conducted on data concerning four inte
 Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected publishing companies.
 
 \begin{table}
-\caption{Description of publishing companies considered as special cases.
-\label{tab:desc_publishing companies}}
+\caption{Description of publishing companies considered as special cases.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|l|l|l|}
 \hline 
  Case & Different books sold & Total copies sold & Description\\
@@ -1015,6 +1019,7 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
        &     &       &  of different books sold\\
 \hline 
 \end{tabular}
+}
 \label{Table:special_cases}
 \end{table}
 
@@ -1026,6 +1031,7 @@ Evaluation results of the developed models (without performing any feature selec
 \begin{table}
 \caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company) }
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -1042,6 +1048,7 @@ LR  & 86.3 $\pm$0.12  & 922.33 $\pm$289.01  & 1399.84 $\pm$619.62  & 56.11 $\pm$
 SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$11.83  & 57.23 $\pm$20.40  & 0.04 $\pm$0.016\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case1results}
 \end{table}
 
@@ -1049,6 +1056,7 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 \begin{table}
 \caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company) }
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -1065,12 +1073,14 @@ LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  
 SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03  & 53.28 $\pm$18.45  & 0.02 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case2results}
 \end{table}
 
 \begin{table}
 \caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold)}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -1087,6 +1097,7 @@ LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.6
 SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case3results}
 \end{table}
 
@@ -1096,6 +1107,7 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 \begin{table}
 \caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold))}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -1112,6 +1124,7 @@ LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$
 SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case4results}
 \end{table}
 
@@ -1136,6 +1149,7 @@ In the second stage of the experiments for the special cases, the feature select
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS)}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1152,6 +1166,7 @@ LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.6
 SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case1results-RAE}
 \end{table}
 
@@ -1162,6 +1177,7 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS)}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1178,6 +1194,7 @@ LR & 84.4 $\pm$0.25 & 12.79 $\pm$6.65 & 21.52 $\pm$12.54 & 39.47 $\pm$23.35 & 50
 SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case2results-RAE}
 \end{table}
 
@@ -1185,6 +1202,7 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 5
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS) }
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
@@ -1201,6 +1219,7 @@ LR  & 87.3 $\pm$0.06  & 89.72 $\pm$18.31  & 140.65 $\pm$47.12  & 49.45 $\pm$10.5
 SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.99  & 53.10 $\pm$9.51  & 0.05 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case3results-RAE}
 \end{table}
 
@@ -1210,6 +1229,7 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS)}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1226,6 +1246,7 @@ LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.
 SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+}
 \label{Table:case4results-RAE}
 \end{table}
 
