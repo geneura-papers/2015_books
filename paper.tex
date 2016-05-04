@@ -87,10 +87,10 @@ Therefore, in this work we analyse the data by means of different data mining me
 % Antonio - I think this is the main idea we have to sell in this paper. Due to the  difficulty of the book sales market (and its variables), we cannot give an accurate tool for predicting book sales, but a decision-aid tool for publishers. Do you agree?
 % (Paloma) Agree
 
-In the research published in this paper, the problem of how many units should be printed  when a new book is published is faced using real data provided by the 
-Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers and distributors. 
-Usually, the company's expert sales managers analysed historical data and applied their knowledge using external variables to compute correct estimations (predictions), for instance, they can decide increasing or decreasing the sales forecast based on season or sales period.
-However, just carrying out the analysis and forecasting process as a human expert, may lead to imprecise predictions which may not take all the variables into account. 
+In the research published in this paper, the problem of how many units should be printed  when a new book is published is faced using actual data provided by the 
+Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers, and distributors. 
+Usually, the company's experts sales manager analysed historical data and applied their knowledge using external variables to compute correct estimations (predictions); for instance, they can decide increasing or decreasing the sales forecast based on season or sales period.
+Nevertheless, just carrying out the analysis and forecasting process as a human expert may lead to imprecise predictions, and they may not take all the variables into account. 
 In addition, the process might be tedious, especially when the amount
 of data is quite large. Moreover, different experts can reach different
 predictions from the same dataset \cite{Sanders1994}. 
@@ -100,12 +100,12 @@ predictions from the same dataset \cite{Sanders1994}.
 % we've published it here. - JJ
 % Antonio - I think this information is not relevant for the paper...
 
-With this issue in mind, in this paper we firstly present an analysis on the aforementioned real dataset, by means of data mining and visualisation techniques. Then, a feature selection process is conducted using three different methods, in order to find out what are the relevant variables describing a book in the prediction (or regression) procedure. After this, a forecasting stage is performed applying a set of regression algorithms to the different datasets (considering a different number of variables).
-The value of this methodology is contrasted considering four different publishing companies being representative as top sellers, medium sellers, the most varied and one which sells a medium amount of different books.
+With this issue in mind, in this paper we firstly present an analysis on the aforementioned real dataset, by means of data mining and visualisation techniques. Then, a feature selection process is conducted using three different methods, in order to find out what are the relevant variables describing a book in the prediction (or regression) procedure. After this, a forecasting stage is performed applying a set of regression algorithms to the different datasets, also considering a different number of variables.
+The value of this methodology is contrasted considering four different publishing companies being representative as top sellers, medium sellers, the most varied, and one which sells a medium amount of different books.
 
-The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to the prediction of sales in similar scopes. 
+The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes. 
 Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run for new books, along with a description of the considered dataset.
-Section \ref{sec:methodology} details the methodology considered in the study, from the data collection and preprocessing stages, to the selection of the forecasting methods to be applied in the experiments.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets (with different amounts of features) for all the publishing companies. The results obtained for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
+Section \ref{sec:methodology} details the methodology considered in the study, from the data collection and preprocessing stages, to the selection of the forecasting methods to be applied in the experiments.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. The results obtained for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
 
 %********************************************************************************
 \section{State of the art on sales forecasting} 
