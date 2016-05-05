@@ -902,7 +902,18 @@ left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
-the distances between units is also represented as hexagons. 
+the distances between units is also represented as hexagons. % but
+                                % explain that at the beginning!
+                                % Devote one or two paragraphs to tell
+                                % the reader what is U-Matrix, a
+                                % reference, why we are using it and
+                                % how it conveys more information that
+                                % a pure and simple feature selection
+                                % (which we are doing anyway). If we
+                                % don't, Reviewer #3 (who is,
+                                % remember, a son of a bitch) will
+                                % tell you to just suppress that whole
+                                % section - JJ
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
