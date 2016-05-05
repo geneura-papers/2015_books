@@ -498,11 +498,8 @@ Therefore, in order to create simpler and more accurate prediction models, and w
 \subsection{Data preprocessing and initial analysis}
 \label{subsec:data_preproces}
 
-Once a dataset has been composed it must be preprocessed, i.e. it
-should be revised in order to fix the existing errors (such as wrong
-or duplicated patterns), or to complete (or address) the absence of
-information, for instance. The aim is looking for the correctness,
-homogeneity and completeness of the data. % useless paragraph - JJ
+Preprocessing a dataset means that it is revised in order to reduce errors, such as wrong or duplicated patterns, or for completing missing values. The aim is to look for the correctness,
+homogeneity, and completeness of the data. % useless paragraph - JJ
 
 %You need to lay out to the reader what you are going to do here. In
 %order to reach objective x, we need to do y, that is why we use
@@ -516,15 +513,15 @@ homogeneity and completeness of the data. % useless paragraph - JJ
 % suggests ways to deal with it) - JJ
 % and so on...
 
-After this, the features describing every pattern are frequently analysed.
+After this process, the features describing every pattern are frequently analysed.
 In this case, among the variables describing a new book, some may affect 
-predictions (those variables provide information), while others may not be 
+predictions as they provide information, while others may not be 
 necessary and even redundant.
 
 % You have to justify its application to this particular problem. What
 % was the runnning time with all variables? What reduction was your
 % target? - JJ
-Moreover, the algorithm running time grows with the number of
+Additionally, the algorithm running time grows with the number of
 features, making it impractical for problems with a large number of features 
 \cite{Selvakuberan2008}. Feature reduction is a task that is usually
 applied in these kind of situations, having two ways of performance
