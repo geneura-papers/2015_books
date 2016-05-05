@@ -1142,10 +1142,31 @@ SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$
 %***TO DO***: explain we have chosen the best Feature selection method (ReliefAttributeEval???). The rest of tables have been moved to an appendix.
 %Sam will do it - JJ
 
-In the second stage of the experiments for the special cases, the feature selection methods (RFE, CSE and SOM) are applied for each case independently. For clarity purpose, we present here only the results after applying RFE method for the four cases in Table \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE}, \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}. The RFE  was chosen for representation since the selected features by this method showed higher predictive power in all classifiers than the other selection methods. According to the aforementioned tables, RFE has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher who publishes wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
+In the second stage of the experiments for the special cases, the
+feature selection methods (RFE, CSE and SOM) are applied for each case
+independently, since publishers with different sales ranges, and
+targets, might in fact include different factors or have different
+leverage when deciding how much to print. For clarity purpose, we present here only the results
+after applying the RFE method for the four cases in Table
+\ref{Table:case1results-RAE}, \ref{Table:case2results-RAE},
+\ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this
+one was chosen since the selected features by this
+method showed the highest predictive power among all classifiers. 
+%According to the aforementioned tables, 
+%It's not according to a table. It's according to the results there - JJ
+RFE
+has noticeably improved % with respect to what? -JJ
+the performance of all classifiers specially
+in the case of the best selling publisher house (i.e. UDL929) and the
+publisher who publishes a wide range of different books
+(i.e. UDL704). For the rest of the results which are obtained by CSE
+and SOM feature selection methods we refer the reader to the appendix
+of tables at the end of this paper.  
 
 
 \begin{table}[!ht]
+% Why the capital in Total? If it's a variable use Small Caps or Sans
+% Serif - JJ
 \caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS)}
 \centering{}%
 \resizebox{12cm}{!}{
