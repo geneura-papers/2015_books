@@ -419,15 +419,15 @@ Specifically, in order to compute the forecasting errors of the different method
 
   \item \emph{Relative absolute error} (RAE):
         \begin{equation}\label{eq:RAE}
-            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid p_{i-1} - o_i\mid} }
+            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
         \end{equation}
 
   \item \emph{Root relative squared error} (RRSE):
         \begin{equation}\label{eq:RRSE}
-            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(p_{i-1} - o_i)}^2 }  }
+            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
         \end{equation}
 \end{itemize}
-where $o_i$ is the individual data $i = {1,...,n}$ and $p_i$ is the obtained prediction.
+where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
 Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (publishing companies) in order to prove the value of the proposal.
 Some specific interpretable models have been created as a final result of the work. The aim is that these will cold be used as a decision-aid tool for the experts who have to take decide about the best print-run quantity for new published books, in order to, logically maximise the benefit (or minimise the costs).
