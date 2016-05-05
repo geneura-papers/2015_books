@@ -373,10 +373,11 @@ First, after the publishing company has provided the raw data
 % This should go to the previous section. 
 been performed in order to remove incorrect or incoherent patterns,
 such as those with null values in required variables, or with negative
-sales, for instance. Moreover, the initial set of variables (presented
-in Table \ref{tabla:paramsOrig50}) has been reduced by an expert to
+sales, for instance. % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
+Furthermore, the initial set of variables, presented
+in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to
 use just those that can be known in advance when a new book is
-launched, i.e. \textit{pre-sales data}. 
+launched, i.e. \textit{pre-sales data}. % (Paloma) Where are they? In table 2?
 
 % You have to present the problem and not the solution. It's not "what
 % you did last summer", it is SCIENCE. Why did you think FS was
@@ -392,7 +393,7 @@ technique and an essential preprocessing method to discard `noisy'
 algorithms is exploring the space of attributes to find out which
 subset of them yields the best results in a classification or
 prediction problem. 
-  In this stage, both, numerical and visualisation-based approaches have been applied in this paper, in order to select the best variables for the forecasting 
+  In this stage, both numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting 
 methods.  
 % Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
   This task may also help to identify leading indicators to be considered by a human expert to make predictions.
@@ -432,8 +433,8 @@ Specifically, in order to compute the forecasting errors of the different method
 \end{itemize}
 where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
-Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (publishing companies) in order to prove the value of the proposal.
-Some specific interpretable models have been created as a final result of the work. The aim is that these will cold be used as a decision-aid tool for the experts who have to take decide about the best print-run quantity for new published books, in order to, logically maximise the benefit (or minimise the costs).
+Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal.
+Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
 
 %The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
 
