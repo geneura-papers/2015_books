@@ -449,14 +449,14 @@ In general, historical data are used to make time series, and from them extracti
 However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
 \cite{ChingChin2010}. Thus, only pre-sales data are available in this problem.
 
-Moreover, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value don't depend on the book sales. So, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
+Due to this situation, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value don't depend on the book sales. Therefore, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
 
 
 \begin{table}
 % Shouldn't this table go to "Problem description"? It is a
 % preliminary selection - JJ
-\caption{Considered pre-sales features and their types. It also shows
-  the names of the variables used in the applied methods and if everyone is an input (independent) or an output (dependent) variable.} 
+\caption{Considered pre-sales features and their types. The third column shows
+  the names of the variables used in the applied methods, and the last one indicates if it has been used as an input (independent) or an output (dependent) variable.} 
 \label{tabla:params_pre_sales}
 \begin{center}
 \begin{tabular}{|c|l|l|c|c|}
@@ -481,7 +481,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{center}
 \end{table}
 
-As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. So the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
+As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. On the other hand, \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. Hence, the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
 
 Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
 
