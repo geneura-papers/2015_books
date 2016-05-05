@@ -445,11 +445,11 @@ Some specific interpretable models have been created as a final result of the wo
 \subsection{Data collection}
  
 
-In general, historical data are used to make time series, and from them extracting common patterns and obtaining accurate predictions.
+In general, historical data are used to make time series, and extracting common patterns and obtaining accurate predictions from them.
 However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
-\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem.
+\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem. %PABLO: pre-sales data is mentioned briefly in introduction, expand it
 
-Due to this situation, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value don't depend on the book sales. Therefore, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
+Due to this situation, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value do not depend on the book sales. Therefore, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
 
 
 \begin{table}
@@ -482,13 +482,14 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{table}
 
 As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. On the other hand, \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. Hence, the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
+%Pablo: still waiting the definition of the variables
 
 Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
 
 Regarding the feature \textit{publisher}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers will not consider the results in other publishing companies for predicting its own sales.
 % Antonio - Think about this... should we mention this?
 
-Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \footnote{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
+Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books\footnote{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
 
 
 
