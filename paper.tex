@@ -557,10 +557,10 @@ have been applied.
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has been also applied. % Why? Is that
-                                % one of the two forms of feature
-                                % selection? What do we expect to
-                                % learn from it? - JJ 
+(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) feature selection technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+
+% Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
+% Antonio - explained here and below. Please check.
 
 %--- new SOM description % -Sam
 
@@ -569,10 +569,9 @@ topographical organisation of the sensory cortex of human brain
 \cite{kohonen1998}. It maps highly dimensional data into a lower
 dimensional space where similar data patterns are located in more
 adjacent areas on the grid. 
-It is a very useful analysis tool for visualising complex data with
-high number of variables in a simple geometric plane. Therefore, it
-could be used for different tasks such as feature selection and data
-clustering and visualisation. %Pablo: some cite here?
+% It is a very useful analysis tool for visualising complex data with high number of variables in a simple geometric plane. 
+%Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation. %Pablo: some cite here?
+This method is normally used as a data visualization tool, since it allows to project any multi-variated dataset in a two-dimensional display, so an expert can detect topological relations among its neurons and thus make inferences or find interesting relationships on the input dataset (such as clusters, for instance).
 
 Basically, SOM consists of two layers: input layer and output, also
 known as Kohonen, layer. Input layer is fully connected with the 
@@ -590,35 +589,28 @@ is updated along with its neighbor neurons. This neuron is called the
 best matching unit (BMU). The goal of the learning process is to
 minimize the neighborhood distance in the output clusters.  
 
-When the learning process is done a visual representation method like
-the Unified Distance Matrix, or U-matrix for short, is used to
-visualize the distances between neurons in the output space. In the
-U-matrix, the distance between adjacent neurons is measured and
-assigned different colors. Dark colors between neurons indicate large
-distances (boundaries) while ligh colors represent similar areas
-(clusters).
+Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colors. Different colors between neurons indicate large distances (boundaries) while similar colors represent close areas (clusters).
+
+% Antonio - a better description of U-Matrix. ;D
 
 %---
-
-
-
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those
 regions, or clusters, with high training sample concentration and fewer
-where the samples are scarce.  
+where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those that can have a higher influence on the creation of that cluster.
 %FERGU: mencionarlo en la intro
 % Which is interesting because... JJ
+% Antonio - explained. ;)
 
-As far as the feature selection methods are concerned, Weka software separates the process into two parts:
-%FERGU: por qué mencionamos a Weka aquí y no antes?
-% Antonio - se ha mencionado, pero sí, habría que destacarlo un poco más desde la intro quizá.
+With respect to feature selection methods, the used Weka software separates the process into two parts:
+
 \begin{itemize}
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
-(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretised. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
@@ -882,8 +874,7 @@ Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hex
 % Antonio - done. ;)
 
 
-Figure \ref{fig:componentplanes} shows the U-matrix and component
-variables resulted from SOM training. The term component is used in
+Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
 % really, are you reading this with the mind of someone that has no
 % idea what is SOM or U-Matrix or whatever? Tell first what you are
 % going to do, then tell why you are doing it, explain all the
@@ -891,11 +882,10 @@ variables resulted from SOM training. The term component is used in
 % done this and this is the result. You have to explain why you are
 % doing it, what you are doing, how you are doing it and then how to
 % interpret the results - JJ
-SOM to refer to the features. %use features!!!! - JJ
- The component planes in Figure %what is a plane? Really, you don't
-                                %know what's in the mind of the reader
-                                %(or reviewer#3, who is a son of a
-                                %bitch - JJ
+% Antonio - now it must be clearer with the new explanations given before
+The component planes in Figure 
+%what is a plane? Really, you don't know what's in the mind of the reader (or reviewer#3, who is a son of a bitch - JJ
+% Antonio - now it should be clear. This is the accurate term for the output of SOM: component planes analysis
 \ref{fig:componentplanes} show the trend of values of the prototype
 vectors of the SOM map units. These values are represented as
 colours. The colorbar on the right of each component plane shows the
@@ -904,7 +894,8 @@ left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
-the distances between units is also represented as hexagons. % but
+the distances between units are also represented as inter-neuron hexagons. 
+                                % but
                                 % explain that at the beginning!
                                 % Devote one or two paragraphs to tell
                                 % the reader what is U-Matrix, a
@@ -916,6 +907,7 @@ the distances between units is also represented as hexagons. % but
                                 % remember, a son of a bitch) will
                                 % tell you to just suppress that whole
                                 % section - JJ
+% Antonio - I have done it. However Ihave focused the explanation on the feature selection 'ability' of the method. ;)
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
