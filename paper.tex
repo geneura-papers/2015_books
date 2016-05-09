@@ -408,33 +408,7 @@ After this process, several forecasting techniques have been tested, such as rul
 %FERGU: OJO que en esta sección a veces usáis el presente perfecto (have been) y otras el presente (is performed)
 % Antonio - Corregido. ;)
 %
-The obtained results have been compared and analysed, computing, in addition to the obtained \textit{correlation coefficient}, some error measures from the literature \cite{ChingChin2010,Madsen2008}. We have considered the widely accepted standard formulae \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
-Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
-%FERGU: have been selected for this methodology, for this work... algo así
-% Antonio - ya se ha dicho. ;)
 
-\begin{itemize}
-  \item \emph{Mean Absolute Error} (MAE):
-        \begin{equation}\label{eq:MAE}
-            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
-        \end{equation}
-
-  \item \emph{Root Mean Squared Error} (RMSE):
-        \begin{equation}\label{eq:RMSE}
-            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
-        \end{equation}
-
-  \item \emph{Relative absolute error} (RAE):
-        \begin{equation}\label{eq:RAE}
-            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
-        \end{equation}
-
-  \item \emph{Root relative squared error} (RRSE):
-        \begin{equation}\label{eq:RRSE}
-            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
-        \end{equation}
-\end{itemize}
-where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
 Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal.
 Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
@@ -737,6 +711,37 @@ The objective is finding the most appropriate forecasting method that minimises
 the error between the obtained forecast and the actual sales for each new book 
 published.
 
+
+\subsection{Models evaluation}
+
+
+At this step, the developed forecasting models are evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
+Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+%FERGU: have been selected for this methodology, for this work... algo así
+% Antonio - ya se ha dicho. ;)
+
+\begin{itemize}
+  \item \emph{Mean Absolute Error} (MAE):
+        \begin{equation}\label{eq:MAE}
+            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
+        \end{equation}
+
+  \item \emph{Root Mean Squared Error} (RMSE):
+        \begin{equation}\label{eq:RMSE}
+            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
+        \end{equation}
+
+  \item \emph{Relative absolute error} (RAE):
+        \begin{equation}\label{eq:RAE}
+            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
+        \end{equation}
+
+  \item \emph{Root relative squared error} (RRSE):
+        \begin{equation}\label{eq:RRSE}
+            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
+        \end{equation}
+\end{itemize}
+where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
 %********************************************************************************
 \section{Experiments and Results}
