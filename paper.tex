@@ -629,9 +629,9 @@ As previously stated, there are many prediction methods available in the
 literature, each one with a different parameter set that may affect the 
 obtained results.
 
-However, as in the case of new books only some descriptive data are available 
-(compared to those cases in which historical data on sales of published books 
-is available), not all forecasting methods can be used in this specific problem.
+However, as in the case of new books only some descriptive data are available,
+compared to those cases in which historical data on sales of published books 
+is available, not all forecasting methods can be used in this specific problem.
 
 Thus, in this research five forecasting methods, based on the literature 
 review in the introduction 
@@ -665,8 +665,8 @@ The process breaks the input space of the training data through decision points
 (nodes) to assign a linear model suitable for that sub-area of the input space. 
 This process may lead to a complex model tree.
 
-Model tree models can learn and tackle tasks with high dimensionality (up to 
-hundreds of attributes) and generate reproducible and comprehensible representations, 
+Model tree models can learn and tackle tasks with high dimensionality, even up to 
+hundreds of attributes, and generate reproducible and comprehensible representations, 
 what makes them potentially more successful in the eyes of decision makers.
 
 The final model consists of the collection of linear sub-models that brings the 
@@ -680,7 +680,7 @@ root to that node is given as a result.
  \item \emph{k-Nearest Neighbours (kNN)}: 
 The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
 which the unknown instances are classified by relating them to the known 
-instances using a distance measurement/function (Euclidean, Minkowsky or minimax).
+instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
 
 The main idea behind the algorithm is that two instances far enough in the space, 
 taking into account the distance function, are less likely to belong to the 
@@ -693,7 +693,7 @@ located, assigning the resulting class to an unclassified vector using the
 closest $k$ vectors found in the training set by majority vote.
 
 
- \item \emph{Random Forest}: This method is based in the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution.
+ \item \emph{Random Forest}: This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution.
 The result is the average of the generated trees during the process.
 
 
@@ -724,8 +724,8 @@ that separates two classes, maximising the margin between two classes.
 In the case of regression the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
-In both cases, the hyperplane is defined by a subset of training set samples 
-(called support vectors).
+In both cases, the hyperplane is defined by a subset of training set samples, 
+called support vectors.
 %This method works well even if the space is highly dimensional and the problem is not linearly separable.
 
 
@@ -957,7 +957,20 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}. Examining the obtained results for each feature selection method, it can be seen that RFE got the best results compared to SOM and CSE. It can be noticed also that the performance of M5P, kNN and RF has been improved with RFE compared to the case of using all features. In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
+After applying the feature selection methods, we have run the same
+forecasting models as in Section \ref{subsec:results_all_publishers}
+for the whole dataset (all the publishers), but considering only the
+selected features by each method. The results are shown in Table
+\ref{tab:results_all_publishers_fs}. Examining the obtained results
+for each feature selection method, it can be seen that RFE got the
+best results compared to SOM and CSE. It can be noticed also that we
+obtain better performance in M5P, kNN and RF using only features
+selected by RFE than using all features. %Better publish results in
+                                %the same table or refer to the table
+                                %where it was published. Is this
+                                %difference statistically significant?
+                                %- JJ
+ In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
 
 \begin{table}
 \centering{}%
