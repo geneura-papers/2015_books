@@ -961,7 +961,20 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}. Examining the obtained results for each feature selection method, it can be seen that RFE got the best results compared to SOM and CSE. It can be noticed also that the performance of M5P, kNN and RF has been improved with RFE compared to the case of using all features. In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
+After applying the feature selection methods, we have run the same
+forecasting models as in Section \ref{subsec:results_all_publishers}
+for the whole dataset (all the publishers), but considering only the
+selected features by each method. The results are shown in Table
+\ref{tab:results_all_publishers_fs}. Examining the obtained results
+for each feature selection method, it can be seen that RFE got the
+best results compared to SOM and CSE. It can be noticed also that we
+obtain better performance in M5P, kNN and RF using only features
+selected by RFE than using all features. %Better publish results in
+                                %the same table or refer to the table
+                                %where it was published. Is this
+                                %difference statistically significant?
+                                %- JJ
+ In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
 
 \begin{table}
 \centering{}%
