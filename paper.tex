@@ -38,8 +38,8 @@ e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es, hossam.faris@ju.edu.jo,
 When a new book is launched the publisher faces the problem of how
 many books should be printed for delivery to bookstores; printing too
 many is the main issue, since it implies a loss of investment due to
-inventory excess, but printing too few will also have a negative economical impact. In this paper, we are tackling the problem of predicting total sales in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
-We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualisation techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods have been applied to create forecasting models for book sales. 
+inventory excess, but printing too few will also have a negative economic impact. In this paper, we are tackling the problem of predicting total sales in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
+We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualisation techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods has been applied to create forecasting models for book sales. 
 The obtained models are able to predict sales from pre-publication data with
 remarkable accuracy, and can be visualised as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
 This is also shown in the paper by addressing four example cases of representative publishers, regarding their number of sales and the number of different books they sell.
@@ -53,7 +53,7 @@ This is also shown in the paper by addressing four example cases of representati
 Publishing a book, in the same way as releasing any other cultural product with a physical substrate, implies several types of risks and costs due to
 the complexity, and derived expenses, of the production,
 distribution, and storage processes; most of these costs are associated
-to the number of books actually printed. But the problem is further
+with the number of books actually printed. But the problem is further
 complicated for completely new products, in the sense that there is an unknown
 author or a new topic with no track record. Sales forecasts can
 only be based on the knowledge obtained from other similar products,
@@ -121,7 +121,7 @@ have been applied to solve sales prediction problems in other industrial sectors
 
 Specifically, time-series prediction methods
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}  
-is perhaps the most used technique to tackle the sales forecasting
+is perhaps the most used technique to tackle sales forecasting
 problems. The efficiency of these techniques strongly depends on the field of application 
 and the correctness of the problem data. However, since they require a
 large amount of data for predicting sales, these methods are not the
@@ -137,13 +137,13 @@ forecasting techniques and selecting the best method to use is also a problem.
 For this reason, usually the methods used to predict book sales have
 been generally based on experts' experience.% Reference - JJ
  They analyse data about
-sales and, taking into account their knowledge in industry, their
+sales and, taking into account their knowledge of industry, their
 experience, and their perception about trends, could make decisions on
 the companies production, i.e. how many books should be printed when a new
 book is published. 
 This is a complex problem, since the predictions are influenced by
 external variables that must be taken into account, such as
-seasonality, promotions or fashions that expert managers might
+seasonality, promotions, or fashions that expert managers might
 subjectively apply \cite{Lapide1999,ChernWSF15}. % This
                                 % has something to do with the
                                 % previous paragraph? Put it there!!! 
@@ -163,8 +163,12 @@ are observed by analysing data obtained.
 % Antonio - describir esos 'sales patterns'. ;)
 % FERGU: y también cuales son esos 'data obtained'
 However, the authors used in these papers historical data from published books, 
-so their proposed methodology can not be applied to the problem of unpublished-books sales prediction.
+so their proposed methodology can not be applied to the problem of unpublished books sales prediction.
 %FERGU: pero nosotros también usamos historical data, no? qué diferencia hay con lo nuestro? por qué lo nuestro es lo mejor?
+% (Paloma) Agree with Fergu, I don't think we should say this... Please review it.
+
+% [pedro] La cosa es que esta gente toma libros ya publicados y de los que tienen todos los datos de ventas para analizar y obtener patrones de ventas. Nosotros trabajamos con datos de libros que ni siquiera se han impreso aún, por lo que no tenemos ni idea de cómo van a funcionar. Esta gente dispone de datos de ventas, mientras que nosotros sólo vamos a tener datos relativos a "¿dónde lo vas a poner a la venta?" o "¿vas a dar algún regalo para intentar vender más?" (cosas así).
+
 
 %
 % pasar a contar los casos de la predicción de ventas en la 
@@ -179,11 +183,12 @@ so their proposed methodology can not be applied to the problem of unpublished-b
 In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
 % Antonio - Maybe we should describe them briefly...
 %
-In the same line, Thomassey et al. \cite{SThomassey2014} propose using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, 
-a very similar issue to the new book publishing one.
+In the same line, Thomassey et al. \cite{SThomassey2014} proposed using a clustering method together with decision trees for sales forecasting in textile-apparel fashion industry, 
+a very similar issue to the new book publishing one. % (Paloma) Very similar? Why?
 The same problem was previously faced by Xia et al. \cite{Xia2012} using a 
 forecasting method based on extreme machine learning with adaptive metrics of inputs.
 % Antonio - of -> as???
+% (Paloma) It's "of" in the title...
 The complexity of this problem relies on the lack of historical data, on the short lifetime of the majority of items, 
 % Antonio - ver si está bien el cambio 'large number' -> 'majority'
 and on the influence of variables such as promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}, as mentioned above.
@@ -205,15 +210,15 @@ present/launch new products every season.
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
 In those cases where historical data are available, classical time series 
-forecasting methods can be applied, which is what the authors do in
+forecasting methods can be applied, which is what the authors did in
 \cite{Chang2009}, where a hybrid model integrating K-Means and fuzzy
 neural networks to forecast the future sales of a printed circuit
 board is proposed. % We have been talking above that above and SAID IT
                    % DIDN'T WORK? Why do we say it here again? - JJ
                    % No, above we said that the efficiency depends on the field 
                    % of application and the available problem data. - pedro
-A similar method is described by Chern et al. \cite{ChernWSF15}, who analyse 
-historical data along online reviews, reviewer characteristics and review 
+A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
+historical data throughout online reviews, reviewer characteristics, and review 
 influences to understand how electronic `word-of-mouth' influences product sales. 
 The proposed method is suitable for those sales forecasting problems 
 with a big amount of online reviews and historical data.
@@ -240,9 +245,10 @@ The main objective of this paper is to forecast sales for
 %FERGU: el objetivo es la herramienta o la predicción?
 unpublished books for which no historical data are available. Instead, just some
 %FERGU: pero usamos datos históricos de otros para la predicción, no? Como otros papers...
-descriptive and variables known in advance related to the new book. In
+descriptive and variables are known in advance related to the new book. In
 order to do that, we have used a training dataset which includes
-historical sales data for a big amount of books published in Spain for
+historical sales data % (Paloma) so, have we or have we not historical data? It's all contradictory
+ for a big amount of books published in Spain for
 several years, with a set of 50 features or variables per pattern.  
 
 The initial dataset, provided in the framework of a contract by
@@ -321,16 +327,16 @@ negative sales environment
 % Antonio - briefly describe the variables
 
 In this prediction problem there are other external variables that also affect 
-the sales of a new book, such as those related to seasonality, trends or 
+the sales of a new book, such as those related to seasonality, trends, or 
 promotions, that classical prediction methods can not deal with. %FERGU: por qué?
 However, an expert can consider them to modify the forecast obtained by 
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
 external data. 
-Thus, the proposed method, will analyse the provided data and
+Thus, the proposed method will analyse the provided data and
 variables and will yield a forecast of sales according to them. This
 result could be used as a reference for a human expert, who would
-consider it in his/her own prediction process. 
+consider it in his or her own prediction process. 
 
 % This section is too short and really does not describe the problem
 % to its full extent. First, it should say if some of these variables
@@ -370,10 +376,11 @@ First, after the publishing company has provided the raw data
 % This should go to the previous section. 
 been performed in order to remove incorrect or incoherent patterns,
 such as those with null values in required variables, or with negative
-sales, for instance. Moreover, the initial set of variables (presented
-in Table \ref{tabla:paramsOrig50}) has been reduced by an expert to
+sales, for instance. % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
+Furthermore, the initial set of variables, presented
+in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to
 use just those that can be known in advance when a new book is
-launched, i.e. \textit{pre-sales data}. 
+launched, i.e. \textit{pre-sales data}. % (Paloma) Where are they? In table 2?
 
 % You have to present the problem and not the solution. It's not "what
 % you did last summer", it is SCIENCE. Why did you think FS was
@@ -389,7 +396,7 @@ technique and an essential preprocessing method to discard `noisy'
 algorithms is exploring the space of attributes to find out which
 subset of them yields the best results in a classification or
 prediction problem. 
-  In this stage, both, numerical and visualisation-based approaches have been applied in this paper, in order to select the best variables for the forecasting 
+  In this stage, both numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting 
 methods.  
 % Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
   This task may also help to identify leading indicators to be considered by a human expert to make predictions.
@@ -429,8 +436,8 @@ Specifically, in order to compute the forecasting errors of the different method
 \end{itemize}
 where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
-Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases (publishing companies) in order to prove the value of the proposal.
-Some specific interpretable models have been created as a final result of the work. The aim is that these will cold be used as a decision-aid tool for the experts who have to take decide about the best print-run quantity for new published books, in order to, logically maximise the benefit (or minimise the costs).
+Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal.
+Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
 
 %The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
 
@@ -441,18 +448,18 @@ Some specific interpretable models have been created as a final result of the wo
 \subsection{Data collection}
  
 
-In general, historical data are used to make time series, and from them extracting common patterns and obtaining accurate predictions.
+In general, historical data are used to make time series, as well as for extracting common patterns and obtaining accurate predictions from them.
 However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
-\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem.
+\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem. %PABLO: pre-sales data is mentioned briefly in introduction, expand it
 
-Moreover, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value don't depend on the book sales. So, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
+Due to this situation, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value do not depend on the book sales. Therefore, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
 
 
 \begin{table}
 % Shouldn't this table go to "Problem description"? It is a
 % preliminary selection - JJ
-\caption{Considered pre-sales features and their types. It also shows
-  the names of the variables used in the applied methods and if everyone is an input (independent) or an output (dependent) variable.} 
+\caption{Considered pre-sales features and their types. The third column shows
+  the names of the variables used in the applied methods, and the last one indicates if they have been used as an input (independent) or an output (dependent) variable.} 
 \label{tabla:params_pre_sales}
 \begin{center}
 \begin{tabular}{|c|l|l|c|c|}
@@ -477,14 +484,16 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{center}
 \end{table}
 
-As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. So the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
+As it can be seen in the table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. On the other hand, \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. Hence, the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
+%Pablo: still waiting the definition of the variables
 
 Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
 
-Regarding the feature \textit{publisher}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers will not consider the results in other publishing companies for predicting its own sales.
+With regard to the feature \textit{publisher}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers will not consider the results in other publishing companies for predicting its own sales.
 % Antonio - Think about this... should we mention this?
+% (Paloma) If you finally leave it, please review it because this last sentence is a bit confusing
 
-Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \footnote{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
+Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \cite{wiki:dewey}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
 
 
 
@@ -492,11 +501,8 @@ Therefore, in order to create simpler and more accurate prediction models, and w
 \subsection{Data preprocessing and initial analysis}
 \label{subsec:data_preproces}
 
-Once a dataset has been composed it must be preprocessed, i.e. it
-should be revised in order to fix the existing errors (such as wrong
-or duplicated patterns), or to complete (or address) the absence of
-information, for instance. The aim is looking for the correctness,
-homogeneity and completeness of the data. % useless paragraph - JJ
+Preprocessing a dataset means that it is revised in order to reduce errors, such as wrong or duplicated patterns, or for completing missing values. The aim is to look for the correctness,
+homogeneity, and completeness of the data. % useless paragraph - JJ
 
 %You need to lay out to the reader what you are going to do here. In
 %order to reach objective x, we need to do y, that is why we use
@@ -510,15 +516,15 @@ homogeneity and completeness of the data. % useless paragraph - JJ
 % suggests ways to deal with it) - JJ
 % and so on...
 
-After this, the features describing every pattern are frequently analysed.
+After this process, the features describing every pattern are frequently analysed.
 In this case, among the variables describing a new book, some may affect 
-predictions (those variables provide information), while others may not be 
+predictions as they provide information, while others may not be 
 necessary and even redundant.
 
 % You have to justify its application to this particular problem. What
 % was the runnning time with all variables? What reduction was your
 % target? - JJ
-Moreover, the algorithm running time grows with the number of
+Additionally, the algorithm running time grows with the number of
 features, making it impractical for problems with a large number of features 
 \cite{Selvakuberan2008}. Feature reduction is a task that is usually
 applied in these kind of situations, having two ways of performance
@@ -551,10 +557,10 @@ have been applied.
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has been also applied. % Why? Is that
-                                % one of the two forms of feature
-                                % selection? What do we expect to
-                                % learn from it? - JJ 
+(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) feature selection technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+
+% Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
+% Antonio - explained here and below. Please check.
 
 %--- new SOM description % -Sam
 
@@ -563,10 +569,9 @@ topographical organisation of the sensory cortex of human brain
 \cite{kohonen1998}. It maps highly dimensional data into a lower
 dimensional space where similar data patterns are located in more
 adjacent areas on the grid. 
-It is a very useful analysis tool for visualising complex data with
-high number of variables in a simple geometric plane. Therefore, it
-could be used for different tasks such as feature selection and data
-clustering and visualisation. 
+% It is a very useful analysis tool for visualising complex data with high number of variables in a simple geometric plane. 
+%Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation. %Pablo: some cite here?
+This method is normally used as a data visualization tool, since it allows to project any multi-variated dataset in a two-dimensional display, so an expert can detect topological relations among its neurons and thus make inferences or find interesting relationships on the input dataset (such as clusters, for instance).
 
 Basically, SOM consists of two layers: input layer and output, also
 known as Kohonen, layer. Input layer is fully connected with the 
@@ -575,7 +580,7 @@ Kohen layer which is usually a two dimensional grid of neurons
 the input layer. 
 
 SOM follows an iterative process applied in two stages: First, the
-weights of the network are initialized randomly then the n-dimensional
+weights of the network are initialized randomly, then the n-dimensional
 input vectors are presented to the network sequentially so the
 distance between the weights of the neurons and the inputs are
 computed using the simple Euclidean distance; in the second stage, the
@@ -584,35 +589,28 @@ is updated along with its neighbor neurons. This neuron is called the
 best matching unit (BMU). The goal of the learning process is to
 minimize the neighborhood distance in the output clusters.  
 
-When the learning process is done a visual representation method like
-the Unified Distance Matrix, or U-matrix for short, is used to
-visualize the distances between neurons in the output space. In the
-U-matrix, the distance between adjacent neurons is measured and
-assigned different colors. Dark colors between neurons indicate large
-distances (boundaries) while light colors represent similar areas
-(clusters).
+Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colors. Different colors between neurons indicate large distances (boundaries) while similar colors represent close areas (clusters).
+
+% Antonio - a better description of U-Matrix. ;D
 
 %---
-
-
-
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those
-regions (clusters) with high training sample concentration and fewer
-where the samples are scarce.  
+regions, or clusters, with high training sample concentration and fewer
+where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those that can have a higher influence on the creation of that cluster.
 %FERGU: mencionarlo en la intro
 % Which is interesting because... JJ
+% Antonio - explained. ;)
 
-As far as the feature selection methods are concerned, Weka software separates the process into two parts:
-%FERGU: por qué mencionamos a Weka aquí y no antes?
-% Antonio - se ha mencionado, pero sí, habría que destacarlo un poco más desde la intro quizá.
+With respect to feature selection methods, the used Weka software separates the process into two parts:
+
 \begin{itemize}
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
-(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretised. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
@@ -802,18 +800,18 @@ hundreds of new variables.
 Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
 
 \begin{table}
-\caption{Predicting Total sales for all publishers (all the features). 10 repetitions, 10-fold cross validation.
+\caption{Predicting Total sales for all publishers (all the features). 10 repetitions, 10-fold cross validation. Best values in bold.
 \label{tab:all_publishers_no_fs}}
 \centering{}%
-\scalebox{0.85}{
+\scalebox{0.78}{
 
 \begin{tabular}{|c|l|l|l|l|l|l|}
 \hline 
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
-M5P  & 89.0 $\pm$ 0.09  & 214.37 $\pm$ 22.96  & 634.23 $\pm$ 307.76  & 37.46 $\pm$ 3.12  & 48.32 $\pm$ 25.16  & 18.85 $\pm$ 0.61\tabularnewline
+M5P  &  \textbf{89.0 $\pm$ 0.09}  &  \textbf{214.37 $\pm$ 22.96}  &  \textbf{634.23 $\pm$ 307.76}  &  \textbf{37.46 $\pm$ 3.12}  &  \textbf{48.32 $\pm$ 25.16} & 18.85 $\pm$ 0.61\tabularnewline
 \hline 
-K-NN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  & 0.001 $\pm$ 0.01\tabularnewline
+K-NN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  &  \textbf{0.001 $\pm$ 0.01}\tabularnewline
 \hline 
 RF & 84.0 $\pm$ 0.05  & 253.37 $\pm$ 29.43  & 788.94 $\pm$ 282.01  & 44.16 $\pm$ 2.76  & 57.77 $\pm$ 8.15  & 4.91 $\pm$ 0.12\tabularnewline
 \hline 
@@ -870,18 +868,13 @@ An important preprocessing step has been carried out before conducting the SOM a
 removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 
+Several configurations for SOM has been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a '1' is considered, otherwise a '0' is taken. A small value would mean that the map preserves well its topology.
 
-The SOM algorithm is applied with a large map size of $26 \times 16$
-in order to represent the data. % Not enough justification. Did you
-                                % try others? - jj
- The best SOM training results are obtained with a final quantisation
- error of 0.691 and topographic error of 0.046. % explain what is
-                                % quantisation and topographic error
-                                % and why it is important - JJ 
+Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046. % explain what is quantisation and topographic error and why it is important - JJ 
+% Antonio - done. ;)
 
 
-Figure \ref{fig:componentplanes} shows the U-matrix and component
-variables resulted from SOM training. The term component is used in
+Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
 % really, are you reading this with the mind of someone that has no
 % idea what is SOM or U-Matrix or whatever? Tell first what you are
 % going to do, then tell why you are doing it, explain all the
@@ -889,11 +882,10 @@ variables resulted from SOM training. The term component is used in
 % done this and this is the result. You have to explain why you are
 % doing it, what you are doing, how you are doing it and then how to
 % interpret the results - JJ
-SOM to refer to the features. %use features!!!! - JJ
- The component planes in Figure %what is a plane? Really, you don't
-                                %know what's in the mind of the reader
-                                %(or reviewer#3, who is a son of a
-                                %bitch - JJ
+% Antonio - now it must be clearer with the new explanations given before
+The component planes in Figure 
+%what is a plane? Really, you don't know what's in the mind of the reader (or reviewer#3, who is a son of a bitch - JJ
+% Antonio - now it should be clear. This is the accurate term for the output of SOM: component planes analysis
 \ref{fig:componentplanes} show the trend of values of the prototype
 vectors of the SOM map units. These values are represented as
 colours. The colorbar on the right of each component plane shows the
@@ -902,7 +894,8 @@ left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
-the distances between units is also represented as hexagons. % but
+the distances between units are also represented as inter-neuron hexagons. 
+                                % but
                                 % explain that at the beginning!
                                 % Devote one or two paragraphs to tell
                                 % the reader what is U-Matrix, a
@@ -914,6 +907,7 @@ the distances between units is also represented as hexagons. % but
                                 % remember, a son of a bitch) will
                                 % tell you to just suppress that whole
                                 % section - JJ
+% Antonio - I have done it. However Ihave focused the explanation on the feature selection 'ability' of the method. ;)
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
@@ -979,11 +973,11 @@ selected by RFE than using all features. %Better publish results in
 \begin{table}
 \centering{}%
 \caption{Predicting Total sales for all publishers based on features selected
-by each method.
+by each method. Best values in bold.
 \label{tab:results_all_publishers_fs}}
 % RELIEFATTRIBUTEEVAL
 \resizebox{12cm}{!}{
-\begin{tabular}{|c|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
 \multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
 \hline 
@@ -991,9 +985,9 @@ by each method.
 \hline 
 M5P & 89.2 $\pm$0.10 & 211.15 $\pm$22.41 & 616.35 $\pm$321.25 & 36.93 $\pm$3.41 & 47.30 $\pm$26.83 & 0.49 $\pm$0.02\\
 \hline 
-K-NN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 & 0.002 $\pm$0.004\\
+K-NN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 &  \textbf{0.002 $\pm$0.004}\\
 \hline 
-RF & 91.0 $\pm$0.05 & 198.16 $\pm$19.50 & 589.35 $\pm$195.80 & 34.61 $\pm$2.27 & 44.21 $\pm$11.63 & 3.63 $\pm$0.20\\
+RF &  \textbf{91.0 $\pm$0.05} &  \textbf{198.16 $\pm$19.50} &  \textbf{589.35 $\pm$195.80} &  \textbf{34.61 $\pm$2.27} &  \textbf{44.21 $\pm$11.63} & 3.63 $\pm$0.20\\
 \hline 
 LR & 86.4 $\pm$0.08 & 346.88 $\pm$25.40 & 695.90 $\pm$242.49 & 60.75 $\pm$4.55 & 53.16 $\pm$19.43 & 0.01 $\pm$0.01\\
 \hline 
@@ -1003,15 +997,15 @@ SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 
 }
 % CFSSUBEVAL
 \resizebox{12cm}{!}{
-\begin{tabular}{|c|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
 \multicolumn{7}{|c|}{\textit{CfsSubEval}}\\
 \hline
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
-M5P & 87.0 $\pm$0.09 & 266.78 $\pm$23.12 & 662.32 $\pm$245.27 & 46.66 $\pm$3.25 & 50.9 $\pm$20.35 & 0.41 $\pm$0.04\\
+M5P &  \textbf{87.0 $\pm$0.09} &  \textbf{266.78 $\pm$23.12} &  \textbf{662.32 $\pm$245.27} &  \textbf{46.66 $\pm$3.25} &  \textbf{50.9 $\pm$20.35} & 0.41 $\pm$0.04\\
 \hline 
-K-NN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 & 0.001 $\pm$0.001\\
+K-NN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 &  \textbf{0.001 $\pm$0.001}\\
 \hline 
 RF & 85.0 $\pm$0.11 & 278.42 $\pm$23.07 & 714.13 $\pm$278.65 & 48.71 $\pm$3.43 & 55.26 $\pm$24.41 & 2.48 $\pm$0.13\\
 \hline 
@@ -1032,9 +1026,9 @@ SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 
 \hline 
 M5P  & 86.6 $\pm$0.10  & 234.09 $\pm$23.19  & 699.56 $\pm$317.20  & 40.92 $\pm$3.25  & 53.70 $\pm$26.87  & 0.475 $\pm$0.12\tabularnewline
 \hline 
-K-NN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  & 0.001 $\pm$0.004\tabularnewline
+K-NN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  &  \textbf{0.001 $\pm$0.004}\tabularnewline
 \hline 
-RF & 89.8 $\pm$0.05  & 211.87 $\pm$20.07  & 617.78 $\pm$187.16  & 37.02 $\pm$2.46  & 46.58 $\pm$11.14  & 2.93 $\pm$0.11\tabularnewline
+RF &  \textbf{89.8 $\pm$0.05}  &  \textbf{211.87 $\pm$20.07}  &  \textbf{617.78 $\pm$187.16}  &  \textbf{37.02 $\pm$2.46}  &  \textbf{46.58 $\pm$11.14}  & 2.93 $\pm$0.11\tabularnewline
 \hline 
 LR  & 85.5 $\pm$0.08  & 351.99 $\pm$23.72  & 714.76 $\pm$214.21  & 61.65 $\pm$4.28  & 54.67 $\pm$16.88  & 0.01 $\pm$0.01\tabularnewline
 \hline 
@@ -1064,7 +1058,7 @@ This section presents further experiments conducted on data concerning four inte
 Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected publishing companies.
 
 \begin{table}
-\caption{Description of publishing companies considered as special cases.}
+\caption{Description of publishing companies considered as special cases.Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|l|l|l|}
@@ -1094,7 +1088,7 @@ Evaluation results of the developed models (without performing any feature selec
 
 
 \begin{table}
-\caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company) }
+\caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1102,9 +1096,9 @@ Evaluation results of the developed models (without performing any feature selec
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P  & 90.0 $\pm$0.10 & 670.24 $\pm$181.05  & 1065.34 $\pm$413.84  & 40.83 $\pm$10.86  & 43.56 $\pm$19.87  & 0.03 $\pm$0.002\tabularnewline
+M5P  &  \textbf{90.0 $\pm$0.10} &  \textbf{670.24 $\pm$181.05}  &  \textbf{1065.34 $\pm$413.84}  &  \textbf{40.83 $\pm$10.86}  &  \textbf{43.56 $\pm$19.87}  & 0.03 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  & 0 $\pm$0.0001\tabularnewline
+K-NN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  &  \textbf{0 $\pm$0.0001}\tabularnewline
 \hline 
 RF  & 87.6 $\pm$0.11  & 771.83 $\pm$326.34  & 1490.49 $\pm$930.58  & 45.40 $\pm$14.14  & 55.91 $\pm$31.70  & 0.08 $\pm$0.004\tabularnewline
 \hline 
@@ -1119,7 +1113,7 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 
 
 \begin{table}
-\caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company) }
+\caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1129,13 +1123,13 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 \hline 
 M5P  & 83.2 $\pm$0.24  & 14.18 $\pm$6.62  & 23.82 $\pm$11.86  & 43.41 $\pm$20.39  & 55.79 $\pm$30.47  & 0.009 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  & 0.0001 $\pm$0.0002\tabularnewline
+K-NN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  &  \textbf{0.0001 $\pm$0.0002}\tabularnewline
 \hline 
-RF & 85.8 $\pm$0.17  & 14.19 $\pm$6.69  & 23.57 $\pm$11.83  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
+RF &  \textbf{85.8 $\pm$0.17}  & 14.19 $\pm$6.69  &  \textbf{23.57 $\pm$11.83}  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
 \hline 
 LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  & 56.85 $\pm$35.07  & 0.002 $\pm$0.0005\tabularnewline
 \hline 
-SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03  & 53.28 $\pm$18.45  & 0.02 $\pm$0.02\tabularnewline
+SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \textbf{40.66 $\pm$16.03}  &  \textbf{53.28 $\pm$18.45}  & 0.02 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 }
@@ -1143,7 +1137,7 @@ SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03
 \end{table}
 
 \begin{table}
-\caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold)}
+\caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1151,9 +1145,9 @@ SVM  & 83.5 $\pm$0.21  & 14.01 $\pm$7.61  & 25.61 $\pm$15.30  & 40.66 $\pm$16.03
  &  $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P  & 88.9 $\pm$0.07 & 71.26 $\pm$21.29  & 125.19 $\pm$50.09  & 39.25 $\pm$11.77  & 47.50 $\pm$15.93  & 0.05 $\pm$0.03\tabularnewline
+M5P  &  \textbf{88.9 $\pm$0.07} &  \textbf{71.26 $\pm$21.29}  &  \textbf{125.19 $\pm$50.09}  &  \textbf{39.25 $\pm$11.77}  &  \textbf{47.50 $\pm$15.93}  & 0.05 $\pm$0.03\tabularnewline
 \hline 
-K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  & 0.0001 $\pm$0.0003\tabularnewline
+K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
 \hline 
@@ -1170,7 +1164,7 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 
 
 \begin{table}
-\caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold))}
+\caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold)). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1180,9 +1174,9 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 \hline 
 M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  & 0 $\pm$0.0002\tabularnewline
+K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  &  \textbf{0 $\pm$0.0002}\tabularnewline
 \hline 
-RF & 86.7 $\pm$0.07  & 449.16 $\pm$127.80  & 671.76 $\pm$212.74  & 45.58 $\pm$9.80  & 51.37 $\pm$11.16  & 0.06 $\pm$0.01\tabularnewline
+RF &  \textbf{86.7 $\pm$0.07}  &  \textbf{449.16 $\pm$127.80}  &  \textbf{671.76 $\pm$212.74}  &  \textbf{45.58 $\pm$9.80}  &  \textbf{51.37 $\pm$11.16}  & 0.06 $\pm$0.01\tabularnewline
 \hline 
 LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
 \hline 
@@ -1233,7 +1227,7 @@ of tables at the end of this paper.
 \begin{table}[!ht]
 % Why the capital in Total? If it's a variable use Small Caps or Sans
 % Serif - JJ
-\caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1241,9 +1235,9 @@ of tables at the end of this paper.
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 90.5 $\pm$0.1 & 661.81 $\pm$186.17 & 1070.24 $\pm$425.66 & 40.18 $\pm$10.50 & 43.56 $\pm$19.77 & 0.02 $\pm$0.002\tabularnewline
+M5P &  \textbf{90.5 $\pm$0.1} &  \textbf{661.81 $\pm$186.17} &  \textbf{1070.24 $\pm$425.66} &  \textbf{40.18 $\pm$10.50} &  \textbf{43.56 $\pm$19.77} & 0.02 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
 \hline 
@@ -1261,7 +1255,7 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1271,13 +1265,13 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 \hline 
 M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
 \hline 
-K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 & 0 $\pm$0.0001\tabularnewline
+K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 &  \textbf{0 $\pm$0.0001}\tabularnewline
 \hline 
-RF & 86.7 $\pm$0.16 & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
+RF &  \textbf{86.7 $\pm$0.16} & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
 \hline 
-LR & 84.4 $\pm$0.25 & 12.79 $\pm$6.65 & 21.52 $\pm$12.54 & 39.47 $\pm$23.35 & 50.14 $\pm$35.26 & 0.0005 $\pm$0.0005\tabularnewline
+LR & 84.4 $\pm$0.25 &  \textbf{12.79 $\pm$6.65} &  \textbf{21.52 $\pm$12.54} & 39.47 $\pm$23.35 &  \textbf{50.14 $\pm$35.26} & 0.0005 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
+SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$15.41} & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
 }
@@ -1286,7 +1280,7 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 5
 
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS) }
+\caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1294,9 +1288,9 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 & 38.24 $\pm$15.41 & 5
  & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P  & 89.3 $\pm$0.08  & 69.70 $\pm$19.85  & 122.48 $\pm$47.28  & 38.49 $\pm$11.53  & 46.68 $\pm$16.02 & 0.028 $\pm$0.003\tabularnewline
+M5P  &  \textbf{89.3 $\pm$0.08}  &  \textbf{69.70 $\pm$19.85}  &  \textbf{122.48 $\pm$47.28}  & {38.49 $\pm$11.53}  &  \textbf{46.68 $\pm$16.02} & 0.028 $\pm$0.003\tabularnewline
 \hline 
-K-NN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  & 0.0001 $\pm$0.0003\tabularnewline
+K-NN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 87.7 $\pm$0.08  & 73.13 $\pm$22.95  & 137.60 $\pm$56.14  & 39.79 $\pm$10.69  & 51.35 $\pm$17.00  & 0.13 $\pm$0.01\tabularnewline
 \hline 
@@ -1313,7 +1307,7 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1323,9 +1317,9 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 \hline 
 M5P & 76.6 $\pm$0.17 & 592.49 $\pm$209.25 & 894.76 $\pm$508.14 & 60.21 $\pm$18.22 & 69.14 $\pm$37.35 & 0.02$\pm$0.001\tabularnewline
 \hline 
-K-NN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 & 0.0001 $\pm$0.0003\tabularnewline
+K-NN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
-RF & 85.3 $\pm$0.09 & 455.7 $\pm$123.96 & 686.54 $\pm$198.16 & 46.32 $\pm$10.20 & 53.03 $\pm$13.05 & 0.07 $\pm$0.003\tabularnewline
+RF &  \textbf{85.3 $\pm$0.09} &  \textbf{455.7 $\pm$123.96} &  \textbf{686.54 $\pm$198.16} &  \textbf{46.32 $\pm$10.20} &  \textbf{53.03 $\pm$13.05} & 0.07 $\pm$0.003\tabularnewline
 \hline 
 LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.01 & 101.90 $\pm$87.83 & 0.0005 $\pm$0.0005\tabularnewline
 \hline 
@@ -1347,14 +1341,15 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \subsection{Decision trees for best seller}
 \label{subsec:decision_trees}
 
-In this section we show the output of one of the models built during the regression, namely we present one of the decision trees generated by M5P method, to demonstrate the value of the proposal to generate an useful decision-aid tool for and expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).
+In this section we show the output of one of the models built during the regression, namely we present two of the decision trees generated by M5P method applied to the data of the publisher that sells the most. These aim to demonstrate the value of the proposal to generate a useful decision-aid tool for an expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).  
 
-%***TO DO:*** better explain this
-% Sam will do it 
+First, Figure \ref{fig:decision_tree_best_seller} depicts the decision tree for the publishing company UDL929. The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. 
+The second decision tree (Figure \ref{fig:decision_tree_best_seller_fs}) corresponds to the same publishing company, so the same data were used, but the RAE feature selection method was applied. Thus, the main difference in the simplification of the regression models in the second tree and the remove of \texttt{print\_run} as part of the decision process after the feature selection.
 
-We have considered the publisher that sells the most as a good example case to show.
+Examining both trees, it can be noticed that \texttt{tot\_points\_sale} variable appears twice in the trees, being also the root. This indicates that the total number of points of sale has a big influence on the decision models and also a major role in forecasting the total sales. This is an interesting clue for the experts, who could check the expected impact of different number of selling points
+According to the trees, \texttt{distrib\_novelty} has also a big repercussion, appearing at the second level of the top of the trees.
 
-Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree for the best seller publishing company (UDL929). The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. This tree has been created considering the 10 pre-sales features.
+An important fact that these tree models reveal is that marketing variables, such as the total number of points of sale and the number of units distributed as novelty have higher influence on the prediction than the selling price of the book, which could be, initially, considered as one of the most important parameters to determine sales. This interpretation leads us to suggest that companies could probably improve the accuracy of their sales forecasting models by incorporating more marketing related variables in their models.  
 
 \begin{figure}[!ht] 
 \begin{center}
@@ -1364,11 +1359,6 @@ Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree fo
 \end{center}
 \end{figure}
 
-%***TO DO***: comments on the figure\\
-
-Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same publishing company (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results).
-
-%***TO DO***: better justify this\\
 
 \begin{figure}[!ht] 
 \begin{center}
@@ -1378,7 +1368,7 @@ Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained f
 \end{center}
 \end{figure}
 
-%***TO DO***: comments on the figure\\
+
 
 %********************************************************************************
 \section{Conclusions and Future Work}
@@ -1387,7 +1377,7 @@ Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained f
 %***TO DO***: rewrite these conclusions with the new experiments, examples and results\\
 
 In this paper, the problem of how many books should be printed 
-when a new book is published is faced using several data-mining and
+when a new book is going to be published is faced using several data-mining and
 forecasting methods.
 
 This is a very challenging problem in this industry, because printing a higher 
@@ -1485,11 +1475,10 @@ and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Gra
 \appendix
 \section{APENDIX TABLES}
 
-Case 1-A: Developing prediction models to predict Total sales for
-PublishingCo704 with CfsSubsetEval feature selection.
+
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS)}
+\caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1510,11 +1499,9 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
 \end{table}
 
 
-Case 1-A: Developing prediction models to predict Total sales for
-PublishingCo704 with SOM feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (SOM-FS)}
+\caption{Predicting Total sales for PublishingCo704 (SOM-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1538,11 +1525,9 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 %-----------------------------------
 
 
-Case 1-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLU11 with CfsSubsetEval feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1563,11 +1548,10 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \end{table}
 
 
-Case 1-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLU11 with SOM feature selection.
+
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1591,11 +1575,8 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 %-----------------------------------
 
 
-Case 2-A: Developing prediction models to predict Total sales for
-PublishingCo-UDL929 with CfsSubsetEval feature selection.
-
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1616,11 +1597,9 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \end{table}
 
 
-Case 2-A: Developing prediction models to predict Total sales for
-PublishingCo-UDL929 with SOM feature selection.
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS)}
+\caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1643,11 +1622,10 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 
 %-----------------------------------
 
-Case 2-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLW12 with CfsSubsetEval feature selection.
+
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1668,11 +1646,10 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
 \end{table}
 
 
-Case 2-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLW12 with SOM feature selection.
+
 
 \begin{table}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS)}
+\caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
