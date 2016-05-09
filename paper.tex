@@ -167,6 +167,9 @@ so their proposed methodology can not be applied to the problem of unpublished b
 %FERGU: pero nosotros también usamos historical data, no? qué diferencia hay con lo nuestro? por qué lo nuestro es lo mejor?
 % (Paloma) Agree with Fergu, I don't think we should say this... Please review it.
 
+% [pedro] La cosa es que esta gente toma libros ya publicados y de los que tienen todos los datos de ventas para analizar y obtener patrones de ventas. Nosotros trabajamos con datos de libros que ni siquiera se han impreso aún, por lo que no tenemos ni idea de cómo van a funcionar. Esta gente dispone de datos de ventas, mientras que nosotros sólo vamos a tener datos relativos a "¿dónde lo vas a poner a la venta?" o "¿vas a dar algún regalo para intentar vender más?" (cosas así).
+
+
 %
 % pasar a contar los casos de la predicción de ventas en la 
 % industria de la moda (SThomassey2014) y de nuevos productos (ChingChin2010)
@@ -554,10 +557,10 @@ have been applied.
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has been also applied. % Why? Is that
-                                % one of the two forms of feature
-                                % selection? What do we expect to
-                                % learn from it? - JJ 
+(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) feature selection technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+
+% Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
+% Antonio - explained here and below. Please check.
 
 %--- new SOM description % -Sam
 
@@ -566,10 +569,9 @@ topographical organisation of the sensory cortex of human brain
 \cite{kohonen1998}. It maps highly dimensional data into a lower
 dimensional space where similar data patterns are located in more
 adjacent areas on the grid. 
-It is a very useful analysis tool for visualising complex data with
-high number of variables in a simple geometric plane. Therefore, it
-could be used for different tasks such as feature selection and data
-clustering and visualisation. %Pablo: some cite here?
+% It is a very useful analysis tool for visualising complex data with high number of variables in a simple geometric plane. 
+%Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation. %Pablo: some cite here?
+This method is normally used as a data visualization tool, since it allows to project any multi-variated dataset in a two-dimensional display, so an expert can detect topological relations among its neurons and thus make inferences or find interesting relationships on the input dataset (such as clusters, for instance).
 
 Basically, SOM consists of two layers: input layer and output, also
 known as Kohonen, layer. Input layer is fully connected with the 
@@ -587,35 +589,28 @@ is updated along with its neighbor neurons. This neuron is called the
 best matching unit (BMU). The goal of the learning process is to
 minimize the neighborhood distance in the output clusters.  
 
-When the learning process is done a visual representation method like
-the Unified Distance Matrix, or U-matrix for short, is used to
-visualize the distances between neurons in the output space. In the
-U-matrix, the distance between adjacent neurons is measured and
-assigned different colors. Dark colors between neurons indicate large
-distances (boundaries) while ligh colors represent similar areas
-(clusters).
+Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colors. Different colors between neurons indicate large distances (boundaries) while similar colors represent close areas (clusters).
+
+% Antonio - a better description of U-Matrix. ;D
 
 %---
-
-
-
 
 This method is usually applied to analyse data as similar items tend to be 
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those
 regions, or clusters, with high training sample concentration and fewer
-where the samples are scarce.  
+where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those that can have a higher influence on the creation of that cluster.
 %FERGU: mencionarlo en la intro
 % Which is interesting because... JJ
+% Antonio - explained. ;)
 
-As far as the feature selection methods are concerned, Weka software separates the process into two parts:
-%FERGU: por qué mencionamos a Weka aquí y no antes?
-% Antonio - se ha mencionado, pero sí, habría que destacarlo un poco más desde la intro quizá.
+With respect to feature selection methods, the used Weka software separates the process into two parts:
+
 \begin{itemize}
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
-(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretised. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
@@ -879,8 +874,7 @@ Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hex
 % Antonio - done. ;)
 
 
-Figure \ref{fig:componentplanes} shows the U-matrix and component
-variables resulted from SOM training. The term component is used in
+Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
 % really, are you reading this with the mind of someone that has no
 % idea what is SOM or U-Matrix or whatever? Tell first what you are
 % going to do, then tell why you are doing it, explain all the
@@ -888,11 +882,10 @@ variables resulted from SOM training. The term component is used in
 % done this and this is the result. You have to explain why you are
 % doing it, what you are doing, how you are doing it and then how to
 % interpret the results - JJ
-SOM to refer to the features. %use features!!!! - JJ
- The component planes in Figure %what is a plane? Really, you don't
-                                %know what's in the mind of the reader
-                                %(or reviewer#3, who is a son of a
-                                %bitch - JJ
+% Antonio - now it must be clearer with the new explanations given before
+The component planes in Figure 
+%what is a plane? Really, you don't know what's in the mind of the reader (or reviewer#3, who is a son of a bitch - JJ
+% Antonio - now it should be clear. This is the accurate term for the output of SOM: component planes analysis
 \ref{fig:componentplanes} show the trend of values of the prototype
 vectors of the SOM map units. These values are represented as
 colours. The colorbar on the right of each component plane shows the
@@ -901,7 +894,8 @@ left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
-the distances between units is also represented as hexagons. % but
+the distances between units are also represented as inter-neuron hexagons. 
+                                % but
                                 % explain that at the beginning!
                                 % Devote one or two paragraphs to tell
                                 % the reader what is U-Matrix, a
@@ -913,6 +907,7 @@ the distances between units is also represented as hexagons. % but
                                 % remember, a son of a bitch) will
                                 % tell you to just suppress that whole
                                 % section - JJ
+% Antonio - I have done it. However Ihave focused the explanation on the feature selection 'ability' of the method. ;)
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
@@ -960,7 +955,20 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-After applying the feature selection methods, we have run the same forecasting models as in Section \ref{subsec:results_all_publishers} for the whole dataset (all the publishers), but considering only the selected features by each method. The results are shown in Table \ref{tab:results_all_publishers_fs}. Examining the obtained results for each feature selection method, it can be seen that RFE got the best results compared to SOM and CSE. It can be noticed also that the performance of M5P, kNN and RF has been improved with RFE compared to the case of using all features. In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
+After applying the feature selection methods, we have run the same
+forecasting models as in Section \ref{subsec:results_all_publishers}
+for the whole dataset (all the publishers), but considering only the
+selected features by each method. The results are shown in Table
+\ref{tab:results_all_publishers_fs}. Examining the obtained results
+for each feature selection method, it can be seen that RFE got the
+best results compared to SOM and CSE. It can be noticed also that we
+obtain better performance in M5P, kNN and RF using only features
+selected by RFE than using all features. %Better publish results in
+                                %the same table or refer to the table
+                                %where it was published. Is this
+                                %difference statistically significant?
+                                %- JJ
+ In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
 
 \begin{table}
 \centering{}%
@@ -1333,14 +1341,15 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \subsection{Decision trees for best seller}
 \label{subsec:decision_trees}
 
-In this section we show the output of one of the models built during the regression, namely we present one of the decision trees generated by M5P method, to demonstrate the value of the proposal to generate an useful decision-aid tool for and expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).
+In this section we show the output of one of the models built during the regression, namely we present two of the decision trees generated by M5P method applied to the data of the publisher that sells the most. These aim to demonstrate the value of the proposal to generate a useful decision-aid tool for an expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).  
 
-%***TO DO:*** better explain this
-% Sam will do it 
+First, Figure \ref{fig:decision_tree_best_seller} depicts the decision tree for the publishing company UDL929. The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. 
+The second decision tree (Figure \ref{fig:decision_tree_best_seller_fs}) corresponds to the same publishing company, so the same data were used, but the RAE feature selection method was applied. Thus, the main difference in the simplification of the regression models in the second tree and the remove of \texttt{print\_run} as part of the decision process after the feature selection.
 
-We have considered the publisher that sells the most as a good example case to show.
+Examining both trees, it can be noticed that \texttt{tot\_points\_sale} variable appears twice in the trees, being also the root. This indicates that the total number of points of sale has a big influence on the decision models and also a major role in forecasting the total sales. This is an interesting clue for the experts, who could check the expected impact of different number of selling points
+According to the trees, \texttt{distrib\_novelty} has also a big repercussion, appearing at the second level of the top of the trees.
 
-Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree for the best seller publishing company (UDL929). The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. This tree has been created considering the 10 pre-sales features.
+An important fact that these tree models reveal is that marketing variables, such as the total number of points of sale and the number of units distributed as novelty have higher influence on the prediction than the selling price of the book, which could be, initially, considered as one of the most important parameters to determine sales. This interpretation leads us to suggest that companies could probably improve the accuracy of their sales forecasting models by incorporating more marketing related variables in their models.  
 
 \begin{figure}[!ht] 
 \begin{center}
@@ -1350,11 +1359,6 @@ Figure \ref{fig:decision_tree_best_seller} depicts the obtained decision tree fo
 \end{center}
 \end{figure}
 
-%***TO DO***: comments on the figure\\
-
-Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained for the same publishing company (the same data, but just considering the selected features by ReliefAttributeEval method, since it is the one which yields the best results).
-
-%***TO DO***: better justify this\\
 
 \begin{figure}[!ht] 
 \begin{center}
@@ -1364,7 +1368,7 @@ Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained f
 \end{center}
 \end{figure}
 
-%***TO DO***: comments on the figure\\
+
 
 %********************************************************************************
 \section{Conclusions and Future Work}
@@ -1373,7 +1377,7 @@ Figure \ref{fig:decision_tree_best_seller_fs} shows the decision tree obtained f
 %***TO DO***: rewrite these conclusions with the new experiments, examples and results\\
 
 In this paper, the problem of how many books should be printed 
-when a new book is published is faced using several data-mining and
+when a new book is going to be published is faced using several data-mining and
 forecasting methods.
 
 This is a very challenging problem in this industry, because printing a higher 
@@ -1471,8 +1475,7 @@ and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Gra
 \appendix
 \section{APENDIX TABLES}
 
-Case 1-A: Developing prediction models to predict Total sales for
-PublishingCo704 with CfsSubsetEval feature selection.
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS). Best values in bold.}
@@ -1496,8 +1499,6 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
 \end{table}
 
 
-Case 1-A: Developing prediction models to predict Total sales for
-PublishingCo704 with SOM feature selection.
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (SOM-FS). Best values in bold.}
@@ -1524,8 +1525,6 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 %-----------------------------------
 
 
-Case 1-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLU11 with CfsSubsetEval feature selection.
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
@@ -1549,8 +1548,7 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \end{table}
 
 
-Case 1-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLU11 with SOM feature selection.
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
@@ -1577,9 +1575,6 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 %-----------------------------------
 
 
-Case 2-A: Developing prediction models to predict Total sales for
-PublishingCo-UDL929 with CfsSubsetEval feature selection.
-
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
@@ -1602,8 +1597,6 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \end{table}
 
 
-Case 2-A: Developing prediction models to predict Total sales for
-PublishingCo-UDL929 with SOM feature selection.
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
@@ -1629,8 +1622,7 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 
 %-----------------------------------
 
-Case 2-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLW12 with CfsSubsetEval feature selection.
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
@@ -1654,8 +1646,7 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
 \end{table}
 
 
-Case 2-B: Developing prediction models to predict Total sales for
-PublishingCo-UDLW12 with SOM feature selection.
+
 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
