@@ -424,78 +424,59 @@ Some specific interpretable models have been created as a final result of the wo
 \subsection{Data preprocessing by feature selection}
 \label{subsec:data_preproces}
 
-Then, a Feature Selection (FS) process  has
-been carried out, as  It is an effective dimensionality reduction
-technique and an essential preprocessing method to discard `noisy'
-(non-useful) features \cite{Krishnapuram2004}.
+At this stage, a Feature Selection (FS) process has been carried out, since it is an effective dimensionality reduction technique and an essential preprocessing method to discard less relevant or non-useful features \cite{Krishnapuram2004}.
 
-The aim of these
-% Did you know there were noisy features? Why? 
- 
-algorithms is exploring the space of attributes to find out which
-subset of them yields the best results in a classification or
-prediction problem. 
+The aim of these algorithms is exploring the space of attributes to find out which subset of them yields the best results in a classification or prediction problem. To this end, the features describing every pattern are analysed. In this case, among the variables describing a new book, some may affect predictions as they provide information, while others may not be necessary and even redundant.
 
-Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (publishers).
-
-
-Preprocessing a dataset means that it is revised in order to reduce errors, such as wrong or duplicated patterns, or for completing missing values. The aim is to look for the correctness,
-homogeneity, and completeness of the data. % useless paragraph - JJ
-
+The application of FS also aims to reduce the complexity of the obtained forecasting models themselves, which, in turn, implies a reduction in the computational time for building these models. The first has been a key factor in this work, because one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (publishers).
+Regarding the algorithm running, it time grows with the number of
+features, making it impractical for problems with a large number of features 
+\cite{Selvakuberan2008}, but this is a secondary objective in this work.
 %You need to lay out to the reader what you are going to do here. In
 %order to reach objective x, we need to do y, that is why we use
 %z. After using z, we prove that we have done y and thus reached
-%objective x. For instance
-% A exploratory data analysis that shows the distribution of variables
-% as well as a priori clusters is the first phase in any data
-% processing method
-% (BTW, you should include data visualization in problem description,
-% because it shows the distribution of problem variables and then
-% suggests ways to deal with it) - JJ
-% and so on...
+%objective x. For instance - JJ
+% Antonio - Now it has been explained
 
-After this process, the features describing every pattern are frequently analysed.
-In this case, among the variables describing a new book, some may affect 
-predictions as they provide information, while others may not be 
-necessary and even redundant.
 
 % You have to justify its application to this particular problem. What
 % was the runnning time with all variables? What reduction was your
 % target? - JJ
-Additionally, the algorithm running time grows with the number of
-features, making it impractical for problems with a large number of features 
-\cite{Selvakuberan2008}. Feature reduction is a task that is usually
-applied in these kind of situations, having two ways of performance
-\cite{kittler1986feature}: feature extraction and feature selection.  
-% two ways of performance? WTF? Do you mean "being performed in two
-% different ways?" - JJ
-%Feature selection task is usually carried out by 
-%searching through all possible combinations of features, evaluating each one. 
+% Antonio - I have explained before. The aim is not reducing the time, but the complexity of the obtained models in order to be more useful for a human
 
 % During the evaluation, the set of all possible features is analyzed in order 
 % to find the best set of features, ranking them according to some metric.
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-Feature extraction is a ``transformation-based approach'', therefore
-it transforms the original meaning of the features. This approach
+FS is one of the ways of performing a feature reduction, the other one is feature extraction \cite{kittler1986feature}. 
+Feature extraction is a `transformation-based approach', therefore
+it transforms the original meaning of the features. This method
 involves creating a subset of new features by combinations of the
 existing features, thus it is employed when the semantics of the
 original dataset will not be needed by any future process. On the
-contrary, feature selection attempts to retain the meaning of the
+contrary, FS attempts to retain the meaning of the
 original feature set. It is part of what is called semantic-preserving
-techniques, known as ``selection-based approaches". By searching
-through all possible combinations of features, the aim of these
-techniques is to determine a minimal feature subset to reduce
-processing time, while obtaining the same or higher accuracy as the
-initial feature set \cite{liu1998feature}. In the problem this work
-addresses, it is very important to maintain the semantics of the set of
-initial variables, and therefore several feature selection methods
-have been applied. 
+techniques, known as `selection-based approaches' \cite{liu1998feature}. 
+In the problem this work addresses, it is very important to maintain the semantics of the set of initial variables, and therefore just FS methods have been applied. 
+
+We have used some numerical FS methods included in Weka software \cite{Hall2009,Witten2011}. This tool separates the process into two parts:
+
+\begin{itemize}
+  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
+  
+  The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
+(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+
+``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
+  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
+
+For this reason, the search method used with CFS has been BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility. On the other hand, Ranker is the searching criteria used with the Relief evaluator. This method ranks features by their individual evaluations.
+\end{itemize}
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) feature selection technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) FS technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
 
 % Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
 % Antonio - explained here and below. Please check.
@@ -542,19 +523,6 @@ where the samples are scarce. U-Matrix graph, together with the projection of va
 % Which is interesting because... JJ
 % Antonio - explained. ;)
 
-With respect to feature selection methods, the used Weka software separates the process into two parts:
-
-\begin{itemize}
-  \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
-  
-  The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
-(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
-
-``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
-  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
-
-For this reason, the search method used with CFS has been BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility. On the other hand, Ranker is the searching criteria used with the Relief evaluator. This method ranks features by their individual evaluations.
-\end{itemize}
 
 Finally, Section \ref{sec:experiments} provides a comparison between the feature reduction through SOM, and the feature selection techniques that have been described.
 
@@ -573,10 +541,7 @@ is available, not all forecasting methods can be used in this specific problem.
 Thus, in this research five forecasting methods, based on the literature 
 review in the introduction 
 \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
-Well known forecasting methods implemented in the Weka tool
-\cite{Hall2009,Witten2011} have been chosen, as these methods are
-widely known, and could be very helpful for practitioners to reproduce
-experiments and even to solve similar sales prediction problems using
+Well known forecasting methods implemented in the Weka tool have been chosen, as these methods are widely known, and could be very helpful for practitioners to reproduce experiments and even to solve similar sales prediction problems using
 these methods. % Why these and not others? Exploratory data analysis?
                % - JJ
 
