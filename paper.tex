@@ -118,7 +118,6 @@ neural networks \cite{Yoo1999}
 or fuzzy systems \cite{Mastorocostas2001}, 
 have been applied to solve sales prediction problems in other industrial sectors.
 
-
 Specifically, time-series prediction methods
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}  
 is perhaps the most used technique to tackle sales forecasting
@@ -130,17 +129,11 @@ applied before the book is published, as is the objective of this paper.
 
 In this case, just a few variables are known in advance
 \cite{ChingChin2010,FaderHardie2005,Madsen2008}, and some of 
-them are categorical, which makes them harder to process, even more so if the number
-of categories is high. As stated in those works, given these issues, finding adequate
-forecasting techniques and selecting the best method to use is also a problem.
+them are categorical, which makes them harder to process, even more so if the number of categories is high. As stated in those works, given these issues, finding adequate forecasting techniques and selecting the best method to use is also a problem.
 
 For this reason, usually the methods used to predict book sales have
 been generally based on experts' experience.% Reference - JJ
- They analyse data about
-sales and, taking into account their knowledge of industry, their
-experience, and their perception about trends, could make decisions on
-the companies production, i.e. how many books should be printed when a new
-book is published. 
+ They analyse data about sales and, taking into account their knowledge of industry, their experience, and their perception about trends, could make decisions on the companies production, i.e. how many books should be printed when a new book is published. 
 This is a complex problem, since the predictions are influenced by
 external variables that must be taken into account, such as
 seasonality, promotions, or fashions that expert managers might
@@ -155,20 +148,20 @@ subjectively apply \cite{Lapide1999,ChernWSF15}. % This
   %  sobre "Use Blog Information As Book Sales Prediction":
   %     Moon2010ICSSSM
   %     Moon2010ICEC
-Recently, some works have proposed analysing relationships between on-line information 
-and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon
-et al. propose using the number of blog references as an indicator of
+Recently, some works have proposed analysing relationships between on-line information and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. Specifically, Moon et al. propose using the number of blog references as an indicator of
 the success of a book, and thus, its sales. Different sales patterns
-are observed by analysing data obtained. 
+are observed by analysing the obtained data. 
 % Antonio - describir esos 'sales patterns'. ;)
 % FERGU: y también cuales son esos 'data obtained'
-However, the authors used in these papers historical data from published books, 
-so their proposed methodology can not be applied to the problem of unpublished books sales prediction.
+%The authors considered in these papers historical data from published books, 
+%so their proposed methodology can not be applied to the problem of unpublished %books sales prediction.
 %FERGU: pero nosotros también usamos historical data, no? qué diferencia hay con lo nuestro? por qué lo nuestro es lo mejor?
 % (Paloma) Agree with Fergu, I don't think we should say this... Please review it.
 
 % [pedro] La cosa es que esta gente toma libros ya publicados y de los que tienen todos los datos de ventas para analizar y obtener patrones de ventas. Nosotros trabajamos con datos de libros que ni siquiera se han impreso aún, por lo que no tenemos ni idea de cómo van a funcionar. Esta gente dispone de datos de ventas, mientras que nosotros sólo vamos a tener datos relativos a "¿dónde lo vas a poner a la venta?" o "¿vas a dar algún regalo para intentar vender más?" (cosas así).
 
+% Antonio - He intentado escribirlo, pero no me queda claro... Los datos que tenemos son también de libros ya publicados, ¿no?. Estamos considerando variables pre-venta sólamente, eso sí, pero usando datos históricos queremos predecir ventas futuras.
+% Quizá lo que habría que señalar (aquí y en los demás sitios que se dice lo de los datos históricos) es lo de las variables que se consideran, si son variables post-venta o pre-venta, como es nuestro caso. ;)
 
 %
 % pasar a contar los casos de la predicción de ventas en la 
@@ -180,6 +173,10 @@ so their proposed methodology can not be applied to the problem of unpublished b
 % Hay que echar mano de productos similares o simplemente de los datos que describen el nuevo producto.
 %
 
+In general, historical data are used to make time series, as well as for extracting common patterns and obtaining accurate predictions from them.
+However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
+\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem. %PABLO: pre-sales data is mentioned briefly in introduction, expand it
+
 In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods \cite{Hammond1990,Chang2009,ChingChin2010,Thomassey2012,Xia2012}. 
 % Antonio - Maybe we should describe them briefly...
 %
@@ -187,10 +184,8 @@ In the same line, Thomassey et al. \cite{SThomassey2014} proposed using a cluste
 a very similar issue to the new book publishing one. % (Paloma) Very similar? Why?
 The same problem was previously faced by Xia et al. \cite{Xia2012} using a 
 forecasting method based on extreme machine learning with adaptive metrics of inputs.
-% Antonio - of -> as???
-% (Paloma) It's "of" in the title...
+
 The complexity of this problem relies on the lack of historical data, on the short lifetime of the majority of items, 
-% Antonio - ver si está bien el cambio 'large number' -> 'majority'
 and on the influence of variables such as promotions, fashions, or economic environment \cite{Thomassey2012,Xia2012,SThomassey2014}, as mentioned above.
 %FERGU: completar con: "In our case, these ideas ..."
 
@@ -226,8 +221,7 @@ with a big amount of online reviews and historical data.
 Thus, taking into account the kind of problem we address in this
 paper, i.e. the prediction of sales of a new product for which no
 historical data are available, the classical forecasting methods based
-on time-series are not 
-adequate, although they can obviously be used once the book has been launched for sale. 
+on time-series are not adequate, although they can obviously be used once the book has been launched for sale. 
 In our work the relevant variables in the prediction of sales are identified
 by means of data visualisation and feature selection methods. Then, machine learning techniques are applied to predict sales and to infer the ideal print-run of a book.
 In addition, since publishers need models to explain obtained predictions, 
@@ -235,24 +229,15 @@ In addition, since publishers need models to explain obtained predictions,
 on decision rules have been tested as an alternative. 
 
 
-
 %********************************************************************************
 \section{Problem description}
 \label{sec:problem}
 
+The problem to solve in this work is the forecasting of sales for new launched books in the Spanish market, considering a set of `pre-sales variables'.
+The objective is to offer a tool for publishers which will aid them to decide the best print run for a new book which before its publication process starts. This is a forecasting problem for which no specific historical data are available, since the same book has not been previously published.
+However, we have considered data about other previously published books and have taken as reference a set of variables (or features), related with the book publication process.
 
-The main objective of this paper is to forecast sales for 
-%FERGU: el objetivo es la herramienta o la predicción?
-unpublished books for which no historical data are available. Instead, just some
-%FERGU: pero usamos datos históricos de otros para la predicción, no? Como otros papers...
-descriptive and variables are known in advance related to the new book. In
-order to do that, we have used a training dataset which includes
-historical sales data % (Paloma) so, have we or have we not historical data? It's all contradictory
- for a big amount of books published in Spain for
-several years, with a set of 50 features or variables per pattern.  
-
-The initial dataset, provided in the framework of a contract by
-Trevenque Editorial S.L., included 3159 books. Table
+The training dataset included historical data about 6083 books published in Spain for several years, with an initial set of 50 variables per pattern. It was provided by the Spanish publishing company Trevenque Editorial S.L.. Table
 \ref{tabla:paramsOrig50} shows the initial set of variables describing
 each book. 
 
@@ -324,115 +309,17 @@ negative sales environment
 \end{center}
 \end{table}
 
-% Antonio - briefly describe the variables
-
-In this prediction problem there are other external variables that also affect 
-the sales of a new book, such as those related to seasonality, trends, or 
-promotions, that classical prediction methods can not deal with. %FERGU: por qué?
-However, an expert can consider them to modify the forecast obtained by 
-the automatic method. Even publishing companies tend to define rules or 
-indexes to subjectively adjust the results of prediction based on
-external data. 
-Thus, the proposed method will analyse the provided data and
-variables and will yield a forecast of sales according to them. This
-result could be used as a reference for a human expert, who would
-consider it in his or her own prediction process. 
-
-% This section is too short and really does not describe the problem
-% to its full extent. First, it should say if some of these variables
-% were discarded for some reason. Group the variables we have in those
-% available to publisher and those that can be used afterwards. And
-% then give an idea of the complexity of the problem and how difficult
-% it should be to find a solution - JJ
-
-
-%********************************************************************************
-\section{Methodology}
-\label{sec:methodology}
-
-There is not a standard methodology to solve the general problem of sales forecasting. This is why the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. These are described below.
-% Antonio - quito esto porque ya no es lo que se ha hecho. El objetivo del paper no es la metodología a seguir, eso es estándar. ;)
-%FERGU: hacer más hincapié de esto en la intro entonces
-%In this work we have followed these steps: %FERGU: por qué estos steps y no otros? Ponerlo aquí. Esta metodología es general o solo para este paper?
-%\hspace{2cm}
-%\begin{verbatim}
-%  Step 1: Collect and analyse data
-%       - Data preprocessing
-%       - Feature selection
-%  Step 2: Select the best forecasting method
-%       - Evaluate forecasting models
-%       - Perform forecast
-%  Step 3: Subjectively adjust obtained results
-%      - Apply additional expert knowledge, such as information 
-%        about seasonality or trends.
-%\end{verbatim}
-
-%Usually, a preliminary analysis of the data is carried out to eliminate those 
-%variables that describe the product but do not provide useful information during 
-%the prediction process.
-
-First, after the publishing company has provided the raw data
-(extracted directly from its database), a preprocessing method has
-% This should go to the previous section. 
-been performed in order to remove incorrect or incoherent patterns,
-such as those with null values in required variables, or with negative
-sales, for instance. % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
-Furthermore, the initial set of variables, presented
-in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to
-use just those that can be known in advance when a new book is
-launched, i.e. \textit{pre-sales data}. % (Paloma) Where are they? In table 2?
-
-% You have to present the problem and not the solution. It's not "what
-% you did last summer", it is SCIENCE. Why did you think FS was
-% needed? What procedure did you use for it?
-Then, a Feature Selection (FS) process \cite{kittler1986feature} has
-been carried out, as it is an effective dimensionality reduction
-technique and an essential preprocessing method to discard `noisy'
-(non-useful) features \cite{Krishnapuram2004}. The aim of these
-% Did you know there were noisy features? Why? 
-% You should include in the previous section an exploratory data
-% analysis that describes the range of variables, how many categories
-% those variables have, and so an do forth - JJ 
-algorithms is exploring the space of attributes to find out which
-subset of them yields the best results in a classification or
-prediction problem. 
-  In this stage, both numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting 
-methods.  
-% Antonio - Decidir si es 'forecasting' o 'regression' (o si son indiferentes) y usarlo siempre en el texto
-  This task may also help to identify leading indicators to be considered by a human expert to make predictions.
-
-Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (publishers).
-
-After this process, several forecasting techniques have been tested, such as rule- or tree-based, together with numerical methods. 
-% Antonio - is 'numerical' the best term for these kind of methods?
-%FERGU: OJO que en esta sección a veces usáis el presente perfecto (have been) y otras el presente (is performed)
-% Antonio - Corregido. ;)
-%
-
-
-Once the models and results have been obtained for the whole dataset, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal.
-Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
-
-%The created forecasting models and results, along with the selected subset of features, are analysed and presented to the experts in order to aid his/her decision. They might manually adjust the forecasting results taking into account their knowledge in industry experience and their perception about trends.
-
-%FERGU: poner aquí algo de un párrafo que explique como se valida la metodología
-% Antonio - TODO: esto habrá que explicarlo mejor cuando esté hecho y veamos lo que sale. ;)
-
-%-------------------------------------------------
-\subsection{Data collection}
-\label{subsec:data_collection}
- 
-
-In general, historical data are used to make time series, as well as for extracting common patterns and obtaining accurate predictions from them.
-However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
-\cite{ChingChin2010}. Thus, only pre-sales data are available in this problem. %PABLO: pre-sales data is mentioned briefly in introduction, expand it
-
-Due to this situation, the initial set of features in the dataset must be revised in order to consider just those that can be known before the launch of the book, i.e. those whose value do not depend on the book sales. Therefore, we have selected the subset of features described in Table \ref{tabla:params_pre_sales}.
+Starting from these raw data, a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. 
+% (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
+% Antonio - because we should not fill important variables automatically, this adds noise to the data, so I think it is better to remove these patterns, since there are still a lot in the dataset. 
+% Indeed, there were just a couple of patterns without important values, that probably were errors of the extraction process or bad insertions in the database.
+Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to use just those that can be known before a new book is launched, i.e. \textit{pre-sales data}. Thus, their value do not depend on the book sales. The selected the subset of features is described in Table \ref{tabla:params_pre_sales}.
 
 
 \begin{table}
 % Shouldn't this table go to "Problem description"? It is a
 % preliminary selection - JJ
+% Antonio - done
 \caption{Considered pre-sales features and their types. The third column shows
   the names of the variables used in the applied methods, and the last one indicates if they have been used as an input (independent) or an output (dependent) variable.} 
 \label{tabla:params_pre_sales}
@@ -466,17 +353,91 @@ As it can be seen in the table, \texttt{total\_sales} is the output variable, so
 
 Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
 
-With regard to the feature \textit{publisher}, we have removed it from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers will not consider the results in other publishing companies for predicting its own sales.
+With regard to the feature \textit{publisher}, it has been removed from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers probably will not want to use the results of other publishing companies for predicting their own sales.
 % Antonio - Think about this... should we mention this?
 % (Paloma) If you finally leave it, please review it because this last sentence is a bit confusing
+% Antonio - I guess it is now clearer
 
 Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \cite{wiki:dewey}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
 
+In this prediction problem there are other external variables that also affect 
+the sales of a new book, such as those related to seasonality, trends, or 
+promotions, that classical prediction methods can not deal with, since they are not included in the dataset due to the difficulty to model them. %FERGU: why?
+% Antonio - explained.
+However, an expert can consider them to modify the forecast obtained by 
+the automatic method. Even publishing companies tend to define rules or 
+indexes to subjectively adjust the results of prediction based on
+external data. 
+Thus, the proposed method will analyse the provided data and
+variables and will yield a forecast of sales according to them. This
+result could be used as a reference for a human expert, who would
+consider it in his or her own prediction process. 
+
+% This section is too short and really does not describe the problem
+% to its full extent. First, it should say if some of these variables
+% were discarded for some reason. Group the variables we have in those
+% available to publisher and those that can be used afterwards. And
+% then give an idea of the complexity of the problem and how difficult
+% it should be to find a solution - JJ
+% Antonio - I have included much more contents form other sections. could you do the rest?
+
+% You should include data visualization in problem description,
+% because it shows the distribution of problem variables and then
+% suggests ways to deal with it - JJ
+% You should include in the section an exploratory data
+% analysis that describes the range of variables, how many categories
+% those variables have, and so an do forth - JJ
+% Antonio - as you know SOM has been applied later as a feature selection method... I don't know if we could reference the figure of SOM here or the other way round (do the analysis here and reference later), but in that case, we should explain SOM before, which could be a mess...
+% Antonio - If you meant using other visualization methods... could you do it also?
+
+
+%********************************************************************************
+\section{Methodology}
+\label{sec:methodology}
+
+There is not a standard methodology to solve the general problem of sales forecasting. This is why the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. These are described in the following sections.
+
+As a summary, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques are applied, such as Feature Selection (FS) \cite{kittler1986feature} (see Section \ref{subsec:data_preproces}). These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain easier-to-interpret models, in a less amount of time (due to their lower complexity), and with a fair or, hopefully, better accuracy.
+This task may also help to identify leading indicators to be considered by a human expert to make predictions.
+
+% You have to present the problem and not the solution. It's not "what
+% you did last summer", it is SCIENCE. Why did you think FS was
+% needed? What procedure did you use for it?
+% Antonio - done
+In this stage, both numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting 
+methods.  
+% Antonio - Should we speak about 'forecasting' or 'regression', Sam? Coudl they be used with the same meaning?
+
+After this process (in Section \ref{subsec:select_method}), a selection of the best forecasting techniques have been conducted, looking for those rule- or tree-based, together with numerical methods which could yield the best results. 
+
+Once the models and results have been obtained for the whole dataset (Section \ref{sec:experiments}), the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
+Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
 
 
 %-------------------------------------------------
-\subsection{Data preprocessing and initial analysis}
+%\subsection{Data collection}
+%\label{subsec:data_collection}
+ 
+
+
+%-------------------------------------------------
+\subsection{Data preprocessing by feature selection}
 \label{subsec:data_preproces}
+
+Then, a Feature Selection (FS) process  has
+been carried out, as  It is an effective dimensionality reduction
+technique and an essential preprocessing method to discard `noisy'
+(non-useful) features \cite{Krishnapuram2004}.
+
+The aim of these
+% Did you know there were noisy features? Why? 
+ 
+algorithms is exploring the space of attributes to find out which
+subset of them yields the best results in a classification or
+prediction problem. 
+
+Moreover, the application of FS also aims to reduce the computational time for building the forecasting models, along with the complexity of the obtained models themselves. This has been a key factor in this work since one of the objectives is to obtain `easily' interpretable decision models, which can be useful for human experts (publishers).
+
 
 Preprocessing a dataset means that it is revised in order to reduce errors, such as wrong or duplicated patterns, or for completing missing values. The aim is to look for the correctness,
 homogeneity, and completeness of the data. % useless paragraph - JJ
@@ -719,8 +680,6 @@ published.
 
 At this step, the developed forecasting models are evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
 Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
-%FERGU: have been selected for this methodology, for this work... algo así
-% Antonio - ya se ha dicho. ;)
 
 \begin{itemize}
   \item \emph{Mean Absolute Error} (MAE):
@@ -744,6 +703,8 @@ Specifically, in order to compute the forecasting errors of the different method
         \end{equation}
 \end{itemize}
 where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
+
+
 
 %********************************************************************************
 \section{Experiments and Results}
@@ -1397,7 +1358,7 @@ such as dealing with limited data, finding adequate forecasting methods, and
 selecting the best method to use.
 
 %La investigación descrita en este trabajo se ha llevado a cabo conjuntamente con una empresa editorial que ha facilitado un conjunto de datos con los que trabajar, así como con la ayuda de un experto en ventas de este campo para validar los resultados obtenidos.
-A dataset consisting of 3159 books provided by the Spanish %FERGU: mover este párrafo debajo del siguiente
+A dataset consisting of 6000 books provided by the Spanish %FERGU: mover este párrafo debajo del siguiente
 publishing company Trevenque Editorial S.L. has been used.
 
 In this paper, a data visualisation method has been used to find out what are 
