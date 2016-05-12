@@ -1,4 +1,4 @@
-\documentclass{llncs}
+\documentclass[final,1p,times]{elsarticle}
 \usepackage{graphics}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -7,31 +7,44 @@
 \usepackage{url}
 \usepackage{appendix}
 
-\def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}~}
-\addtolength{\textfloatsep}{-0.5cm}
-\addtolength{\intextsep}{-0.5cm}
+%\def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}~}
+%\addtolength{\textfloatsep}{-0.5cm}
+%\addtolength{\intextsep}{-0.5cm}
 
+
+\journal{Expert Systems with Applications}
+
+\begin{document}
+
+\begin{frontmatter}
 
 %%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
 \title{Enhancing the prediction of sales for newly published books by
   means of computational intelligence methods} 
 
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
-\author {
-P.A. Castillo$^1$, A.M. Mora$^1$, H. Faris$^2$, J.J. Merelo$^1$, \\ P. Garc\'{\i}a-S\'anchez$^1$, A.J. Fern\'andez-Ares$^1$, P. de las Cuevas$^1$, M.G. Arenas$^1$
-}
-\institute{
-$^1$Department of Computer Architecture and Computer Technology. CITIC, ETSIIT. University of Granada (Spain)\\
-$^2$Business Information Technology Department. King Abdullah II School for Information Technology. The University of Jordan. Amman (Jordan)\\
-e-mail: {\tt pacv@ugr.es, amorag@geneura.ugr.es, hossam.faris@ju.edu.jo,
-  jmerelo@geneura.ugr.es, pablogarcia@ugr.es,
-  antares.es@gmail.com, palomacd@ugr.es, mgarenas@ugr.es}
-}
 
-\date{}
 
-\begin{document}
-\maketitle
+\author[ugr]{Pedro A. Castillo Valdivieso}
+\ead{pacv@ugr.es}
+\author[ugr]{Antonio Miguel Mora}
+\ead{amorag@geneura.ugr.es}
+\author[abd]{H. Faris}
+\ead{hossam.faris@ju.edu.jo}
+\author[ugr]{J.J. Merelo}
+\ead{jmerelo@geneura.ugr.es}
+\author[ugr]{Pablo Garc\'{\i}a-S\'anchez}
+\ead{pablogarcia@ugr.es}
+\author[ugr]{Antonio Javier Fern\'andez-Ares}
+\ead{antares.es@gmail.com}
+\author[ugr]{Paloma de las Cuevas}
+\ead{palomacd@ugr.es}
+\author[ugr]{María Isabel García Arenas}
+\ead{mgarenas@ugr.es}
+
+
+\address[ugr]{Department of Computer Architecture and Computer Technology and CITIC-UGR, University of Granada, Granada, Spain. Tel: +34958241778. Fax: +34958248993}
+\address[abd]{Business Information Technology Department, King Abdullah II School for Information Technology, The University of Jordan, Amman, Jordan. Tel: +. Fax: +}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
@@ -44,6 +57,21 @@ The obtained models are able to predict sales from pre-publication data with
 remarkable accuracy, and can be visualised as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
 This is also shown in the paper by addressing four example cases of representative publishers, regarding their number of sales and the number of different books they sell.
 \end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Regression  
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
+
+\end{frontmatter}
+
+
+
+
+
+
 
 
 %********************************************************************************
@@ -1297,7 +1325,7 @@ An important fact that these tree models reveal is that marketing variables, suc
 
 \begin{figure}[!ht] 
 \begin{center}
-  \epsfig{file=decision_tree_no_fs.eps,width=12cm}
+  \epsfig{file=decision_tree_no_fs.eps,width=13cm}
 \caption{Decision Tree built by the M5P method for the best seller publishing company with all the pre-sales features.}
 \label{fig:decision_tree_best_seller}
 \end{center}
@@ -1306,7 +1334,7 @@ An important fact that these tree models reveal is that marketing variables, suc
 
 \begin{figure}[!ht] 
 \begin{center}
-  \epsfig{file=decision_tree_fs.eps,width=12cm}
+  \epsfig{file=decision_tree_fs.eps,width=13cm}
 \caption{Decision Tree built by the M5P method for the best seller publishing company with the features selected by the ReliefAttributeEval method.}
 \label{fig:decision_tree_best_seller_fs}
 \end{center}
@@ -1411,7 +1439,7 @@ PROY-PP2015-06 (Plan Propio 2015 UGR),
 and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Granada.
 
 %********************************************************************************
-\bibliographystyle{plain}
+\bibliographystyle{elsarticle-num}
 \bibliography{refs}
 
 %----------------------------------------------------------------------
@@ -1424,6 +1452,7 @@ and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Gra
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1440,6 +1469,7 @@ LR & 80.1 $\pm$0.10 & 106.62 $\pm$21.52 & 173.18 $\pm$46.58 & 59.11 $\pm$14.96 &
 SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 65.62 $\pm$6.25 & 0.040 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1447,6 +1477,7 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (SOM-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1463,6 +1494,7 @@ LR & 87.5 $\pm$0.06 & 88.70 $\pm$16.34 & 135.03 $\pm$35.18 & 49.08 $\pm$10.47 & 
 SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 55.72 $\pm$7.15 & 0.031 $\pm$0.003\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1473,6 +1505,7 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1489,6 +1522,7 @@ LR & 67.0 $\pm$0.23\ & 857.22 $\pm$308.69 & 1352.26 $\pm$945.31 & 86.10 $\pm$24.
 SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.27 & 105.40 $\pm$37.73 & 0.017 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1497,6 +1531,7 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1513,6 +1548,7 @@ LR & 71.0 $\pm$0.19 & 723.74 $\pm$247.96 & 1108.74 $\pm$736.17 & 74.14 $\pm$24.9
 SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.87 & 76.10 $\pm$16.80 & 0.019 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1522,6 +1558,7 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1538,6 +1575,7 @@ LR & 86.6 $\pm$0.12 & 936.56 $\pm$204.46 & 1329.24 $\pm$480.79 & 58.04 $\pm$16.9
 SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.12 & 56.17 $\pm$7.8 & 0.020 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1545,6 +1583,7 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1561,6 +1600,7 @@ LR & 86.6 $\pm$0.13 & 894.08 $\pm$206.60 & 1282.83 $\pm$451.87 & 55.29 $\pm$15.9
 SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.75 & 55.95 $\pm$12.49 & 0.022 $\pm$0.002\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1571,6 +1611,7 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1587,6 +1628,7 @@ LR & 81.6 $\pm$0.22 & 15.67 $\pm$6.55 & 25.49 $\pm$11.63 & 47.97 $\pm$18.85 & 60
 SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 65.12 $\pm$16.36 & 0.013 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
@@ -1595,6 +1637,7 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
 \begin{table}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
 \centering{}%
+\resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
@@ -1611,6 +1654,7 @@ LR & 85.4 $\pm$0.21 & 14.59 $\pm$7.13 & 24.40 $\pm$12.87 & 44.81 $\pm$23.65 & 57
 SVM & 84.4 $\pm$0.18 & 14.18 $\pm$7.96 & 26.49 $\pm$16.54 & 40.93 $\pm$16.65 & 54.37 $\pm$20.00 & 0.01 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
+}
 \end{table}
 
 
