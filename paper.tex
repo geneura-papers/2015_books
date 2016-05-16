@@ -88,7 +88,7 @@ only be based on the knowledge obtained from other similar products,
 but the definition of ``similar'' itself is fuzzy and, sometimes,
 subjective. Even if the author or the topic is known, doing accurate
 estimations of future sales of the new product is quite difficult, and extremely important, so that production runs heed predicted sales. 
-Indeed,several studies have demonstrated that improving sales predictions 
+Indeed, several studies have demonstrated that improving sales predictions 
 (a reduction of forecasting errors) results in an enhancement in the 
 production process \cite{Fildes2010,Saeed2008}.
 
@@ -185,7 +185,7 @@ Specifically, Moon et al. propose using the number of blog references as an
 indicator of the success of a book, and thus, its sales. 
 Obtained results confirm relationships between the number of blog references 
 and book sales, and at the same time different sales patterns are observed 
-by analyzing books in series (the first book published takes the longest period 
+by analysing books in series (the first book published takes the longest period 
 to achieve every single sales scale, while the second book takes the second 
 longest period, and so on).
 
@@ -204,7 +204,7 @@ However, in the case of new products, such as the issue of new books, past patte
 \cite{ChingChin2010}. Thus, only pre-sales data are available in this problem, i.e. variables known before the book is on sale.
 
 In order to deal with this issue, i.e. forecasting sales of new products, some authors have used different data mining methods, such as 
-"Accurate Response", an approach for demand estimation and production planning \cite{Hammond1990}, 
+``Accurate Response'', an approach for demand estimation and production planning \cite{Hammond1990}, 
 data clustering and fuzzy neural networks \cite{Chang2009} or 
 extreme learning machine with adaptive metrics of inputs \cite{Xia2012}. 
 %
@@ -239,7 +239,7 @@ present/launch new products every season.
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
 In those cases where historical data are available, classical time series 
-forecasting methods have beeen applied, such as in \cite{Chang2009}, 
+forecasting methods have been applied, such as in \cite{Chang2009}, 
 where a hybrid model integrating K-Means and fuzzy neural networks to forecast 
 the future sales of a printed circuit board is proposed.
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
@@ -499,7 +499,8 @@ We have used some numerical FS methods included in Weka software \cite{Hall2009,
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
-(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized. The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+(predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized.%Pablo: the Oxford dictionary accepts both (zed and sed), but the one with Z is the one that appears as main in the entry
+ The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
@@ -532,16 +533,16 @@ Kohen layer which is usually a two dimensional grid of neurons
 the input layer. 
 
 SOM follows an iterative process applied in two stages: First, the
-weights of the network are initialized randomly, then the n-dimensional
+weights of the network are initialised randomly, then the n-dimensional
 input vectors are presented to the network sequentially so the
 distance between the weights of the neurons and the inputs are
 computed using the simple Euclidean distance; in the second stage, the
 neuron which has the shortest distance with the presented input vector
-is updated along with its neighbor neurons. This neuron is called the
+is updated along with its neighbour neurons. This neuron is called the
 best matching unit (BMU). The goal of the learning process is to
-minimize the neighborhood distance in the output clusters.  
+minimise the neighbourhood distance in the output clusters.  
 
-Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colors. Different colors between neurons indicate large distances (boundaries) while similar colors represent close areas (clusters).
+Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colours. Different colours between neurons indicate large distances (boundaries) while similar colours represent close areas (clusters).
 
 % Antonio - a better description of U-Matrix. ;D
 
@@ -836,7 +837,7 @@ An important preprocessing step has been carried out before conducting the SOM a
 removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 
-Several configurations for SOM has been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a '1' is considered, otherwise a '0' is taken. A small value would mean that the map preserves well its topology.
+Several configurations for SOM has been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
 Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046. % explain what is quantisation and topographic error and why it is important - JJ 
 % Antonio - done. ;)
@@ -856,7 +857,7 @@ The component planes in Figure
 % Antonio - now it should be clear. This is the accurate term for the output of SOM: component planes analysis
 \ref{fig:componentplanes} show the trend of values of the prototype
 vectors of the SOM map units. These values are represented as
-colours. The colorbar on the right of each component plane shows the
+colours. The colourbar on the right of each component plane shows the
 indication of each colour. On the other side, the U-matrix on the top
 left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
@@ -877,7 +878,7 @@ the distances between units are also represented as inter-neuron hexagons.
                                 % section - JJ
 % Antonio - I have done it. However Ihave focused the explanation on the feature selection 'ability' of the method. ;)
 
-Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar color maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
+Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
 
 \begin{figure*}[ht]
