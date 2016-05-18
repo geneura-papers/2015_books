@@ -591,7 +591,7 @@ Specifically, the following forecasting methods are proposed:
 
  % weka.classifiers.trees.M5P
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item \emph{M5 Model trees}: 
+ \item \emph{M5 Model trees (M5P)}: 
 A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
 that contain an attribute name and branches to other sub-decision trees.
 Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
@@ -634,14 +634,14 @@ located, assigning the resulting class to an unclassified vector using the
 closest $k$ vectors found in the training set by majority vote.
 
 
- \item \emph{Random Forest}: This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution.
+ \item \emph{Random Forest (RF)}: This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution.
 The result is the average of the generated trees during the process.
 
 
  % weka.classifiers.functions.LinearRegression
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
- \item \emph{Linear Regression}:
- Linear regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
+ \item \emph{Linear Regression (LR)}:
+ Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
 relationship between a scalar dependent variable (outcome) and several independent 
 variables (predictor) over the range of values in the dataset. 
 In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
@@ -661,7 +661,7 @@ statistical learning theory and has successfully used in classification and
 regression problems \cite{Cao2003,Jari2008}.
 
 In classification problems the algorithm searches for an optimal hyperplane 
-that separates two classes, maximising the mthe argin between two classes. 
+that separates two classes, maximising the margin between them. 
 In the case of regression the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
@@ -785,7 +785,7 @@ Correlation coefficient, error measures and time to build the model have been co
 \hline 
 M5P  &  \textbf{89.0 $\pm$ 0.09}  &  \textbf{214.37 $\pm$ 22.96}  &  \textbf{634.23 $\pm$ 307.76}  &  \textbf{37.46 $\pm$ 3.12}  &  \textbf{48.32 $\pm$ 25.16} & 18.85 $\pm$ 0.61\tabularnewline
 \hline 
-K-NN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  &  \textbf{0.001 $\pm$ 0.01}\tabularnewline
+kNN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  &  \textbf{0.001 $\pm$ 0.01}\tabularnewline
 \hline 
 RF & 84.0 $\pm$ 0.05  & 253.37 $\pm$ 29.43  & 788.94 $\pm$ 282.01  & 44.16 $\pm$ 2.76  & 57.77 $\pm$ 8.15  & 4.91 $\pm$ 0.12\tabularnewline
 \hline 
@@ -959,7 +959,7 @@ by each method. Best values in bold.
 \hline 
 M5P & 89.2 $\pm$0.10 & 211.15 $\pm$22.41 & 616.35 $\pm$321.25 & 36.93 $\pm$3.41 & 47.30 $\pm$26.83 & 0.49 $\pm$0.02\\
 \hline 
-K-NN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 &  \textbf{0.002 $\pm$0.004}\\
+kNN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 &  \textbf{0.002 $\pm$0.004}\\
 \hline 
 RF &  \textbf{91.0 $\pm$0.05} &  \textbf{198.16 $\pm$19.50} &  \textbf{589.35 $\pm$195.80} &  \textbf{34.61 $\pm$2.27} &  \textbf{44.21 $\pm$11.63} & 3.63 $\pm$0.20\\
 \hline 
@@ -979,7 +979,7 @@ SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 
 \hline 
 M5P &  \textbf{87.0 $\pm$0.09} &  \textbf{266.78 $\pm$23.12} &  \textbf{662.32 $\pm$245.27} &  \textbf{46.66 $\pm$3.25} &  \textbf{50.9 $\pm$20.35} & 0.41 $\pm$0.04\\
 \hline 
-K-NN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 &  \textbf{0.001 $\pm$0.001}\\
+kNN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 &  \textbf{0.001 $\pm$0.001}\\
 \hline 
 RF & 85.0 $\pm$0.11 & 278.42 $\pm$23.07 & 714.13 $\pm$278.65 & 48.71 $\pm$3.43 & 55.26 $\pm$24.41 & 2.48 $\pm$0.13\\
 \hline 
@@ -1000,7 +1000,7 @@ SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 
 \hline 
 M5P  & 86.6 $\pm$0.10  & 234.09 $\pm$23.19  & 699.56 $\pm$317.20  & 40.92 $\pm$3.25  & 53.70 $\pm$26.87  & 0.475 $\pm$0.12\tabularnewline
 \hline 
-K-NN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  &  \textbf{0.001 $\pm$0.004}\tabularnewline
+kNN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  &  \textbf{0.001 $\pm$0.004}\tabularnewline
 \hline 
 RF &  \textbf{89.8 $\pm$0.05}  &  \textbf{211.87 $\pm$20.07}  &  \textbf{617.78 $\pm$187.16}  &  \textbf{37.02 $\pm$2.46}  &  \textbf{46.58 $\pm$11.14}  & 2.93 $\pm$0.11\tabularnewline
 \hline 
@@ -1072,7 +1072,7 @@ Evaluation results of the developed models (without performing any feature selec
 \hline 
 M5P  &  \textbf{90.0 $\pm$0.10} &  \textbf{670.24 $\pm$181.05}  &  \textbf{1065.34 $\pm$413.84}  &  \textbf{40.83 $\pm$10.86}  &  \textbf{43.56 $\pm$19.87}  & 0.03 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  &  \textbf{0 $\pm$0.0001}\tabularnewline
+kNN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  &  \textbf{0 $\pm$0.0001}\tabularnewline
 \hline 
 RF  & 87.6 $\pm$0.11  & 771.83 $\pm$326.34  & 1490.49 $\pm$930.58  & 45.40 $\pm$14.14  & 55.91 $\pm$31.70  & 0.08 $\pm$0.004\tabularnewline
 \hline 
@@ -1097,7 +1097,7 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 \hline 
 M5P  & 83.2 $\pm$0.24  & 14.18 $\pm$6.62  & 23.82 $\pm$11.86  & 43.41 $\pm$20.39  & 55.79 $\pm$30.47  & 0.009 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  &  \textbf{0.0001 $\pm$0.0002}\tabularnewline
+kNN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  &  \textbf{0.0001 $\pm$0.0002}\tabularnewline
 \hline 
 RF &  \textbf{85.8 $\pm$0.17}  & 14.19 $\pm$6.69  &  \textbf{23.57 $\pm$11.83}  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
 \hline 
@@ -1121,7 +1121,7 @@ SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \text
 \hline 
 M5P  &  \textbf{88.9 $\pm$0.07} &  \textbf{71.26 $\pm$21.29}  &  \textbf{125.19 $\pm$50.09}  &  \textbf{39.25 $\pm$11.77}  &  \textbf{47.50 $\pm$15.93}  & 0.05 $\pm$0.03\tabularnewline
 \hline 
-K-NN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+kNN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
 \hline 
@@ -1148,7 +1148,7 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 \hline 
 M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
 \hline 
-K-NN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  &  \textbf{0 $\pm$0.0002}\tabularnewline
+kNN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  &  \textbf{0 $\pm$0.0002}\tabularnewline
 \hline 
 RF &  \textbf{86.7 $\pm$0.07}  &  \textbf{449.16 $\pm$127.80}  &  \textbf{671.76 $\pm$212.74}  &  \textbf{45.58 $\pm$9.80}  &  \textbf{51.37 $\pm$11.16}  & 0.06 $\pm$0.01\tabularnewline
 \hline 
@@ -1211,7 +1211,7 @@ of tables at the end of this paper.
 \hline 
 M5P &  \textbf{90.5 $\pm$0.1} &  \textbf{661.81 $\pm$186.17} &  \textbf{1070.24 $\pm$425.66} &  \textbf{40.18 $\pm$10.50} &  \textbf{43.56 $\pm$19.77} & 0.02 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+kNN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
 \hline 
@@ -1239,7 +1239,7 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 \hline 
 M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
 \hline 
-K-NN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 &  \textbf{0 $\pm$0.0001}\tabularnewline
+kNN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 &  \textbf{0 $\pm$0.0001}\tabularnewline
 \hline 
 RF &  \textbf{86.7 $\pm$0.16} & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
 \hline 
@@ -1264,7 +1264,7 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$
 \hline 
 M5P  &  \textbf{89.3 $\pm$0.08}  &  \textbf{69.70 $\pm$19.85}  &  \textbf{122.48 $\pm$47.28}  & {38.49 $\pm$11.53}  &  \textbf{46.68 $\pm$16.02} & 0.028 $\pm$0.003\tabularnewline
 \hline 
-K-NN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+kNN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 87.7 $\pm$0.08  & 73.13 $\pm$22.95  & 137.60 $\pm$56.14  & 39.79 $\pm$10.69  & 51.35 $\pm$17.00  & 0.13 $\pm$0.01\tabularnewline
 \hline 
@@ -1291,7 +1291,7 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 \hline 
 M5P & 76.6 $\pm$0.17 & 592.49 $\pm$209.25 & 894.76 $\pm$508.14 & 60.21 $\pm$18.22 & 69.14 $\pm$37.35 & 0.02$\pm$0.001\tabularnewline
 \hline 
-K-NN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+kNN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF &  \textbf{85.3 $\pm$0.09} &  \textbf{455.7 $\pm$123.96} &  \textbf{686.54 $\pm$198.16} &  \textbf{46.32 $\pm$10.20} &  \textbf{53.03 $\pm$13.05} & 0.07 $\pm$0.003\tabularnewline
 \hline 
@@ -1348,97 +1348,55 @@ An important fact that these tree models reveal is that marketing variables, suc
 \section{Conclusions and Future Work}
 \label{sec:conclusionsAndFutureWork}
 
-%***TO DO***: rewrite these conclusions with the new experiments, examples and results\\
-
-In this paper, the problem of how many books should be printed 
-when a new book is going to be published is faced using several data-mining and
-forecasting methods.
+In this paper, the problem of how many books should be printed when a new book is going to be published is faced using several data-mining and forecasting methods.
 
 This is a very challenging problem in this industry, because printing a higher 
-number of volumes than those finally sold will lead to losses, 
-while printing an adequate number of copies will optimise sales and company earnings.
-In addition, there are several difficulties inherent to the new book sales forecasting, 
-such as dealing with limited data, finding adequate forecasting methods, and 
-selecting the best method to use.
+number of volumes than those finally sold will lead to losses, while printing an adequate number of copies will optimise sales and company earnings.
+In addition, there are several difficulties inherent to the new book sales forecasting, such as the limited amount of historical data to consider or the variability of the market (fashions, seasonality), which do a difficult task finding an adequate forecasting method.
 
-%La investigación descrita en este trabajo se ha llevado a cabo conjuntamente con una empresa editorial que ha facilitado un conjunto de datos con los que trabajar, así como con la ayuda de un experto en ventas de este campo para validar los resultados obtenidos.
-A dataset consisting of 6000 books provided by the Spanish %FERGU: mover este párrafo debajo del siguiente
-publishing company Trevenque Editorial S.L. has been used.
+A dataset consisting of 6000 books provided by the Spanish publishing company Trevenque Editorial S.L. has been used. These data have been analysed by means of Self-Organizing Maps as a visualisation tool, and two other Feature Selection techniques, namely a correlation-based feature subset evaluation method, and an adaptation of relief for attribute estimation. Using these methods the most relevant variables when predicting sales have been determined, while unrelated or superfluous ones have been removed.
 
-In this paper, a data visualisation method has been used to find out what are 
-the relevant variables describing a book in the prediction of book sales.
-Then, several standard data mining models for sales forecasting have been used 
-to forecast new book sales, and from them deduce print-run, based on those 
-variables.
+Four different datasets have been also extracted from the original one, everyone corresponding to a Publishing house which we have considered as representative: the one with the most number of sales, the one with the medium number of sales, with the most varied sales (different books), and with a medium number of different books sold.
 
-The most relevant variables when predicting sales have been determined, 
-while unrelated or superfluous ones have been removed, 
-and sales predictions have been obtained using five different forecasting 
-standard methods.
-Not only the obtained forecasting error has been taking into account to evaluate
-those methods, but also the cost of model building as parameter setting and 
-the required time to train the model.
+Considering these datasets and the complete one, five machine learning models for sales forecasting have been configured (according to the problem requirements) and used to predict new book sales, from which the optimal print-run could be estimated. These algorithms include some based on Decision Trees (M5P and Random Forest), kNN, Support Vector Machines and Linear Regression.
+These methods have been evaluated considering several performance indicators (error measures) and also the time consumed to build the corresponding models.
 
-In this sense, the decision trees proved to be a suitable model because of the 
-ease to explain how the prediction is obtained from the variables that describe 
-the new book. 
-This, compared to the black-box models such as the artificial neural network, 
-was decisive from the point of view of the needs of experts and Trevenque company.
-Moreover, proposed method was validated by the company and incorporated in a 
-business intelligence tool for publishing companies. %FERGU: no hay más info de esto? estaría guay describirlo
+As a conclusion, M5P yields the best results overall, obtaining the best accuracy (lowest error) on average, even with acceptable values regarding the training time.
+In addition, the Decision Trees obtained with this method have been presented as an excellent decision-aid tool for publishers, since they are accurate and quite easy to understand and apply. They are also able to provide insights on the decisions that have a higher influence on the print-run for these publishers. 
 
-%FERGU: no mencionais el SOM en las conclusiones
+This, compared to the output of black-box models such as artificial neural networks, was a determining advantage from the point of view of the needs of experts and Trevenque company.
 
-Overall, this study contributes to the literature by proposing the use of different 
-soft-computing standard techniques to solve a new challenging problem.
+%Moreover, proposed method was validated by the company and incorporated in a 
+%business intelligence tool for publishing companies. %FERGU: no hay más info de esto? estaría guay describirlo
+
+The feature selection techniques have also shown to positively affect all the results, yielding a better performance in time to train while maintaining good accuracy. Moreover, their application leads to obtain even simpler models.
+
+Overall, this study contributes to the literature by proposing the use of different soft-computing standard techniques to solve a new challenging problem.
 Moreover, proposed method could be implemented, not only in the publishing 
-industry, but also in other domains where the specificity of products is similar, 
-and might be of interest to other academic researches and industrial practitioners.
+industry, but also in other domains where the specificity of products is similar, and might be of interest to other academic researches and industrial practitioners.
+% Antonio - I don't know if we should say this...
 
+%Thus, the methodology presented here provides a reliable data processing technique for editorial data and also yields a reasonable result that allows publishers to forecast sales and then create the appropriate print run without incurring in losses. 
 
-%---------- trabajo futuro
+% -------- Future Work ---------
 
-As future work, it would be interesting to compare the obtained forecasting results 
-with other methods based on soft-computing, such as genetic programming or fuzzy logic.
-Moreover, as default parameters have been used for proposed forecasting methods,
-it would be of interest carrying out some parameter tuning procedure in order to
-improve obtained results.
+As future work, it would be interesting to compare the obtained forecasting results with those yielded by other soft-computing methods, such as genetic programming or fuzzy logic.
+Moreover, even if the methods have been configured to obtain the best forecasting results, it would be of interest carrying out some automatic parameter-tuning procedure by means of optimisation meta-algorithms, 
+% Antonio - add an ESWA reference to this. :D
+for instance.
 
 Furthermore, since there are some characteristics that may affect product sales 
-significantly, another way to improve sales predictions could be making a thorough 
-study of the effect of the application of discounts and promotions. 
+significantly, another way to improve sales predictions could be making a thorough study of the effect of the application of discounts and promotions. 
 
-Finally, there are some variables over which the published has some
-control once the book has been published, such as the initial print
-run or the books given out as gifts to reviewers or what proportion is
-going to be sent to each possible point of sale. This can be
-incorporated into an optimisation model that optimises those values to
-obtain desired sales. This is left as future work.
-
-% Antonio - TO BE INCLUDED IN THIS SECTION
-% The method presented here provides a reliable data processing
-% technique for editorial data and also yields a reasonable result
-% that allows publishers to forecast sales and then create the
-% appropriate print run without incurring in losses. 
-%
-% Besides, if this is true:
-% It also provides a method that is able to provide insight on the
-% decisions that have an influence on the print run for publishers. 
-
+Finally, there are some variables over which the publisher has some
+control once the book has been published, such as the initial print-run, the books offered as gifts to reviewers, or what proportion is going to be sent to each possible point of sale. These can be incorporated into an optimisation model that will optimise those values to obtain desired sales. 
 
 
 %********************************************************************************
 \section*{Acknowledgements}
 
-***TO DO***: revise the projects\\
+This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
 
-This work has been supported in part by projects 
-PreTEL (PRM Consultores - Trevenque S.L.),
-TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), 
-SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), 
-PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
-PROY-PP2015-06 (Plan Propio 2015 UGR), 
-and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Granada.
 
 %********************************************************************************
 \bibliographystyle{elsarticle-num}
@@ -1462,7 +1420,7 @@ and project CEI2015-MP-V17 of the Microprojects program 2015 from CEI BioTIC Gra
 \hline 
 M5P & 80.1 $\pm$0.09 & 104.87 $\pm$21.38 & 174.57 $\pm$47.33 & 58.11 $\pm$14.73 & 67.58 $\pm$22.61 & 0.018 $\pm$0.003\tabularnewline
 \hline 
-K-NN & 78.2 $\pm$0.12 & 99.45 $\pm$24.31 & 170.83 $\pm$46.34 & 54.53 $\pm$12.28 & 65.86 $\pm$18.34 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 78.2 $\pm$0.12 & 99.45 $\pm$24.31 & 170.83 $\pm$46.34 & 54.53 $\pm$12.28 & 65.86 $\pm$18.34 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
 RF & 77.6 $\pm$0.13 & 101.93 $\pm$23.66 & 180.56 $\pm$51.20 & 56.10 $\pm$13.62 & 69.86 $\pm$23.27 & 0.0738 $\pm$0.003\tabularnewline
 \hline 
@@ -1487,7 +1445,7 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
 \hline 
 M5P & 89.2 $\pm$0.07 & 71.536 $\pm$18.95 & 123.06 $\pm$42.13 & 39.43 $\pm$10.58 & 47.20 $\pm$15.16 & 0.031 $\pm$0.007\tabularnewline
 \hline 
-K-NN & 85.8 $\pm$0.09 & 79.42 $\pm$21.47 & 140.95 $\pm$44.93 & 43.34 $\pm$10.07 & 53.31 $\pm$14.37 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 85.8 $\pm$0.09 & 79.42 $\pm$21.47 & 140.95 $\pm$44.93 & 43.34 $\pm$10.07 & 53.31 $\pm$14.37 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
 RF & 87.7 $\pm$0.08 & 73.98 $\pm$20.91 & 134.11 $\pm$51.70 & 40.48 $\pm$10.51 & 50.41 $\pm$16.38 & 0.10 $\pm$0.0076\tabularnewline
 \hline 
@@ -1515,7 +1473,7 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 \hline 
 M5P & 64.0 $\pm$0.23 & 777.94 $\pm$342.04 & 1305.28 $\pm$1075.29 & 78.37 $\pm$30.4 & 99.86 $\pm$85.43 & 0.013 $\pm$0.001\tabularnewline
 \hline 
-K-NN & 64.8 $\pm$0.18 & 702.70 $\pm$181.41 & 1008.39 $\pm$305.87 & 71.41 $\pm$13.95 & 78.47 $\pm$22.70 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 64.8 $\pm$0.18 & 702.70 $\pm$181.41 & 1008.39 $\pm$305.87 & 71.41 $\pm$13.95 & 78.47 $\pm$22.70 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
 RF & 65.3 $\pm$0.19 & 685.56 $\pm$195.28 & 1021.37 $\pm$352.88 & 69.74 $\pm$16.96 & 79.37 $\pm$26.98 & 0.0466 $\pm$0.0023\tabularnewline
 \hline 
@@ -1541,7 +1499,7 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \hline 
 M5P & 79.0 $\pm$0.14 & 573.25 $\pm$167.88 & 827.55 $\pm$388.16 & 58.42 $\pm$14.14 & 63.98 $\pm$25.63 & 0.0153 $\pm$0.0015\tabularnewline
 \hline 
-K-NN & 83.6 $\pm$0.10 & 492.18 $\pm$126.86 & 727.33 $\pm$209.88 & 50.12 $\pm$10.69 & 56.14 $\pm$12.89 & 0 $\pm$0.0002\tabularnewline
+kNN & 83.6 $\pm$0.10 & 492.18 $\pm$126.86 & 727.33 $\pm$209.88 & 50.12 $\pm$10.69 & 56.14 $\pm$12.89 & 0 $\pm$0.0002\tabularnewline
 \hline 
 RF & 85.6 $\pm$0.08 & 446.25 $\pm$119.79 & 673.46 $\pm$189.06 & 45.38 $\pm$9.78 & 52.24 $\pm$13.09 & 0.0594 $\pm$0.0049\tabularnewline
 \hline 
@@ -1568,7 +1526,7 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 \hline 
 M5P & 88.0 $\pm$0.13 & 738.28 $\pm$188.53 & 1141.79 $\pm$472.025 & 45.45 $\pm$13.62 & 47.58 $\pm$24.84 & 0.017 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 85.3 $\pm$0.15& 825.19 $\pm$235.34 & 1280.33 $\pm$523.06 & 50.23 $\pm$14.07 & 51.42 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 85.3 $\pm$0.15& 825.19 $\pm$235.34 & 1280.33 $\pm$523.06 & 50.23 $\pm$14.07 & 51.42 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
 \hline 
 RF & 86.4 $\pm$0.14 & 790.09 $\pm$225.86 & 1245.23 $\pm$584.23 & 48.22 $\pm$13.79 & 50.01 $\pm$21.97 & 0.063 $\pm$0.0039\tabularnewline
 \hline 
@@ -1593,7 +1551,7 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \hline 
 M5P & 89.7 $\pm$0.10 & 685.67 $\pm$185.99 & 1116.42 $\pm$478.06 & 42.09 $\pm$12.8 & 46.31 $\pm$24.61 & 0.02 $\pm$0.004\tabularnewline
 \hline 
-K-NN & 89.0 $\pm$0.10 & 746.45 $\pm$250.76 & 1203.41 $\pm$564.84 & 44.36 $\pm$9.73 & 46.25 $\pm$14.41 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 89.0 $\pm$0.10 & 746.45 $\pm$250.76 & 1203.41 $\pm$564.84 & 44.36 $\pm$9.73 & 46.25 $\pm$14.41 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
 RF & 89.5 $\pm$0.09 & 708.24 $\pm$264.52 & 1270.26 $\pm$708.82 & 42.14 $\pm$12.45 & 49.07 $\pm$26.59 & 0.080 $\pm$0.0058\tabularnewline
 \hline 
@@ -1621,7 +1579,7 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 \hline 
 M5P & 81.6 $\pm$0.22 & 15.67 $\pm$6.58 & 25.63 $\pm$11.84 & 47.93 $\pm$18.81 & 60.72 $\pm$31.75 & 0.006 $\pm$0.002\tabularnewline
 \hline 
-K-NN & 75.2 $\pm$0.27 & 15.73 $\pm$7.73 & 26.68 $\pm$14.82 & 48.58 $\pm$24.77 & 66.23 $\pm$48.59 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 75.2 $\pm$0.27 & 15.73 $\pm$7.73 & 26.68 $\pm$14.82 & 48.58 $\pm$24.77 & 66.23 $\pm$48.59 & 0.0001 $\pm$0.0003\tabularnewline
 \hline 
 RF & 75.1 $\pm$0.26 & 15.61 $\pm$7.19 & 26.83 $\pm$13.36 & 47.38 $\pm$20.10 & 64.65 $\pm$38.66 & 0.0224 $\pm$0.0027\tabularnewline
 \hline 
@@ -1647,7 +1605,7 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
 \hline 
 M5P & 86.0 $\pm$0.19 & 13.84 $\pm$6.75 & 23.94 $\pm$11.64 & 41.65 $\pm$17.56 & 55.44 $\pm$27.13 & 0.006 $\pm$0.001\tabularnewline
 \hline 
-K-NN & 74.0 $\pm$0.29 & 15.93 $\pm$8.52 & 28.28 $\pm$16.28 & 48.83 $\pm$25.89 & 68.75 $\pm$48.85 & 0 $\pm$0.0002\tabularnewline
+kNN & 74.0 $\pm$0.29 & 15.93 $\pm$8.52 & 28.28 $\pm$16.28 & 48.83 $\pm$25.89 & 68.75 $\pm$48.85 & 0 $\pm$0.0002\tabularnewline
 \hline 
 RF & 85.5 $\pm$0.19 & 13.66 $\pm$6.47 & 22.51 $\pm$11.03 & 41.38 $\pm$17.87 & 52.20 $\pm$27.09 & 0.026 $\pm$0.0019\tabularnewline
 \hline 
