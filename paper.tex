@@ -564,7 +564,7 @@ This method is usually applied to analyse data as similar items tend to be
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those
 regions, or clusters, with high training sample concentration and fewer
-where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those that can have a higher influence on the creation of that cluster.
+where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those with a higher influence on the creation of that cluster.
 %FERGU: mencionarlo en la intro
 % Which is interesting because... JJ
 % Antonio - explained. ;)
@@ -584,8 +584,8 @@ However, as in the case of new books only some descriptive data are available,
 compared to those cases in which historical data on sales of published books 
 is available, not all forecasting methods can be used in this specific problem.
 
-Thus, in this research five forecasting methods, based on the literature 
-review in the introduction 
+Thus, in this research five forecasting methods, based on the State of the Art literature 
+review (see Section \ref{sec:soa}) 
 \cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
 Well known forecasting methods implemented in the Weka tool have been chosen, as these methods are widely known, and could be very helpful for practitioners to reproduce experiments and even to solve similar sales prediction problems using
 these methods. % Why these and not others? Exploratory data analysis?
@@ -650,14 +650,14 @@ The result is the average of the generated trees during the process.
  \item \emph{Linear Regression (LR)}:
  Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
 relationship between a scalar dependent variable (outcome) and several independent 
-variables (predictor) over the range of values in the dataset. 
+variables (predictors) over the range of values in the dataset. 
 In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
 
 This method of regression provides an adequate and interpretable description of 
 how the input affects the output as it models the dependent variable as a linear 
 function of the independent variables. Moreover, the linear relation can be 
 solved using the least squares method, that minimises the error between the 
-actual data and the regression line \cite{McClendon2015}.
+current data and the regression line \cite{McClendon2015}.
 
 
  % weka.classifiers.functions.SMOreg
@@ -682,7 +682,7 @@ called support vectors.
 \end{itemize}
 
 The objective is finding the most appropriate forecasting method that minimises 
-the error between the obtained forecast and the actual sales for each new book 
+the error between the obtained forecast and the current sales for each new book 
 published.
 
 
@@ -713,7 +713,7 @@ Specifically, in order to compute the forecasting errors of the different method
             RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
         \end{equation}
 \end{itemize}
-where $o_i$ is the actual value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
+where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
 
 
@@ -819,7 +819,8 @@ datasets with numerical variables, not to mention the extra time needed to optim
 According to Table \ref{tab:all_publishers_no_fs}, it can be noticed also that the Linear Regression model outperformed some other complex methods like the random forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
 
 
-kNN is the fastest method used in this study in terms of training time, as it is the simplest method. However, the model is slow when classifying large number of 
+kNN is the fastest method used in this study in terms of training time, as it 
+is the simplest one. However, the model is slow when classifying large number of 
 training examples, and it exhibits a poor generalisation ability since it does not 
 learn anything from the training data.
 
@@ -1393,10 +1394,14 @@ Moreover, even if the methods have been configured to obtain the best forecastin
 for instance.
 
 Furthermore, since there are some characteristics that may affect product sales 
-significantly, another way to improve sales predictions could be making a thorough study of the effect of the application of discounts and promotions. 
+significantly, another way to improve sales predictions could be making a 
+thorough study of the effect of the application of discounts and promotions. 
 
 Finally, there are some variables over which the publisher has some
-control once the book has been published, such as the initial print-run, the books offered as gifts to reviewers, or what proportion is going to be sent to each possible point of sale. These can be incorporated into an optimisation model that will optimise those values to obtain desired sales. 
+control once the book has been published, such as the initial print-run, 
+the books offered as gifts to reviewers, or what proportion is going to be sent 
+to each possible point of sale. These can be incorporated into an optimisation 
+model that will optimise those values to obtain desired sales. 
 
 
 %********************************************************************************
@@ -1427,13 +1432,13 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 \hline 
 M5P & 80.1 $\pm$0.09 & 104.87 $\pm$21.38 & 174.57 $\pm$47.33 & 58.11 $\pm$14.73 & 67.58 $\pm$22.61 & 0.018 $\pm$0.003\tabularnewline
 \hline 
-kNN & 78.2 $\pm$0.12 & 99.45 $\pm$24.31 & 170.83 $\pm$46.34 & 54.53 $\pm$12.28 & 65.86 $\pm$18.34 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 78.2 $\pm$0.12 & 99.45 $\pm$24.31 & \textbf{170.83 $\pm$46.34} & 54.53 $\pm$12.28 & 65.86 $\pm$18.34 & \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 77.6 $\pm$0.13 & 101.93 $\pm$23.66 & 180.56 $\pm$51.20 & 56.10 $\pm$13.62 & 69.86 $\pm$23.27 & 0.0738 $\pm$0.003\tabularnewline
 \hline 
 LR & 80.1 $\pm$0.10 & 106.62 $\pm$21.52 & 173.18 $\pm$46.58 & 59.11 $\pm$14.96 & 67.53 $\pm$24.53 & 0.0004 $\pm$0.0005\tabularnewline
 \hline 
-SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 65.62 $\pm$6.25 & 0.040 $\pm$0.02\tabularnewline
+SVM & \textbf{81.8 $\pm$0.08} & \textbf{94.29 $\pm$25.52} & 180.54 $\pm$62.67 & \textbf{50.79 $\pm$8.48} & \textbf{65.62 $\pm$6.25} & 0.040 $\pm$0.02\tabularnewline
 \hline 
 \end{tabular}
 }
@@ -1450,9 +1455,9 @@ SVM & 81.8 $\pm$0.08 & 94.29 $\pm$25.52 & 180.54 $\pm$62.67 & 50.79 $\pm$8.48 & 
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 89.2 $\pm$0.07 & 71.536 $\pm$18.95 & 123.06 $\pm$42.13 & 39.43 $\pm$10.58 & 47.20 $\pm$15.16 & 0.031 $\pm$0.007\tabularnewline
+M5P & \textbf{89.2 $\pm$0.07} & \textbf{71.536 $\pm$18.95} & \textbf{123.06 $\pm$42.13} & \textbf{39.43 $\pm$10.58} & \textbf{47.20 $\pm$15.16} & 0.031 $\pm$0.007\tabularnewline
 \hline 
-kNN & 85.8 $\pm$0.09 & 79.42 $\pm$21.47 & 140.95 $\pm$44.93 & 43.34 $\pm$10.07 & 53.31 $\pm$14.37 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 85.8 $\pm$0.09 & 79.42 $\pm$21.47 & 140.95 $\pm$44.93 & 43.34 $\pm$10.07 & 53.31 $\pm$14.37 & \textbf{0.0001 $\pm$0.0002}\tabularnewline
 \hline 
 RF & 87.7 $\pm$0.08 & 73.98 $\pm$20.91 & 134.11 $\pm$51.70 & 40.48 $\pm$10.51 & 50.41 $\pm$16.38 & 0.10 $\pm$0.0076\tabularnewline
 \hline 
@@ -1480,11 +1485,11 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 \hline 
 M5P & 64.0 $\pm$0.23 & 777.94 $\pm$342.04 & 1305.28 $\pm$1075.29 & 78.37 $\pm$30.4 & 99.86 $\pm$85.43 & 0.013 $\pm$0.001\tabularnewline
 \hline 
-kNN & 64.8 $\pm$0.18 & 702.70 $\pm$181.41 & 1008.39 $\pm$305.87 & 71.41 $\pm$13.95 & 78.47 $\pm$22.70 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 64.8 $\pm$0.18 & 702.70 $\pm$181.41 & \textbf{1008.39 $\pm$305.87} & 71.41 $\pm$13.95 & \textbf{78.47 $\pm$22.70} & \textbf{0.0001 $\pm$0.0002}\tabularnewline
 \hline 
-RF & 65.3 $\pm$0.19 & 685.56 $\pm$195.28 & 1021.37 $\pm$352.88 & 69.74 $\pm$16.96 & 79.37 $\pm$26.98 & 0.0466 $\pm$0.0023\tabularnewline
+RF & 65.3 $\pm$0.19 & \textbf{685.56 $\pm$195.28} & 1021.37 $\pm$352.88 & \textbf{69.74 $\pm$16.96} & 79.37 $\pm$26.98 & 0.0466 $\pm$0.0023\tabularnewline
 \hline 
-LR & 67.0 $\pm$0.23\ & 857.22 $\pm$308.69 & 1352.26 $\pm$945.31 & 86.10 $\pm$24.25 & 102.89 $\pm$74.43 & 0.0003 $\pm$0.0005\tabularnewline
+LR & \textbf{67.0 $\pm$0.23}\ & 857.22 $\pm$308.69 & 1352.26 $\pm$945.31 & 86.10 $\pm$24.25 & 102.89 $\pm$74.43 & 0.0003 $\pm$0.0005\tabularnewline
 \hline 
 SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.27 & 105.40 $\pm$37.73 & 0.017 $\pm$0.001\tabularnewline
 \hline 
@@ -1506,9 +1511,9 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \hline 
 M5P & 79.0 $\pm$0.14 & 573.25 $\pm$167.88 & 827.55 $\pm$388.16 & 58.42 $\pm$14.14 & 63.98 $\pm$25.63 & 0.0153 $\pm$0.0015\tabularnewline
 \hline 
-kNN & 83.6 $\pm$0.10 & 492.18 $\pm$126.86 & 727.33 $\pm$209.88 & 50.12 $\pm$10.69 & 56.14 $\pm$12.89 & 0 $\pm$0.0002\tabularnewline
+kNN & 83.6 $\pm$0.10 & 492.18 $\pm$126.86 & 727.33 $\pm$209.88 & 50.12 $\pm$10.69 & 56.14 $\pm$12.89 & \textbf{0 $\pm$0.0002}\tabularnewline
 \hline 
-RF & 85.6 $\pm$0.08 & 446.25 $\pm$119.79 & 673.46 $\pm$189.06 & 45.38 $\pm$9.78 & 52.24 $\pm$13.09 & 0.0594 $\pm$0.0049\tabularnewline
+RF & \textbf{85.6 $\pm$0.08} & \textbf{446.25 $\pm$119.79} & \textbf{673.46 $\pm$189.06} & \textbf{45.38 $\pm$9.78} & \textbf{52.24 $\pm$13.09} & 0.0594 $\pm$0.0049\tabularnewline
 \hline 
 LR & 71.0 $\pm$0.19 & 723.74 $\pm$247.96 & 1108.74 $\pm$736.17 & 74.14 $\pm$24.91 & 85.96 $\pm$59.99 & 0.0004 $\pm$0.0005\tabularnewline
 \hline 
@@ -1531,9 +1536,9 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 88.0 $\pm$0.13 & 738.28 $\pm$188.53 & 1141.79 $\pm$472.025 & 45.45 $\pm$13.62 & 47.58 $\pm$24.84 & 0.017 $\pm$0.002\tabularnewline
+M5P & \textbf{88.0 $\pm$0.13} & \textbf{738.28 $\pm$188.53} & \textbf{1141.79 $\pm$472.025} & \textbf{45.45 $\pm$13.62} & \textbf{47.58 $\pm$24.84} & 0.017 $\pm$0.002\tabularnewline
 \hline 
-kNN & 85.3 $\pm$0.15& 825.19 $\pm$235.34 & 1280.33 $\pm$523.06 & 50.23 $\pm$14.07 & 51.42 $\pm$21.24 & 0.0001 $\pm$0.0002\tabularnewline
+kNN & 85.3 $\pm$0.15& 825.19 $\pm$235.34 & 1280.33 $\pm$523.06 & 50.23 $\pm$14.07 & 51.42 $\pm$21.24 & \textbf{0.0001 $\pm$0.0002}\tabularnewline
 \hline 
 RF & 86.4 $\pm$0.14 & 790.09 $\pm$225.86 & 1245.23 $\pm$584.23 & 48.22 $\pm$13.79 & 50.01 $\pm$21.97 & 0.063 $\pm$0.0039\tabularnewline
 \hline 
@@ -1556,9 +1561,9 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 89.7 $\pm$0.10 & 685.67 $\pm$185.99 & 1116.42 $\pm$478.06 & 42.09 $\pm$12.8 & 46.31 $\pm$24.61 & 0.02 $\pm$0.004\tabularnewline
+M5P & \textbf{89.7 $\pm$0.10} & \textbf{685.67 $\pm$185.99} & \textbf{1116.42 $\pm$478.06} & \textbf{42.09 $\pm$12.8} & 46.31 $\pm$24.61 & 0.02 $\pm$0.004\tabularnewline
 \hline 
-kNN & 89.0 $\pm$0.10 & 746.45 $\pm$250.76 & 1203.41 $\pm$564.84 & 44.36 $\pm$9.73 & 46.25 $\pm$14.41 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 89.0 $\pm$0.10 & 746.45 $\pm$250.76 & 1203.41 $\pm$564.84 & 44.36 $\pm$9.73 & \textbf{46.25 $\pm$14.41} & \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
 RF & 89.5 $\pm$0.09 & 708.24 $\pm$264.52 & 1270.26 $\pm$708.82 & 42.14 $\pm$12.45 & 49.07 $\pm$26.59 & 0.080 $\pm$0.0058\tabularnewline
 \hline 
@@ -1586,13 +1591,13 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 \hline 
 M5P & 81.6 $\pm$0.22 & 15.67 $\pm$6.58 & 25.63 $\pm$11.84 & 47.93 $\pm$18.81 & 60.72 $\pm$31.75 & 0.006 $\pm$0.002\tabularnewline
 \hline 
-kNN & 75.2 $\pm$0.27 & 15.73 $\pm$7.73 & 26.68 $\pm$14.82 & 48.58 $\pm$24.77 & 66.23 $\pm$48.59 & 0.0001 $\pm$0.0003\tabularnewline
+kNN & 75.2 $\pm$0.27 & 15.73 $\pm$7.73 & 26.68 $\pm$14.82 & 48.58 $\pm$24.77 & 66.23 $\pm$48.59 & \textbf{0.0001 $\pm$0.0003}\tabularnewline
 \hline 
-RF & 75.1 $\pm$0.26 & 15.61 $\pm$7.19 & 26.83 $\pm$13.36 & 47.38 $\pm$20.10 & 64.65 $\pm$38.66 & 0.0224 $\pm$0.0027\tabularnewline
+RF & 75.1 $\pm$0.26 & \textbf{15.61 $\pm$7.19} & 26.83 $\pm$13.36 & \textbf{47.38 $\pm$20.10} & 64.65 $\pm$38.66 & 0.0224 $\pm$0.0027\tabularnewline
 \hline 
-LR & 81.6 $\pm$0.22 & 15.67 $\pm$6.55 & 25.49 $\pm$11.63 & 47.97 $\pm$18.85 & 60.28 $\pm$30.62 & 0.0002 $\pm$0.0004\tabularnewline
+LR & 81.6 $\pm$0.22 & 15.67 $\pm$6.55 & \textbf{25.49 $\pm$11.63} & 47.97 $\pm$18.85 & \textbf{60.28 $\pm$30.62} & 0.0002 $\pm$0.0004\tabularnewline
 \hline 
-SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 65.12 $\pm$16.36 & 0.013 $\pm$0.001\tabularnewline
+SVM & \textbf{81.8 $\pm$0.21} & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 65.12 $\pm$16.36 & 0.013 $\pm$0.001\tabularnewline
 \hline 
 \end{tabular}
 }
@@ -1610,11 +1615,11 @@ SVM & 81.8 $\pm$0.21 & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$14.93 & 6
  & $R^{2}$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
 \hline 
 \hline 
-M5P & 86.0 $\pm$0.19 & 13.84 $\pm$6.75 & 23.94 $\pm$11.64 & 41.65 $\pm$17.56 & 55.44 $\pm$27.13 & 0.006 $\pm$0.001\tabularnewline
+M5P & \textbf{86.0 $\pm$0.19} & 13.84 $\pm$6.75 & 23.94 $\pm$11.64 & 41.65 $\pm$17.56 & 55.44 $\pm$27.13 & 0.006 $\pm$0.001\tabularnewline
 \hline 
-kNN & 74.0 $\pm$0.29 & 15.93 $\pm$8.52 & 28.28 $\pm$16.28 & 48.83 $\pm$25.89 & 68.75 $\pm$48.85 & 0 $\pm$0.0002\tabularnewline
+kNN & 74.0 $\pm$0.29 & 15.93 $\pm$8.52 & 28.28 $\pm$16.28 & 48.83 $\pm$25.89 & 68.75 $\pm$48.85 & \textbf{0 $\pm$0.0002}\tabularnewline
 \hline 
-RF & 85.5 $\pm$0.19 & 13.66 $\pm$6.47 & 22.51 $\pm$11.03 & 41.38 $\pm$17.87 & 52.20 $\pm$27.09 & 0.026 $\pm$0.0019\tabularnewline
+RF & 85.5 $\pm$0.19 & \textbf{13.66 $\pm$6.47} & \textbf{22.51 $\pm$11.03} & \textbf{41.38 $\pm$17.87} & \textbf{52.20 $\pm$27.09} & 0.026 $\pm$0.0019\tabularnewline
 \hline 
 LR & 85.4 $\pm$0.21 & 14.59 $\pm$7.13 & 24.40 $\pm$12.87 & 44.81 $\pm$23.65 & 57.73 $\pm$38.63 & 0.0003 $\pm$0.0005\tabularnewline
 \hline 
