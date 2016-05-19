@@ -468,7 +468,7 @@ The aim of these algorithms is exploring the space of attributes to find out whi
 
 The application of FS also aims to reduce the complexity of the obtained 
 forecasting models themselves, which, in turn, implies a reduction in the 
-computational time for building these models. The first has been a key 
+computational time for building these models. This has been a key 
 factor in this work, because one of the objectives is to obtain `easily' 
 interpretable decision models, which can be useful for human experts (publishers).
 Regarding the algorithm, running time grows with the number of
@@ -491,16 +491,19 @@ features, making it impractical for problems with a large number of features
 % In this process, the feature's predictive ability along with the degree 
 % of redundancy between them is considered.
 
-FS is one of the ways of performing a feature reduction, the other one is feature extraction \cite{kittler1986feature}. 
+FS is one of the ways of performing a feature reduction, the other one is 
+feature extraction \cite{kittler1986feature}. 
 Feature extraction is a `transformation-based approach', therefore
 it transforms the original meaning of the features. This method
-involves creating a subset of new features by combinations of the
-existing features, thus it is employed when the semantics of the
+involves creating a subset of new features by combining the
+existing ones; thus it is employed when the semantics of the
 original dataset will not be needed by any future process. On the
 contrary, FS attempts to retain the meaning of the
 original feature set. It is part of what is called semantic-preserving
 techniques, known as `selection-based approaches' \cite{liu1998feature}. 
-In the problem this work addresses, it is very important to maintain the semantics of the set of initial variables, and therefore just FS methods have been applied. 
+In the problem this work addresses, it is very important to maintain the 
+semantics of initial variables set, and therefore just FS methods 
+have been applied. 
 
 We have used some numerical FS methods included in Weka software \cite{Hall2009,Witten2011}. This tool separates the process into two parts:
 
@@ -535,7 +538,7 @@ adjacent areas on the grid.
 %Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation. %Pablo: some cite here?
 This method is normally used as a data visualization tool, since it allows to project any multi-variated dataset in a two-dimensional display, so an expert can detect topological relations among its neurons and thus make inferences or find interesting relationships on the input dataset (such as clusters, for instance).
 
-Basically, SOM consists of two layers: input layer and output, also
+Basically, SOM consists of two layers: input and output layer, also
 known as Kohonen, layer. Input layer is fully connected with the 
 Kohen layer which is usually a two dimensional grid of neurons
 (i.e. units). This means that every neuron is linked to every input in
@@ -547,7 +550,7 @@ input vectors are presented to the network sequentially so the
 distance between the weights of the neurons and the inputs are
 computed using the simple Euclidean distance; in the second stage, the
 neuron which has the shortest distance with the presented input vector
-is updated along with its neighbour neurons. This neuron is called the
+is updated along with the neurons in its neighbourhood. This neuron is called the
 best matching unit (BMU). The goal of the learning process is to
 minimise the neighbourhood distance in the output clusters.  
 
