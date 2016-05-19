@@ -526,7 +526,7 @@ For this reason, the search method used with CFS has been BestFirst, that search
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has been also applied as a `subjective' (based on expert's opinion) FS technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+(SOM) \cite{kohonen1998} method has also been applied as a `subjective' (based on expert's opinion) FS technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
 
 % Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
 % Antonio - explained here and below. Please check.
@@ -729,7 +729,7 @@ where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is 
 % Antonio - done
 
 This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
-Feature selection techniques have been also applied in order to test their utility by comparing the obtained results.
+Feature selection techniques have also been applied in order to test their utility by comparing the obtained results.
 
 We have analysed the whole dataset (all the publishing companies), but also performed some experiments considering specific publishing companies as example cases.
 The obtained decision trees have been plotted to show their simplicity and their real value as a decision-aid tool for publishers.
@@ -746,10 +746,10 @@ empirically found at $k=3$. % What???? - JJ
 Function (RBF) kernel is selected. As reported in several studies, RBF
 kernel has a reliable performance and can analyse higher dimensional
 data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important
-parameters should be tuned in SVM: the Cost $(C)$ and $(\gamma)$ of
+parameters should be tuned in SVM: the Cost $(C)$ and Gamma $(\gamma)$ of
 the RBF kernel. We apply grid search which is the most common approach
 to find $C$ and $\gamma$. The best performance of SVM was found at
-$C=200$ and Gamma $\gamma = 0.01$. For MLP, we apply it with one
+$C=200$ and $\gamma = 0.01$. For MLP, we apply it with one
 hidden layer since it was proven in the literature that an MLP with
 one hidden layer can approximate any continuous or discontinuous
 function \cite{hornik1989multilayer,mirjalili2014let}. However, there
@@ -849,12 +849,12 @@ In the second stage of the experiments, different feature selection methods have
   
 We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
-The dataset has been also projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
+The dataset has also been projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
 An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features \emph{collection} and \emph{binding} have been
 removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 
-Several configurations for SOM has been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
+Several configurations for SOM have been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
 Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046. % explain what is quantisation and topographic error and why it is important - JJ 
 % Antonio - done. ;)
@@ -1044,7 +1044,7 @@ This section presents further experiments conducted on data concerning four inte
 Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected publishing companies.
 
 \begin{table}
-\caption{Description of publishing companies considered as special cases.Best values in bold.}
+\caption{Description of publishing companies considered as special cases.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|l|l|l|}
@@ -1070,7 +1070,7 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
 
 The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Table \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the simple classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model is recommended.
+Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the simple classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model is recommended.
 
 
 \begin{table}
@@ -1193,7 +1193,7 @@ feature selection methods (RFE, CSE and SOM) are applied for each case
 independently, since publishers with different sales ranges, and
 targets, might in fact include different factors or have different
 leverage when deciding how much to print. For clarity purpose, we present here only the results
-after applying the RFE method for the four cases in Table
+after applying the RFE method for the four cases in Tables
 \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE},
 \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this
 one was chosen since the selected features by this
@@ -1327,7 +1327,7 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \subsection{Decision trees for best seller}
 \label{subsec:decision_trees}
 
-In this section we show the output of one of the models built during the regression, namely we present two of the decision trees generated by M5P method applied to the data of the publisher that sells the most. These aim to demonstrate the value of the proposal to generate a useful decision-aid tool for an expert (publisher) to see what sales can be expected for the different values of the input variables (including the print-run).  
+In this section we show the output of one of the models built during the regression, namely we present two of the decision trees generated by M5P method applied to the data of the publisher that sells the most. These aim to demonstrate the value of the proposal to generate a useful decision-aid tool for an expert (publisher) to determine what sales can be expected for the different values of the input variables (including the print-run).  
 
 First, Figure \ref{fig:decision_tree_best_seller} depicts the decision tree for the publishing company UDL929. The leaves correspond to linear regression models that can be computed (easily) to get the final predicted value for book sales. 
 The second decision tree (Figure \ref{fig:decision_tree_best_seller_fs}) corresponds to the same publishing company, so the same data were used, but the RAE feature selection method was applied. Thus, the main difference in the simplification of the regression models in the second tree and the remove of \texttt{print\_run} as part of the decision process after the feature selection.
@@ -1368,7 +1368,7 @@ In addition, there are several difficulties inherent to the new book sales forec
 
 A dataset consisting of 6000 books provided by the Spanish publishing company Trevenque Editorial S.L. has been used. These data have been analysed by means of Self-Organizing Maps as a visualisation tool, and two other Feature Selection techniques, namely a correlation-based feature subset evaluation method, and an adaptation of relief for attribute estimation. Using these methods the most relevant variables when predicting sales have been determined, while unrelated or superfluous ones have been removed.
 
-Four different datasets have been also extracted from the original one, everyone corresponding to a Publishing house which we have considered as representative: the one with the most number of sales, the one with the medium number of sales, with the most varied sales (different books), and with a medium number of different books sold.
+Four different datasets have also been extracted from the original one, each one corresponding to a Publishing house which we have considered as representative: the one with the most number of sales, the one with the medium number of sales, with the most varied sales (different books), and with a medium number of different books sold.
 
 Considering these datasets and the complete one, five machine learning models for sales forecasting have been configured (according to the problem requirements) and used to predict new book sales, from which the optimal print-run could be estimated. These algorithms include some based on Decision Trees (M5P and Random Forest), kNN, Support Vector Machines and Linear Regression.
 These methods have been evaluated considering several performance indicators (error measures) and also the time consumed to build the corresponding models.
