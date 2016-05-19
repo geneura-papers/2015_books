@@ -46,7 +46,7 @@
 \address[ugr]{Department of Computer Architecture and Computer Technology, ETSIIT and CITIC \\
 University of Granada, Granada, Spain. Tel: +34958241778. Fax: +34958248993}
 \address[abd]{Business Information Technology Department, King Abdullah II School for Information Technology \\
-The University of Jordan, Amman, Jordan. Tel: +. Fax: +}
+The University of Jordan, Amman, Jordan}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
@@ -108,7 +108,7 @@ Thus, it is mandatory to know the product and the variables that
 might affect the sales, and how an expert manager takes them into 
 account \cite{Armstrong2001,SThomassey2014}. 
 Moreover, their impact is difficult to estimate and it is not constant over time, hence the complexity to adequately identify and measure their influence \cite{DeToni2000}.
-In addition, some may have correlations between them, although these correlations can be detected using data analysis methods, 
+In addition, some variables may have correlations between them, although these correlations can be detected using data analysis methods, 
 such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression analysis (SRA) \cite{Chang2009}. 
 
 Therefore, in this work we analyse the data by means of different data mining methods and create predictive models that can be mainly used as decision-aid tools for book publishers. Then, they will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book sales.
@@ -272,7 +272,7 @@ The problem to solve in this work is the forecasting of sales for new launched b
 The objective is to offer a tool for publishers which will aid them to decide the best print run for a new book which before its publication process starts. This is a forecasting problem for which no specific historical data are available, since the same book has not been previously published.
 However, we have considered data about other previously published books and have taken as reference a set of variables (or features), related with the book publication process.
 
-The training dataset included historical data about 6083 books published in Spain for several years, with an initial set of 50 variables per pattern. It was provided by the Spanish publishing company Trevenque Editorial S.L.. Table
+The training dataset includes historical data about 6083 books published in Spain for several years, with an initial set of 50 variables per pattern. It has been provided by the Spanish publishing company Trevenque Editorial S.L.. Table
 \ref{tabla:paramsOrig50} shows the initial set of variables describing
 each book. 
 
@@ -352,7 +352,7 @@ Starting from these raw data, a preprocessing method has been performed in order
 % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
 % Antonio - because we should not fill important variables automatically, this adds noise to the data, so I think it is better to remove these patterns, since there are still a lot in the dataset. 
 % Indeed, there were just a couple of patterns without important values, that probably were errors of the extraction process or bad insertions in the database.
-Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to use just those that can be known before a new book is launched, i.e. \textit{pre-sales data}. Thus, their value do not depend on the book sales. The selected the subset of features is described in Table \ref{tabla:params_pre_sales}.
+Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to use just those that can be known before a new book is launched, i.e. \textit{pre-sales data}. Thus, their value do not depend on the book sales. The selected subset of features is described in Table \ref{tabla:params_pre_sales}.
 
 
 \begin{table}
@@ -410,7 +410,7 @@ external data.
 Thus, the proposed method will analyse the provided data and
 variables and will yield a forecast of sales according to them. This
 result could be used as a reference for a human expert, who would
-consider it in his or her own prediction process. 
+consider it for his or her own prediction process. 
 
 % This section is too short and really does not describe the problem
 % to its full extent. First, it should say if some of these variables
@@ -436,7 +436,7 @@ consider it in his or her own prediction process.
 
 There is not a standard methodology to solve the general problem of sales forecasting. However, the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. %These are described in the following sections.
 
-Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques are applied, such as Feature Selection (FS) \cite{kittler1986feature}, which is portrayed in Section \ref{subsec:data_preproces}. These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
+Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, which is portrayed in Section \ref{subsec:data_preproces}. These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
 This task may also help to identify leading indicators to be considered by a human expert to make predictions.
 % You have to present the problem and not the solution. It's not "what
 % you did last summer", it is SCIENCE. Why did you think FS was
