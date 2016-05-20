@@ -53,11 +53,16 @@ The University of Jordan, Amman, Jordan}
 When a new book is launched the publisher faces the problem of how
 many books should be printed for delivery to bookstores; printing too
 many is the main issue, since it implies a loss of investment due to
-inventory excess, but printing too few will also have a negative economic impact. In this paper, we are tackling the problem of predicting total sales in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
+inventory excess, but printing too few will also have a negative economic impact. 
+In this paper, we are tackling the problem of predicting total sales 
+in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
 We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualisation techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods has been applied to create forecasting models for book sales. 
 The obtained models are able to predict sales from pre-publication data with
-remarkable accuracy, and can be visualised as simple decision trees. Thus, these can be used as decision-aid tools for publishers, which can provide a reliable guidance on the decision process of publishing a book. 
-This is also shown in the paper by addressing four example cases of representative publishers, regarding their number of sales and the number of different books they sell.
+remarkable accuracy, and can be visualised as simple decision trees. 
+Thus, these can be used as decision-aid tools for publishers, which can provide 
+a reliable guidance on the decision process of publishing a book. 
+This is also shown in the paper by addressing four example cases of representative 
+publishers, regarding their number of sales and the number of different books they sell.
 \end{abstract}
 
 \begin{keyword}
@@ -68,12 +73,6 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Regr
 \end{keyword}
 
 \end{frontmatter}
-
-
-
-
-
-
 
 
 %********************************************************************************
@@ -116,7 +115,10 @@ Therefore, in this work we analyse the data by means of different data mining me
 % Antonio - I think this is the main idea we have to sell in this paper. Due to the  difficulty of the book sales market (and its variables), we cannot give an accurate tool for predicting book sales, but a decision-aid tool for publishers. Do you agree?
 % (Paloma) Agree
 
-In the research published in this paper, the problem of how many units should be printed  when a new book is published is faced using real data provided by the 
+In the research published in this paper, the problem 
+of predicting total sales in order to print the right amount of books
+%of how many units should be printed  when a new book is published 
+is faced using real data provided by the 
 Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers, and distributors. 
 Usually, the company's expert sales managers analysed historical data and applied their knowledge using external variables to compute correct estimations (predictions); for instance, they can decide increasing or decreasing the sales forecast based on season or sales period.
 Nevertheless, just carrying out the analysis and forecasting process as a human expert may lead to imprecise predictions, and they may not take all the variables into account. 
@@ -140,8 +142,9 @@ Section \ref{sec:methodology} details the methodology considered in the study, f
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 
-As far as we know, no previous attempt can be found in the literature in which 
-prediction methods have been applied to estimate the print run. 
+As far as we know, no previous attempt can be found in the literature 
+%in which prediction methods have been applied to estimate the print run. 
+in which prediction methods have been applied to estimate sales for new launched books.
 However, similar techniques to those proposed in this paper, e.g. 
 regression models \cite{Papalexopoulos1990}, 
 neural networks \cite{Yoo1999} 
@@ -1360,7 +1363,10 @@ An important fact that these tree models reveal is that marketing variables, suc
 \section{Conclusions and Future Work}
 \label{sec:conclusionsAndFutureWork}
 
-In this paper, the problem of how many books should be printed when a new book is going to be published is faced using several data-mining and forecasting methods.
+In this paper, the problem of 
+predicting total sales in order to print the right amount of books
+%how many books should be printed 
+when a new book is going to be published is faced using several data-mining and forecasting methods.
 
 This is a very challenging problem in this industry, because printing a higher 
 number of volumes than those finally sold will lead to losses, while printing an adequate number of copies will optimise sales and company earnings.
@@ -1373,8 +1379,15 @@ Four different datasets have also been extracted from the original one, each one
 Considering these datasets and the complete one, five machine learning models for sales forecasting have been configured (according to the problem requirements) and used to predict new book sales, from which the optimal print-run could be estimated. These algorithms include some based on Decision Trees (M5P and Random Forest), kNN, Support Vector Machines and Linear Regression.
 These methods have been evaluated considering several performance indicators (error measures) and also the time consumed to build the corresponding models.
 
-As a conclusion, M5P yields the best results overall, obtaining the best accuracy (lowest error) on average, even with acceptable values regarding the training time.
-In addition, the Decision Trees obtained with this method have been presented as an excellent decision-aid tool for publishers, since they are accurate and quite easy to understand and apply. They are also able to provide insights on the decisions that have a higher influence on the print-run for these publishers. 
+As a conclusion, M5P yields the best results overall, obtaining the best accuracy 
+(lowest error) on average, even with acceptable values regarding the training time.
+In addition, the Decision Trees obtained with this method have been presented 
+as an excellent decision-aid tool for publishers, since they are accurate 
+and quite easy to understand and apply. 
+They are also able to provide insights on the decisions that have a higher influence on the 
+expected sales 
+%print-run 
+for these publishers. 
 
 This, compared to the output of black-box models such as artificial neural networks, was a determining advantage from the point of view of the needs of experts and Trevenque company.
 
