@@ -394,10 +394,35 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{center}
 \end{table}
 
-As it can be seen in this table, \texttt{total\_sales} is the output variable, so it is the objective of the prediction methods. On the other hand, \texttt{print\_run} has been considered as an input variable because it is something to be decided in advance by a publisher. In addition, this variable could be interesting to be used to test the prediction model, once it is built. Hence, the publisher could try different values for it and see what the predictor yields, in order to take the best decision.
-%Pablo: still waiting the definition of the variables
+As it can be seen in this table, \texttt{total\_sales} is the output
+variable, so it is the objective of the prediction methods. {\tt
+  total_sales} are a variable percentage of the {\tt print_run}, and
+thus there is obviously some correlation between them, which might
+prevent us from using it to predict sales; it is quite obvious that
+just increasing the print run, by itself, will not boost
+sales. However, several of the other variables include implicitly a
+certain size of the print run; for instance, you have to actually
+print books to distribute them as novelty and at least one, for every
+point of sale, so including the print run makes sense to get more
+accurate estimates of the total sales that you are going to obtain out
+of the total print run and check its influence on the overall sales
+volume. Once this is included in the model and also as part of the
+tree nodes, changing the print run might give the publisher an idea of
+how many books are going to be actually sold out of that print run,
+and taking that into account decide on the actual number of books that
+are going to be printed. Just to be clear, printing book does not
+actually sell them, but it is obviously necessary to print books
+before you sell them, and once you have to do it, the publisher might
+make decisions on printing a few more and check, with this model, what
+would be the influence in sales if, for instance, you decide to send
+more books to every point of sale or distribute more in novelty. We
+will come back to this choice later on when examining the resulting
+models. 
 
-Initially, there were three different features describing the subjects and subsubjects of every book \textit{subject1,2,3} (see Table \ref{tabla:paramsOrig50}), but for most of the patterns (books) there is no value for subjects2 and 3, so we have discarded these features. 
+Initially, there were three different features describing the subjects
+and subsubjects of every book \textit{subject1,2,3} (see Table
+\ref{tabla:paramsOrig50}), but for most of the patterns (books) there
+is no value for subjects2 and 3, so we have discarded these features.   
 
 With regard to the feature \textit{publisher}, it has been removed from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers probably will not want to use the results of other publishing companies for predicting their own sales.
 % Antonio - Think about this... should we mention this?
