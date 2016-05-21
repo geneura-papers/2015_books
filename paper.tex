@@ -1442,12 +1442,72 @@ relation between the factor for total points of sale and the total
 point of sales the first year. The fact that this last one is bigger
 indicates that the publisher will have to {\em increase} the number of
 points of sale after the first year, distributing it more shops at a
-more capilar level; the number of points of sale will have to be
+more capillary level; the number of points of sale will have to be
 increased by 10\% to achieve a bit more than the baseline. All in all,
 the conclusion with this part of the tree is that you will have to
 print around 3000 books to sell a quantity that will start at 1000,
 one third of the print run, and changes depending on a number of
-factors, including price.  
+factors, including price.
+
+The right hand side of the tree include those books that are
+distributed in a bigger percentage of the total amount of point of
+sale available in Spain, which in Spain includes not only proper
+bookstores, but also press stands and even supermarkets and hovers
+around several tens of thousands (around 24000, according to
+\ref{POS}), so we are clearly talking best sellers here distributed in
+as many places as possible. The first tree
+\ref{fig:decision_tree_best_seller} gives an idea of what we
+are talking about, sales start at 1000 but the single factor that has
+a bigger influence in sales is the topic, which has to be either 23 or
+1. '1' is the first digit of the classification used for all kind of
+general literary books. '23' includes philology, which includes either
+textbooks of maybe books in a foreign language; there are just a few
+of those, with '1' being far more common. So in principle these would
+be the typical best-sellers, literary prizes and big hits, but we
+would have to look more closely at the second tree
+\ref{fig:decision_tree_best_seller_fs} to check what are other factors
+influencing sales. It is also interesting that the number of total
+points of sale comes multiplied by 7, which would be a good baseline
+of books sold per outlet and give the publisher with a ballpark,
+around 4000 books, to print in the first print run. The picture
+painted by the second tree is a bit more bleak; obviously, even big
+publishing house produce flops from time to time, and those would be
+books which eventually print less than around 12500, indicating that
+there has not been a second print run, since best-seller print runs
+used to start at 15000 books\footnote{Nowadays in Spain that number
+  would be closer to 5000}. In general, that branch of the tree paints
+a pretty bleak picture: no matter how you combine the variable values,
+it will end up with sales much lower than the print run. The main
+problem with this tree is that its predictive value, with the
+variables that we have, is not too high, except for the hint we have
+on the subject matter. At the end of the day, there is a certain
+amount of unpredictability in how much a book sells and the only
+information we can give the publisher if he finds books sales adapt to
+this model is to boost points of sale and lower price so that sales
+pick a bit; in this sense and in certain cases our model is more
+informative than predictive, but having numeric models helps anyway
+the publisher with tailoring print runs and even increasing sales of
+books that have been already printed.
+
+The last box on the right of Figure
+\ref{fig:decision_tree_best_seller_fs} has a negative baseline, but
+this only indicates that the influence of the print run will be
+bigger. This probably indicates books that have been reprinted due to
+demand and it also tells how many are sold in every outlet: around 29
+books. The price, number of initial points of sale, number of books
+distributed as novelty and gifts all have a negative factor, but this
+is related to the fact that they will have to be selling for a long
+time, that is, not only be best, but also long sellers, which is also
+indicated by the positive factor in the number of weeks they are for
+sale. 
+
+All in all, these seven groups revealed by the tree in Figure
+\ref{fig:decision_tree_best_seller_fs} constitute not only an accurate
+model for predicting book sales based on data available to the
+publisher, but also an informative tool that will allow publishers to
+estimate print runs based on forecasted sales, and establish other
+factors such as price, number of points of sale, and number of books
+distributed to outlets. 
 
 An important fact that these tree models reveal is that marketing
 variables, such as the total number of points of sale and the number
