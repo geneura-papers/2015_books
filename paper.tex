@@ -110,10 +110,41 @@ Moreover, their impact is difficult to estimate and it is not constant over time
 In addition, some variables may have correlations between them, although these correlations can be detected using data analysis methods, 
 such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression analysis (SRA) \cite{Chang2009}. 
 
-Therefore, in this work we analyse the data by means of different data mining methods and create predictive models that can be mainly used as decision-aid tools for book publishers. Then, they will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book sales.
+In Spain, the process of releasing a book goes like this: the
+publisher decides, based on past experience, how many books to
+print. These books are distributed to points of sale, but also given
+out to reviewers and literary magazines, the number of these will
+depend on how many you have printed. Books then go, in some cases, to
+the {\em novelty} table, that is, prominently displayed in the
+bookstore, shown in the window, or highlighted using props or other
+kind of advertisement. Books stay for sale for as long as the
+publisher or the store want until the bookseller decides to return it
+to the publisher or just, in some cases, move it away from shelves to
+storage. Books returned to the publisher are pulped, sold back or
+given to the author or distributed in second-hand channels such as
+book stalls or second-hand bookstores. If the print run has been fully
+distributed and there are more requests from bookstores, on the other
+hand, a new print run is made and distributed to bookstores. 
+Even if the process has changed
+in the last few years since Amazon started to sell in Spain, which
+actually happened {\em after} the data used for this paper was
+collected, it roughly stays the same. Other countries will have a
+similar model, although scale will be different. 
 
-% Antonio - I think this is the main idea we have to sell in this paper. Due to the  difficulty of the book sales market (and its variables), we cannot give an accurate tool for predicting book sales, but a decision-aid tool for publishers. Do you agree?
-% (Paloma) Agree
+Our intention in this paper is to find out the main factor influencing
+sales in order to give a tool that the publisher can use to decide how
+many books should be printed, as well as how to leverage these printed
+copies to maximize sales using the decision variables under his
+control. That is why, using data obtained from a  company that sells
+software for publishers, we analyse it by means of different data
+mining methods and create predictive models that can be mainly used as
+decision-aid tools for book publishers. With these models, publishers
+will be able to 
+combine their expert knowledge about the market with the created
+forecasting models in order to get a reliable estimation of book
+sales, and, based on it, act upon it to maximize the books sold for a
+particular print run. 
+
 
 In the research published in this paper, the problem 
 of predicting total sales in order to print the right amount of books
@@ -1371,14 +1402,9 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \end{table}
 
 
-
-
-
-
-
 %--------------------------------------------------------------------------
 
-\subsection{Decision trees for best seller}
+\subsection{Case study: publisher with the most sales}
 \label{subsec:decision_trees}
 
 What is, then, the model obtained with our method? What factors have
@@ -1551,47 +1577,86 @@ predicting total sales in order to print the right amount of books
 %how many books should be printed 
 when a new book is going to be published is faced using several data-mining and forecasting methods.
 
-This is a very challenging problem in this industry, because printing a higher 
-number of volumes than those finally sold will lead to losses, while printing an adequate number of copies will optimise sales and company earnings.
-In addition, there are several difficulties inherent to the new book sales forecasting, such as the limited amount of historical data to consider or the variability of the market (fashions, seasonality), which do a difficult task finding an adequate forecasting method.
+This is a very challenging problem in this industry, because printing
+a much higher 
+number of volumes than those finally sold will lead to losses, while
+printing an adequate number of copies will optimise sales and company
+earnings.  
+In addition, there are several difficulties inherent to the new book
+sales forecasting, such as the limited amount of historical data to
+consider or the variability of the market (fashions, seasonality),
+which do a difficult task finding an adequate forecasting method. 
 
-A dataset consisting of 6000 books provided by the Spanish publishing company Trevenque Editorial S.L. has been used. These data have been analysed by means of Self-Organizing Maps as a visualisation tool, and two other Feature Selection techniques, namely a correlation-based feature subset evaluation method, and an adaptation of relief for attribute estimation. Using these methods the most relevant variables when predicting sales have been determined, while unrelated or superfluous ones have been removed.
+A dataset consisting of 6000 books provided by the Spanish publishing
+company Trevenque Editorial S.L. has been used. This data has been
+analysed by means of Self-Organizing Maps as a visualisation tool, and
+two other Feature Selection techniques, namely a correlation-based
+feature subset evaluation method, and an adaptation of relief for
+attribute estimation. Using these methods the most relevant variables
+when predicting sales have been determined, while unrelated or
+superfluous ones have been removed. 
 
-Four different datasets have also been extracted from the original one, each one corresponding to a Publishing house which we have considered as representative: the one with the most number of sales, the one with the medium number of sales, with the most varied sales (different books), and with a medium number of different books sold.
+Four different datasets have also been extracted from the original
+one, each one corresponding to a publishing house which we have
+considered as representative: the one with the most number of sales,
+the one with the medium number of sales, with the most varied sales
+(different books), and with a medium number of different books sold. 
 
-Considering these datasets and the complete one, five machine learning models for sales forecasting have been configured (according to the problem requirements) and used to predict new book sales, from which the optimal print-run could be estimated. These algorithms include some based on Decision Trees (M5P and Random Forest), kNN, Support Vector Machines and Linear Regression.
-These methods have been evaluated considering several performance indicators (error measures) and also the time consumed to build the corresponding models.
+Considering these datasets and the complete one, five machine learning
+models for sales forecasting have been configured (according to the
+problem requirements) and used to predict new book sales, from which
+the optimal print-run could be estimated. These algorithms include
+some based on Decision Trees (M5P and Random Forest), kNN, Support
+Vector Machines and Linear Regression. 
+These methods have been evaluated considering several performance
+indicators (error measures) and also the time consumed to build the
+corresponding models. 
 
 As a conclusion, M5P yields the best results overall, obtaining the best accuracy 
 (lowest error) on average, even with acceptable values regarding the training time.
-In addition, the Decision Trees obtained with this method have been presented 
-as an excellent decision-aid tool for publishers, since they are accurate 
+In addition, the Decision Trees obtained with this method have been
+shown to be an excellent decision-aid tool for publishers, since they are accurate 
 and quite easy to understand and apply. 
-They are also able to provide insights on the decisions that have a higher influence on the 
-expected sales 
-%print-run 
-for these publishers. 
+They are also able to provide insights on the decision variables that
+have a higher influence on the predicted sales for these publishers. 
 
-This, compared to the output of black-box models such as artificial neural networks, was a determining advantage from the point of view of the needs of experts and Trevenque company.
+This, compared to the output of black-box models such as artificial
+neural networks, was a determining advantage from the point of view of
+the needs of experts and the company that initially contacted us for
+this work. 
 
-%Moreover, proposed method was validated by the company and incorporated in a 
-%business intelligence tool for publishing companies. %FERGU: no hay más info de esto? estaría guay describirlo
+The feature selection techniques have also shown to positively affect
+all the results, yielding a better performance in time to train while
+maintaining good accuracy. Moreover, their application leads to obtain
+even simpler models. 
 
-The feature selection techniques have also shown to positively affect all the results, yielding a better performance in time to train while maintaining good accuracy. Moreover, their application leads to obtain even simpler models.
-
-Overall, this study contributes to the literature by proposing the use of different soft-computing standard techniques to solve a new challenging problem.
-Moreover, proposed method could be implemented, not only in the publishing 
-industry, but also in other domains where the specificity of products is similar, and might be of interest to other academic researches and industrial practitioners.
+Overall, this study contributes to the literature by proposing the use
+of different soft-computing standard techniques to solve a new
+challenging problem. 
+Moreover, proposed method, consisting in selecting features and
+applying different models for different types of publishers could be
+implemented, not only in the publishing  
+industry, but also in other domains where the specificity of products
+is similar such as novelty items or toys, and might be of interest to other academic researches and
+industrial practitioners.  
 % Antonio - I don't know if we should say this...
 
 %Thus, the methodology presented here provides a reliable data processing technique for editorial data and also yields a reasonable result that allows publishers to forecast sales and then create the appropriate print run without incurring in losses. 
 
 % -------- Future Work ---------
 
-As future work, it would be interesting to compare the obtained forecasting results with those yielded by other soft-computing methods, such as genetic programming or fuzzy logic.
-Moreover, even if the methods have been configured to obtain the best forecasting results, it would be of interest carrying out some automatic parameter-tuning procedure by means of optimisation meta-algorithms, 
+As future work, it would be interesting to compare the obtained
+forecasting results with those yielded by other soft-computing
+methods, such as genetic programming or fuzzy logic. 
+Moreover, even if the methods have been configured to obtain the best
+forecasting results, it would be of interest carrying out some
+automatic parameter-tuning procedure by means of optimisation
+meta-algorithms,  
 % Antonio - add an ESWA reference to this. :D
-for instance.
+for instance. If data for other countries were available, it would be
+interesting to observe, and factor in the method, country differences,
+even considering the same book and how it sells in different
+countries. 
 
 Furthermore, since there are some characteristics that may affect product sales 
 significantly, another way to improve sales predictions could be making a 
