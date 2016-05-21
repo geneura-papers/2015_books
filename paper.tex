@@ -271,11 +271,23 @@ on decision rules have been tested as an alternative.
 \section{Problem description}
 \label{sec:problem}
 
-The problem to solve in this work is the forecasting of sales for new launched books in the Spanish market, considering a set of `pre-sales variables'.
-The objective is to offer a tool for publishers which will aid them to decide the best print run for a new book before its publication process starts. This is a forecasting problem for which no specific historical data are available, since the same book has not been previously published.
-However, we have considered data about other previously published books and have taken as reference a set of variables (or features), related with the book publication process.
+The problem to solve in this work is the forecasting of sales for new
+launched books in the Spanish market, considering a set of `pre-sales
+variables' or at least variables that are under the control of the
+publisher before the book is going to be released to bookstores. The
+objective is to offer a tool for publishers which will help them to
+decide the best print run for a new book before its publication
+process starts. This is a forecasting problem for which no specific
+historical data are available and thus it is not simply a matter of
+analyzing a time series, instead, we have considered data about other,
+previously published, books and have taken as reference a set of
+variables (or features), 
+related with the book publication process. 
 
-The training dataset includes historical data about 6083 books published in Spain for several years, with an initial set of 50 variables per pattern. It has been provided by the Spanish publishing company Trevenque Editorial S.L.. Table
+The training dataset includes historical data about 6083 books
+published in Spain for several years, with an initial set of 50
+variables per pattern. It has been provided by the Spanish publishing
+company Trevenque Editorial S.L. Table 
 \ref{tabla:paramsOrig50} shows the initial set of variables describing
 each book. 
 
@@ -429,7 +441,16 @@ With regard to the feature \textit{publisher}, it has been removed from the fina
 % (Paloma) If you finally leave it, please review it because this last sentence is a bit confusing
 % Antonio - I guess it is now clearer
 
-Therefore, in order to create simpler and more accurate prediction models, and with the aim to provide them as a useful decision-aid tool for the publisher, we have transformed the categorical variable \texttt{subject1} into a numerical one, considering it refers to a code of the Dewey Decimal Classification system for books \cite{wiki:dewey}, and the existing similarity relationship between the books inside a class or subclass. So, for instance, all the books inside subdivisions of class 200, `Religion', are considered as similar regarding their topics, so they could be also close in terms of distance. The same reasoning can be applied to subclasses.
+Therefore, in order to create simpler and more accurate prediction
+models, and with the aim to provide them as a useful decision-aid tool
+for the publisher, we have transformed the categorical variable
+\texttt{subject1} into a numerical one, considering it refers to a
+code of the Dewey Decimal Classification system for books
+\cite{wiki:dewey}, and the existing similarity relationship between
+the books inside a class or subclass. So, for instance, all the books
+inside subdivisions of class 200, `Religion', are considered as
+similar regarding their topics, so they could be also close in terms
+of distance. The same reasoning can be applied to subclasses. 
 
 In this prediction problem there are other external variables that also affect 
 the sales of a new book, such as those related to seasonality, trends, or 
