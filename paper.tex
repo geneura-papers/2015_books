@@ -263,7 +263,7 @@ as promotions, fashions, or economic environment
   % New cosmetic product
   % New soft drink product
 Ching et al. propose in \cite{ChingChin2010} a decision-support system for new 
-product sales forecasting  to solve three real-world sales forecasting 
+product sales forecasting to solve three real-world sales forecasting 
 problems, namely: new tea, cosmetics, and soft drink products. 
 In that study, products are classified based on their sales patterns, so it is 
 assumed that products in the same class would follow a similar sales pattern. 
@@ -274,8 +274,7 @@ present/launch new products every season.
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
-In another hand, in those cases where historical data are available, classical time series 
-forecasting methods have been applied, such as in \cite{Chang2009}, 
+In another hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
 where a hybrid model integrating K-Means and fuzzy neural networks to forecast 
 the future sales of a printed circuit board is proposed.
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
@@ -453,7 +452,7 @@ volume. Once this is included in the model and also as part of the
 tree nodes, changing the print run might give the publisher an idea of
 how many books are going to be actually sold out of that print run,
 and taking that into account decide on the actual number of books that
-are going to be printed. Just to be clear, printing book does not
+are going to be printed. Just to be clear, printing books does not
 actually sell them, but it is obviously necessary to print books
 before you sell them, and once you have to do it, the publisher might
 make decisions on printing a few more and check, with this model, what
@@ -634,8 +633,7 @@ input vectors are presented to the network sequentially so the
 distance between the weights of the neurons and the inputs are
 computed using the simple Euclidean distance; in the second stage, the
 neuron which has the shortest distance with the presented input vector
-is updated along with the neurons in its neighbourhood. This neuron is called the
-best matching unit (BMU). The goal of the learning process is to
+is updated along with the neurons in its neighbourhood. This neuron is called the best matching unit (BMU). The goal of the learning process is to
 minimise the neighbourhood distance in the output clusters.  
 
 Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colours. Different colours between neurons indicate large distances (boundaries) while similar colours represent close areas (clusters).
@@ -816,21 +814,18 @@ where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is 
 This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
 Feature selection techniques have also been applied in order to test their utility by comparing the obtained results.
 
-We have analysed the whole dataset (all the publishing companies), but also performed some experiments considering specific publishing companies as example cases.
-The obtained decision trees have been plotted to show their simplicity and their real value as a decision-aid tool for publishers.
+We have analysed the whole dataset (all the publishing companies), but also performed some experiments considering specific and representative publishing companies as example cases.
+Some of the obtained decision trees have been plotted to show their simplicity and to remark their real value as a decision-aid tool for publishers.
 
 %--------------------------------------------------------------------------
 
 \subsection{Experimental setup}
 
 In most data mining and machine learning algorithms, the values of
-some parameters have a high influence on its performance. In our
-experiments, the best value of $k$ in the $k$-nearest neighbour was
-empirically found at $k=3$. % What???? - JJ
- For SVM, the widely used Radial Basis
-Function (RBF) kernel is selected. As reported in several studies, RBF
-kernel has a reliable performance and can analyse higher dimensional
-data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important
+some parameters have a high influence on its performance. We have conducted a systematic experimentation process, along with a revision of the bibliography describing the best configuration parameters for the methods we have applied here. 
+
+Thus, in our experiments, the best value of $k$ in the $k$-nearest neighbour was empirically found at $k=3$. % What???? - JJ
+For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyse higher dimensional data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important
 parameters should be tuned in SVM: the Cost $(C)$ and Gamma $(\gamma)$ of
 the RBF kernel. We apply grid search which is the most common approach
 to find $C$ and $\gamma$. The best performance of SVM was found at
@@ -838,16 +833,16 @@ $C=200$ and $\gamma = 0.01$. For MLP, we apply it with one
 hidden layer since it was proven in the literature that an MLP with
 one hidden layer can approximate any continuous or discontinuous
 function \cite{hornik1989multilayer,mirjalili2014let}. However, there
-is no rule of thumb on selecting the best number of neurons in the
+is no rule of thumb for selecting the best number of neurons in the
 hidden layer. One suggested method that is followed in this work is to
 set the number of neurons in the hidden layer to $2 \times I + 1$
 where $I$ is the number of inputs in the dataset
 \cite{wdaa2008differential,mirjalili2014let,mirjalili2015effective}. 
 
-All experiments are performed using 10-fold cross validation \cite{Geisser1993,Kohavi1995,Devijver1982}. The dataset is partitioned into 10 parts where the training process is carried out on 9 parts then the resulted model is tested on the left 10th part. This process is repeated 10 times, each time the model is trained using different 9 parts. At the end of the process the 10 evaluation results on the testing parts are averaged. 
+All experiments have been performed using the standard 10-fold cross validation \cite{Geisser1993,Kohavi1995,Devijver1982}: then, the dataset is partitioned into 10 parts where the training process is carried out on 9 parts and after this, the resulting model is tested on the left 10th part. This process is repeated 10 times, training the models using different 9 parts. At the end of the process the 10 evaluation results on the testing parts are averaged. 
 This technique is used to estimate how accurately the predictive model will perform in practise, limiting, at the same time, the overfitting problem.
 
-In addition, due to the stochastic component present in some of the methods and also in order to evaluate the running time, 30 repetitions of each experiment have been done per method. Then the average and standard deviation have been computed.
+In addition, due to the stochastic component present in some of the methods and also in order to fairly evaluate the running time, 30 repetitions of each experiment have been done per method. Then the average and standard deviation have been computed.
 
 All experiments have been conducted on an  Intel(R) Core(TM) i5-2400 CPU at 3.10Ghz with a memory of 4 GB running Windows 7 professional 32bit operating system and Java JRE\_1.7.0\_72.
 
@@ -859,8 +854,8 @@ All experiments have been conducted on an  Intel(R) Core(TM) i5-2400 CPU at 3.10
 
 In the first stage of the experiments, forecasting methods have been
 applied to the whole dataset. All the pre-sales features have been
-considered, including the categorical ones, which make it harder to
-process the instances and build the different models. SVM for
+considered, including the categorical ones, which makes it harder to
+process the input patterns and build the different models. SVM for
 instance, must previously transform these categories into binary
 variables in order to deal with the data, which means the creation of
 a different (and new) variable per each possible value. Thus, in the
@@ -870,7 +865,7 @@ hundreds of new variables.
 Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
 
 \begin{table}
-\caption{Predicting Total sales for all publishers (all the features). 10 repetitions, 10-fold cross validation. Best values in bold.
+\caption{Predicting Total sales for all publishers (all the features). 30 repetitions, 10-fold cross validation. Best values in bold.
 \label{tab:all_publishers_no_fs}}
 \centering{}%
 \scalebox{0.78}{
@@ -895,33 +890,20 @@ SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\p
 
 
 
-As far as the different methods are concerned, M5P model obtained the best results, 
-both in time and error. The advantage of M5P is that it can learn and tackle 
-classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is very suitable model be incorporated in a publishing company 
-processes.
+As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is very suitable model be incorporated in a publishing company 
+processes (as we will show in Section \ref{subsec:decision_trees}).
 
-Taking into account the obtained results by SVM model, this method obtains comparable 
-errors to those of M5P. Even when using roughly tuned parameter values, it shows 
-a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, but also when using the 
-datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
+Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \emph{collection} and \emph{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
-According to Table \ref{tab:all_publishers_no_fs}, it can be noticed also that the Linear Regression model outperformed some other complex methods like the random forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
-
+According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that the Linear Regression model outperforms some other complex methods like the Random Forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
 
 kNN is the fastest method used in this study in terms of training time, as it 
 is the simplest one. However, the model is slow when classifying large number of 
-training examples, and it exhibits a poor generalisation ability since it does not 
-learn anything from the training data.
+training examples, and it exhibits a poor generalisation ability since it does not learn anything from the training data.
 
-Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{collection} and 
-\emph{binding}.
+%Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{collection} and \emph{binding}.
 
-Finally, paying attention to the cost in time to obtain the forecasting models 
-and their accuracy, the M5P model is the most adequate to solve the problem of 
-how many books should be printed when a new book is published.
-This forecasting method, with these additional advantages, can be used for products 
-with historical sales data and for new products with little or no historical 
-data available.
+As a first conclusion, paying attention both to the cost in time to obtain the forecasting models and their accuracy, the M5P model would be the most adequate to solve the problem of how many books should be printed when a new book is published. This forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
 
 
 
@@ -930,55 +912,24 @@ data available.
 \subsection{Feature selection}
 \label{subsec:feature_selection}
 
-In the second stage of the experiments, different feature selection methods have been applied. The aim of these methods is to reduce the number of features considered in developing the forecasting models which consequently simplify the complexity of the models, improve their interpretability and decrease the training time. The simpler models generated after performing feature selection could give the decision maker a better insight on the underlying process by identifying the more influencing variables. 
+In the second stage of the experiments, different feature selection methods have been applied. The aim of these methods is to reduce the number of features considered in developing the forecasting models which consequently simplify the complexity of the models, improve their interpretability and decrease the training time. The simpler models generated after performing feature selection could give the decision maker a better insight on the underlying process by identifying the most influencing variables. 
   
 We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
-The dataset has also been projected using SOM, and a visual analysis of the obtained results has been carried out in order to determine the best variables to consider.
-An important preprocessing step has been carried out before conducting the SOM analysis, so the two categorical features \emph{collection} and \emph{binding} have been
-removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
+The dataset has also been analysed using SOM, and a visual exploration of the obtained results has been performed in order to determine the best variables to consider.
+An important preprocessing step has been carried out before conducting the SOM analysis. Thus, the two categorical features \emph{collection} and \emph{binding} have been removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
+In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
-Several configurations for SOM have been tested and the one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The second error refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
-
-Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046. % explain what is quantisation and topographic error and why it is important - JJ 
-% Antonio - done. ;)
-
+Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
 
 Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
-% really, are you reading this with the mind of someone that has no
-% idea what is SOM or U-Matrix or whatever? Tell first what you are
-% going to do, then tell why you are doing it, explain all the
-% terminology and then show the results. You can't keep saying "I have
-% done this and this is the result. You have to explain why you are
-% doing it, what you are doing, how you are doing it and then how to
-% interpret the results - JJ
-% Antonio - now it must be clearer with the new explanations given before
-The component planes in Figure 
-%what is a plane? Really, you don't know what's in the mind of the reader (or reviewer#3, who is a son of a bitch - JJ
-% Antonio - now it should be clear. This is the accurate term for the output of SOM: component planes analysis
-\ref{fig:componentplanes} show the trend of values of the prototype
-vectors of the SOM map units. These values are represented as
-colours. The colourbar on the right of each component plane shows the
-indication of each colour. On the other side, the U-matrix on the top
+The component planes in Figure \ref{fig:componentplanes} show the trend of values of the prototype vectors of the SOM map units. These values are represented as colours. The colourbar on the right of each component plane shows the indication of each colour. On the other side, the U-matrix on the top
 left corner shows the distances between the adjacent units. It is
 important to note that high values in the matrix indicates large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
 the distances between units are also represented as inter-neuron hexagons. 
-                                % but
-                                % explain that at the beginning!
-                                % Devote one or two paragraphs to tell
-                                % the reader what is U-Matrix, a
-                                % reference, why we are using it and
-                                % how it conveys more information that
-                                % a pure and simple feature selection
-                                % (which we are doing anyway). If we
-                                % don't, Reviewer #3 (who is,
-                                % remember, a son of a bitch) will
-                                % tell you to just suppress that whole
-                                % section - JJ
-% Antonio - I have done it. However Ihave focused the explanation on the feature selection 'ability' of the method. ;)
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
@@ -992,7 +943,7 @@ Examining the component planes shown in Figure \ref{fig:componentplanes}, it can
 \end{figure*}
 
 
-The selected features per method are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
+The selected features using each one of the three methods are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
 
 \begin{table}
 \caption{Input features/variables selected by each method
@@ -1026,7 +977,7 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table}
 
 
-After applying the feature selection methods, we have run the same
+After applying the feature selection process, we have run the same
 forecasting models as in Section \ref{subsec:results_all_publishers}
 for the whole dataset (all the publishers), but considering only the
 selected features by each method. The results are shown in Table
@@ -1039,7 +990,7 @@ selected by RFE than using all features. %Better publish results in
                                 %where it was published. Is this
                                 %difference statistically significant?
                                 %- JJ
- In general, all feature selection methods have reduced the training time needed to build the forecasting methods, this is because they reduced the features and excluded the categorical features that have many possible values. On the other side, CSE and SOM did not perform as good as RAE which could be explained due to the extensive reduction made by CSE and due to the human intervention in the case of SOM. 
+As expected, in general, all feature selection methods have reduced the training time needed to build the forecasting methods. This is because they reduced the considered features and mainly because they excluded the categorical features, which are the hardest to be managed (they have many possible values). On the other side, CSE and SOM did not perform as good as RA. This could be explained due to the extensive reduction made by CSE and due to the `subjective' (but not so accurate) human intervention in the case of SOM. 
 
 \begin{table}
 \centering{}%
@@ -1120,13 +1071,13 @@ This section presents further experiments conducted on data concerning four inte
 
 \begin{itemize}
     \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
-    \item Mid-range seller publishing company: this represents an publishing company that sells medium number of copies compared to the other publishing companies (Medium business scale). 
-    \item Highest variation publishing company: this is an example of an publishing company that follows a strategy in publishing a very wide range of different titles.
-    \item Medium varied publishing company: this case represents an publishing company that has a median rank between the other publishing company regarding the variety of titles sold.
+    \item Mid-range seller publishing company: this represents a publishing company that sells medium number of copies compared to other publishing companies (Medium business scale). 
+    \item Highest variation publishing company: this is an example of a publishing company that follows a strategy in publishing a very wide range of different titles.
+    \item Medium varied publishing company: this case represents a publishing company that has a median rank between the other publishing companies regarding the variety of titles sold.
 \end{itemize}
 
 
-Table \ref{Table:special_cases} shows number of sold copies and number of titles published by the selected publishing companies.
+Table \ref{Table:special_cases} shows the number of sold copies and the number of titles published by the selected companies.
 
 \begin{table}
 \caption{Description of publishing companies considered as special cases.}
@@ -1155,7 +1106,7 @@ Table \ref{Table:special_cases} shows number of sold copies and number of titles
 
 The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the simple classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model is recommended.
+Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 
 \begin{table}
@@ -1273,7 +1224,7 @@ SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$
 %***TO DO***: explain we have chosen the best Feature selection method (ReliefAttributeEval???). The rest of tables have been moved to an appendix.
 %Sam will do it - JJ
 
-In the second stage of the experiments for the special cases, the
+In this stage of the experiments for the special cases, the
 feature selection methods (RFE, CSE and SOM) are applied for each case
 independently, since publishers with different sales ranges, and
 targets, might in fact include different factors or have different
@@ -1282,17 +1233,11 @@ after applying the RFE method for the four cases in Tables
 \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE},
 \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this
 one was chosen since the selected features by this
-method showed the highest predictive power among all classifiers. 
+method showed in the previous experiment the highest predictive power among all classifiers. 
 %According to the aforementioned tables, 
 %It's not according to a table. It's according to the results there - JJ
-RFE
-has noticeably improved % with respect to what? -JJ
-the performance of all classifiers specially
-in the case of the best selling publisher house (i.e. UDL929) and the
-publisher who publishes a wide range of different books
-(i.e. UDL704). For the rest of the results which are obtained by CSE
-and SOM feature selection methods we refer the reader to the appendix
-of tables at the end of this paper.  
+RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the
+publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.  
 
 
 \begin{table}[!ht]
@@ -1408,9 +1353,9 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \label{subsec:decision_trees}
 
 What is, then, the model obtained with our method? What factors have
-the biggest influence in sales and how can publisher use them to gauge
+the biggest influence in sales and how can a publisher use them to gauge
 sales of a new book? In order to do that, we have examined the models
-built during the regression, namely we present two of the decision
+built during the regression. Namely we present two of the decision
 trees generated by M5P method applied to the data of the publisher
 that sells the most. By looking at these trees, the publisher should
 be able to decide how many actual books should be printed to put them
@@ -1651,9 +1596,12 @@ methods, such as genetic programming or fuzzy logic.
 Moreover, even if the methods have been configured to obtain the best
 forecasting results, it would be of interest carrying out some
 automatic parameter-tuning procedure by means of optimisation
-meta-algorithms,  
+meta-algorithms \cite{Cheng2006_tunningSVM,Lessmann2011_tunningDM},  
 % Antonio - add an ESWA reference to this. :D
-for instance. If data for other countries were available, it would be
+% Antonio - I have done it.
+for instance. 
+
+In addition, if data for other countries were available, it would be
 interesting to observe, and factor in the method, country differences,
 even considering the same book and how it sells in different
 countries. 
