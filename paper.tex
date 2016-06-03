@@ -545,7 +545,7 @@ Some specific interpretable models have been created as a final result of the wo
 \subsection{Data preprocessing by feature selection}
 \label{subsec:data_preproces}
 
-At this stage, a Feature Selection (FS) process has been carried out, since it is an effective dimensionality reduction technique and an essential preprocessing method to discard less relevant or non-useful features \cite{Krishnapuram2004}.
+At this stage, a Feature Selection (FS) process has been carried out, since it is an effective dimensionality reduction technique and an essential preprocessing method to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
 The aim of these algorithms is exploring the space of attributes to find out which subset of them yields the best results in a classification or prediction problem. To this end, the features describing every pattern are analysed. In this case, among the variables describing a new book, some may affect predictions as they provide information, while others may not be necessary and even redundant.
 
@@ -825,9 +825,7 @@ In most data mining and machine learning algorithms, the values of
 some parameters have a high influence on its performance. We have conducted a systematic experimentation process, along with a revision of the bibliography describing the best configuration parameters for the methods we have applied here. 
 
 Thus, in our experiments, the best value of $k$ in the $k$-nearest neighbour was empirically found at $k=3$. % What???? - JJ
-For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyse higher dimensional data \cite{yu2004ec,chao2015construction,huang2006ga}. Two important
-parameters should be tuned in SVM: the Cost $(C)$ and Gamma $(\gamma)$ of
-the RBF kernel. We apply grid search which is the most common approach
+For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyse higher dimensional data \cite{yu2004ec,chao2015construction}. Two important parameters should be tuned in SVM: the Cost $(C)$ and Gamma $(\gamma)$ of the RBF kernel. We apply grid search which is the most common approach
 to find $C$ and $\gamma$. The best performance of SVM was found at
 $C=200$ and $\gamma = 0.01$. For MLP, we apply it with one
 hidden layer since it was proven in the literature that an MLP with
@@ -1596,9 +1594,8 @@ methods, such as genetic programming or fuzzy logic.
 Moreover, even if the methods have been configured to obtain the best
 forecasting results, it would be of interest carrying out some
 automatic parameter-tuning procedure by means of optimisation
-meta-algorithms \cite{Cheng2006_tunningSVM,Lessmann2011_tunningDM},  
-% Antonio - add an ESWA reference to this. :D
-% Antonio - I have done it.
+meta-algorithms \cite{huang2006ga,Mookiah2013_EA_Tuning,Shen2016_FFly_Tuning},  
+% Antonio - changed to include KBS references
 for instance. 
 
 In addition, if data for other countries were available, it would be
@@ -1620,7 +1617,7 @@ model that will optimise those values to obtain desired sales.
 %********************************************************************************
 \section*{Acknowledgements}
 
-This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
+This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness and FEDER), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
 
 
 %********************************************************************************
