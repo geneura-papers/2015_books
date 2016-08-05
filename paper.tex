@@ -1,4 +1,7 @@
-\documentclass[final,1p,times]{elsarticle}
+%\documentclass[final,1p,times]{elsarticle}
+%\documentclass[twocolumn]{elsarticle}
+\documentclass[a4paper,10pt,twocolumn,preprint,3p]{elsarticle}
+
 \usepackage{graphics}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -12,7 +15,7 @@
 %\addtolength{\intextsep}{-0.5cm}
 
 
-\journal{Expert Systems with Applications}
+\journal{Knowledge-Based Systems}
 
 \begin{document}
 
@@ -21,9 +24,11 @@
 %%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
 \title{Applying Computational Intelligence Methods for Predicting the Sales of Newly Published Books in a Real Editorial Business Management Environment} 
 
+
+%\setlength\textwidth\columnwidth
+
+
 %%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
-
-
 \author[ugr]{Pedro A. Castillo}
 \ead{pacv@ugr.es}
 \author[ugr]{Antonio M. Mora}
@@ -320,7 +325,7 @@ company Trevenque Editorial S.L. Table
 \ref{tabla:paramsOrig50} shows the initial set of variables describing
 each book. 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Parameters describing a book, provided by the company Trevenque S.L.}
 \label{tabla:paramsOrig50}
 \begin{center}
@@ -390,7 +395,7 @@ negative sales environment
 \hline
 \end{tabular}
 \end{center}
-\end{table}
+\end{table*}
 
 Starting from these raw data, a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. 
 % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
@@ -403,7 +408,7 @@ is launched, i.e. \textit{pre-sales data}.
 The selected subset of features is described in Table \ref{tabla:params_pre_sales}.
 
 
-\begin{table}
+\begin{table*}
 % Shouldn't this table go to "Problem description"? It is a
 % preliminary selection - JJ
 % Antonio - done
@@ -433,7 +438,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{tabular}
 }
 \end{center}
-\end{table}
+\end{table*}
 
 As it can be seen in this table, \texttt{total\_sales} is the output
 variable, so it is the objective of the prediction methods. {\tt
@@ -861,7 +866,7 @@ hundreds of new variables.
 
 Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
 
-\begin{table}
+\begin{table*}
 \caption{Predicting Total sales for all publishers (all the features). 30 repetitions, 10-fold cross validation. Best values in bold.
 \label{tab:all_publishers_no_fs}}
 \centering{}%
@@ -883,7 +888,7 @@ SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\p
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
@@ -942,7 +947,7 @@ Examining the component planes shown in Figure \ref{fig:componentplanes}, it can
 
 The selected features using each one of the three methods are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
 
-\begin{table}
+\begin{table*}
 \caption{Input features/variables selected by each method
 \label{tab:features_selected}}
 \centering{}%
@@ -971,7 +976,7 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 10 & \texttt{print\_run} & $\checkmark$ & $\checkmark$ & $\checkmark$\\
 \hline 
 \end{tabular}
-\end{table}
+\end{table*}
 
 
 After applying the feature selection process, we have run the same
@@ -989,7 +994,7 @@ selected by RFE than using all features. %Better publish results in
                                 %- JJ
 As expected, in general, all feature selection methods have reduced the training time needed to build the forecasting methods. This is because they reduced the considered features and mainly because they excluded the categorical features, which are the hardest to be managed (they have many possible values). On the other side, CSE and SOM did not perform as good as RA. This could be explained due to the extensive reduction made by CSE and due to the `subjective' (but not so accurate) human intervention in the case of SOM. 
 
-\begin{table}
+\begin{table*}
 \centering{}%
 \caption{Predicting Total sales for all publishers based on features selected
 by each method. Best values in bold.
@@ -1055,7 +1060,7 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
@@ -1076,7 +1081,7 @@ This section presents further experiments conducted on data concerning four inte
 
 Table \ref{Table:special_cases} shows the number of sold copies and the number of titles published by the selected companies.
 
-\begin{table}
+\begin{table*}
 \caption{Description of publishing companies considered as special cases.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1099,14 +1104,14 @@ Table \ref{Table:special_cases} shows the number of sold copies and the number o
 \end{tabular}
 }
 \label{Table:special_cases}
-\end{table}
+\end{table*}
 
 The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
 
 Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 
-\begin{table}
+\begin{table*}
 \caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1128,10 +1133,10 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 \end{tabular}
 }
 \label{Table:case1results}
-\end{table}
+\end{table*}
 
 
-\begin{table}
+\begin{table*}
 \caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1153,9 +1158,9 @@ SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \text
 \end{tabular}
 }
 \label{Table:case2results}
-\end{table}
+\end{table*}
 
-\begin{table}
+\begin{table*}
 \caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1177,12 +1182,12 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 \end{tabular}
 }
 \label{Table:case3results}
-\end{table}
+\end{table*}
 
 
 
 
-\begin{table}
+\begin{table*}
 \caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold)). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1204,7 +1209,7 @@ SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$
 \end{tabular}
 }
 \label{Table:case4results}
-\end{table}
+\end{table*}
 
 
 
@@ -1237,7 +1242,7 @@ RFE reduction has noticeably improved the performance of all classifiers special
 publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.  
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 % Why the capital in Total? If it's a variable use Small Caps or Sans
 % Serif - JJ
 \caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
@@ -1261,13 +1266,13 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 \end{tabular}
 }
 \label{Table:case1results-RAE}
-\end{table}
+\end{table*}
 
 
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1289,10 +1294,10 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$
 \end{tabular}
 }
 \label{Table:case2results-RAE}
-\end{table}
+\end{table*}
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1314,12 +1319,12 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 \end{tabular}
 }
 \label{Table:case3results-RAE}
-\end{table}
+\end{table*}
 
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1341,7 +1346,7 @@ SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.
 \end{tabular}
 }
 \label{Table:case4results-RAE}
-\end{table}
+\end{table*}
 
 
 %--------------------------------------------------------------------------
@@ -1489,16 +1494,16 @@ in their models. This does not mean that the retail price is not a
 factor; it appears in all models, but it will be a secondary factor
 that will have to be decided once the main ones are settled. 
 
-\begin{figure}[!ht] 
+\begin{figure*}[!ht] 
 \begin{center}
   \epsfig{file=decision_tree_no_fs.eps,width=13cm}
 \caption{Decision tree built by the M5P method for the best seller publishing company including all pre-sales features.}
 \label{fig:decision_tree_best_seller}
 \end{center}
-\end{figure}
+\end{figure*}
 
 
-\begin{figure}[!ht] 
+\begin{figure*}[!ht] 
 \begin{center}
   \epsfig{file=decision_tree_fs.eps,width=13cm}
 \caption{Decision tree built by the M5P method for the best seller
@@ -1506,7 +1511,7 @@ that will have to be decided once the main ones are settled.
   {\sf ReliefAttributeEval} method.} 
 \label{fig:decision_tree_best_seller_fs}
 \end{center}
-\end{figure}
+\end{figure*}
 
 
 
@@ -1621,7 +1626,351 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 %********************************************************************************
 \bibliographystyle{elsarticle-num}
-\bibliography{refs}
+%\bibliography{refs}
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Fildes2010}
+R.~Fildes, B.~Kingsman, {Incorporating demand uncertainty and forecast error in
+  supply chain planning models}, J Oper Res Soc 62 (2010) 483--500.
+
+\bibitem{Saeed2008}
+K.~Saeed, {Trend forecasting for stability in supply chains}, J Bus Res 61
+  (2008) 1113--1124.
+
+\bibitem{Zhao2001}
+X.~Zhao, J.~Xie, R.~Lau, {Improving the supply chain performance: use of
+  forecasting models versus early order commitments}, Int J Prod Res 39~(17)
+  (2001) 3923--3939.
+
+\bibitem{Little1998}
+J.~Little, {Integrated measures of sales, merchandising and distribution}, Int
+  J Res Mark 15 (1998) 473--485.
+
+\bibitem{Armstrong2001}
+J.~Armstrong, {Principles of forecasting. A handbook for researchers and
+  practitioners}, Kluwer, Norwell, 2001.
+
+\bibitem{SThomassey2014}
+S.~Thomassey, {Sales Forecasting in Apparel and Fashion Industry: A Review},
+  Intell Fashion Forecasting Syst: Models and App (2014) 2--27.
+
+\bibitem{DeToni2000}
+A.~D. Toni, A.~Meneghetti, {The production planning process for a network of
+  firms in the textile-apparel industry}, Int J Prod Econ 65 (2000) 17--32.
+
+\bibitem{kohonen1998}
+T.~Kohonen, {The self-organizing map}, Neurocomputing 21~(1-3) (1998) 1--6.
+
+\bibitem{Chang2009}
+P.~Chang, C.~Liu, C.~Fan, {Data clustering and fuzzy neural network for sales
+  forecasting: A case study in printed circuit board industry}, Knowl Based
+  Syst (2009) 344--355.
+
+\bibitem{Sanders1994}
+N.~Sanders, K.~Manrodt, {Forecasting practices in US corporations: Survey
+  results}, Interfaces 24~(2) (1994) 92--100.
+
+\bibitem{Papalexopoulos1990}
+A.~Papalexopoulos, T.~Hesterberg, {A regression-based approach to short-term
+  system load forecasting}, IEEE Trans Power Syst 5 (1990) 1535--1547.
+
+\bibitem{Yoo1999}
+H.~Yoo, R.~Pimmel, {Short-term load forecasting using a self-supervised
+  adaptive neural network}, IEEE Trans Power Syst 14~(2) (1999) 779--784.
+
+\bibitem{Mastorocostas2001}
+P.~Mastorocostas, J.~Theocharis, V.~Petridis, {A constrained orthogonal
+  least-squares method for generating TSK fuzzy models: application to
+  short-term load forecasting}, Fuzzy Set Syst 118 (2001) 215--233.
+
+\bibitem{Chu2003}
+C.~Chu, P.~Zhang, {A comparative study of linear and nonlinear models for
+  aggregate retail sales forecasting}, Int J Prod Econ 86 (2003) 217--231.
+
+\bibitem{Brown1959}
+R.~Brown, {Smoothing forecasting and prediction of discrete time series},
+  Prentice Hall, Englewood Cliffs, 1959.
+
+\bibitem{Winters1960}
+P.~Winters, {Forecasting sales by exponential weighed moving averages}, Manag
+  Sci 6 (1960) 324--342.
+
+\bibitem{Box1969}
+G.~Box, G.~Jenkins, {Time series analysis forecasting and control}, Prentice
+  Hall, Englewood Cliffs, 1969.
+
+\bibitem{KayacanUK10}
+E.~Kayacan, B.~Ulutas, O.~Kaynak, Grey system theory-based models in time
+  series prediction, Expert Syst Appl 37~(2) (2010) 1784--1789.
+
+\bibitem{ChingChin2010}
+C.~Ching-Chin, A.~I.~K. Ieng, W.~Ling-Ling, K.~Ling-Chieh, {Designing a
+  decision-support system for new product sales forecasting}, Expert Syst Appl
+  37~(2) (2010) 1654--1665.
+
+\bibitem{FaderHardie2005}
+S.~Fader, B.~Hardie, {The value of simple models in new product forecasting and
+  customer-base analysis}, Appl Stoch Model Bus (2005) 461--473.
+
+\bibitem{Madsen2008}
+H.~Madsen, {Time series analysis}, Chapman and Hall. CRC Co., 2008.
+
+\bibitem{Lapide1999}
+L.~Lapide, {New developments in business forecasting}, J Bus Forecasting (1999)
+  29--30.
+
+\bibitem{ChernWSF15}
+C.-C. Chern, C.-P. Wei, F.-Y. Shen, Y.-N. Fan, A sales forecasting model for
+  consumer products based on the influence of online word-of-mouth., Inf Syst E
+  Bus Manag 13 (2015) 445--473.
+
+\bibitem{Moon2010ICSSSM}
+G.~Moon, G.~Kikuta, T.~Yamada, A.~Yoshikawa, T.~Terano, {Blog information
+  considered useful for book sales prediction}, in: 7th International
+  Conference on Service Systems and Service Management (ICSSSM), IEEE. Tokyo,
+  2010, pp. 1--5.
+
+\bibitem{Moon2010ICEC}
+G.~Moon, G.~Kikuta, T.~Yamada, A.~Yoshikawa, T.~Terano, Categorization of sales
+  patterns to use blog information as book sales prediction, in: Proceedings of
+  the 12th International Conference on Electronic Commerce: Roadmap for the
+  Future of Electronic Business, ICEC '10, ACM, New York, NY, USA, 2010, pp.
+  1--7.
+
+\bibitem{Hammond1990}
+J.~Hammond, {Quick response in apparel industries}, Havard Business school,
+  Cambridge, 1990.
+
+\bibitem{Xia2012}
+M.~Xia, Y.~Zhang, L.~W.~S. Ye, {Fashion retailing forecasting based on extreme
+  learning machine with adaptive metrics of inputs}, Knowl Based Syst 36 (2012)
+  253--259.
+
+\bibitem{Thomassey2012}
+S.~Thomassey, {Sales forecasts in clothing industry. The key success factor of
+  the supply chain management}, Int J Prod Econ 128 (2012) 470--483.
+
+\bibitem{wiki:dewey}
+Wikipedia,
+  \href{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}{List
+  of dewey decimal classes}, [Online; accessed 05-May-2016].
+\newline\urlprefix\url{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}
+
+\bibitem{fayyad1996data}
+U.~Fayyad, G.~Piatetsky-Shapiro, P.~Smyth, From data mining to knowledge
+  discovery in databases, AI magazine 17~(3) (1996) 37.
+
+\bibitem{kittler1986feature}
+J.~Kittler, Handbook of pattern recognition and image processing, Academic
+  press, 1986.
+
+\bibitem{Krishnapuram2004}
+B.~Krishnapuram, A.~Hartemink, L.~Carin, M.~Figueiredo, {A Bayesian Approach to
+  Joint Feature Selection and Classifier Design}, IEEE T Pattern Anal 26~(9)
+  (2004) 1105--1111.
+
+\bibitem{Chen2011_FS_PTS}
+Y.~Chen, D.~Miao, R.~Wang, K.~Wu, A rough set approach to feature selection
+  based on power set tree, Knowl Based Syst 24~(2) (2011) 275 -- 281.
+
+\bibitem{Selvakuberan2008}
+K.~Selvakuberan, M.~Indradevi, R.~Rajaram, {Combined Feature Selection and
+  classification - A novel approach for the categorization of web pages}, J Inf
+  Comp Sci 3~(2) (2008) 083--089.
+
+\bibitem{liu1998feature}
+H.~Liu, H.~Motoda, {Feature extraction, construction and selection: A data
+  mining perspective}, Springer Science \& Business Media, 1998.
+
+\bibitem{Hall2009}
+M.~Hall, E.~Frank, G.~Holmes, B.~Pfahringer, P.~Reutemann, I.~Witten, {The WEKA
+  data mining software: an update}, ACM SIGKDD Explor Newslett 11~(1) (2009)
+  10--18.
+
+\bibitem{Witten2011}
+I.~Witten, E.~Frank, M.~Hall, {Data mining: Practical machine learning tools
+  and techniques}, Morgan Kaufmann, 2011.
+
+\bibitem{Hall1998}
+M.~A. Hall, Correlation-based feature subset selection for machine learning,
+  Ph.D. thesis, University of Waikato, Hamilton, New Zealand (1998).
+
+\bibitem{RobnikSikonja1997}
+M.~Robnik-Sikonja, I.~Kononenko, An adaptation of relief for attribute
+  estimation in regression, in: D.~H. Fisher (Ed.), Fourteenth International
+  Conference on Machine Learning, Morgan Kaufmann, 1997, pp. 296--304.
+
+\bibitem{Kira1992}
+K.~Kira, L.~A. Rendell, {A Practical Approach to Feature Selection}, in: D.~H.
+  Sleeman, P.~Edwards (Eds.), Ninth International Workshop on Machine Learning,
+  Morgan Kaufmann, 1992, pp. 249--256.
+
+\bibitem{UmatUlts}
+S.~Ultsch, Kohonen's self-organizing maps for exploratory data analysis, in:
+  Proc. of the INNC'90, 2000, pp. 305--308.
+
+\bibitem{Quinlan1986}
+J.~Quinlan, {Induction of decision trees}, Mach Learn 1 (1986) 181--186.
+
+\bibitem{Quinlan1992}
+R.~J. Quinlan, Learning with continuous classes, in: 5th Australian Joint
+  Conference on Artificial Intelligence, World Scientific, Singapore, 1992, pp.
+  343--348.
+
+\bibitem{Wang1997}
+Y.~Wang, I.~H. Witten,
+  \href{https://www.researchgate.net/profile/Ian_Witten/publication/33051395_Induction_of_model_trees_for_predicting_continuous_classes/links/545948ea0cf2cf516483ce67.pdf}{Induction
+  of model trees for predicting continuous classes}, Tech. rep., Dept. of
+  Computer Science, University of Waikato, working Paper 96/23, Poster papers
+  of the 9th European Conference on Machine Learning (1996).
+\newline\urlprefix\url{https://www.researchgate.net/profile/Ian_Witten/publication/33051395_Induction_of_model_trees_for_predicting_continuous_classes/links/545948ea0cf2cf516483ce67.pdf}
+
+\bibitem{WittenFrank2000}
+I.~Witten, E.~Frank, {Data mining}, Morgan Kaufmann, 2000.
+
+\bibitem{Solomatine2004}
+D.~Solomatine, Y.~Xue, {M5 Model Trees and Neural Networks: Application to
+  FloodForecasting in the Upper Reach of the Huai River in China}, J Hydrol Eng
+  9~(6) (2004) 491--501.
+
+\bibitem{Aha1991}
+D.~Aha, D.~Kibler, Instance-based learning algorithms, Mach Learn 6 (1991)
+  37--66.
+
+\bibitem{Mitchell1997}
+T.~Mitchell, {Machine Learning}, McGraw-Hill Companies, Inc., 1997.
+
+\bibitem{Breiman2001}
+L.~Breiman, Random forests, Mach Learn 45~(1) (2001) 5--32.
+
+\bibitem{Cohen2003}
+J.~Cohen, P.~Cohen, S.~West, L.~Aiken, {Applied multiple regression/correlation
+  analysis for the behavioral sciences}, Lawrence Erlbaum Associates, 2003.
+
+\bibitem{Yan2009}
+X.~Yan, {Linear Regression Analysis: Theory and Computing}, World Scientific,
+  2009.
+
+\bibitem{Rencher2102}
+A.~Rencher, W.~Christensen, {Multivariate regression}, Vol. 709 of Wiley Series
+  in Probability and Statistics, John Wiley and Sons, 2012.
+
+\bibitem{EnkeT05}
+D.~Enke, S.~Thawornwong, The use of data mining and neural networks for
+  forecasting stock market returns, Expert Syst Appl 29~(4) (2005) 927--940.
+
+\bibitem{McClendon2015}
+L.~McClendon, N.~Meghanathan, Using machine learning algorithms to analyze
+  crime data, Mach Learn and App 2~(1).
+
+\bibitem{Cortes1995}
+C.~Cortes, V.~Vapnik, {Support Vector Networks}, Mach Learn 20 (1995) 273--297.
+
+\bibitem{Shevade1999}
+S.~Shevade, S.~Keerthi, C.~Bhattacharyya, K.~Murthy, Improvements to the smo
+  algorithm for svm regression, IEEE T Neural Networ.
+
+\bibitem{MinSVM05}
+J.~H. Min, Y.~Lee, Bankruptcy prediction using support vector machine with
+  optimal choice of kernel function parameters, Expert Syst. Appl. 28~(4)
+  (2005) 603--614.
+
+\bibitem{Cao2003}
+L.~Cao, {Support vector machine experts for time series forcasting},
+  Neurocomputing 51 (2003) 321--339.
+
+\bibitem{Jari2008}
+C.~Jari, L.~Wen, L.~Kang, {Support vector machine classification for large data
+  set vis minmum enclosing ball clustering}, Neurocomputing 71 (2008) 611--619.
+
+\bibitem{gepsoft}
+{Gepsoft}, {Analyzing GeneXproTools Models Statistically. Statistical Analysis
+  of Time Series Prediction Models}, {\tt
+  http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} (Dec.
+  2015).
+
+\bibitem{pentaho}
+{pentaho}, {Pentaho Data Mining Community Documentation}, {\tt
+  http://wiki.pentaho.com/display/DATAMINING} (Dec. 2015).
+
+\bibitem{otexts}
+{otexts}, {Forecasting: principles and practice. The forecaster's toolbox.
+  Evaluating forecast accuracy}, {\tt https://www.otexts.org/fpp/2/5} (Dec.
+  2015).
+
+\bibitem{Hyndman2013}
+R.~Hyndman, G.~Athanasopoulos, Forecasting: principles and practice, OTexts,
+  2013.
+
+\bibitem{yu2004ec}
+X.~Yu, S.~Liong, V.~Babovic, Ec-svm approach for real-time hydrologic
+  forecasting., J Hydroinform 6 (2004) 209--223.
+
+\bibitem{chao2015construction}
+C.-F. Chao, M.-H. Horng, The construction of support vector machine classifier
+  using the firefly algorithm, Computat Intell Neurosci.
+
+\bibitem{hornik1989multilayer}
+K.~Hornik, M.~Stinchcombe, H.~White, Multilayer feedforward networks are
+  universal approximators, Neural networks 2~(5) (1989) 359--366.
+
+\bibitem{mirjalili2014let}
+S.~Mirjalili, S.~M. Mirjalili, A.~Lewis, Let a biogeography-based optimizer
+  train your multi-layer perceptron, Inform Sciences 269 (2014) 188--209.
+
+\bibitem{wdaa2008differential}
+A.~S.~I. Wdaa, Differential evolution for neural networks learning enhancement,
+  Ph.D. thesis, Universiti Teknologi Malaysia (2008).
+
+\bibitem{mirjalili2015effective}
+S.~Mirjalili, \href{http://dx.doi.org/10.1007/s10489-014-0645-7}{How effective
+  is the grey wolf optimizer in training multi-layer perceptrons}, Appl Intell
+  43~(1) (2015) 150--161.
+\newblock \href {http://dx.doi.org/10.1007/s10489-014-0645-7}
+  {\path{doi:10.1007/s10489-014-0645-7}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1007/s10489-014-0645-7}
+
+\bibitem{Geisser1993}
+S.~Geisser, {Predictive Inference}, Chapman and Hall, 1993.
+
+\bibitem{Kohavi1995}
+R.~Kohavi, A study of cross-validation and bootstrap for accuracy estimation
+  and model selection, in: Proceedings of the Fourteenth International Joint
+  Conference on Artificial Intelligence, {IJCAI} 95, Montr{\'{e}}al
+  Qu{\'{e}}bec, Canada, August 20-25 1995, 2 Volumes, Morgan Kaufmann, 1995,
+  pp. 1137--1145.
+
+\bibitem{Devijver1982}
+P.~Devijver, J.~Kittler, {Pattern Recognition: A Statistical Approach},
+  Prentice-Hall, 1982.
+
+\bibitem{POS}
+M.~Gil, Puntos de venta de prensa y libros,
+  \url{https://antinomiaslibro.wordpress.com/2013/11/21/puntos-de-venta/},
+  consulted on May 21st, 2016 (November 2013).
+
+\bibitem{huang2006ga}
+C.-L. Huang, C.-J. Wang, A ga-based feature selection and parameters
+  optimization for support vector machines, Expert Syst Appl 31~(2) (2006)
+  231--240.
+
+\bibitem{Mookiah2013_EA_Tuning}
+M.~Mookiah, U.~Acharya, R.~Martis, C.~Chua, C.~Lim, E.~Ng, A.~Laude,
+  Evolutionary algorithm based classifier parameter tuning for automatic
+  diabetic retinopathy grading: A hybrid feature extraction approach, Knowl
+  Based Syst 39 (2013) 9--22.
+
+\bibitem{Shen2016_FFly_Tuning}
+L.~Shen, H.~Chen, Z.~Yu, W.~Kang, B.~Zhang, H.~Li, B.~Yang, D.~Liu, Evolving
+  support vector machines using fruit fly optimization for medical data
+  classification, Knowledge-Based Systems 96 (2016) 61--75.
+
+\end{thebibliography}
 
 %----------------------------------------------------------------------
 
@@ -1630,7 +1979,7 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1651,11 +2000,11 @@ SVM & \textbf{81.8 $\pm$0.08} & \textbf{94.29 $\pm$25.52} & 180.54 $\pm$62.67 & 
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo704 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1676,14 +2025,14 @@ SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 %-----------------------------------
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1704,12 +2053,12 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1730,13 +2079,13 @@ SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 %-----------------------------------
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1757,11 +2106,11 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1782,14 +2131,14 @@ SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.7
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 %-----------------------------------
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1810,12 +2159,12 @@ SVM & \textbf{81.8 $\pm$0.21} & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
@@ -1836,7 +2185,7 @@ SVM & 84.4 $\pm$0.18 & 14.18 $\pm$7.96 & 26.49 $\pm$16.54 & 40.93 $\pm$16.65 & 5
 \hline 
 \end{tabular}
 }
-\end{table}
+\end{table*}
 
 
 \end{document}
