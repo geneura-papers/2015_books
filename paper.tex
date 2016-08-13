@@ -145,26 +145,27 @@ such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression ana
 In Spain, the process of releasing a book goes like this: the
 publisher decides, based on past experience, how many books to
 print. These books are distributed to points of sale, but also given
-out to reviewers and literary magazines, the number of these will
-depend on how many you have printed. Books then go, in some cases, to
-the {\em novelty} table, that is, prominently displayed in the
-bookstore, shown in the window, or highlighted using props or other
-kind of advertisement. Books stay for sale for as long as the
-publisher or the store want until the bookseller decides to return it
-to the publisher or just, in some cases, move it away from shelves to
-storage. Books returned to the publisher are pulped, sold back or
-given to the author or distributed in second-hand channels such as
+out to reviewers and literary magazines; the number of these will
+depend on how many you have printed. In bookstores books  go, in some cases, to
+the {\em novelty} table, that is, they are prominently displayed, shown in the window, or highlighted using props or other 
+kind of advertisement. From these displays they then move to shelves
+or, in some cases and eventually, to storage. Books stay for sale in the store as long as the
+publisher or the store want or until the bookseller decides to return it
+to the publisher. Books returned to the publisher are pulped, sold back or
+given to the author or distributed in used-books channels such as
 book stalls or second-hand bookstores. If the print run has been fully
 distributed and there are more requests from bookstores, on the other
 hand, a new print run is made and distributed to bookstores. 
-Even if the process has changed
-in the last few years since Amazon started to sell in Spain, which
+Even if the process has changed slightly 
+in the last few years since Amazon started to sell in Spain, in the
+sense that many books are sold through this new channel and do not
+undergo the cycle novelty table-shelf-storage-back to publisher, which
 actually happened {\em after} the data used for this paper was
 collected, it roughly stays the same. Other countries will have a
 similar model, although scale will be different. 
 
-Our intention in this paper is to find out the main factor influencing
-sales in order to give a tool that the publisher can use to decide how
+Our intention in this paper is to find out the main factors influencing
+sales in order to create a tool that the publisher can use to decide how
 many books should be printed, as well as how to leverage these printed
 copies to maximize sales using the decision variables under his
 control. That is why, using data obtained from a  company that sells
@@ -175,16 +176,27 @@ will be able to
 combine their expert knowledge about the market with the created
 forecasting models in order to get a reliable estimation of book
 sales, and, based on it, act upon it to maximize the books sold for a
-particular print run. 
+particular print run. Our main contribution is, thus, to develop a
+methodology to process book sales data in order to first find out
+relevant variables and then use these variables to process data so
+that the publisher, using them, can estimate sales and from them order
+a specific print run, instead of standard ones, which are around 300
+copies for standard books and around 5000 for those that are
+considered, in advance, {\em best sellers}.
 
 
 In the research published in this paper, the problem 
 of predicting total sales in order to print the right amount of books
 %of how many units should be printed  when a new book is published 
-is faced using real data provided by the 
+is approached using real data provided by the 
 Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers, and distributors. 
-Usually, the company's expert sales managers analysed historical data and applied their knowledge using external variables to compute correct estimations (predictions); for instance, they can decide increasing or decreasing the sales forecast based on season or sales period.
-Nevertheless, just carrying out the analysis and forecasting process as a human expert may lead to imprecise predictions, and they may not take all the variables into account. 
+Usually, the company's expert sales managers analysed historical data
+and applied their knowledge on external variables to compute correct
+estimations (predictions); for instance, they can decide increasing or
+decreasing the sales forecast based on season or sales period. 
+Nevertheless, just carrying out the analysis and forecasting process
+as a human expert may lead to imprecise predictions, and they may not
+take all the variables into account.  
 In addition, the process might be tedious, especially when the amount
 of data is quite large. Moreover, different experts can reach different
 predictions from the same dataset \cite{Sanders1994}. 
@@ -194,8 +206,20 @@ predictions from the same dataset \cite{Sanders1994}.
 % we've published it here. - JJ
 % Antonio - I think this information is not relevant for the paper...
 
-With this issue in mind, in this paper we firstly present an analysis on the aforementioned real dataset, by means of data mining and visualisation techniques. Then, a feature selection process is conducted using three different methods, in order to find out what are the relevant variables describing a book in the prediction (or regression) procedure. After this, a forecasting stage is performed applying a set of regression algorithms to the different datasets, also considering a different number of variables.
-The value of this methodology is contrasted considering four different publishing companies being representative as top sellers, mid-range sellers, the most varied, and one which sells a medium amount of different books.
+With this issue in mind, in this paper we firstly present an analysis
+on the aforementioned real dataset, by means of data mining and
+visualisation techniques. Then, a feature selection process is
+conducted using three different methods, in order to find out what are
+the relevant variables describing a book in the prediction (or
+regression) procedure. After this, a forecasting stage is performed
+applying a set of regression algorithms to the different datasets,
+also considering a different number of variables. 
+The value of this methodology is contrasted considering four different
+publishing companies being representative as top sellers, mid-range
+sellers, the most varied, and one which sells a medium amount of
+different books. From this, we draw insight on what are the important
+factors when selling a book and some rule of thumbs extracted from the
+prediction methods.
 
 The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes. 
 Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run for new books, along with a description of the considered dataset.
