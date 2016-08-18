@@ -573,7 +573,17 @@ consider it for his or her own prediction process.
 \section{Methodology}
 \label{sec:methodology}
 
-There is not a standard methodology to solve the general problem of sales forecasting. However, the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. %These are described in the following sections.
+There is not a standard methodology to solve the general problem of sales forecasting. However, the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. Figure \ref{fig:methodology} summarizes these followed steps.
+
+\begin{figure}[!ht] 
+\begin{center}
+  \epsfig{file=metodologia.eps,width=4cm}
+\caption{Steps followed in the proposed methodology.}
+\label{fig:methodology}
+\end{center}
+\end{figure}
+
+%These are described in the following sections.
 
 Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, which is portrayed in Section \ref{subsec:data_preproces}. These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
 This task may also help to identify leading indicators to be considered by a human expert to make predictions.
