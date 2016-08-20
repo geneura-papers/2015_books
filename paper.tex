@@ -59,8 +59,14 @@ many books should be printed for delivery to bookstores; printing too
 many is the main issue, since it implies a loss of investment due to
 inventory excess, but printing too few will also have a negative economic impact. 
 In this paper, we are tackling the problem of predicting total sales 
-in order to print the right amount of books and doing so even before the book has reached the stores. A real dataset including the complete sales data for books published in Spain across several years has been used.
-We have conducted an analysis in three stages: an initial exploratory analysis, by means of data visualisation techniques; a feature selection process, using different techniques to find out what are the variables that have more impact on sales; and a regression or prediction stage, in which a set of machine learning methods has been applied to create forecasting models for book sales. 
+in order to print the right amount of books and doing so even before the book 
+has reached the stores. A real dataset including the complete sales data for 
+books published in Spain across several years has been used.
+We have conducted an analysis in three stages: an initial exploratory analysis, 
+by means of data visualisation techniques; a feature selection process, using 
+different techniques to find out what are the variables that have more impact on sales; 
+and a regression or prediction stage, in which a set of machine learning methods 
+has been applied to create forecasting models for book sales. 
 The obtained models are able to predict sales from pre-publication data with
 remarkable accuracy, and can be visualised as simple decision trees. 
 Thus, these can be used as decision-aid tools for publishers, which can provide 
@@ -926,25 +932,37 @@ that have been described.
 \section{Experiments and Results}
 \label{sec:experiments}
 
-This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
-Feature selection techniques have also been applied in order to test their utility by comparing the obtained results.
+This section presents the experiments conducted over the dataset considering the 
+pre-sales variables forecasting new book sales.
+Feature selection techniques have also been applied in order to test their utility 
+by comparing the obtained results.
 
-We have analysed the whole dataset (all the publishing companies), but also performed some experiments considering specific and representative publishing companies as example cases.
-Some of the obtained decision trees have been plotted to show their simplicity and to remark their real value as a decision-aid tool for publishers.
+We have analysed the whole dataset (all the publishing companies), but also 
+performed some experiments considering specific and representative publishing 
+companies as example cases.
+Some of the obtained decision trees have been plotted to show their simplicity 
+and to remark their real value as a decision-aid tool for publishers.
 
 %--------------------------------------------------------------------------
 
 \subsection{Experimental setup}
 
-In most data mining and machine learning algorithms, the values of
-some parameters have a high influence on its performance. We have conducted a systematic experimentation process, along with a revision of the bibliography describing the best configuration parameters for the methods we have applied here. 
+In most data mining and machine learning algorithms, the values of some 
+parameters have a high influence on its performance. We have conducted a 
+systematic experimentation process, along with a revision of the bibliography 
+describing the best configuration parameters for the methods we have applied here. 
 
-Thus, in our experiments, the best value of $k$ in the $k$-nearest neighbour was empirically found at $k=3$. % What???? - JJ
-For SVM, the widely used Radial Basis Function (RBF) kernel is selected. As reported in several studies, RBF kernel has a reliable performance and can analyse higher dimensional data \cite{yu2004ec,chao2015construction}. Two important parameters should be tuned in SVM: the Cost $(C)$ and Gamma $(\gamma)$ of the RBF kernel. We apply grid search which is the most common approach
-to find $C$ and $\gamma$. The best performance of SVM was found at
-$C=200$ and $\gamma = 0.01$. For MLP, we apply it with one
-hidden layer since it was proven in the literature that an MLP with
-one hidden layer can approximate any continuous or discontinuous
+Thus, in our experiments, the best value of $k$ in the $k$-nearest neighbour 
+was empirically found at $k=3$. % What???? - JJ
+For SVM, the widely used Radial Basis Function (RBF) kernel is selected. 
+As reported in several studies, RBF kernel has a reliable performance and 
+can analyse higher dimensional data \cite{yu2004ec,chao2015construction}. 
+Two important parameters should be tuned in SVM: the Cost $(C)$ and 
+Gamma $(\gamma)$ of the RBF kernel. 
+We apply grid search which is the most common approach to find $C$ and $\gamma$. 
+The best performance of SVM was found at $C=200$ and $\gamma = 0.01$. 
+For MLP, we apply it with one hidden layer since it was proven in the literature 
+that an MLP with one hidden layer can approximate any continuous or discontinuous
 function \cite{hornik1989multilayer,mirjalili2014let}. However, there
 is no rule of thumb for selecting the best number of neurons in the
 hidden layer. One suggested method that is followed in this work is to
@@ -1058,7 +1076,9 @@ Examining the component planes shown in Figure \ref{fig:componentplanes}, it can
 \end{figure*}
 
 
-The selected features using each one of the three methods are shown in Table \ref{tab:features_selected}. Logically, just the independent or input variables are considered.
+The selected features using each one of the three methods are shown in 
+Table \ref{tab:features_selected}. 
+Logically, just the independent or input variables are considered.
 
 \begin{table*}
 \caption{Input features/variables selected by each method
@@ -1190,7 +1210,10 @@ MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 
 \section{Experiments of special publishing companies cases}
 \label{sec:example_cases}
 
-This section presents further experiments conducted on data concerning four interesting special publishing company cases. These publishing companies were selected as representative cases which could be very interesting for decision makers and managers in the domain. The four cases are described as follows:
+This section presents further experiments conducted on data concerning four 
+interesting special publishing company cases. These publishing companies were 
+selected as representative cases which could be very interesting for decision 
+makers and managers in the domain. The four cases are described as follows:
 
 \begin{itemize}
     \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
@@ -1200,7 +1223,8 @@ This section presents further experiments conducted on data concerning four inte
 \end{itemize}
 
 
-Table \ref{Table:special_cases} shows the number of sold copies and the number of titles published by the selected companies.
+Table \ref{Table:special_cases} shows the number of sold copies and the number 
+of titles published by the selected companies.
 
 \begin{table*}
 \caption{Description of publishing companies considered as special cases.}
@@ -1359,16 +1383,20 @@ In this stage of the experiments for the special cases, the
 feature selection methods (RFE, CSE and SOM) are applied for each case
 independently, since publishers with different sales ranges, and
 targets, might in fact include different factors or have different
-leverage when deciding how much to print. For clarity purpose, we present here only the results
-after applying the RFE method for the four cases in Tables
+leverage when deciding how much to print. For clarity purpose, we present 
+here only the results after applying the RFE method for the four cases in Tables
 \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE},
 \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this
 one was chosen since the selected features by this
-method showed in the previous experiment the highest predictive power among all classifiers. 
+method showed in the previous experiment the highest predictive power among 
+all classifiers. 
 %According to the aforementioned tables, 
 %It's not according to a table. It's according to the results there - JJ
-RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the
-publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.  
+RFE reduction has noticeably improved the performance of all classifiers 
+specially in the case of the best selling publisher house (i.e. UDL929) and the
+publisher which publishes a wide range of different books (i.e. UDL704). 
+For the rest of the results which are obtained by CSE and SOM feature selection 
+methods we refer the reader to the appendix of tables at the end of this paper.  
 
 
 \begin{table*}[!ht]
@@ -1634,7 +1662,8 @@ that will have to be decided once the main ones are settled.
 \begin{figure*}[!ht] 
 \begin{center}
   \epsfig{file=decision_tree_no_fs.eps,width=13cm}
-\caption{Decision tree built by the M5P method for the best seller publishing company including all pre-sales features.}
+\caption{Decision tree built by the M5P method for the best seller publishing 
+	company including all pre-sales features.}
 \label{fig:decision_tree_best_seller}
 \end{center}
 \end{figure*}
@@ -1659,7 +1688,8 @@ that will have to be decided once the main ones are settled.
 In this paper, the problem of 
 predicting total sales in order to print the right amount of books
 %how many books should be printed 
-when a new book is going to be published is faced using several data-mining and forecasting methods.
+when a new book is going to be published is faced using several data-mining 
+and forecasting methods.
 
 This is a very challenging problem in this industry, because printing
 a much higher 
@@ -1721,9 +1751,8 @@ Moreover, proposed method, consisting in selecting features and
 applying different models for different types of publishers could be
 implemented, not only in the publishing  
 industry, but also in other domains where the specificity of products
-is similar such as novelty items or toys, and might be of interest to other academic researches and
-industrial practitioners.  
-% Antonio - I don't know if we should say this...
+is similar such as novelty items or toys, and might be of interest to other 
+academic researches and industrial practitioners.
 
 %Thus, the methodology presented here provides a reliable data processing technique for editorial data and also yields a reasonable result that allows publishers to forecast sales and then create the appropriate print run without incurring in losses. 
 
