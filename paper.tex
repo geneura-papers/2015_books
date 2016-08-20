@@ -353,6 +353,186 @@ In addition, since publishers need models to explain obtained predictions,
 on decision rules have been tested as an alternative. 
 
 
+% following two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
+
+%-------------------------------------------------
+\subsection{Selecting an appropriate forecasting method}
+\label{subsec:select_method}
+
+As previously stated, there are many prediction methods available in the 
+literature, each one with a different parameter set that may affect the 
+obtained results.
+
+However, as in the case of new books only some descriptive data are available,
+compared to those cases in which historical data on sales of published books 
+is available, not all forecasting methods can be used in this specific problem.
+
+Thus, in this research five forecasting methods, based on the State of the Art 
+literature review (see above, Section \ref{sec:soa}) 
+\cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, 
+have been used. 
+Well known forecasting methods implemented in the Weka tool have been chosen, 
+as these methods are widely known, and could be very helpful for practitioners 
+to reproduce experiments and even to solve similar sales prediction problems 
+using these methods.
+
+Specifically, the following forecasting methods are proposed: 
+
+\begin{itemize}
+
+ % weka.classifiers.trees.M5P
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
+ \item \emph{M5 Model trees (M5P)}: 
+A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
+that contain an attribute name and branches to other sub-decision trees.
+Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
+However, in order to use this model in regression problems, some authors have 
+extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
+by combining a conventional decision tree and generating linear regression 
+functions at the nodes.
+
+The construction of a model tree is similar to that of classical decision 
+trees \cite{Solomatine2004}:
+The process breaks the input space of the training data through decision points 
+(nodes) to assign a linear model suitable for that sub-area of the input space. 
+This process may lead to a complex model tree.
+
+Model tree models can learn and tackle tasks with high dimensionality, even up to 
+hundreds of attributes, and generate reproducible and comprehensible representations, 
+what makes them potentially more successful in the eyes of decision makers.
+
+The final model consists of the collection of linear sub-models that brings the 
+required non-linearity in dealing with the regression problem
+and both the predicted values at the answer-nodes along with the path from the 
+root to that node is given as a result.
+
+
+ % weka.classifiers.lazy.IBk 
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
+ \item \emph{k-Nearest Neighbours (kNN)}: 
+The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
+which the unknown instances are classified by relating them to the known 
+instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
+
+The main idea behind the algorithm is that two instances far enough in the space, 
+taking into account the distance function, are less likely to belong to the 
+same class than two closely situated instances.
+
+The classification algorithm locates the nearest neighbour in instance space and 
+assigns the class of that neighbour to the unknown instance.
+In order to improve the robustness of the model, several neighbours can be 
+located, assigning the resulting class to an unclassified vector using the 
+closest $k$ vectors found in the training set by majority vote.
+
+
+ \item \emph{Random Forest (RF)}: This method is based on the
+   construction of a set of decision trees using a stochastic process
+   over the basis of C4.5 algorithm. It was proposed by Breiman
+   \cite{Breiman2001} and aims to create independent and uncorrelated
+   trees based on different and random input vectors, following the
+   same distribution. 
+The result is the average of the generated trees during the process.
+
+
+ % weka.classifiers.functions.LinearRegression
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
+ \item \emph{Linear Regression (LR)}:
+ Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
+relationship between a scalar dependent variable (outcome) and several independent 
+variables (predictors) over the range of values in the dataset. 
+In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
+
+This method of regression provides an adequate and interpretable description of 
+how the input affects the output as it models the dependent variable as a linear 
+function of the independent variables. Moreover, the linear relation can be 
+solved using the least squares method, that minimises the error between the 
+current data and the regression line \cite{McClendon2015}.
+
+
+ % weka.classifiers.functions.SMOreg
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
+ \item \emph{Support Vector Machine for Regression (SVM)}:
+Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on  
+statistical learning theory and has successfully used in classification and  
+regression problems \cite{Cao2003,Jari2008}.
+
+In classification problems the algorithm searches for an optimal hyperplane 
+that separates two classes, maximising the margin between them. 
+In the case of regression the algorithm chooses a hyperplane close to as many 
+of the data points as possible, minimising the sum of the distances from 
+the data points to the hyperplane. 
+In both cases, the hyperplane is defined by a subset of training set samples, 
+called support vectors.
+%This method works well even if the space is highly dimensional and the problem is not linearly separable.
+
+
+
+ % weka.classifiers.functions.MultilayerPerceptron
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
+ \item \emph{Multilayer Perceptron}:
+A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
+artificial neural network model that maps the input data onto an appropriate output. 
+It is an artificial neural network generally used for classification or 
+approximation problems.
+
+This model is a generalisation of the standard linear perceptron that uses several 
+layers of nodes (called neurons) and that is able to solve linearly inseparable 
+problems \cite{SteinwenderBitzer2003}.
+Each neuron consists of a linear combination of weighted inputs which is passed 
+though a non-linear activation function to produce its output.
+
+This kind of artificial neural network is trained using a supervised learning 
+technique called back-propagation.
+This training method was developed independently by Werbos \cite{Werbos1974}, 
+Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
+in updating the weights of the output layer neurons once the erroneous output 
+has been obtained, and then, propagating the successive weight layers back to 
+the input layer.
+
+A key issue when designing an MLP is the number of hidden layers of neurons.
+Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
+create classifying regions of any kind. This result was then confirmed in later 
+works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
+
+\end{itemize}
+
+The objective is finding the most appropriate forecasting method that minimises 
+the error between the obtained forecast and the current sales for each new book 
+published.
+
+%-------------------------------------------------
+\subsection{Models evaluation}
+\label{subsec:models_evaluation}
+
+At this step, the developed forecasting models are evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
+Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+
+\begin{itemize}
+  \item \emph{Mean Absolute Error} (MAE):
+        \begin{equation}\label{eq:MAE}
+            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
+        \end{equation}
+
+  \item \emph{Root Mean Squared Error} (RMSE):
+        \begin{equation}\label{eq:RMSE}
+            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
+        \end{equation}
+
+  \item \emph{Relative absolute error} (RAE):
+        \begin{equation}\label{eq:RAE}
+            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
+        \end{equation}
+
+  \item \emph{Root relative squared error} (RRSE):
+        \begin{equation}\label{eq:RRSE}
+            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
+        \end{equation}
+\end{itemize}
+where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
+
+% previous two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
+
+
 %********************************************************************************
 \section{Problem description}
 \label{sec:problem}
@@ -586,34 +766,38 @@ There is not a standard methodology to solve the general problem of sales foreca
 %These are described in the following sections.
 
 Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, which is portrayed in Section \ref{subsec:data_preproces}. These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
-This task may also help to identify leading indicators to be considered by a human expert to make predictions.
+This task may also help to identify leading indicators to be considered 
+by a human expert to make predictions.
 % You have to present the problem and not the solution. It's not "what
 % you did last summer", it is SCIENCE. Why did you think FS was
 % needed? What procedure did you use for it?
 % Antonio - done
-In this stage, both numerical and visualisation-based approaches have been applied, in order to select the best variables for the forecasting 
-methods.  
+In this stage, both numerical and visualisation-based approaches have been 
+applied, in order to select the best variables for the forecasting methods.  
 % Antonio - Should we speak about 'forecasting' or 'regression', Sam? Coudl they be used with the same meaning?
 
-Next, Section \ref{subsec:select_method} reports a selection of the best forecasting techniques that have been conducted, looking for those rule- or tree-based, together with numerical methods which could yield the best results. 
+In Section \ref{subsec:select_method}, a selection of the best forecasting techniques that have been conducted has been reported, looking for those rule- or tree-based, together with numerical methods which could yield the best results. 
 
 Once the models and results have been obtained for the whole dataset (Section \ref{sec:experiments}), the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
 Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
 
-
-%-------------------------------------------------
-%\subsection{Data collection}
-%\label{subsec:data_collection}
- 
 
 
 %-------------------------------------------------
 \subsection{Data preprocessing by feature selection}
 \label{subsec:data_preproces}
 
-At this stage, a Feature Selection (FS) process has been carried out, since it is an effective dimensionality reduction technique and an essential preprocessing method to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
+At this stage, a Feature Selection (FS) process has been carried out, 
+since it is an effective dimensionality reduction technique and an essential 
+preprocessing method to discard less relevant or non-useful features 
+\cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
-The aim of these algorithms is exploring the space of attributes to find out which subset of them yields the best results in a classification or prediction problem. To this end, the features describing every pattern are analysed. In this case, among the variables describing a new book, some may affect predictions as they provide information, while others may not be necessary and even redundant.
+The aim of these algorithms is exploring the space of attributes to find out 
+which subset of them yields the best results in a classification or prediction 
+problem. To this end, the features describing every pattern are analysed. 
+In this case, among the variables describing a new book, some may affect 
+predictions as they provide information, while others may not be necessary 
+and even redundant.
 
 The application of FS also aims to reduce the complexity of the obtained 
 forecasting models themselves, which, in turn, implies a reduction in the 
@@ -685,7 +869,11 @@ dimensional space where similar data patterns are located in more
 adjacent areas on the grid. 
 % It is a very useful analysis tool for visualising complex data with high number of variables in a simple geometric plane. 
 %Therefore, it could be used for different tasks such as feature selection and data clustering and visualisation. %Pablo: some cite here?
-This method is normally used as a data visualization tool, since it allows to project any multi-variated dataset in a two-dimensional display, so an expert can detect topological relations among its neurons and thus make inferences or find interesting relationships on the input dataset (such as clusters, for instance).
+This method is normally used as a data visualization tool, since it allows 
+to project any multi-variated dataset in a two-dimensional display, 
+so an expert can detect topological relations among its neurons and thus 
+make inferences or find interesting relationships on the input dataset 
+(such as clusters, for instance).
 
 Basically, SOM consists of two layers: input and output layer, also
 known as Kohonen, layer. Input layer is fully connected with the 
@@ -699,10 +887,19 @@ input vectors are presented to the network sequentially so the
 distance between the weights of the neurons and the inputs are
 computed using the simple Euclidean distance; in the second stage, the
 neuron which has the shortest distance with the presented input vector
-is updated along with the neurons in its neighbourhood. This neuron is called the best matching unit (BMU). The goal of the learning process is to
-minimise the neighbourhood distance in the output clusters.  
+is updated along with the neurons in its neighbourhood. 
+This neuron is called the best matching unit (BMU). 
+The goal of the learning process is to minimise the neighbourhood distance 
+in the output clusters.  
 
-Once the SOM learning process is finished, a visual representation technique, named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. This method uses the obtained codevectors (vectors of variables of the problem) as data source, and generates a matrix where each component is a distance measure between two adjacent neurons. In the U-matrix, the distance between adjacent neurons is measured and assigned different colours. Different colours between neurons indicate large distances (boundaries) while similar colours represent close areas (clusters).
+Once the SOM learning process is finished, a visual representation technique, 
+named the Unified distance matrix (U-matrix) \cite{UmatUlts}, has been applied. 
+This method uses the obtained codevectors (vectors of variables of the problem) 
+as data source, and generates a matrix where each component is a distance 
+measure between two adjacent neurons. In the U-matrix, the distance between 
+adjacent neurons is measured and assigned different colours. Different colours 
+between neurons indicate large distances (boundaries) while similar colours 
+represent close areas (clusters).
 
 % Antonio - a better description of U-Matrix. ;D
 
@@ -712,170 +909,22 @@ This method is usually applied to analyse data as similar items tend to be
 mapped close together, while those items dissimilar, are mapped apart.
 Also, the SOM graph represents and highlight very clearly those
 regions, or clusters, with high training sample concentration and fewer
-where the samples are scarce. U-Matrix graph, together with the projection of variables into separate planes, the so-called component planes analysis (that SOM yields), will aid an expert to identify the most relevant features on every cluster, i.e. those with a higher influence on the creation of that cluster.
-%FERGU: mencionarlo en la intro
-% Which is interesting because... JJ
-% Antonio - explained. ;)
+where the samples are scarce. U-Matrix graph, together with the projection 
+of variables into separate planes, the so-called component planes analysis 
+(that SOM yields), will aid an expert to identify the most relevant features 
+on every cluster, i.e. those with a higher influence on the creation of that 
+cluster.
 
 
-Finally, Section \ref{sec:experiments} provides a comparison between the feature reduction through SOM, and the feature selection techniques that have been described.
-
-%-------------------------------------------------
-\subsection{Selecting an appropriate forecasting method}
-\label{subsec:select_method}
-
-As previously stated, there are many prediction methods available in the 
-literature, each one with a different parameter set that may affect the 
-obtained results.
-
-However, as in the case of new books only some descriptive data are available,
-compared to those cases in which historical data on sales of published books 
-is available, not all forecasting methods can be used in this specific problem.
-
-Thus, in this research five forecasting methods, based on the State of the Art literature 
-review (see Section \ref{sec:soa}) 
-\cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, have been used. 
-Well known forecasting methods implemented in the Weka tool have been chosen, as these methods are widely known, and could be very helpful for practitioners to reproduce experiments and even to solve similar sales prediction problems using
-these methods. % Why these and not others? Exploratory data analysis?
-               % - JJ
-
-Specifically, the following forecasting methods are proposed: 
-        % Proposed why? - JJ
-        % because those methods were those that could lead with the problem data - pedro
-\begin{itemize}
-
- % weka.classifiers.trees.M5P
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item \emph{M5 Model trees (M5P)}: 
-A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
-that contain an attribute name and branches to other sub-decision trees.
-Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
-However, in order to use this model in regression problems, some authors have 
-extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
-by combining a conventional decision tree and generating linear regression 
-functions at the nodes.
-
-The construction of a model tree is similar to that of classical decision 
-trees \cite{Solomatine2004}:
-The process breaks the input space of the training data through decision points 
-(nodes) to assign a linear model suitable for that sub-area of the input space. 
-This process may lead to a complex model tree.
-
-Model tree models can learn and tackle tasks with high dimensionality, even up to 
-hundreds of attributes, and generate reproducible and comprehensible representations, 
-what makes them potentially more successful in the eyes of decision makers.
-
-The final model consists of the collection of linear sub-models that brings the 
-required non-linearity in dealing with the regression problem
-and both the predicted values at the answer-nodes along with the path from the 
-root to that node is given as a result.
-
-
- % weka.classifiers.lazy.IBk 
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
- \item \emph{k-Nearest Neighbours (kNN)}: 
-The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
-which the unknown instances are classified by relating them to the known 
-instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
-
-The main idea behind the algorithm is that two instances far enough in the space, 
-taking into account the distance function, are less likely to belong to the 
-same class than two closely situated instances.
-
-The classification algorithm locates the nearest neighbour in instance space and 
-assigns the class of that neighbour to the unknown instance.
-In order to improve the robustness of the model, several neighbours can be 
-located, assigning the resulting class to an unclassified vector using the 
-closest $k$ vectors found in the training set by majority vote.
-
-
- \item \emph{Random Forest (RF)}: This method is based on the
-   construction of a set of decision trees using a stochastic process
-   over the basis of C4.5 algorithm. It was proposed by Breiman
-   \cite{Breiman2001} and aims to create independent and uncorrelated
-   trees based on different and random input vectors, following the
-   same distribution. 
-The result is the average of the generated trees during the process.
-
-
- % weka.classifiers.functions.LinearRegression
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
- \item \emph{Linear Regression (LR)}:
- Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
-relationship between a scalar dependent variable (outcome) and several independent 
-variables (predictors) over the range of values in the dataset. 
-In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
-
-This method of regression provides an adequate and interpretable description of 
-how the input affects the output as it models the dependent variable as a linear 
-function of the independent variables. Moreover, the linear relation can be 
-solved using the least squares method, that minimises the error between the 
-current data and the regression line \cite{McClendon2015}.
-
-
- % weka.classifiers.functions.SMOreg
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item \emph{Support Vector Machine for Regression (SVM)}:
-Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on  
-statistical learning theory and has successfully used in classification and  
-regression problems \cite{Cao2003,Jari2008}.
-
-In classification problems the algorithm searches for an optimal hyperplane 
-that separates two classes, maximising the margin between them. 
-In the case of regression the algorithm chooses a hyperplane close to as many 
-of the data points as possible, minimising the sum of the distances from 
-the data points to the hyperplane. 
-In both cases, the hyperplane is defined by a subset of training set samples, 
-called support vectors.
-%This method works well even if the space is highly dimensional and the problem is not linearly separable.
-
-
-
-
-\end{itemize}
-
-The objective is finding the most appropriate forecasting method that minimises 
-the error between the obtained forecast and the current sales for each new book 
-published.
-
-
-\subsection{Models evaluation}
-
-
-At this step, the developed forecasting models are evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
-Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
-
-\begin{itemize}
-  \item \emph{Mean Absolute Error} (MAE):
-        \begin{equation}\label{eq:MAE}
-            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
-        \end{equation}
-
-  \item \emph{Root Mean Squared Error} (RMSE):
-        \begin{equation}\label{eq:RMSE}
-            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
-        \end{equation}
-
-  \item \emph{Relative absolute error} (RAE):
-        \begin{equation}\label{eq:RAE}
-            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
-        \end{equation}
-
-  \item \emph{Root relative squared error} (RRSE):
-        \begin{equation}\label{eq:RRSE}
-            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
-        \end{equation}
-\end{itemize}
-where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
+Finally, Section \ref{sec:experiments} provides a comparison between 
+the feature reduction through SOM, and the feature selection techniques 
+that have been described.
 
 
 
 %********************************************************************************
 \section{Experiments and Results}
 \label{sec:experiments}
-
-% An intro should go here - JJ
-% Antonio - done
 
 This section presents the experiments conducted over the dataset considering the pre-sales variables forecasting new book sales.
 Feature selection techniques have also been applied in order to test their utility by comparing the obtained results.
@@ -1714,351 +1763,8 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 %********************************************************************************
 \bibliographystyle{elsarticle-num}
-%\bibliography{refs}
-\begin{thebibliography}{10}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\expandafter\ifx\csname href\endcsname\relax
-  \def\href#1#2{#2} \def\path#1{#1}\fi
+\bibliography{refs}
 
-\bibitem{Fildes2010}
-R.~Fildes, B.~Kingsman, {Incorporating demand uncertainty and forecast error in
-  supply chain planning models}, J Oper Res Soc 62 (2010) 483--500.
-
-\bibitem{Saeed2008}
-K.~Saeed, {Trend forecasting for stability in supply chains}, J Bus Res 61
-  (2008) 1113--1124.
-
-\bibitem{Zhao2001}
-X.~Zhao, J.~Xie, R.~Lau, {Improving the supply chain performance: use of
-  forecasting models versus early order commitments}, Int J Prod Res 39~(17)
-  (2001) 3923--3939.
-
-\bibitem{Little1998}
-J.~Little, {Integrated measures of sales, merchandising and distribution}, Int
-  J Res Mark 15 (1998) 473--485.
-
-\bibitem{Armstrong2001}
-J.~Armstrong, {Principles of forecasting. A handbook for researchers and
-  practitioners}, Kluwer, Norwell, 2001.
-
-\bibitem{SThomassey2014}
-S.~Thomassey, {Sales Forecasting in Apparel and Fashion Industry: A Review},
-  Intell Fashion Forecasting Syst: Models and App (2014) 2--27.
-
-\bibitem{DeToni2000}
-A.~D. Toni, A.~Meneghetti, {The production planning process for a network of
-  firms in the textile-apparel industry}, Int J Prod Econ 65 (2000) 17--32.
-
-\bibitem{kohonen1998}
-T.~Kohonen, {The self-organizing map}, Neurocomputing 21~(1-3) (1998) 1--6.
-
-\bibitem{Chang2009}
-P.~Chang, C.~Liu, C.~Fan, {Data clustering and fuzzy neural network for sales
-  forecasting: A case study in printed circuit board industry}, Knowl Based
-  Syst (2009) 344--355.
-
-\bibitem{Sanders1994}
-N.~Sanders, K.~Manrodt, {Forecasting practices in US corporations: Survey
-  results}, Interfaces 24~(2) (1994) 92--100.
-
-\bibitem{Papalexopoulos1990}
-A.~Papalexopoulos, T.~Hesterberg, {A regression-based approach to short-term
-  system load forecasting}, IEEE Trans Power Syst 5 (1990) 1535--1547.
-
-\bibitem{Yoo1999}
-H.~Yoo, R.~Pimmel, {Short-term load forecasting using a self-supervised
-  adaptive neural network}, IEEE Trans Power Syst 14~(2) (1999) 779--784.
-
-\bibitem{Mastorocostas2001}
-P.~Mastorocostas, J.~Theocharis, V.~Petridis, {A constrained orthogonal
-  least-squares method for generating TSK fuzzy models: application to
-  short-term load forecasting}, Fuzzy Set Syst 118 (2001) 215--233.
-
-\bibitem{Chu2003}
-C.~Chu, P.~Zhang, {A comparative study of linear and nonlinear models for
-  aggregate retail sales forecasting}, Int J Prod Econ 86 (2003) 217--231.
-
-\bibitem{Brown1959}
-R.~Brown, {Smoothing forecasting and prediction of discrete time series},
-  Prentice Hall, Englewood Cliffs, 1959.
-
-\bibitem{Winters1960}
-P.~Winters, {Forecasting sales by exponential weighed moving averages}, Manag
-  Sci 6 (1960) 324--342.
-
-\bibitem{Box1969}
-G.~Box, G.~Jenkins, {Time series analysis forecasting and control}, Prentice
-  Hall, Englewood Cliffs, 1969.
-
-\bibitem{KayacanUK10}
-E.~Kayacan, B.~Ulutas, O.~Kaynak, Grey system theory-based models in time
-  series prediction, Expert Syst Appl 37~(2) (2010) 1784--1789.
-
-\bibitem{ChingChin2010}
-C.~Ching-Chin, A.~I.~K. Ieng, W.~Ling-Ling, K.~Ling-Chieh, {Designing a
-  decision-support system for new product sales forecasting}, Expert Syst Appl
-  37~(2) (2010) 1654--1665.
-
-\bibitem{FaderHardie2005}
-S.~Fader, B.~Hardie, {The value of simple models in new product forecasting and
-  customer-base analysis}, Appl Stoch Model Bus (2005) 461--473.
-
-\bibitem{Madsen2008}
-H.~Madsen, {Time series analysis}, Chapman and Hall. CRC Co., 2008.
-
-\bibitem{Lapide1999}
-L.~Lapide, {New developments in business forecasting}, J Bus Forecasting (1999)
-  29--30.
-
-\bibitem{ChernWSF15}
-C.-C. Chern, C.-P. Wei, F.-Y. Shen, Y.-N. Fan, A sales forecasting model for
-  consumer products based on the influence of online word-of-mouth., Inf Syst E
-  Bus Manag 13 (2015) 445--473.
-
-\bibitem{Moon2010ICSSSM}
-G.~Moon, G.~Kikuta, T.~Yamada, A.~Yoshikawa, T.~Terano, {Blog information
-  considered useful for book sales prediction}, in: 7th International
-  Conference on Service Systems and Service Management (ICSSSM), IEEE. Tokyo,
-  2010, pp. 1--5.
-
-\bibitem{Moon2010ICEC}
-G.~Moon, G.~Kikuta, T.~Yamada, A.~Yoshikawa, T.~Terano, Categorization of sales
-  patterns to use blog information as book sales prediction, in: Proceedings of
-  the 12th International Conference on Electronic Commerce: Roadmap for the
-  Future of Electronic Business, ICEC '10, ACM, New York, NY, USA, 2010, pp.
-  1--7.
-
-\bibitem{Hammond1990}
-J.~Hammond, {Quick response in apparel industries}, Havard Business school,
-  Cambridge, 1990.
-
-\bibitem{Xia2012}
-M.~Xia, Y.~Zhang, L.~W.~S. Ye, {Fashion retailing forecasting based on extreme
-  learning machine with adaptive metrics of inputs}, Knowl Based Syst 36 (2012)
-  253--259.
-
-\bibitem{Thomassey2012}
-S.~Thomassey, {Sales forecasts in clothing industry. The key success factor of
-  the supply chain management}, Int J Prod Econ 128 (2012) 470--483.
-
-\bibitem{wiki:dewey}
-Wikipedia,
-  \href{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}{List
-  of dewey decimal classes}, [Online; accessed 05-May-2016].
-\newline\urlprefix\url{\url{https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes}}
-
-\bibitem{fayyad1996data}
-U.~Fayyad, G.~Piatetsky-Shapiro, P.~Smyth, From data mining to knowledge
-  discovery in databases, AI magazine 17~(3) (1996) 37.
-
-\bibitem{kittler1986feature}
-J.~Kittler, Handbook of pattern recognition and image processing, Academic
-  press, 1986.
-
-\bibitem{Krishnapuram2004}
-B.~Krishnapuram, A.~Hartemink, L.~Carin, M.~Figueiredo, {A Bayesian Approach to
-  Joint Feature Selection and Classifier Design}, IEEE T Pattern Anal 26~(9)
-  (2004) 1105--1111.
-
-\bibitem{Chen2011_FS_PTS}
-Y.~Chen, D.~Miao, R.~Wang, K.~Wu, A rough set approach to feature selection
-  based on power set tree, Knowl Based Syst 24~(2) (2011) 275 -- 281.
-
-\bibitem{Selvakuberan2008}
-K.~Selvakuberan, M.~Indradevi, R.~Rajaram, {Combined Feature Selection and
-  classification - A novel approach for the categorization of web pages}, J Inf
-  Comp Sci 3~(2) (2008) 083--089.
-
-\bibitem{liu1998feature}
-H.~Liu, H.~Motoda, {Feature extraction, construction and selection: A data
-  mining perspective}, Springer Science \& Business Media, 1998.
-
-\bibitem{Hall2009}
-M.~Hall, E.~Frank, G.~Holmes, B.~Pfahringer, P.~Reutemann, I.~Witten, {The WEKA
-  data mining software: an update}, ACM SIGKDD Explor Newslett 11~(1) (2009)
-  10--18.
-
-\bibitem{Witten2011}
-I.~Witten, E.~Frank, M.~Hall, {Data mining: Practical machine learning tools
-  and techniques}, Morgan Kaufmann, 2011.
-
-\bibitem{Hall1998}
-M.~A. Hall, Correlation-based feature subset selection for machine learning,
-  Ph.D. thesis, University of Waikato, Hamilton, New Zealand (1998).
-
-\bibitem{RobnikSikonja1997}
-M.~Robnik-Sikonja, I.~Kononenko, An adaptation of relief for attribute
-  estimation in regression, in: D.~H. Fisher (Ed.), Fourteenth International
-  Conference on Machine Learning, Morgan Kaufmann, 1997, pp. 296--304.
-
-\bibitem{Kira1992}
-K.~Kira, L.~A. Rendell, {A Practical Approach to Feature Selection}, in: D.~H.
-  Sleeman, P.~Edwards (Eds.), Ninth International Workshop on Machine Learning,
-  Morgan Kaufmann, 1992, pp. 249--256.
-
-\bibitem{UmatUlts}
-S.~Ultsch, Kohonen's self-organizing maps for exploratory data analysis, in:
-  Proc. of the INNC'90, 2000, pp. 305--308.
-
-\bibitem{Quinlan1986}
-J.~Quinlan, {Induction of decision trees}, Mach Learn 1 (1986) 181--186.
-
-\bibitem{Quinlan1992}
-R.~J. Quinlan, Learning with continuous classes, in: 5th Australian Joint
-  Conference on Artificial Intelligence, World Scientific, Singapore, 1992, pp.
-  343--348.
-
-\bibitem{Wang1997}
-Y.~Wang, I.~H. Witten,
-  \href{https://www.researchgate.net/profile/Ian_Witten/publication/33051395_Induction_of_model_trees_for_predicting_continuous_classes/links/545948ea0cf2cf516483ce67.pdf}{Induction
-  of model trees for predicting continuous classes}, Tech. rep., Dept. of
-  Computer Science, University of Waikato, working Paper 96/23, Poster papers
-  of the 9th European Conference on Machine Learning (1996).
-\newline\urlprefix\url{https://www.researchgate.net/profile/Ian_Witten/publication/33051395_Induction_of_model_trees_for_predicting_continuous_classes/links/545948ea0cf2cf516483ce67.pdf}
-
-\bibitem{WittenFrank2000}
-I.~Witten, E.~Frank, {Data mining}, Morgan Kaufmann, 2000.
-
-\bibitem{Solomatine2004}
-D.~Solomatine, Y.~Xue, {M5 Model Trees and Neural Networks: Application to
-  FloodForecasting in the Upper Reach of the Huai River in China}, J Hydrol Eng
-  9~(6) (2004) 491--501.
-
-\bibitem{Aha1991}
-D.~Aha, D.~Kibler, Instance-based learning algorithms, Mach Learn 6 (1991)
-  37--66.
-
-\bibitem{Mitchell1997}
-T.~Mitchell, {Machine Learning}, McGraw-Hill Companies, Inc., 1997.
-
-\bibitem{Breiman2001}
-L.~Breiman, Random forests, Mach Learn 45~(1) (2001) 5--32.
-
-\bibitem{Cohen2003}
-J.~Cohen, P.~Cohen, S.~West, L.~Aiken, {Applied multiple regression/correlation
-  analysis for the behavioral sciences}, Lawrence Erlbaum Associates, 2003.
-
-\bibitem{Yan2009}
-X.~Yan, {Linear Regression Analysis: Theory and Computing}, World Scientific,
-  2009.
-
-\bibitem{Rencher2102}
-A.~Rencher, W.~Christensen, {Multivariate regression}, Vol. 709 of Wiley Series
-  in Probability and Statistics, John Wiley and Sons, 2012.
-
-\bibitem{EnkeT05}
-D.~Enke, S.~Thawornwong, The use of data mining and neural networks for
-  forecasting stock market returns, Expert Syst Appl 29~(4) (2005) 927--940.
-
-\bibitem{McClendon2015}
-L.~McClendon, N.~Meghanathan, Using machine learning algorithms to analyze
-  crime data, Mach Learn and App 2~(1).
-
-\bibitem{Cortes1995}
-C.~Cortes, V.~Vapnik, {Support Vector Networks}, Mach Learn 20 (1995) 273--297.
-
-\bibitem{Shevade1999}
-S.~Shevade, S.~Keerthi, C.~Bhattacharyya, K.~Murthy, Improvements to the smo
-  algorithm for svm regression, IEEE T Neural Networ.
-
-\bibitem{MinSVM05}
-J.~H. Min, Y.~Lee, Bankruptcy prediction using support vector machine with
-  optimal choice of kernel function parameters, Expert Syst. Appl. 28~(4)
-  (2005) 603--614.
-
-\bibitem{Cao2003}
-L.~Cao, {Support vector machine experts for time series forcasting},
-  Neurocomputing 51 (2003) 321--339.
-
-\bibitem{Jari2008}
-C.~Jari, L.~Wen, L.~Kang, {Support vector machine classification for large data
-  set vis minmum enclosing ball clustering}, Neurocomputing 71 (2008) 611--619.
-
-\bibitem{gepsoft}
-{Gepsoft}, {Analyzing GeneXproTools Models Statistically. Statistical Analysis
-  of Time Series Prediction Models}, {\tt
-  http://www.gepsoft.com/gxpt4kb/Chapter10/Section3/Introduction.htm} (Dec.
-  2015).
-
-\bibitem{pentaho}
-{pentaho}, {Pentaho Data Mining Community Documentation}, {\tt
-  http://wiki.pentaho.com/display/DATAMINING} (Dec. 2015).
-
-\bibitem{otexts}
-{otexts}, {Forecasting: principles and practice. The forecaster's toolbox.
-  Evaluating forecast accuracy}, {\tt https://www.otexts.org/fpp/2/5} (Dec.
-  2015).
-
-\bibitem{Hyndman2013}
-R.~Hyndman, G.~Athanasopoulos, Forecasting: principles and practice, OTexts,
-  2013.
-
-\bibitem{yu2004ec}
-X.~Yu, S.~Liong, V.~Babovic, Ec-svm approach for real-time hydrologic
-  forecasting., J Hydroinform 6 (2004) 209--223.
-
-\bibitem{chao2015construction}
-C.-F. Chao, M.-H. Horng, The construction of support vector machine classifier
-  using the firefly algorithm, Computat Intell Neurosci.
-
-\bibitem{hornik1989multilayer}
-K.~Hornik, M.~Stinchcombe, H.~White, Multilayer feedforward networks are
-  universal approximators, Neural networks 2~(5) (1989) 359--366.
-
-\bibitem{mirjalili2014let}
-S.~Mirjalili, S.~M. Mirjalili, A.~Lewis, Let a biogeography-based optimizer
-  train your multi-layer perceptron, Inform Sciences 269 (2014) 188--209.
-
-\bibitem{wdaa2008differential}
-A.~S.~I. Wdaa, Differential evolution for neural networks learning enhancement,
-  Ph.D. thesis, Universiti Teknologi Malaysia (2008).
-
-\bibitem{mirjalili2015effective}
-S.~Mirjalili, \href{http://dx.doi.org/10.1007/s10489-014-0645-7}{How effective
-  is the grey wolf optimizer in training multi-layer perceptrons}, Appl Intell
-  43~(1) (2015) 150--161.
-\newblock \href {http://dx.doi.org/10.1007/s10489-014-0645-7}
-  {\path{doi:10.1007/s10489-014-0645-7}}.
-\newline\urlprefix\url{http://dx.doi.org/10.1007/s10489-014-0645-7}
-
-\bibitem{Geisser1993}
-S.~Geisser, {Predictive Inference}, Chapman and Hall, 1993.
-
-\bibitem{Kohavi1995}
-R.~Kohavi, A study of cross-validation and bootstrap for accuracy estimation
-  and model selection, in: Proceedings of the Fourteenth International Joint
-  Conference on Artificial Intelligence, {IJCAI} 95, Montr{\'{e}}al
-  Qu{\'{e}}bec, Canada, August 20-25 1995, 2 Volumes, Morgan Kaufmann, 1995,
-  pp. 1137--1145.
-
-\bibitem{Devijver1982}
-P.~Devijver, J.~Kittler, {Pattern Recognition: A Statistical Approach},
-  Prentice-Hall, 1982.
-
-\bibitem{POS}
-M.~Gil, Puntos de venta de prensa y libros,
-  \url{https://antinomiaslibro.wordpress.com/2013/11/21/puntos-de-venta/},
-  consulted on May 21st, 2016 (November 2013).
-
-\bibitem{huang2006ga}
-C.-L. Huang, C.-J. Wang, A ga-based feature selection and parameters
-  optimization for support vector machines, Expert Syst Appl 31~(2) (2006)
-  231--240.
-
-\bibitem{Mookiah2013_EA_Tuning}
-M.~Mookiah, U.~Acharya, R.~Martis, C.~Chua, C.~Lim, E.~Ng, A.~Laude,
-  Evolutionary algorithm based classifier parameter tuning for automatic
-  diabetic retinopathy grading: A hybrid feature extraction approach, Knowl
-  Based Syst 39 (2013) 9--22.
-
-\bibitem{Shen2016_FFly_Tuning}
-L.~Shen, H.~Chen, Z.~Yu, W.~Kang, B.~Zhang, H.~Li, B.~Yang, D.~Liu, Evolving
-  support vector machines using fruit fly optimization for medical data
-  classification, Knowledge-Based Systems 96 (2016) 61--75.
-
-\end{thebibliography}
 
 %----------------------------------------------------------------------
 
