@@ -851,7 +851,17 @@ We have used some numerical FS methods included in Weka software \cite{Hall2009,
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized.%Pablo: the Oxford dictionary accepts both (zed and sed), but the one with Z is the one that appears as main in the entry
- The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+ The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. For continuous class problems (regression), the correlation between the attributes is estimated based on a standard linear correlation
+using the Pearson's correlation coefficient as given in Equation \ref{eq:corr} \cite{hall2000correlation}. 
+
+\begin{equation}
+r_{XY}=\frac{\sum xy}{n\sigma_{x}\sigma_{y}}
+\label{eq:corr}
+\end{equation}
+
+
+Where $X$ and $Y$ are two continuous variables expressed in terms
+of deviation. 
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
