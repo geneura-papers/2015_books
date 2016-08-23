@@ -122,7 +122,7 @@ practice predicting lower sales than the actual ones is not such a big
 problem because when inventory is close to exhaustion new print runs
 are made; however, this new print run presents the same problem as the
 initial one of printing only as many as forecasted, although its cost
-is not as hight as the initial one and we are not so concerned with
+is not as high as the initial one and we are not so concerned with
 this issue in this paper.
 
 Despite the fact that errors in one or the other direction do not have
@@ -336,7 +336,7 @@ present/launch new products every season.
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
-In another hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
+On the other hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
 where a hybrid model integrating K-Means and fuzzy neural networks to forecast 
 the future sales of a printed circuit board is proposed.
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
@@ -1540,7 +1540,7 @@ for sale, which was the initial objective of our research.
 
 The model obtained for the publishing company UDL929 is shown in
 Figure \ref{fig:decision_tree_best_seller}, which was the company that
-sold the most books in our data set. It makes sense to use data for a
+sold the most books in our dataset. It makes sense to use data for a
 single company, since book sales for all companies is only available
 if you buy it; a single company, however, will have complete data on
 its own sales. This company is also representative because, being the
@@ -1550,7 +1550,8 @@ linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
 The second decision tree (Figure
 \ref{fig:decision_tree_best_seller_fs}) corresponds to the same
-publishing company, so the same data were used, but the RAE feature
+publishing company, so the same data were used, but the RAE % Problem here: everytime you use RAE in the paper it means Relative Absolute Error, so I don't think we should use just "RAE" here, but ReliefAttributeEval.
+feature
 selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
 was needed before it. 
