@@ -122,7 +122,7 @@ practice predicting lower sales than the actual ones is not such a big
 problem because when inventory is close to exhaustion new print runs
 are made; however, this new print run presents the same problem as the
 initial one of printing only as many as forecasted, although its cost
-is not as hight as the initial one and we are not so concerned with
+is not as high as the initial one and we are not so concerned with
 this issue in this paper.
 
 Despite the fact that errors in one or the other direction do not have
@@ -336,7 +336,7 @@ present/launch new products every season.
 
   %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
   % sales forecasting in printed circuit board industry.
-In another hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
+On the other hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
 where a hybrid model integrating K-Means and fuzzy neural networks to forecast 
 the future sales of a printed circuit board is proposed.
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
@@ -851,7 +851,17 @@ We have used some numerical FS methods included in Weka software \cite{Hall2009,
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized.%Pablo: the Oxford dictionary accepts both (zed and sed), but the one with Z is the one that appears as main in the entry
- The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. In addition, the correlation is measured by three variations: the Minimum Description Length (MDL), the symmetrical uncertainty, and the ``relief''.
+ The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. For continuous class problems (regression), the correlation between the attributes is estimated based on a standard linear correlation
+using the Pearson's correlation coefficient as given in Equation \ref{eq:corr} \cite{hall2000correlation}. 
+
+\begin{equation}
+r_{XY}=\frac{\sum xy}{n\sigma_{x}\sigma_{y}}
+\label{eq:corr}
+\end{equation}
+
+
+Where $X$ and $Y$ are two continuous variables expressed in terms
+of deviation. 
 
 ``Relief'' is the second evaluator used in this work. It is important to note that the relief method implemented in Weka is an updated version \cite{RobnikSikonja1997}, called RRELIEFF, of the original by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
   \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
@@ -1530,7 +1540,7 @@ for sale, which was the initial objective of our research.
 
 The model obtained for the publishing company UDL929 is shown in
 Figure \ref{fig:decision_tree_best_seller}, which was the company that
-sold the most books in our data set. It makes sense to use data for a
+sold the most books in our dataset. It makes sense to use data for a
 single company, since book sales for all companies is only available
 if you buy it; a single company, however, will have complete data on
 its own sales. This company is also representative because, being the
@@ -1540,7 +1550,8 @@ linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
 The second decision tree (Figure
 \ref{fig:decision_tree_best_seller_fs}) corresponds to the same
-publishing company, so the same data were used, but the RAE feature
+publishing company, so the same data were used, but the RAE % Problem here: everytime you use RAE in the paper it means Relative Absolute Error, so I don't think we should use just "RAE" here, but ReliefAttributeEval.
+feature
 selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
 was needed before it. 
