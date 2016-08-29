@@ -1047,12 +1047,16 @@ MLP	& 88.01 $\pm$ 0.11	& 350.99 $\pm$ 185.53	& 730.93 $\pm$ 374.84	& 61.64 $\pm$
 
 
 
-As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is very suitable model be incorporated in a publishing company 
+As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is a very suitable model be incorporated in a publishing company 
 processes (as we will show in Section \ref{subsec:decision_trees}).
 
 Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \emph{collection} and \emph{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
-According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that the Linear Regression model outperforms some other complex methods like the Random Forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
+According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that 
+the Linear Regression model outperforms some other complex methods like the 
+Random Forest, both in time and in obtained errors. 
+Although, Linear Regression is considered as a simple model to build, more 
+powerful models can obtain better results in comparable time.
 
 kNN is the fastest method used in this study in terms of training time, as it 
 is the simplest one. However, the model is slow when classifying large number of 
@@ -1143,7 +1147,7 @@ selected features by each method. The results are shown in Table
 \ref{tab:results_all_publishers_fs}. Examining the obtained results
 for each feature selection method, it can be seen that RFE got the
 best results compared to SOM and CSE. It can be noticed also that we
-obtain better performance in M5P, kNN and RF using only features
+obtain better performance using M5P, kNN and RF with the set of features
 selected by RFE than using all features. %Better publish results in
                                 %the same table or refer to the table
                                 %where it was published. Is this
