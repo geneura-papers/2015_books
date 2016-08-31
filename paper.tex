@@ -1239,7 +1239,7 @@ MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 
 \label{sec:example_cases}
 
 This section presents further experiments conducted on data concerning four 
-interesting special publishing company cases. These publishing companies were 
+specially interesting publishing company cases. These publishing companies were 
 selected as representative cases which could be very interesting for decision 
 makers and managers in the domain. The four cases are described as follows:
 
@@ -1281,7 +1281,7 @@ of titles published by the selected companies.
 
 The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
+Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 
 \begin{table*}
@@ -1562,7 +1562,7 @@ sold the most books in our dataset. It makes sense to use data for a
 single company, since book sales for all companies is only available
 if you buy it; a single company, however, will have complete data on
 its own sales. This company is also representative because, being the
-one that sells the most, will have the biggest range of sales for
+one that sells the most, it will have the biggest range of sales for
 individual books. In this figure, tree {\em leaves} correspond to
 linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
@@ -1572,18 +1572,14 @@ publishing company, so the same data were used, but the RAE % Problem here: ever
 feature
 selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
-was needed before it. 
+was needed before the selection method was applied. 
 
 Examining both trees, it can be noticed that
-\texttt{tot\_points\_sale} variable appears twice in the trees, being
-also the root. This indicates that the total number of points of sale
-has the biggest influence on the decision models and also a major role in
-forecasting the total sales, implying that buyers have to actually
-{\em see}, maybe browse the book, before buying it. Books have to
-physically {\em be} in the point of sale, so this number gives a lower
-bound to the number of books that have to be printed; a stack of book
-will have to be present in each point of sale to attain that effect. 
- This is an interesting clue for the
+\texttt{tot\_points\_sale} variable appears twice in the trees, being also the root
+% I'm reducing some paragraphs by eliminating some sentences that appears repeated.
+(it has the biggest influence on the decision models and also a major role in forecasting the total sales, implying that books have to physically {\em be} in the point of sale).
+% This indicates that the total number of points of sale has the biggest influence on the decision models and also a major role in forecasting the total sales, implying that buyers have to actually {\em see}, maybe browse the book, before buying it. Books have to physically {\em be} in the point of sale, so this number gives a lower bound to the number of books that have to be printed; a stack of book will have to be present in each point of sale to attain that effect. 
+This is an interesting clue for the
 experts, who could check the expected impact of different number of
 selling points. This feature also shows that there are different
 regimes depending on the number of points of sale, with best sellers
@@ -1592,7 +1588,7 @@ being those that are distributed to more than roughly 500 points.
 The second {\em splitting} feature, number of books distributed as a
 novelty, gives the publisher a hint on how many books have to be sent
 to bookstores to stack on the {\em novelty} table. You need to sell
-roughly 5, the result of dividing 2807.5 y 550.5, to have a lower
+roughly 5, the result of dividing 2807.5 and 550.5, to have a lower
 bound in sales at 1006, which is negatively impacted by the retail
 price and the number of points of sale in the first year of
 distribution. In all cases, the last number in the formula featured in
@@ -1623,7 +1619,7 @@ bookstores, but also press stands and even supermarkets and hovers
 around several tens of thousands (around 24000, according to
 \cite{POS}), so we are clearly talking best sellers here distributed in
 as many places as possible. The first tree
-\ref{fig:decision_tree_best_seller} gives an idea of what we
+(in Figure \ref{fig:decision_tree_best_seller}) gives an idea of what we
 are talking about, sales start at 1000 but the single factor that has
 a bigger influence in sales is the topic, which has to be either 23 or
 1. '1' is the first digit of the classification used for all kind of
@@ -1632,7 +1628,7 @@ textbooks of maybe books in a foreign language; there are just a few
 of those, with '1' being far more common. So in principle these would
 be the typical best-sellers, literary prizes and big hits, but we
 would have to look more closely at the second tree
-\ref{fig:decision_tree_best_seller_fs} to check what are other factors
+(in Figure \ref{fig:decision_tree_best_seller_fs}) to check what are other factors
 influencing sales. It is also interesting that the number of total
 points of sale comes multiplied by 7, which would be a good baseline
 of books sold per outlet and give the publisher with a ballpark,
