@@ -1,0 +1,11 @@
+The problem of predicting total sales, to print the right amount of books, is faced
+
+A methodology to analyse data related to book sales prediction is proposed.
+
+A feature selection process is conducted to find out the main factors influencing sales
+
+Real world data is analysed using several data mining and visualisation techniques
+
+Obtained models are able to predict sales from pre-publication data.
+
+Predictive models to be used as decision-aid tools for book publishers are presented

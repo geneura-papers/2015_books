@@ -1,0 +1,224 @@
+\documentclass[preprint]{elsarticle}
+\biboptions{round, numbers}
+\usepackage[latin1]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{setspace}
+\usepackage{url}
+\usepackage[english]{babel}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   TITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Applying Computational Intelligence Methods for Predicting the Sales of Newly Published Books in a Real Editorial Business Management Environment: Response to Reviewers\' comments}
+
+\noindent
+Dear Sirs,\\
+
+First, we would like to express our gratitude to the Editor in Chief,
+the editorial team and the reviewers whose valuable comments on this
+paper have significantly improved its quality. All suggestions are
+highly appreciated and we have added a line in the acknowledgements
+section thanking the reviewers. \\ 
+
+In this new revision, we have carefully addressed all the comments in
+the new version of the paper. We will enumerate below these comments
+(in italics) and our corresponding response. \\ 
+
+We look forward to hearing from you about the final decision on our paper. \\
+
+\noindent
+Yours sincerely,\\
+The authors.
+
+
+%------------------------------------------------------------------------------------
+\section{Comments by Reviewer \#1}
+
+\noindent \emph{There are some issues needed to be addressed further:} \\
+
+\noindent (1) \emph{Generally speaking, predicting sales is regarded as a regression probelm (numerical output) rather than classification (categorical one). Both CFS and RelieFF are originally designed for classification problem. When CFS is used for regression, please to introduce how to estimate correlations between each feature and output (total sales). Since RReliefF, as a variant of ReliefF, is special for regression, why do not the authors use RReliefF? } 
+
+\begin{verbatim}
+In all our experiments we have applied the Weka's implementation 
+of the ReliefF algorithm in the regression problems. 
+This version is called "Regressional ReliefF" or "RReliefF" for 
+short which was first introduced and implemented by Robnik-Sikonja 
+and Kononenko in Ref XX for numeric targets. 
+Therefore, we have clarified this point in the text to remove 
+any ambiguity.
+
+For CSF, estimating the correlation between attributes is 
+standard linear (Pearson's) correlation.
+The details have been added to the text to clarify this point.
+\end{verbatim}
+
+~\\
+\noindent (2) \emph{In sub-section 4.2, five methods are introduced, i.e.,M5P,kNN,RF,LR and SVM. In sub-section 5.1, why is MLP (multi-layer perceptron) with one hidden layer described ? For RF, how many trees are set? } 
+
+\begin{verbatim}
+In sub-section 5.1 the MLP was described as our initial intention 
+was to include it in this study. Thus, in sub-section 
+''2.1. Selecting an appropriate forecasting method'' (old 
+sub-section 4.2) six methods have been introduced M5P, kNN, 
+RF, LR, SVM and MLP.
+Also, as suggested by the second reviewer (see his first comment), 
+the results obtained with this method have been included in the 
+new version of this paper.
+
+As far as the number of trees is related, THIS HAS TO BE DONE.
+\end{verbatim}
+%The first answer does not address the question. It only asks why is
+%it described in 5.1 and not in 4.2. Probably the right response would
+%be to move it to 4.2 - JJ
+% Yes, that is what has been done. However, you're right, it was necessary 
+% to comment on that point  ;)
+~\\
+\noindent (3) \emph{As we known, tree-based mehods (e.g.,M5P and RF) themselve embed feature selection procedure. That is, some features are choosen to build trees. It is not fair enough to compare five methods in Table 3. } 
+
+\begin{verbatim}
+THIS HAS TO BE DONE.
+\end{verbatim}
+% I think we can say that we know that RF and M5P have an embedded feature selection mechanism and we believe that it is unfair to compare them with the filter based feature selection methods we have deployed in our research. The idea is simply to show the decision maker what are the possible results when we apply one of the Off-the-shelf classifiers available in a common open source framework such as WEKA. Moreover, it is not uncommon in the literature to see such comparison between classifiers. Please check the paper ''Do we Need Hundreds of Classifiers to Solve Real World Classification Problems?'' published by JMLR which incorporates a general comparison between all these classifiers.
+
+~\\
+\noindent (4) \emph{It seems more reasonable to organize and write that paper according to regression viewpoint only. } 
+
+\begin{verbatim}
+THIS HAS TO BE DONE.
+\end{verbatim}
+% we can see that we met this point but addressing the point #1 which clarifies how our feature selection methods are applied for regression problems. Also, we have added the ''regression'' term all along the paper including the description of the dataset.
+
+~\\
+\noindent (5) \emph{It is necessary to write that paper more concisely. } 
+
+\begin{verbatim}
+Following your suggestion we have reorganized some parts of the 
+text and several paragraphs have been rewritten in order to make 
+them clearer and to improve its comprehension.
+
+Finally, the paper has been completely revised and several 
+typographic errors have been fixed.
+\end{verbatim}
+% But it says we should shorten the paper, not to reorganize it. The
+% right response should be to say what parts have been shortened - JJ
+% I'm working on shortening some parts. Thank you!  - Pedro
+
+
+
+%------------------------------------------------------------------------------------
+\section{Comments by Reviewer \#2}
+
+\noindent \emph{This paper applies some machine learning technologies to address issues related to book sales. There are some revisions that should be addressed by authors: } \\
+
+
+\noindent (1) \emph{The ANN and ELM (extreme learning machine) should be added into the experiments; } 
+
+\begin{verbatim}
+THIS HAS TO BE DONE.
+\end{verbatim}
+
+~\\
+\noindent (2) \emph{The authors should clarify their main contributions in the introduction parts.}
+
+\begin{verbatim}
+We have rewritten the introduction and introduced this new text:
+
+Our main contribution is, thus, to develop a methodology to 
+process book sales data in order to first find out relevant 
+variables and then use these variables to process data so that 
+the publisher, using them, can estimate sales and from them order 
+a specific print run, instead of standard ones, which are around 
+300 copies for standard books and around 5000 for those that are 
+considered, in advance, best sellers.
+
+Also, in the next-to-last paragraph, we have laid out our 
+methodology and the main contributions of this paper.
+\end{verbatim}
+
+~\\
+\noindent (3) \emph{Technologies related to recommend systems may have the ability to deal with this problem. The authors should add the recommend systems into the future work part. } 
+
+\begin{verbatim}
+Taking into account the reviewer's comment, the recommendation systems
+have been added to the future works section, at the end of Section 7 
+(see page 19).
+\end{verbatim}
+% Page might change with revision, so check it at the end - JJ
+% of course! you are right!  - Pedro
+~\\
+\noindent (4) \emph{Some tables should be transfer to figures because there are too many figures. } 
+
+\begin{verbatim}
+THIS HAS TO BE DONE.
+\end{verbatim}
+
+~\\
+\noindent (5) \emph{Graphical abstract should be added. This paper is organized well. The authors should revise their work according to above comments. } 
+
+\begin{verbatim}
+Taking into account the reviewer's comment, we have designed 
+a graphical abstract as a visual summary of the main findings 
+of the article.
+
+We would like to thank this reviewer for his suggestions and 
+advice about our paper.
+\end{verbatim}
+
+
+
+%------------------------------------------------------------------------------------
+\section{Comments by Reviewer \#3}
+
+\noindent \emph{There are several concerns should be considered.}\\
+
+\noindent (1) \emph{In section introduction, this manuscript should describe the contribution of this work. } 
+
+\begin{verbatim}
+We have rewritten the introduction and introduced this new text:
+
+Our main contribution is, thus, to develop a methodology to 
+process book sales data in order to first find out relevant 
+variables and then use these variables to process data so that 
+the publisher, using them, can estimate sales and from them order 
+a specific print run, instead of standard ones, which are around 
+300 copies for standard books and around 5000 for those that are 
+considered, in advance, best sellers.
+
+Also, in the next-to-last paragraph, we have laid out our 
+methodology and the main contributions of this paper.
+\end{verbatim}
+
+~\\
+\noindent (2) \emph{sections 4.1 and 4.2 should be moved to section 2. } 
+
+\begin{verbatim}
+Following your suggestion we have reorganized these sub-sections, 
+moving them to section 2.
+\end{verbatim}
+
+~\\
+\noindent (3) \emph{In section 4, this manuscript should show a flowchart of the proposed forecasting scheme and describe it. } 
+
+\begin{verbatim}
+Taking into account the reviewer's comment, we have improved the 
+description of the methodology by including a flowchart (see Figure 1 
+at page 6).
+\end{verbatim}
+
+~\\
+\noindent (4) \emph{In Section 5, parameter settings of M5P, kNN and RF also should be shown. } 
+
+\begin{verbatim}
+THIS HAS TO BE DONE.
+
+Taking into account the reviewer's comment, we have improved the 
+section 5, including the parameter settings of M5P, kNN and RF 
+methods.
+\end{verbatim}
+
+
+\end{document}
