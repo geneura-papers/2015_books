@@ -130,9 +130,7 @@ the same impact, it is extremely important to develop an accurate
 predictive method 
 which could forecast the future sales a new book will achieve, in
 order to optimise production schedules, improve the publishing company
-profits and minimise losses \cite{Zhao2001}, being the latter the main
-objective of this paper.  This is the main problem we are going to
-tackle in this paper.
+profits and minimise losses \cite{Zhao2001}. This is the main objective of this paper.
 
 % I don't know what to make with this paragraph. Move it to the
 % presentation of the problem, move it to the state of the art, or
@@ -175,27 +173,15 @@ sales in order to create a tool that the publisher can use to decide how
 many books should be printed, as well as how to leverage these printed
 copies to maximize sales using the decision variables under his
 control. That is why, using data obtained from a  company that sells
-software for publishers, we analyse it by means of different data
-mining methods and create predictive models that can be mainly used as
-decision-aid tools for book publishers. With these models, publishers
-will be able to 
-combine their expert knowledge about the market with the created
-forecasting models in order to get a reliable estimation of book
-sales, and, based on it, act upon it to maximize the books sold for a
-particular print run. Our main contribution is, thus, to develop a
-methodology to process book sales data in order to first find out
-relevant variables and then use these variables to process data so
-that the publisher, using them, can estimate sales and from them order
-a specific print run, instead of standard ones, which are around 300
-copies for standard books and around 5000 for those that are
-considered, in advance, {\em best sellers}.
+software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
+sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
+
+Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out
+relevant variables, and then, use these variables to process the data to accurately estimate future sales.
 
 
-In the research published in this paper, the problem 
-of predicting total sales in order to print the right amount of books
-%of how many units should be printed  when a new book is published 
-is approached using real data provided by the 
-Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers, and distributors. 
+In the research published in this paper, the problem of predicting total sales is approached using real data provided by the 
+Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
 Usually, the company's expert sales managers analysed historical data
 and applied their knowledge on external variables to compute correct
 estimations (predictions); for instance, they can decide increasing or
@@ -419,6 +405,7 @@ root to that node is given as a result.
 The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
 which the unknown instances are classified by relating them to the known 
 instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
+% Antonio - should we change the term 'classification' by 'regression' somehow?
 
 The main idea behind the algorithm is that two instances far enough in the space, 
 taking into account the distance function, are less likely to belong to the 
@@ -462,9 +449,10 @@ Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is ba
 statistical learning theory and has successfully used in classification and  
 regression problems \cite{Cao2003,Jari2008}.
 
-In classification problems the algorithm searches for an optimal hyperplane 
-that separates two classes, maximising the margin between them. 
-In the case of regression the algorithm chooses a hyperplane close to as many 
+%In classification problems the algorithm searches for an optimal hyperplane 
+%that separates two classes, maximising the margin between them.
+% Antonio - remove this classification thing due to a reviewer's comment 
+In regression problems, the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
 In both cases, the hyperplane is defined by a subset of training set samples, 
@@ -480,6 +468,7 @@ A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward
 artificial neural network model that maps the input data onto an appropriate output. 
 It is an artificial neural network generally used for classification or 
 approximation problems.
+% Antonio - something about regression?
 
 This model is a generalisation of the standard linear perceptron that uses several 
 layers of nodes (called neurons) and that is able to solve linearly inseparable 
@@ -813,7 +802,7 @@ preprocessing method to discard less relevant or non-useful features
 \cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
 The aim of these algorithms is exploring the space of attributes to find out 
-which subset of them yields the best results in a classification or prediction 
+which subset of them yields the best results in a regression or prediction 
 problem. To this end, the features describing every pattern are analysed. 
 In this case, among the variables describing a new book, some may affect 
 predictions as they provide information, while others may not be necessary 
@@ -1048,7 +1037,9 @@ MLP	& 88.01 $\pm$ 0.11	& 350.99 $\pm$ 185.53	& 730.93 $\pm$ 374.84	& 61.64 $\pm$
 
 
 
-As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is a very suitable model be incorporated in a publishing company 
+As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle regression
+% Antonio - I think we can change classification by regression. I have done. Check it out. ;)
+ tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is a very suitable model be incorporated in a publishing company 
 processes (as we will show in Section \ref{subsec:decision_trees}).
 
 Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \emph{collection} and \emph{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
@@ -1280,13 +1271,13 @@ of titles published by the selected companies.
 \label{Table:special_cases}
 \end{table*}
 
-The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the regression models are applied again on the reduced datasets to evaluate their performance.
 
 Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 
 \begin{table*}
-\caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDL929 (The best selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1313,7 +1304,7 @@ MLP	& 84.42 $\pm$ 0.12	& 1105.61 $\pm$ 445.66	& 1776.68 $\pm$ 1148.31	& 66.52 $\
 
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDLW12 (The median selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1339,7 +1330,7 @@ MLP	& 71.33 $\pm$ 0.35	& 27.46 $\pm$ 14.59	& 49 $\pm$ 34.83	& 82.5 $\pm$ 38.48	&
 \end{table*}
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDL704 (highest number of different titles sold). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1368,7 +1359,7 @@ MLP	& 80.83 $\pm$ 0.12	& 122.8 $\pm$ 56.86	& 207.12 $\pm$ 100.44	& 67.13 $\pm$ 3
 
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold)). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLU11 (medium number of different books sold)). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1419,6 +1410,8 @@ here only the results after applying the RFE method for the four cases in Tables
 one was chosen since the selected features by this
 method showed in the previous experiment the highest predictive power among 
 all classifiers. 
+% Antonio - could we use any sinonym of classifier but for regression... I guess 'regressor' is not appropriate. :D
+%
 %According to the aforementioned tables, 
 %It's not according to a table. It's according to the results there - JJ
 RFE reduction has noticeably improved the performance of all classifiers 
@@ -1431,7 +1424,7 @@ methods we refer the reader to the appendix of tables at the end of this paper.
 \begin{table*}[!ht]
 % Why the capital in Total? If it's a variable use Small Caps or Sans
 % Serif - JJ
-\caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1461,7 +1454,7 @@ MLP	& 87.66 $\pm$ 0.14	& 897.02 $\pm$ 411.58	& 1332.54 $\pm$ 969.05	& 56.43 $\pm
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1488,7 +1481,7 @@ MLP	& 79.26 $\pm$ 0.27	& 20.28 $\pm$ 13.25	& 35.05 $\pm$ 29.44	& 61.89 $\pm$ 37.
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDL704 (ReliefFAttributeEval-FS). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1517,7 +1510,7 @@ MLP	& 84.11 $\pm$ 0.13	& 104.55 $\pm$ 50.32	& 180.42 $\pm$ 87.44	& 56.99 $\pm$ 2
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
