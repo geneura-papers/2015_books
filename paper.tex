@@ -33,7 +33,7 @@
 \ead{pacv@ugr.es}
 \author[ugr]{Antonio M. Mora}
 \ead{amorag@geneura.ugr.es}
-\author[abd]{Hossam Faris}
+\author[abd]{H. Faris}
 \ead{hossam.faris@ju.edu.jo}
 \author[ugr]{J.J. Merelo}
 \ead{jmerelo@geneura.ugr.es}
@@ -130,9 +130,7 @@ the same impact, it is extremely important to develop an accurate
 predictive method 
 which could forecast the future sales a new book will achieve, in
 order to optimise production schedules, improve the publishing company
-profits and minimise losses \cite{Zhao2001}, being the latter the main
-objective of this paper.  This is the main problem we are going to
-tackle in this paper.
+profits and minimise losses \cite{Zhao2001}. This is the main objective of this paper.
 
 % I don't know what to make with this paragraph. Move it to the
 % presentation of the problem, move it to the state of the art, or
@@ -175,27 +173,15 @@ sales in order to create a tool that the publisher can use to decide how
 many books should be printed, as well as how to leverage these printed
 copies to maximize sales using the decision variables under his
 control. That is why, using data obtained from a  company that sells
-software for publishers, we analyse it by means of different data
-mining methods and create predictive models that can be mainly used as
-decision-aid tools for book publishers. With these models, publishers
-will be able to 
-combine their expert knowledge about the market with the created
-forecasting models in order to get a reliable estimation of book
-sales, and, based on it, act upon it to maximize the books sold for a
-particular print run. Our main contribution is, thus, to develop a
-methodology to process book sales data in order to first find out
-relevant variables and then use these variables to process data so
-that the publisher, using them, can estimate sales and from them order
-a specific print run, instead of standard ones, which are around 300
-copies for standard books and around 5000 for those that are
-considered, in advance, {\em best sellers}.
+software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
+sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
+
+Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out
+relevant variables, and then, use these variables to process the data to accurately estimate future sales.
 
 
-In the research published in this paper, the problem 
-of predicting total sales in order to print the right amount of books
-%of how many units should be printed  when a new book is published 
-is approached using real data provided by the 
-Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. It provides management systems and services for bookshops, publishers, and distributors. 
+In the research published in this paper, the problem of predicting total sales is approached using real data provided by the 
+Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
 Usually, the company's expert sales managers analysed historical data
 and applied their knowledge on external variables to compute correct
 estimations (predictions); for instance, they can decide increasing or
@@ -419,6 +405,7 @@ root to that node is given as a result.
 The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
 which the unknown instances are classified by relating them to the known 
 instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
+% Antonio - should we change the term 'classification' by 'regression' somehow?
 
 The main idea behind the algorithm is that two instances far enough in the space, 
 taking into account the distance function, are less likely to belong to the 
@@ -462,9 +449,10 @@ Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is ba
 statistical learning theory and has successfully used in classification and  
 regression problems \cite{Cao2003,Jari2008}.
 
-In classification problems the algorithm searches for an optimal hyperplane 
-that separates two classes, maximising the margin between them. 
-In the case of regression the algorithm chooses a hyperplane close to as many 
+%In classification problems the algorithm searches for an optimal hyperplane 
+%that separates two classes, maximising the margin between them.
+% Antonio - remove this classification thing due to a reviewer's comment 
+In regression problems, the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
 In both cases, the hyperplane is defined by a subset of training set samples, 
@@ -480,6 +468,7 @@ A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward
 artificial neural network model that maps the input data onto an appropriate output. 
 It is an artificial neural network generally used for classification or 
 approximation problems.
+% Antonio - something about regression?
 
 This model is a generalisation of the standard linear perceptron that uses several 
 layers of nodes (called neurons) and that is able to solve linearly inseparable 
@@ -798,7 +787,8 @@ applied, in order to select the best variables for the forecasting methods.
 In Section \ref{subsec:select_method}, a selection of the best forecasting techniques that have been conducted has been reported, looking for those rule- or tree-based, together with numerical methods which could yield the best results. 
 
 Once the models and results have been obtained for the whole dataset (Section \ref{sec:experiments}), the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
-Some specific interpretable models have been created as a final result of the work. The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
+Some specific interpretable models have been created as a final result of the work. 
+%The aim is that these can be used as a decision-aid tool for the experts who have to decide on the best print-run quantity for new books to be published, in order to either maximise the benefit, or minimise the costs.
 
 
 
@@ -812,7 +802,7 @@ preprocessing method to discard less relevant or non-useful features
 \cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
 The aim of these algorithms is exploring the space of attributes to find out 
-which subset of them yields the best results in a classification or prediction 
+which subset of them yields the best results in a regression or prediction 
 problem. To this end, the features describing every pattern are analysed. 
 In this case, among the variables describing a new book, some may affect 
 predictions as they provide information, while others may not be necessary 
@@ -1041,18 +1031,27 @@ SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\p
 \hline 
 MLP	& 88.01 $\pm$ 0.11	& 350.99 $\pm$ 185.53	& 730.93 $\pm$ 374.84	& 61.64 $\pm$ 33.61	& 56.33 $\pm$ 31.6	& 7014.06 $\pm$ 110.095 \tabularnewline
 \hline 
+ELM & 	86.79	 $\pm$ 	0.11	 & 	271.01	 $\pm$ 	28.53	 & 	684.98	 $\pm$ 	329.39	 & 	47.73	 $\pm$ 	0.06	 & 	52.42	 $\pm$ 	0.26	 & 	0.203	 $\pm$ 	0.03  \tabularnewline
+
+\hline 
 \end{tabular}
 }
 \end{table*}
 
 
 
-As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle classification tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is very suitable model be incorporated in a publishing company 
+As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle regression
+% Antonio - I think we can change classification by regression. I have done. Check it out. ;)
+ tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is a very suitable model be incorporated in a publishing company 
 processes (as we will show in Section \ref{subsec:decision_trees}).
 
 Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \emph{collection} and \emph{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
-According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that the Linear Regression model outperforms some other complex methods like the Random Forest, both in time and in obtained errors. Although, Linear regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.
+According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that 
+the Linear Regression model outperforms some other complex methods like the 
+Random Forest, both in time and in obtained errors. 
+%Although, Linear Regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.  % I change this sentence as its meaning is 'strange'...  [pedro]
+Although, Linear Regression is considered as a simple model to build, it can obtain better results than more powerful models in comparable time.
 
 kNN is the fastest method used in this study in terms of training time, as it 
 is the simplest one. However, the model is slow when classifying large number of 
@@ -1143,7 +1142,7 @@ selected features by each method. The results are shown in Table
 \ref{tab:results_all_publishers_fs}. Examining the obtained results
 for each feature selection method, it can be seen that RFE got the
 best results compared to SOM and CSE. It can be noticed also that we
-obtain better performance in M5P, kNN and RF using only features
+obtain better performance using M5P, kNN and RF with the set of features
 selected by RFE than using all features. %Better publish results in
                                 %the same table or refer to the table
                                 %where it was published. Is this
@@ -1176,6 +1175,9 @@ SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 
 \hline  
 MLP	& 88.58 $\pm$ 0.09	& 384.94 $\pm$ 342.05	& 769.74 $\pm$ 427.35	& 67.47 $\pm$ 60.6	& 58.71 $\pm$ 34.81	& 4.9 $\pm$ 0.047\\
 \hline  
+ELM & 	87.55	 $\pm$ 	0.1	 & 	250.88	 $\pm$ 	28.78	 & 	677.94	 $\pm$ 	356.41	 & 	44.16	 $\pm$ 	0.05	 & 	50.86	 $\pm$ 	0.24	 & 	0.1106	 $\pm$ 	0.02\\
+\hline
+
 
 
 \end{tabular}
@@ -1200,6 +1202,10 @@ SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 
 \hline
 MLP	& 87.26 $\pm$ 0.1	& 420.02 $\pm$ 491.51	& 771.6 $\pm$ 514.03	& 73.6 $\pm$ 87.04	& 60.09 $\pm$ 46.83	& 1.08 $\pm$ 0.019\\
 \hline
+ELM & 	85.91	 $\pm$ 	0.12	 & 	282.56	 $\pm$ 	28.36	 & 	692.59	 $\pm$ 	281.38	 & 	49.87	 $\pm$ 	0.06	 & 	53.74	 $\pm$ 	0.25	 & 	0.0095	 $\pm$ 	0.02\\
+\hline
+
+
 \end{tabular}
 }
 % SOM
@@ -1223,6 +1229,8 @@ SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2
 \hline 
 MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 49.64	& 65.85 $\pm$ 36.49	& 3.29 $\pm$ 0.042\tabularnewline
 \hline
+ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	53.22	 $\pm$ 	0.07	 & 	54.57	 $\pm$ 	0.18	 & 	0.0229	 $\pm$ 	0.02\\
+\hline
 \end{tabular}
 }
 \end{table*}
@@ -1235,7 +1243,7 @@ MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 
 \label{sec:example_cases}
 
 This section presents further experiments conducted on data concerning four 
-interesting special publishing company cases. These publishing companies were 
+specially interesting publishing company cases. These publishing companies were 
 selected as representative cases which could be very interesting for decision 
 makers and managers in the domain. The four cases are described as follows:
 
@@ -1275,13 +1283,13 @@ of titles published by the selected companies.
 \label{Table:special_cases}
 \end{table*}
 
-The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the classification models are applied again on the reduced datasets to evaluate their performance.
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the regression models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the developed models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
+Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 
 \begin{table*}
-\caption{Predicting Total sales for publishing company-UDL929 (The best selling publishing company). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDL929 (The best selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1301,6 +1309,9 @@ SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$1
 \hline 
 MLP	& 84.42 $\pm$ 0.12	& 1105.61 $\pm$ 445.66	& 1776.68 $\pm$ 1148.31	& 66.52 $\pm$ 23.63	& 70.41 $\pm$ 41.88	& 1.65 $\pm$ 0.008 \tabularnewline
 \hline
+ELM & 	53.38	 $\pm$ 	0.24	 & 	1898.17	 $\pm$ 	728.63	 & 	3104.85	 $\pm$ 	1503.83	 & 	136.82	 $\pm$ 	0.76	 & 	146.75	 $\pm$ 	0.95	 & 	0.0184	 $\pm$ 	0.02
+ \tabularnewline
+\hline
 \end{tabular}
 }
 \label{Table:case1results}
@@ -1308,7 +1319,7 @@ MLP	& 84.42 $\pm$ 0.12	& 1105.61 $\pm$ 445.66	& 1776.68 $\pm$ 1148.31	& 66.52 $\
 
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo-UDLW12 (The median selling publishing company). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDLW12 (The median selling publishing company). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1328,13 +1339,15 @@ SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \text
 \hline 
 MLP	& 71.33 $\pm$ 0.35	& 27.46 $\pm$ 14.59	& 49 $\pm$ 34.83	& 82.5 $\pm$ 38.48	& 108.85 $\pm$ 66.21	& 0.45 $\pm$ 0.004\tabularnewline
 \hline
+ELM & 	60.52	 $\pm$ 	0.39	 & 	24.28	 $\pm$ 	13.57	 & 	38.83	 $\pm$ 	26.43	 & 	118.09	 $\pm$ 	1.35	 & 	131.51	 $\pm$ 	1.37	 & 	0.0036	 $\pm$ 	0.01 \tabularnewline
+\hline
 \end{tabular}
 }
 \label{Table:case2results}
 \end{table*}
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo704 (highest number of different titles sold). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDL704 (highest number of different titles sold). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1354,6 +1367,10 @@ SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.8
 \hline 
 MLP	& 80.83 $\pm$ 0.12	& 122.8 $\pm$ 56.86	& 207.12 $\pm$ 100.44	& 67.13 $\pm$ 31.38	& 78.14 $\pm$ 39.92	& 2.83 $\pm$ 0.012\tabularnewline
 \hline
+ELM & 	65.13	 $\pm$ 	0.21	 & 	336.33	 $\pm$ 	1414.85	 & 	1279.83	 $\pm$ 	7128.87	 & 	189.38	 $\pm$ 	7.49	 & 	501.38	 $\pm$ 	26.56	 & 	0.0042	 $\pm$ 	0.01
+ \tabularnewline
+\hline
+
 \end{tabular}
 }
 \label{Table:case3results}
@@ -1363,7 +1380,7 @@ MLP	& 80.83 $\pm$ 0.12	& 122.8 $\pm$ 56.86	& 207.12 $\pm$ 100.44	& 67.13 $\pm$ 3
 
 
 \begin{table*}
-\caption{Predicting Total sales for PublishingCo-UDLU11 (medium number of different books sold)). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLU11 (medium number of different books sold)). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1381,7 +1398,10 @@ LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$
 \hline 
 SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
 \hline 
-MLP	& 0.7649 $\pm$ 0.17	& 757.12 $\pm$ 270.14	& 1111.03 $\pm$ 645.27	& 78.74 $\pm$ 31.38	& 88.05 $\pm$ 54.96	& 1.11 $\pm$ 0.004\tabularnewline
+MLP	& 76.49 $\pm$ 0.17	& 757.12 $\pm$ 270.14	& 1111.03 $\pm$ 645.27	& 78.74 $\pm$ 31.38	& 88.05 $\pm$ 54.96	& 1.11 $\pm$ 0.004\tabularnewline
+\hline
+ELM & 	61.55	 $\pm$ 	0.24	 & 	1350.19	 $\pm$ 	3934.54	 & 	3681.73	 $\pm$ 	19380.44	 & 	140.16	 $\pm$ 	3.02	 & 	264.72	 $\pm$ 	10.87	 & 	0.009	 $\pm$ 	0.02
+ \tabularnewline
 \hline
 \end{tabular}
 }
@@ -1414,6 +1434,8 @@ here only the results after applying the RFE method for the four cases in Tables
 one was chosen since the selected features by this
 method showed in the previous experiment the highest predictive power among 
 all classifiers. 
+% Antonio - could we use any sinonym of classifier but for regression... I guess 'regressor' is not appropriate. :D
+%
 %According to the aforementioned tables, 
 %It's not according to a table. It's according to the results there - JJ
 RFE reduction has noticeably improved the performance of all classifiers 
@@ -1426,7 +1448,7 @@ methods we refer the reader to the appendix of tables at the end of this paper.
 \begin{table*}[!ht]
 % Why the capital in Total? If it's a variable use Small Caps or Sans
 % Serif - JJ
-\caption{Predicting Total sales for PublishingCo-UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1446,6 +1468,8 @@ SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.6
 \hline 
 MLP	& 87.66 $\pm$ 0.14	& 897.02 $\pm$ 411.58	& 1332.54 $\pm$ 969.05	& 56.43 $\pm$ 33.1	& 58.52 $\pm$ 57.68	& 0.17 $\pm$ 0.002\tabularnewline
 \hline
+ELM & 	84.08	 $\pm$ 	0.17	 & 	890.49	 $\pm$ 	343.61	 & 	1470.33	 $\pm$ 	993.74	 & 	61.76	 $\pm$ 	0.32	 & 	65.14	 $\pm$ 	0.5	 & 	0.0119	 $\pm$ 	0.02 \tabularnewline
+\hline
 \end{tabular}
 }
 \label{Table:case1results-RAE}
@@ -1456,7 +1480,7 @@ MLP	& 87.66 $\pm$ 0.14	& 897.02 $\pm$ 411.58	& 1332.54 $\pm$ 969.05	& 56.43 $\pm
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1476,6 +1500,8 @@ SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$
 \hline 
 MLP	& 79.26 $\pm$ 0.27	& 20.28 $\pm$ 13.25	& 35.05 $\pm$ 29.44	& 61.89 $\pm$ 37.64	& 81.51 $\pm$ 63.39	& 0.07 $\pm$ 0.002\tabularnewline
 \hline 
+ELM & 	70.58	 $\pm$ 	0.34	 & 	19.52	 $\pm$ 	9.91	 & 	30.49	 $\pm$ 	18.09	 & 	145.28	 $\pm$ 	2.94	 & 	167.8	 $\pm$ 	3.39	 & 	0.0027	 $\pm$ 	0.01 \tabularnewline
+\hline
 \end{tabular}
 }
 \label{Table:case2results-RAE}
@@ -1483,7 +1509,7 @@ MLP	& 79.26 $\pm$ 0.27	& 20.28 $\pm$ 13.25	& 35.05 $\pm$ 29.44	& 61.89 $\pm$ 37.
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (ReliefFAttributeEval-FS). Best values in bold. }
+\caption{Predicting Total sales for publishing company UDL704 (ReliefFAttributeEval-FS). Best values in bold. }
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1503,6 +1529,9 @@ SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.9
 \hline 
 MLP	& 84.11 $\pm$ 0.13	& 104.55 $\pm$ 50.32	& 180.42 $\pm$ 87.44	& 56.99 $\pm$ 26.01	& 67.68 $\pm$ 32.15	& 0.22 $\pm$ 0.003\tabularnewline
 \hline
+ELM & 	83.47	 $\pm$ 	0.1	 & 	89.65	 $\pm$ 	25.9	 & 	167.99	 $\pm$ 	82.63	 & 	51.51	 $\pm$ 	0.14	 & 	65.11	 $\pm$ 	0.28	 & 	0.0041	 $\pm$ 	0.01\tabularnewline
+\hline
+
 \end{tabular}
 }
 \label{Table:case3results-RAE}
@@ -1512,7 +1541,7 @@ MLP	& 84.11 $\pm$ 0.13	& 104.55 $\pm$ 50.32	& 180.42 $\pm$ 87.44	& 56.99 $\pm$ 2
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
+\caption{Predicting Total sales for publishing company UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1531,6 +1560,8 @@ LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.
 SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
 \hline 
 MLP	& 77.3 $\pm$ 0.13	& 709.2 $\pm$ 235.87	& 960.43 $\pm$ 345.28	& 73.11 $\pm$ 24.95	& 75.19 $\pm$ 25.74	& 0.14 $\pm$ 0.003\tabularnewline
+\hline
+ELM & 	79.73	 $\pm$ 	0.14	 & 	569.2	 $\pm$ 	161.37	 & 	841.75	 $\pm$ 	322.13	 & 	61.87	 $\pm$ 	0.21	 & 	69.99	 $\pm$ 	0.3	 & 	0.007	 $\pm$ 	0.02 \tabularnewline
 \hline
 \end{tabular}
 }
@@ -1558,7 +1589,7 @@ sold the most books in our dataset. It makes sense to use data for a
 single company, since book sales for all companies is only available
 if you buy it; a single company, however, will have complete data on
 its own sales. This company is also representative because, being the
-one that sells the most, will have the biggest range of sales for
+one that sells the most, it will have the biggest range of sales for
 individual books. In this figure, tree {\em leaves} correspond to
 linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
@@ -1568,18 +1599,14 @@ publishing company, so the same data were used, but the RAE % Problem here: ever
 feature
 selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
-was needed before it. 
+was needed before the selection method was applied. 
 
 Examining both trees, it can be noticed that
-\texttt{tot\_points\_sale} variable appears twice in the trees, being
-also the root. This indicates that the total number of points of sale
-has the biggest influence on the decision models and also a major role in
-forecasting the total sales, implying that buyers have to actually
-{\em see}, maybe browse the book, before buying it. Books have to
-physically {\em be} in the point of sale, so this number gives a lower
-bound to the number of books that have to be printed; a stack of book
-will have to be present in each point of sale to attain that effect. 
- This is an interesting clue for the
+\texttt{tot\_points\_sale} variable appears twice in the trees, being also the root
+% I'm reducing some paragraphs by eliminating some sentences that appears repeated.
+(it has the biggest influence on the decision models and also a major role in forecasting the total sales, implying that books have to physically {\em be} in the point of sale).
+% This indicates that the total number of points of sale has the biggest influence on the decision models and also a major role in forecasting the total sales, implying that buyers have to actually {\em see}, maybe browse the book, before buying it. Books have to physically {\em be} in the point of sale, so this number gives a lower bound to the number of books that have to be printed; a stack of book will have to be present in each point of sale to attain that effect. 
+This is an interesting clue for the
 experts, who could check the expected impact of different number of
 selling points. This feature also shows that there are different
 regimes depending on the number of points of sale, with best sellers
@@ -1588,7 +1615,7 @@ being those that are distributed to more than roughly 500 points.
 The second {\em splitting} feature, number of books distributed as a
 novelty, gives the publisher a hint on how many books have to be sent
 to bookstores to stack on the {\em novelty} table. You need to sell
-roughly 5, the result of dividing 2807.5 y 550.5, to have a lower
+roughly 5, the result of dividing 2807.5 and 550.5, to have a lower
 bound in sales at 1006, which is negatively impacted by the retail
 price and the number of points of sale in the first year of
 distribution. In all cases, the last number in the formula featured in
@@ -1619,7 +1646,7 @@ bookstores, but also press stands and even supermarkets and hovers
 around several tens of thousands (around 24000, according to
 \cite{POS}), so we are clearly talking best sellers here distributed in
 as many places as possible. The first tree
-\ref{fig:decision_tree_best_seller} gives an idea of what we
+(in Figure \ref{fig:decision_tree_best_seller}) gives an idea of what we
 are talking about, sales start at 1000 but the single factor that has
 a bigger influence in sales is the topic, which has to be either 23 or
 1. '1' is the first digit of the classification used for all kind of
@@ -1628,7 +1655,7 @@ textbooks of maybe books in a foreign language; there are just a few
 of those, with '1' being far more common. So in principle these would
 be the typical best-sellers, literary prizes and big hits, but we
 would have to look more closely at the second tree
-\ref{fig:decision_tree_best_seller_fs} to check what are other factors
+(in Figure \ref{fig:decision_tree_best_seller_fs}) to check what are other factors
 influencing sales. It is also interesting that the number of total
 points of sale comes multiplied by 7, which would be a good baseline
 of books sold per outlet and give the publisher with a ballpark,
@@ -1831,7 +1858,7 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (CfsSubsetEval-FS). Best values in bold.}
+\caption{Predicting Total sales for PublishingCo-UDL704 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1851,6 +1878,8 @@ SVM & \textbf{81.8 $\pm$0.08} & \textbf{94.29 $\pm$25.52} & 180.54 $\pm$62.67 & 
 \hline 
 MLP	& 81.28 $\pm$ 0.11	& 135.01 $\pm$ 56.89	& 193.56 $\pm$ 61.91	& 74.12 $\pm$ 31.58	& 75.43 $\pm$ 28.35	& 0.05 $\pm$ 0.002\tabularnewline
 \hline
+ELM & 	78.42	 $\pm$ 	0.15	 & 	109.24	 $\pm$ 	52.6	 & 	203.11	 $\pm$ 	215.35	 & 	62.28	 $\pm$ 	0.24	 & 	78.75	 $\pm$ 	0.68	 & 	0.0019	 $\pm$ 	0.01 \tabularnewline
+\hline
 \end{tabular}
 }
 \end{table*}
@@ -1858,7 +1887,7 @@ MLP	& 81.28 $\pm$ 0.11	& 135.01 $\pm$ 56.89	& 193.56 $\pm$ 61.91	& 74.12 $\pm$ 3
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo704 (SOM-FS). Best values in bold.}
+\caption{Predicting Total sales for PublishingCo-UDL704 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1877,6 +1906,8 @@ LR & 87.5 $\pm$0.06 & 88.70 $\pm$16.34 & 135.03 $\pm$35.18 & 49.08 $\pm$10.47 & 
 SVM & 87.8 $\pm$0.06 & 81.09 $\pm$22.48 & 154.82 $\pm$59.93 & 43.65 $\pm$7.36 & 55.72 $\pm$7.15 & 0.031 $\pm$0.003\tabularnewline
 \hline 
 MLP	& 87.25 $\pm$ 0.09	& 98.45 $\pm$ 46.65	& 156.48 $\pm$ 62.89	& 53.68 $\pm$ 23.35	& 59.5 $\pm$ 22.56	& 0.15 $\pm$ 0.002\tabularnewline
+\hline
+ELM & 	85.22	 $\pm$ 	0.11	 & 	85.57	 $\pm$ 	25.92	 & 	141.17	 $\pm$ 	62.02	 & 	49.48	 $\pm$ 	0.16	 & 	56.58	 $\pm$ 	0.25	 & 	0.0014	 $\pm$ 	0.01\tabularnewline
 \hline
 \end{tabular}
 }
@@ -1908,6 +1939,8 @@ SVM & 64.8 $\pm$0.23 & 879.91 $\pm$280.33 & 1402.82 $\pm$593.44 & 87.74 $\pm$15.
 \hline 
 MLP	& 66.09 $\pm$ 0.21	& 817.79 $\pm$ 242.44	& 1127.02 $\pm$ 381.75	& 84.48 $\pm$ 27.39	& 88.59 $\pm$ 33.21	& 0.03 $\pm$ 0.002\tabularnewline
 \hline
+ELM & 	65.66	 $\pm$ 	0.25	 & 	859.21	 $\pm$ 	836.34	 & 	1691.61	 $\pm$ 	3053.2	 & 	92.4	 $\pm$ 	0.81	 & 	134.53	 $\pm$ 	2.18	 & 	0.0009	 $\pm$ 	0.01 \tabularnewline
+\hline
 \end{tabular}
 }
 \end{table*}
@@ -1935,6 +1968,8 @@ LR & 71.0 $\pm$0.19 & 723.74 $\pm$247.96 & 1108.74 $\pm$736.17 & 74.14 $\pm$24.9
 SVM & 71.6 $\pm$0.15 & 640.14 $\pm$206.46 & 1017.02 $\pm$376.13 & 63.96 $\pm$11.87 & 76.10 $\pm$16.80 & 0.019 $\pm$0.001\tabularnewline
 \hline 
 MLP	& 77.06 $\pm$ 0.18	& 714.48 $\pm$ 259.22	& 1025.29 $\pm$ 569.79	& 74.3 $\pm$ 29.92	& 81.44 $\pm$ 47.9	& 0.09 $\pm$ 0.002\tabularnewline
+\hline
+ELM & 	79.52	 $\pm$ 	0.12	 & 	606.38	 $\pm$ 	153.83	 & 	818.18	 $\pm$ 	243.54	 & 	65.7	 $\pm$ 	0.18	 & 	67.17	 $\pm$ 	0.21	 & 	0.0044	 $\pm$ 	0.01 \tabularnewline
 \hline
 \end{tabular}
 }
@@ -1965,6 +2000,8 @@ SVM & 86.8 $\pm$0.12 & 940.39 $\pm$344.16 & 1648.50 $\pm$1026.04 & 54.50 $\pm$7.
 \hline 
 MLP	& 87.67 $\pm$ 0.12	& 947.71 $\pm$ 388.67	& 1294.58 $\pm$ 458.44	& 58.62 $\pm$ 27.65	& 54.89 $\pm$ 27.53	& 0.04 $\pm$ 0.002\tabularnewline
 \hline
+ELM & 	87.25	 $\pm$ 	0.14	 & 	776.49	 $\pm$ 	209.23	 & 	1171.43	 $\pm$ 	455.5	 & 	53.63	 $\pm$ 	0.25	 & 	53.14	 $\pm$ 	0.37	 & 	0.0031	 $\pm$ 	0.01\tabularnewline
+\hline
 \end{tabular}
 }
 \end{table*}
@@ -1991,6 +2028,8 @@ LR & 86.6 $\pm$0.13 & 894.08 $\pm$206.60 & 1282.83 $\pm$451.87 & 55.29 $\pm$15.9
 SVM & 87.1 $\pm$0.10 & 908.56 $\pm$348.20 & 1608.77 $\pm$972.55 & 52.63 $\pm$8.75 & 55.95 $\pm$12.49 & 0.022 $\pm$0.002\tabularnewline
 \hline 
 MLP	& 87.02 $\pm$ 0.13	& 1015.85 $\pm$ 518.44	& 1603.91 $\pm$ 1145.56	& 61.99 $\pm$ 32.97	& 67.74 $\pm$ 62.08	& 0.11 $\pm$ 0.002\tabularnewline
+\hline
+ELM & 	83.44	 $\pm$ 	0.17	 & 	884.83	 $\pm$ 	297.95	 & 	1430.42	 $\pm$ 	874.32	 & 	64.61	 $\pm$ 	0.37	 & 	69.69	 $\pm$ 	0.68	 & 	0.002	 $\pm$ 	0.01\tabularnewline
 \hline
 \end{tabular}
 }
@@ -2022,6 +2061,9 @@ SVM & \textbf{81.8 $\pm$0.21} & 17.71 $\pm$9.70 & 31.95 $\pm$19.26 & 50.07 $\pm$
 \hline 
 MLP	& 80.08 $\pm$ 0.25	& 19.6 $\pm$ 11.66	& 29.32 $\pm$ 14.5	& 59.97 $\pm$ 35.66	& 70.05 $\pm$ 42.31	& 0.02 $\pm$ 0.002\tabularnewline
 \hline
+ELM & 	77.62	 $\pm$ 	0.3	 & 	16.53	 $\pm$ 	9.12	 & 	27.18	 $\pm$ 	18.2	 & 	72.75	 $\pm$ 	0.64	 & 	86.09	 $\pm$ 	0.86	 & 	0.0012	 $\pm$ 	0.01\tabularnewline
+
+\hline
 \end{tabular}
 }
 \end{table*}
@@ -2049,7 +2091,9 @@ LR & 85.4 $\pm$0.21 & 14.59 $\pm$7.13 & 24.40 $\pm$12.87 & 44.81 $\pm$23.65 & 57
 SVM & 84.4 $\pm$0.18 & 14.18 $\pm$7.96 & 26.49 $\pm$16.54 & 40.93 $\pm$16.65 & 54.37 $\pm$20.00 & 0.01 $\pm$0.001\tabularnewline
 \hline 
 MLP	& 77.76 $\pm$ 0.33	& 19.24 $\pm$ 11.58	& 33.05 $\pm$ 24.27	& 59.53 $\pm$ 36.38	& 78.43 $\pm$ 57.62	& 0.05 $\pm$ 0.002\tabularnewline
-
+\hline
+ELM & 	73.42	 $\pm$ 	0.31	 & 	20.08	 $\pm$ 	9.8	 & 	31.45	 $\pm$ 	18.84	 & 	85.55	 $\pm$ 	0.6	 & 	93.42	 $\pm$ 	0.64	 & 	0.0036	 $\pm$ 	0.01\tabularnewline
+\hline
 \end{tabular}
 }
 \end{table*}
