@@ -967,7 +967,8 @@ systematic experimentation process, along with a revision of the bibliography
 describing the best configuration parameters for the methods we have applied here. 
 
 Thus, in our experiments, the best value of $k$ in the $k$-nearest neighbour 
-was empirically found at $k=3$. % What???? - JJ
+was empirically found at $k=3$. For the RF, the best performance was achieved with a number of trees equal to 50. In M5P, the batch size was set to 100 and the minimum number of instances allowed at a leaf node is set to 2. In ELM, since the network has an extreme learning speed, we have tried different possible numbers of hidden neurons starting from 1 up to 100. Also, different activation functions were tested for the ELM. The best performance was obtained with an RBF activation function.
+
 For SVM, the widely used Radial Basis Function (RBF) kernel is selected. 
 As reported in several studies, RBF kernel has a reliable performance and 
 can analyse higher dimensional data \cite{yu2004ec,chao2015construction}. 
