@@ -71,26 +71,37 @@ new version of this paper.
 
 As far as the number of trees is related, THIS HAS TO BE DONE.
 \end{verbatim}
-%The first answer does not address the question. It only asks why is
-%it described in 5.1 and not in 4.2. Probably the right response would
-%be to move it to 4.2 - JJ
-% Yes, that is what has been done. However, you're right, it was necessary 
-% to comment on that point  ;)
+
 ~\\
 \noindent (3) \emph{As we known, tree-based mehods (e.g.,M5P and RF) themselve embed feature selection procedure. That is, some features are choosen to build trees. It is not fair enough to compare five methods in Table 3. } 
 
 \begin{verbatim}
-THIS HAS TO BE DONE.
+Although we agree with the reviewer's comment, and the RF and M5P 
+have an embedded feature selection mechanism, we believe that it 
+is unfair to compare them with the filter based feature selection 
+methods we have deployed in our research. 
+The idea is simply to show the decision maker what are the possible 
+results when we apply one of the off-the-shelf classifiers available 
+in a common open source framework such as WEKA. 
+Moreover, it is not uncommon in the literature to see such comparison 
+between classifiers, such as in the paper:
+  M. Fernández-Delgado, E. Cernadas, S. Barro, and D. Amorim. 2014. 
+  Do we need hundreds of classifiers to solve real world 
+  classification problems?. J. Mach. Learn. Res. 15, 1, pp.3133-3181
+which incorporates a general comparison between all these classifiers.
 \end{verbatim}
-% I think we can say that we know that RF and M5P have an embedded feature selection mechanism and we believe that it is unfair to compare them with the filter based feature selection methods we have deployed in our research. The idea is simply to show the decision maker what are the possible results when we apply one of the Off-the-shelf classifiers available in a common open source framework such as WEKA. Moreover, it is not uncommon in the literature to see such comparison between classifiers. Please check the paper ''Do we Need Hundreds of Classifiers to Solve Real World Classification Problems?'' published by JMLR which incorporates a general comparison between all these classifiers.
 
 ~\\
 \noindent (4) \emph{It seems more reasonable to organize and write that paper according to regression viewpoint only. } 
 
 \begin{verbatim}
-THIS HAS TO BE DONE.
+According to the reviewer's comment, we have addressed this issue
+at the same time that comment #1, where the application procedure 
+of feature selection methods for regression problems has been 
+clarified. 
+Also, we have added the ''regression'' term all along the paper 
+including the description of the dataset.
 \end{verbatim}
-% we can see that we met this point but addressing the point #1 which clarifies how our feature selection methods are applied for regression problems. Also, we have added the ''regression'' term all along the paper including the description of the dataset.
 
 ~\\
 \noindent (5) \emph{It is necessary to write that paper more concisely. } 
@@ -98,7 +109,9 @@ THIS HAS TO BE DONE.
 \begin{verbatim}
 Following your suggestion we have reorganized some parts of the 
 text and several paragraphs have been rewritten in order to make 
-them clearer and to improve its comprehension.
+them clearer and to improve its comprehension. 
+Also, several tables have been moved to the Appendix and that
+data has been presented now as the new Figure X.
 
 Finally, the paper has been completely revised and several 
 typographic errors have been fixed.
@@ -118,7 +131,9 @@ typographic errors have been fixed.
 \noindent (1) \emph{The ANN and ELM (extreme learning machine) should be added into the experiments; } 
 
 \begin{verbatim}
-We have added the results of ANN(MLP) and ELM to all tables accordingly. A description of both approaches have been also added to subsection 2.1.
+We have added the results of ANN(MLP) and ELM to all tables 
+accordingly. A description of both approaches have been also 
+added to subsection 2.1.
 \end{verbatim}
 
 ~\\
@@ -143,9 +158,9 @@ methodology and the main contributions of this paper.
 \noindent (3) \emph{Technologies related to recommend systems may have the ability to deal with this problem. The authors should add the recommend systems into the future work part. } 
 
 \begin{verbatim}
-Taking into account the reviewer's comment, the recommendation systems
-have been added to the future works section, at the end of Section 7 
-(see page 19).
+Taking into account the reviewer's comment, the recommendation 
+systems have been added to the future works section, at the end 
+of Section 7 (see page 19).
 \end{verbatim}
 % Page might change with revision, so check it at the end - JJ
 % of course! you are right!  - Pedro
