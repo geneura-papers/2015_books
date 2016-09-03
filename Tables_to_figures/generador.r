@@ -89,17 +89,19 @@ m <- rbind(m,m_cfs)
 
 rm(m_all,m_sel,m_som,m_cfs,ldf,ldf_s,ldf_som,ldf_cfs,filenames_sel,filenames_all,filenames_som,filenames_cfs,i)
 
-datos <- melt(data = m,id.vars = c("Method","Dataset","Attributes"),measure.vars = c("R2","MAE","RMSE","RAE","RRSE","TIME"),)
+datos <- melt(data = m,id.vars = c("Method","Dataset","Attributes"),measure.vars = c("R.","MAE","RMSE","RAE","RRSE","TIME"),)
 
 datos$Dataset <- str_replace(datos$Dataset,".csv","")
 
 datos$error <- as.numeric(sapply(str_split(datos$value, '_'), '[', 2))
 datos$value <- as.numeric(sapply(str_split(datos$value, '_'), '[', 1))
 
+datos$variable <- as.character(datos$variable)
+datos[datos$variable=="R.","variable"] <- "R^2"
 dataset = unique(datos$Dataset)
 
 ggplot(data = subset(datos,Dataset==dataset[1]), aes(x=Attributes,y=value,color=Attributes,shape=Attributes)) + geom_point(stat="identity",size=3) + 
-  facet_grid(variable ~ Method,scales = "free_y",) + 
+  facet_grid(variable ~ Method,scales = "free_y",labeller = as_labeller(expression()) + 
   scale_color_grey(start=0.0,end=0.2) + labs(title=dataset[1],x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom", axis.title.x=element_blank(),
                                                                                                    axis.text.x=element_blank(),
@@ -152,6 +154,21 @@ p2 <- ggplot(data = subset(datos,Attributes==att[2]), aes(x=Method,y=value,color
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="none")
 
 multiplot(p1,p2,cols=1)
+
+#Time dataset, selection, method
+
+
+ggplot(data = subset(datos,variable=="TIME"), aes(x=Method,y=value)) + geom_point(stat="identity",size=3) + 
+  facet_grid(Dataset ~ Attributes,scales = "free_y") + 
+  scale_fill_grey(start=0.2,end=0.8) + labs(title="TIME",x="Method",y="Seconds") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+  
+
+ggplot(data = subset(datos,variable=="MAE"), aes(x=Method,y=value)) + geom_bar(stat="identity",size=3) + 
+  facet_grid(Dataset ~ Attributes,scales = "free_y") + 
+  scale_fill_grey(start=0.2,end=0.8) + labs(title="MAE",x="Method",y="Units") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+
 
 
 
