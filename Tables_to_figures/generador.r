@@ -77,11 +77,11 @@ dataset = unique(datos$Dataset)
 for(i in dataset){
   print(ggplot(data = subset(datos,Dataset==i), aes(x=Attributes,y=value,fill=Attributes,shape=Attributes)) + geom_point(size=2) + geom_bar(stat="identity") + 
     facet_grid(variable ~ Method,scales = "free_y") + 
-    scale_fill_grey(start=0.2,end=0.6) + labs(title=i,x="",y="") + 
+    scale_fill_grey(start=0.6,end=0.8) + labs(title=i,x="",y="") + 
     geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  + theme(legend.position="bottom", axis.title.x=element_blank(),
                                                                                                     axis.text.x=element_blank(),
                                                                                              axis.ticks.x=element_blank()))
-  ggsave(file=paste0("../imgs/datasets_",i,".png"),scale=1.2)
+  ggsave(file=paste0("../imgs/datasets_",i,".eps"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
   
 }
 
@@ -98,7 +98,7 @@ print(ggplot(data = subset(datos,Attributes==j & Dataset==i), aes(x=Method,y=val
   scale_color_grey(start=0.0,end=0.2) + labs(title="",x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="none"))
 
-  ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=1.2)
+  ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 8, height = 12,dpi = 800)
 
   }
 
@@ -113,7 +113,7 @@ for(i in var){
     geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
   
   
-  ggsave(file=paste0("../imgs/metric_",i,".png"),scale=1.2)
+  ggsave(file=paste0("../imgs/metric_",i,".eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
 }
 
 
