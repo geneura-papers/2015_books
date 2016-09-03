@@ -57,12 +57,37 @@ for(i in seq(from=1,to=length(filenames_sel),by = 1)){
   ldf_s[[i]]$Attributes <- "ReliefFAttributeEval-FS"
 }
 
+filenames_som <- list.files(path = "datasets/SOM-FS//",pattern = ".csv",full.names = TRUE)
+ldf_som <- lapply(filenames_som, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
+for(i in seq(from=1,to=length(filenames_som),by = 1)){
+  ldf_som[[i]]$Dataset <- sapply(str_split(filenames_som, '/'), '[', 5)[i]
+  ldf_som[[i]]$Attributes <- "SOM-FS"
+}
+
+filenames_som <- list.files(path = "datasets/SOM-FS//",pattern = ".csv",full.names = TRUE)
+ldf_som <- lapply(filenames_som, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
+for(i in seq(from=1,to=length(filenames_som),by = 1)){
+  ldf_som[[i]]$Dataset <- sapply(str_split(filenames_som, '/'), '[', 5)[i]
+  ldf_som[[i]]$Attributes <- "SOM-FS"
+}
+
+filenames_cfs <- list.files(path = "datasets/CfsSubsetEval-FS//",pattern = ".csv",full.names = TRUE)
+ldf_cfs <- lapply(filenames_cfs, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
+for(i in seq(from=1,to=length(filenames_cfs),by = 1)){
+  ldf_cfs[[i]]$Dataset <- sapply(str_split(filenames_cfs, '/'), '[', 5)[i]
+  ldf_cfs[[i]]$Attributes <- "CfsSubsetEval-FS"
+}
+
 m_all <- do.call(rbind,ldf)
 m_sel <- do.call(rbind,ldf_s)
+m_som <- do.call(rbind,ldf_som)
+m_cfs <- do.call(rbind,ldf_cfs)
 
 m <- rbind(m_all,m_sel)
+m <- rbind(m,m_som)
+m <- rbind(m,m_cfs)
 
-rm(m_all,m_sel,ldf,ldf_s,filenames_sel,filenames_all,i)
+rm(m_all,m_sel,m_som,m_cfs,ldf,ldf_s,ldf_som,ldf_cfs,filenames_sel,filenames_all,filenames_som,filenames_cfs,i)
 
 datos <- melt(data = m,id.vars = c("Method","Dataset","Attributes"),measure.vars = c("R2","MAE","RMSE","RAE","RRSE","TIME"),)
 
