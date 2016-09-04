@@ -1080,29 +1080,14 @@ In the analysis, several configurations for SOM have been tested, and the best o
 
 Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
 
-Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
-The component planes in Figure \ref{fig:componentplanes} show the trend of values of the prototype vectors of the SOM map units. These values are represented as colours. The colourbar on the right of each component plane shows the indication of each colour. On the other side, the U-matrix on the top
-left corner shows the distances between the adjacent units. It is
-important to note that high values in the matrix indicates large
-distance between the units of the map. It can be noticed also that
-there are more hexagons in the U-matrix than component planes since
-the distances between units are also represented as inter-neuron hexagons. 
-
-Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
-
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.28]{som_planes.eps}
+\includegraphics[scale=0.25]{som_planes.eps}
 \end{center}
 \caption{U-matrix and component planes.}
 \label{fig:componentplanes}
 \end{figure*}
-
-
-The selected features using each one of the three methods are shown in 
-Table \ref{tab:features_selected}. 
-Logically, just the independent or input variables are considered.
 
 \begin{table*}
 \caption{Input features/variables selected by each method
@@ -1136,20 +1121,22 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table*}
 
 
-After applying the feature selection process, we have run the same
-forecasting models as in Section \ref{subsec:results_all_publishers}
-for the whole dataset (all the publishers), but considering only the
-selected features by each method. The results are shown in Table
-\ref{tab:results_all_publishers_fs}. Examining the obtained results
-for each feature selection method, it can be seen that RFE got the
-best results compared to SOM and CSE. It can be noticed also that we
-obtain better performance using M5P, kNN and RF with the set of features
-selected by RFE than using all features. %Better publish results in
-                                %the same table or refer to the table
-                                %where it was published. Is this
-                                %difference statistically significant?
-                                %- JJ
-As expected, in general, all feature selection methods have reduced the training time needed to build the forecasting methods. This is because they reduced the considered features and mainly because they excluded the categorical features, which are the hardest to be managed (they have many possible values). On the other side, CSE and SOM did not perform as good as RA. This could be explained due to the extensive reduction made by CSE and due to the `subjective' (but not so accurate) human intervention in the case of SOM. 
+Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
+The component planes in Figure \ref{fig:componentplanes} show the trend of values of the prototype vectors of the SOM map units. These values are represented as colours. The colourbar on the right of each component plane shows the indication of each colour. On the other side, the U-matrix on the top
+left corner shows the distances between the adjacent units. It is
+important to note that high values in the matrix indicates large
+distance between the units of the map. It can be noticed also that
+there are more hexagons in the U-matrix than component planes since
+the distances between units are also represented as inter-neuron hexagons. 
+
+Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
+
+
+The selected features using each one of the three methods are shown in 
+Table \ref{tab:features_selected}. 
+Logically, just the independent or input variables are considered.
+
+
 
 \begin{table*}
 \centering{}%
@@ -1237,6 +1224,21 @@ ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	5
 \end{table*}
 
 
+After applying the feature selection process, we have run the same
+forecasting models as in Section \ref{subsec:results_all_publishers}
+for the whole dataset (all the publishers), but considering only the
+selected features by each method. The results are shown in Table
+\ref{tab:results_all_publishers_fs}. Examining the obtained results
+for each feature selection method, it can be seen that RFE got the
+best results compared to SOM and CSE. It can be noticed also that we
+obtain better performance using M5P, kNN and RF with the set of features
+selected by RFE than using all features. %Better publish results in
+                                %the same table or refer to the table
+                                %where it was published. Is this
+                                %difference statistically significant?
+                                %- JJ
+As expected, in general, all feature selection methods have reduced the training time needed to build the forecasting methods. This is because they reduced the considered features and mainly because they excluded the categorical features, which are the hardest to be managed (they have many possible values). On the other side, CSE and SOM did not perform as good as RA. This could be explained due to the extensive reduction made by CSE and due to the `subjective' (but not so accurate) human intervention in the case of SOM. 
+
 
 %********************************************************************************
 
@@ -1284,290 +1286,62 @@ of titles published by the selected companies.
 \label{Table:special_cases}
 \end{table*}
 
-The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the regression models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases are shown in Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
-
-
-\begin{table*}
-\caption{Predicting Total sales for publishing company UDL929 (The best selling publishing company). Best values in bold. }
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  &  \textbf{90.0 $\pm$0.10} &  \textbf{670.24 $\pm$181.05}  &  \textbf{1065.34 $\pm$413.84}  &  \textbf{40.83 $\pm$10.86}  &  \textbf{43.56 $\pm$19.87}  & 0.03 $\pm$0.002\tabularnewline
-\hline 
-kNN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  &  \textbf{0 $\pm$0.0001}\tabularnewline
-\hline 
-RF  & 87.6 $\pm$0.11  & 771.83 $\pm$326.34  & 1490.49 $\pm$930.58  & 45.40 $\pm$14.14  & 55.91 $\pm$31.70  & 0.08 $\pm$0.004\tabularnewline
-\hline 
-LR  & 86.3 $\pm$0.12  & 922.33 $\pm$289.01  & 1399.84 $\pm$619.62  & 56.11 $\pm$16.17  & 56.43 $\pm$25.09  & 0.005 $\pm$0.001\tabularnewline
-\hline 
-SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$11.83  & 57.23 $\pm$20.40  & 0.04 $\pm$0.016\tabularnewline
-\hline 
-MLP	& 84.42 $\pm$ 0.12	& 1105.61 $\pm$ 445.66	& 1776.68 $\pm$ 1148.31	& 66.52 $\pm$ 23.63	& 70.41 $\pm$ 41.88	& 1.65 $\pm$ 0.008 \tabularnewline
-\hline
-ELM & 	53.38	 $\pm$ 	0.24	 & 	1898.17	 $\pm$ 	728.63	 & 	3104.85	 $\pm$ 	1503.83	 & 	136.82	 $\pm$ 	0.76	 & 	146.75	 $\pm$ 	0.95	 & 	0.0184	 $\pm$ 	0.02
- \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case1results}
-\end{table*}
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.55]{./imgs/attribute_All.eps}
+\end{center}
+\caption{Predicting \texttt{total\_sales} for publishing companies UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).}
+\label{fig:attributeAll}
+\end{figure*}
 
 
-\begin{table*}
-\caption{Predicting Total sales for publishing company UDLW12 (The median selling publishing company). Best values in bold. }
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  & 83.2 $\pm$0.24  & 14.18 $\pm$6.62  & 23.82 $\pm$11.86  & 43.41 $\pm$20.39  & 55.79 $\pm$30.47  & 0.009 $\pm$0.002\tabularnewline
-\hline 
-kNN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  &  \textbf{0.0001 $\pm$0.0002}\tabularnewline
-\hline 
-RF &  \textbf{85.8 $\pm$0.17}  & 14.19 $\pm$6.69  &  \textbf{23.57 $\pm$11.83}  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
-\hline 
-LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  & 56.85 $\pm$35.07  & 0.002 $\pm$0.0005\tabularnewline
-\hline 
-SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \textbf{40.66 $\pm$16.03}  &  \textbf{53.28 $\pm$18.45}  & 0.02 $\pm$0.02\tabularnewline
-\hline 
-MLP	& 71.33 $\pm$ 0.35	& 27.46 $\pm$ 14.59	& 49 $\pm$ 34.83	& 82.5 $\pm$ 38.48	& 108.85 $\pm$ 66.21	& 0.45 $\pm$ 0.004\tabularnewline
-\hline
-ELM & 	60.52	 $\pm$ 	0.39	 & 	24.28	 $\pm$ 	13.57	 & 	38.83	 $\pm$ 	26.43	 & 	118.09	 $\pm$ 	1.35	 & 	131.51	 $\pm$ 	1.37	 & 	0.0036	 $\pm$ 	0.01 \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case2results}
-\end{table*}
+The experiments applied on the selected special cases follow the same methodology 
+used previously for the whole dataset. First, the forecasting models are applied 
+on each dataset using all features, then, the three feature selection methods 
+(RFE, CSE and SOM) are used to reduce the set of features in each case. 
+Second, the regression models are applied again on the reduced datasets to 
+evaluate their performance.
 
-\begin{table*}
-\caption{Predicting Total sales for publishing company UDL704 (highest number of different titles sold). Best values in bold.}
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- &  $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  &  \textbf{88.9 $\pm$0.07} &  \textbf{71.26 $\pm$21.29}  &  \textbf{125.19 $\pm$50.09}  &  \textbf{39.25 $\pm$11.77}  &  \textbf{47.50 $\pm$15.93}  & 0.05 $\pm$0.03\tabularnewline
-\hline 
-kNN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
-\hline 
-RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
-\hline 
-LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.60  & 60.31 $\pm$21.17  & 0.01 $\pm$0.001\tabularnewline
-\hline 
-SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
-\hline 
-MLP	& 80.83 $\pm$ 0.12	& 122.8 $\pm$ 56.86	& 207.12 $\pm$ 100.44	& 67.13 $\pm$ 31.38	& 78.14 $\pm$ 39.92	& 2.83 $\pm$ 0.012\tabularnewline
-\hline
-ELM & 	65.13	 $\pm$ 	0.21	 & 	336.33	 $\pm$ 	1414.85	 & 	1279.83	 $\pm$ 	7128.87	 & 	189.38	 $\pm$ 	7.49	 & 	501.38	 $\pm$ 	26.56	 & 	0.0042	 $\pm$ 	0.01
- \tabularnewline
-\hline
+Evaluation results of the obtained models (without performing any feature selection 
+method) for the selected four cases  have been summarized in Figure \ref{fig:attributeAll} 
+(detailed numeric results can be shown in Tables \ref{Table:case1results} to \ref{Table:case4results} 
+in the appendix of tables at the end of this paper).
+Results in this Figure show that the models performed similarly to the case of 
+the global models for all publishers, which were previously presented in 
+Table \ref{tab:all_publishers_no_fs}. 
+In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. 
+In the case of Best selling publisher houses (i.e. UDL929) and publishers who 
+publish wide range of different books (i.e. UDL704), M5P could be recommended 
+as it shows more accurate forecasting results than the other models. 
+While in the case of medium sized publishers, in terms of sales and number 
+of published books, the RF model would be adequate.
 
-\end{tabular}
-}
-\label{Table:case3results}
-\end{table*}
-
-
-
-
-\begin{table*}
-\caption{Predicting Total sales for publishing company UDLU11 (medium number of different books sold)). Best values in bold.}
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
-\hline 
-kNN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  &  \textbf{0 $\pm$0.0002}\tabularnewline
-\hline 
-RF &  \textbf{86.7 $\pm$0.07}  &  \textbf{449.16 $\pm$127.80}  &  \textbf{671.76 $\pm$212.74}  &  \textbf{45.58 $\pm$9.80}  &  \textbf{51.37 $\pm$11.16}  & 0.06 $\pm$0.01\tabularnewline
-\hline 
-LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
-\hline 
-SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
-\hline 
-MLP	& 76.49 $\pm$ 0.17	& 757.12 $\pm$ 270.14	& 1111.03 $\pm$ 645.27	& 78.74 $\pm$ 31.38	& 88.05 $\pm$ 54.96	& 1.11 $\pm$ 0.004\tabularnewline
-\hline
-ELM & 	61.55	 $\pm$ 	0.24	 & 	1350.19	 $\pm$ 	3934.54	 & 	3681.73	 $\pm$ 	19380.44	 & 	140.16	 $\pm$ 	3.02	 & 	264.72	 $\pm$ 	10.87	 & 	0.009	 $\pm$ 	0.02
- \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case4results}
-\end{table*}
-
-
-
-
-
-
+% tables have been moved to the Appendix and they have been substituted by the new Figure. Comments (text) have been adapted accordingly  -  [pedro]
+%Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. 
+%The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 %--------------------------------------------------------------------------
-
-
 %\subsection{Sales forecasting with feature selection}
 %\label{subsec:case_sales_feature_selection}
-
-%***TO DO***: explain we have chosen the best Feature selection method (ReliefAttributeEval???). The rest of tables have been moved to an appendix.
-%Sam will do it - JJ
 
 In this stage of the experiments for the special cases, the
 feature selection methods (RFE, CSE and SOM) are applied for each case
 independently, since publishers with different sales ranges, and
 targets, might in fact include different factors or have different
-leverage when deciding how much to print. For clarity purpose, we present 
-here only the results after applying the RFE method for the four cases in Tables
-\ref{Table:case1results-RAE}, \ref{Table:case2results-RAE},
-\ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this
-one was chosen since the selected features by this
-method showed in the previous experiment the highest predictive power among 
-all classifiers. 
-% Antonio - could we use any sinonym of classifier but for regression... I guess 'regressor' is not appropriate. :D
-%
-%According to the aforementioned tables, 
-%It's not according to a table. It's according to the results there - JJ
-RFE reduction has noticeably improved the performance of all classifiers 
-specially in the case of the best selling publisher house (i.e. UDL929) and the
+leverage when deciding how much to print. 
+For clarity purpose, obtained results have been shown in Tables
+\ref{Table:case1results-RAE} to \ref{Table:case4resultsSOMFS}
+in the appendix of tables at the end of this paper.
+In those tables it can be seen that, as in the previous experiment, the highest 
+predictive power is exhibited by RFE over CSE and SOM feature selection methods.
+In this sense, RFE reduction has noticeably improved the performance of all models, 
+specially in the case of the best selling publisher house (i.e. UDL929) and the 
 publisher which publishes a wide range of different books (i.e. UDL704). 
-For the rest of the results which are obtained by CSE and SOM feature selection 
-methods we refer the reader to the appendix of tables at the end of this paper.  
 
-
-\begin{table*}[!ht]
-% Why the capital in Total? If it's a variable use Small Caps or Sans
-% Serif - JJ
-\caption{Predicting Total sales for publishing company UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P &  \textbf{90.5 $\pm$0.1} &  \textbf{661.81 $\pm$186.17} &  \textbf{1070.24 $\pm$425.66} &  \textbf{40.18 $\pm$10.50} &  \textbf{43.56 $\pm$19.77} & 0.02 $\pm$0.002\tabularnewline
-\hline 
-kNN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
-\hline 
-RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
-\hline 
-LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.67 & 50.60 $\pm$22.04 & 0.0006 $\pm$0.0005\tabularnewline
-\hline 
-SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
-\hline 
-MLP	& 87.66 $\pm$ 0.14	& 897.02 $\pm$ 411.58	& 1332.54 $\pm$ 969.05	& 56.43 $\pm$ 33.1	& 58.52 $\pm$ 57.68	& 0.17 $\pm$ 0.002\tabularnewline
-\hline
-ELM & 	84.08	 $\pm$ 	0.17	 & 	890.49	 $\pm$ 	343.61	 & 	1470.33	 $\pm$ 	993.74	 & 	61.76	 $\pm$ 	0.32	 & 	65.14	 $\pm$ 	0.5	 & 	0.0119	 $\pm$ 	0.02 \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case1results-RAE}
-\end{table*}
-
-
-
-
-
-\begin{table*}[!ht]
-\caption{Predicting Total sales for publishing company UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
-\hline 
-kNN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 &  \textbf{0 $\pm$0.0001}\tabularnewline
-\hline 
-RF &  \textbf{86.7 $\pm$0.16} & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
-\hline 
-LR & 84.4 $\pm$0.25 &  \textbf{12.79 $\pm$6.65} &  \textbf{21.52 $\pm$12.54} & 39.47 $\pm$23.35 &  \textbf{50.14 $\pm$35.26} & 0.0005 $\pm$0.0005\tabularnewline
-\hline 
-SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$15.41} & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
-\hline 
-MLP	& 79.26 $\pm$ 0.27	& 20.28 $\pm$ 13.25	& 35.05 $\pm$ 29.44	& 61.89 $\pm$ 37.64	& 81.51 $\pm$ 63.39	& 0.07 $\pm$ 0.002\tabularnewline
-\hline 
-ELM & 	70.58	 $\pm$ 	0.34	 & 	19.52	 $\pm$ 	9.91	 & 	30.49	 $\pm$ 	18.09	 & 	145.28	 $\pm$ 	2.94	 & 	167.8	 $\pm$ 	3.39	 & 	0.0027	 $\pm$ 	0.01 \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case2results-RAE}
-\end{table*}
-
-
-\begin{table*}[!ht]
-\caption{Predicting Total sales for publishing company UDL704 (ReliefFAttributeEval-FS). Best values in bold. }
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P  &  \textbf{89.3 $\pm$0.08}  &  \textbf{69.70 $\pm$19.85}  &  \textbf{122.48 $\pm$47.28}  & {38.49 $\pm$11.53}  &  \textbf{46.68 $\pm$16.02} & 0.028 $\pm$0.003\tabularnewline
-\hline 
-kNN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
-\hline 
-RF & 87.7 $\pm$0.08  & 73.13 $\pm$22.95  & 137.60 $\pm$56.14  & 39.79 $\pm$10.69  & 51.35 $\pm$17.00  & 0.13 $\pm$0.01\tabularnewline
-\hline 
-LR  & 87.3 $\pm$0.06  & 89.72 $\pm$18.31  & 140.65 $\pm$47.12  & 49.45 $\pm$10.50  & 53.20 $\pm$14.16  & 0.0008 $\pm$0.0005\tabularnewline
-\hline 
-SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.99  & 53.10 $\pm$9.51  & 0.05 $\pm$0.02\tabularnewline
-\hline 
-MLP	& 84.11 $\pm$ 0.13	& 104.55 $\pm$ 50.32	& 180.42 $\pm$ 87.44	& 56.99 $\pm$ 26.01	& 67.68 $\pm$ 32.15	& 0.22 $\pm$ 0.003\tabularnewline
-\hline
-ELM & 	83.47	 $\pm$ 	0.1	 & 	89.65	 $\pm$ 	25.9	 & 	167.99	 $\pm$ 	82.63	 & 	51.51	 $\pm$ 	0.14	 & 	65.11	 $\pm$ 	0.28	 & 	0.0041	 $\pm$ 	0.01\tabularnewline
-\hline
-
-\end{tabular}
-}
-\label{Table:case3results-RAE}
-\end{table*}
-
-
-
-
-\begin{table*}[!ht]
-\caption{Predicting Total sales for publishing company UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
-\centering{}%
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
- & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
-\hline 
-\hline 
-M5P & 76.6 $\pm$0.17 & 592.49 $\pm$209.25 & 894.76 $\pm$508.14 & 60.21 $\pm$18.22 & 69.14 $\pm$37.35 & 0.02$\pm$0.001\tabularnewline
-\hline 
-kNN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
-\hline 
-RF &  \textbf{85.3 $\pm$0.09} &  \textbf{455.7 $\pm$123.96} &  \textbf{686.54 $\pm$198.16} &  \textbf{46.32 $\pm$10.20} &  \textbf{53.03 $\pm$13.05} & 0.07 $\pm$0.003\tabularnewline
-\hline 
-LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.01 & 101.90 $\pm$87.83 & 0.0005 $\pm$0.0005\tabularnewline
-\hline 
-SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
-\hline 
-MLP	& 77.3 $\pm$ 0.13	& 709.2 $\pm$ 235.87	& 960.43 $\pm$ 345.28	& 73.11 $\pm$ 24.95	& 75.19 $\pm$ 25.74	& 0.14 $\pm$ 0.003\tabularnewline
-\hline
-ELM & 	79.73	 $\pm$ 	0.14	 & 	569.2	 $\pm$ 	161.37	 & 	841.75	 $\pm$ 	322.13	 & 	61.87	 $\pm$ 	0.21	 & 	69.99	 $\pm$ 	0.3	 & 	0.007	 $\pm$ 	0.02 \tabularnewline
-\hline
-\end{tabular}
-}
-\label{Table:case4results-RAE}
-\end{table*}
+% tables have been moved to the Appendix and they have been substituted by the new Figure. Comments (text) have been adapted accordingly  -  [pedro]
+%For clarity purpose, we present here only the results after applying the RFE method for the four cases in Tables \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE}, \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this one was chosen since the selected features by this method showed in the previous experiment the highest predictive power among  all classifiers. 
+%RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
 
 
 %--------------------------------------------------------------------------
@@ -1856,10 +1630,258 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 \appendix
 \section{APENDIX TABLES}
 
+%--------------- old Tables 7, 8, 9, 10 (before revision)
+
+
+\begin{table*}
+\caption{Predicting \texttt{total\_sales} for publishing company UDL929 (the best selling publishing company). Best values in bold. }
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  &  \textbf{90.0 $\pm$0.10} &  \textbf{670.24 $\pm$181.05}  &  \textbf{1065.34 $\pm$413.84}  &  \textbf{40.83 $\pm$10.86}  &  \textbf{43.56 $\pm$19.87}  & 0.03 $\pm$0.002\tabularnewline
+\hline 
+kNN  & 73.3 $\pm$0.19  & 1057.21 $\pm$385.04  & 1875.85 $\pm$916.96  & 61.88 $\pm$12.37  & 68.75 $\pm$15.98  &  \textbf{0 $\pm$0.0001}\tabularnewline
+\hline 
+RF  & 87.6 $\pm$0.11  & 771.83 $\pm$326.34  & 1490.49 $\pm$930.58  & 45.40 $\pm$14.14  & 55.91 $\pm$31.70  & 0.08 $\pm$0.004\tabularnewline
+\hline 
+LR  & 86.3 $\pm$0.12  & 922.33 $\pm$289.01  & 1399.84 $\pm$619.62  & 56.11 $\pm$16.17  & 56.43 $\pm$25.09  & 0.005 $\pm$0.001\tabularnewline
+\hline 
+SVM  & 86.7 $\pm$0.1  & 873.22 $\pm$345.16 & 1621.48 $\pm$985.24  & 50.85 $\pm$11.83  & 57.23 $\pm$20.40  & 0.04 $\pm$0.016\tabularnewline
+\hline 
+MLP	& 84.42 $\pm$ 0.12	& 1105.61 $\pm$ 445.66	& 1776.68 $\pm$ 1148.31	& 66.52 $\pm$ 23.63	& 70.41 $\pm$ 41.88	& 1.65 $\pm$ 0.008 \tabularnewline
+\hline
+ELM & 	53.38	 $\pm$ 	0.24	 & 	1898.17	 $\pm$ 	728.63	 & 	3104.85	 $\pm$ 	1503.83	 & 	136.82	 $\pm$ 	0.76	 & 	146.75	 $\pm$ 	0.95	 & 	0.0184	 $\pm$ 	0.02
+ \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case1results}
+\end{table*}
+
+
+\begin{table*}
+\caption{Predicting \texttt{total\_sales} for publishing company UDLW12 (the median selling publishing company). Best values in bold. }
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  & 83.2 $\pm$0.24  & 14.18 $\pm$6.62  & 23.82 $\pm$11.86  & 43.41 $\pm$20.39  & 55.79 $\pm$30.47  & 0.009 $\pm$0.002\tabularnewline
+\hline 
+kNN  & 79.3 $\pm$0.24 & 15.34 $\pm$8.71  & 26.57 $\pm$16.64  & 46.20 $\pm$23.77  & 60.09 $\pm$35.21  &  \textbf{0.0001 $\pm$0.0002}\tabularnewline
+\hline 
+RF &  \textbf{85.8 $\pm$0.17}  & 14.19 $\pm$6.69  &  \textbf{23.57 $\pm$11.83}  & 42.53 $\pm$16.80  & 53.30 $\pm$23.41  & 0.03 $\pm$0.004\tabularnewline
+\hline 
+LR  & 82.1 $\pm$0.25 & 14.62 $\pm$7.92  & 24.79 $\pm$15.08  & 44.57 $\pm$24.27  & 56.85 $\pm$35.07  & 0.002 $\pm$0.0005\tabularnewline
+\hline 
+SVM  & 83.5 $\pm$0.21  &  \textbf{14.01 $\pm$7.61}  & 25.61 $\pm$15.30  &  \textbf{40.66 $\pm$16.03}  &  \textbf{53.28 $\pm$18.45}  & 0.02 $\pm$0.02\tabularnewline
+\hline 
+MLP	& 71.33 $\pm$ 0.35	& 27.46 $\pm$ 14.59	& 49 $\pm$ 34.83	& 82.5 $\pm$ 38.48	& 108.85 $\pm$ 66.21	& 0.45 $\pm$ 0.004\tabularnewline
+\hline
+ELM & 	60.52	 $\pm$ 	0.39	 & 	24.28	 $\pm$ 	13.57	 & 	38.83	 $\pm$ 	26.43	 & 	118.09	 $\pm$ 	1.35	 & 	131.51	 $\pm$ 	1.37	 & 	0.0036	 $\pm$ 	0.01 \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case2results}
+\end{table*}
+
+\begin{table*}
+\caption{Predicting \texttt{total\_sales} for publishing company UDL704 (highest number of different titles sold). Best values in bold.}
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ &  $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  &  \textbf{88.9 $\pm$0.07} &  \textbf{71.26 $\pm$21.29}  &  \textbf{125.19 $\pm$50.09}  &  \textbf{39.25 $\pm$11.77}  &  \textbf{47.50 $\pm$15.93}  & 0.05 $\pm$0.03\tabularnewline
+\hline 
+kNN  & 82.6 $\pm$0.10  & 87.60 $\pm$23.21  & 158.63 $\pm$54.16  & 47.62 $\pm$10.32  & 59.17 $\pm$14.43  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+\hline 
+RF & 87.1 $\pm$0.08  & 74.63 $\pm$22.17  & 139.74 $\pm$54.36  & 40.62 $\pm$10.21  & 52.22 $\pm$16.27  & 0.11 $\pm$0.01\tabularnewline
+\hline 
+LR  & 83.8 $\pm$0.09  & 97.51 $\pm$18.87  & 155.27 $\pm$45.56  & 54.17 $\pm$13.60  & 60.31 $\pm$21.17  & 0.01 $\pm$0.001\tabularnewline
+\hline 
+SVM  & 87.4 $\pm$0.07  & 78.74 $\pm$22.25  & 147.30 $\pm$57.99  & 42.43 $\pm$7.83  & 53.29 $\pm$9.35  & 0.06 $\pm$0.016\tabularnewline
+\hline 
+MLP	& 80.83 $\pm$ 0.12	& 122.8 $\pm$ 56.86	& 207.12 $\pm$ 100.44	& 67.13 $\pm$ 31.38	& 78.14 $\pm$ 39.92	& 2.83 $\pm$ 0.012\tabularnewline
+\hline
+ELM & 	65.13	 $\pm$ 	0.21	 & 	336.33	 $\pm$ 	1414.85	 & 	1279.83	 $\pm$ 	7128.87	 & 	189.38	 $\pm$ 	7.49	 & 	501.38	 $\pm$ 	26.56	 & 	0.0042	 $\pm$ 	0.01
+ \tabularnewline
+\hline
+
+\end{tabular}
+}
+\label{Table:case3results}
+\end{table*}
+
+
+
+
+\begin{table*}
+\caption{Predicting \texttt{total\_sales} for publishing company UDLU11 (medium number of different books sold). Best values in bold.}
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  & 77.5 $\pm$0.15  & 573.41 $\pm$192.22  & 860.31 $\pm$456.22  & 58.26 $\pm$15.87  & 66.00 $\pm$29.45  & 0.024 $\pm$0.002\tabularnewline
+\hline 
+kNN  & 73.2 $\pm$0.16  & 596.62 $\pm$205.37  & 933.06 $\pm$356.11  & 60.62 $\pm$17.85  & 71.36 $\pm$22.34  &  \textbf{0 $\pm$0.0002}\tabularnewline
+\hline 
+RF &  \textbf{86.7 $\pm$0.07}  &  \textbf{449.16 $\pm$127.80}  &  \textbf{671.76 $\pm$212.74}  &  \textbf{45.58 $\pm$9.80}  &  \textbf{51.37 $\pm$11.16}  & 0.06 $\pm$0.01\tabularnewline
+\hline 
+LR  & 73.3 $\pm$0.20  & 680.16 $\pm$263.79  & 1103.97 $\pm$850.69  & 69.78 $\pm$27.24  & 86.11 $\pm$71.32  & 0.002 $\pm$0.001\tabularnewline
+\hline 
+SVM  & 80.4 $\pm$0.12  & 529.35 $\pm$172.50  & 846.01 $\pm$341.12  & 53.26 $\pm$11.92  & 63.54 $\pm$18.25  & 0.03 $\pm$0.02\tabularnewline
+\hline 
+MLP	& 76.49 $\pm$ 0.17	& 757.12 $\pm$ 270.14	& 1111.03 $\pm$ 645.27	& 78.74 $\pm$ 31.38	& 88.05 $\pm$ 54.96	& 1.11 $\pm$ 0.004\tabularnewline
+\hline
+ELM & 	61.55	 $\pm$ 	0.24	 & 	1350.19	 $\pm$ 	3934.54	 & 	3681.73	 $\pm$ 	19380.44	 & 	140.16	 $\pm$ 	3.02	 & 	264.72	 $\pm$ 	10.87	 & 	0.009	 $\pm$ 	0.02
+ \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case4results}
+\end{table*}
+
+%--------------- old Tables 11, 12, 13, 14 (before revision)
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL704 (CfsSubsetEval-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for publishing company UDL929 (ReliefFAttributeEval-FS). Best values in bold.}
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P &  \textbf{90.5 $\pm$0.1} &  \textbf{661.81 $\pm$186.17} &  \textbf{1070.24 $\pm$425.66} &  \textbf{40.18 $\pm$10.50} &  \textbf{43.56 $\pm$19.77} & 0.02 $\pm$0.002\tabularnewline
+\hline 
+kNN & 87.8 $\pm$0.11 & 751.54 $\pm$270.91 & 1257.82 $\pm$615.66& 44.57 $\pm$10.89 & 48.62 $\pm$18.73 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+\hline 
+RF & 88.3 $\pm$0.11 & 735.04 $\pm$326.9 & 1420.43 $\pm$941.62 & 43.56 $\pm$15.88 & 54.36 $\pm$35.31 & 0.10 $\pm$0.009\tabularnewline
+\hline 
+LR & 88.4 $\pm$0.11 & 868.18 $\pm$208.65 & 1231.23 $\pm$454.86 & 53.38 $\pm$14.67 & 50.60 $\pm$22.04 & 0.0006 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 87.6 $\pm$0.10 & 860.49 $\pm$334.67 & 1560.05 $\pm$962.64 & 49.98 $\pm$9.68 & 55.07 $\pm$17.76 & 0.023 $\pm$0.003\tabularnewline
+\hline 
+MLP	& 87.66 $\pm$ 0.14	& 897.02 $\pm$ 411.58	& 1332.54 $\pm$ 969.05	& 56.43 $\pm$ 33.1	& 58.52 $\pm$ 57.68	& 0.17 $\pm$ 0.002\tabularnewline
+\hline
+ELM & 	84.08	 $\pm$ 	0.17	 & 	890.49	 $\pm$ 	343.61	 & 	1470.33	 $\pm$ 	993.74	 & 	61.76	 $\pm$ 	0.32	 & 	65.14	 $\pm$ 	0.5	 & 	0.0119	 $\pm$ 	0.02 \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case1results-RAE}
+\end{table*}
+
+
+
+
+
+\begin{table*}[!ht]
+\caption{Predicting \texttt{total\_sales} for publishing company UDLW12 (ReliefFAttributeEval-FS). Best values in bold.}
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 83.7 $\pm$0.24 & 13.85 $\pm$6.56 & 23.19 $\pm$11.80 & 42.35 $\pm$20.33 & 54.08 $\pm$30.06 & 0.0063 $\pm$0.0014\tabularnewline
+\hline 
+kNN & 77.2 $\pm$0.30 & 14.18 $\pm$6.63 & 23.65 $\pm$11.03 & 43.37 $\pm$19.23 & 57.00 $\pm$30.59 &  \textbf{0 $\pm$0.0001}\tabularnewline
+\hline 
+RF &  \textbf{86.7 $\pm$0.16} & 13.63 $\pm$6.67 & 22.80 $\pm$11.81 & 41.07 $\pm$17.71 & 52.43 $\pm$26.23 & 0.0304 $\pm$0.0025\tabularnewline
+\hline 
+LR & 84.4 $\pm$0.25 &  \textbf{12.79 $\pm$6.65} &  \textbf{21.52 $\pm$12.54} & 39.47 $\pm$23.35 &  \textbf{50.14 $\pm$35.26} & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 85.2 $\pm$0.19 & 13.22 $\pm$7.39 & 24.41 $\pm$15.09 &  \textbf{38.24 $\pm$15.41} & 50.46 $\pm$17.97 & 0.014 $\pm$0.002\tabularnewline
+\hline 
+MLP	& 79.26 $\pm$ 0.27	& 20.28 $\pm$ 13.25	& 35.05 $\pm$ 29.44	& 61.89 $\pm$ 37.64	& 81.51 $\pm$ 63.39	& 0.07 $\pm$ 0.002\tabularnewline
+\hline 
+ELM & 	70.58	 $\pm$ 	0.34	 & 	19.52	 $\pm$ 	9.91	 & 	30.49	 $\pm$ 	18.09	 & 	145.28	 $\pm$ 	2.94	 & 	167.8	 $\pm$ 	3.39	 & 	0.0027	 $\pm$ 	0.01 \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case2results-RAE}
+\end{table*}
+
+
+\begin{table*}[!ht]
+\caption{Predicting \texttt{total\_sales} for publishing company UDL704 (ReliefFAttributeEval-FS). Best values in bold. }
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P  &  \textbf{89.3 $\pm$0.08}  &  \textbf{69.70 $\pm$19.85}  &  \textbf{122.48 $\pm$47.28}  & {38.49 $\pm$11.53}  &  \textbf{46.68 $\pm$16.02} & 0.028 $\pm$0.003\tabularnewline
+\hline 
+kNN  & 85.6 $\pm$0.10  & 78.39 $\pm$24.12  & 147.07 $\pm$58.02  & 42.58 $\pm$10.99  & 54.42 $\pm$15.54  &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+\hline 
+RF & 87.7 $\pm$0.08  & 73.13 $\pm$22.95  & 137.60 $\pm$56.14  & 39.79 $\pm$10.69  & 51.35 $\pm$17.00  & 0.13 $\pm$0.01\tabularnewline
+\hline 
+LR  & 87.3 $\pm$0.06  & 89.72 $\pm$18.31  & 140.65 $\pm$47.12  & 49.45 $\pm$10.50  & 53.20 $\pm$14.16  & 0.0008 $\pm$0.0005\tabularnewline
+\hline 
+SVM  & 87.7 $\pm$0.07  & 77.30 $\pm$22.25  & 146.46 $\pm$57.68  & 41.67 $\pm$7.99  & 53.10 $\pm$9.51  & 0.05 $\pm$0.02\tabularnewline
+\hline 
+MLP	& 84.11 $\pm$ 0.13	& 104.55 $\pm$ 50.32	& 180.42 $\pm$ 87.44	& 56.99 $\pm$ 26.01	& 67.68 $\pm$ 32.15	& 0.22 $\pm$ 0.003\tabularnewline
+\hline
+ELM & 	83.47	 $\pm$ 	0.1	 & 	89.65	 $\pm$ 	25.9	 & 	167.99	 $\pm$ 	82.63	 & 	51.51	 $\pm$ 	0.14	 & 	65.11	 $\pm$ 	0.28	 & 	0.0041	 $\pm$ 	0.01\tabularnewline
+\hline
+
+\end{tabular}
+}
+\label{Table:case3results-RAE}
+\end{table*}
+
+
+
+
+\begin{table*}[!ht]
+\caption{Predicting \texttt{total\_sales} for publishing company UDLU11 (ReliefFAttributeEval-FS). Best values in bold.}
+\centering{}%
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+ & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\tabularnewline
+\hline 
+\hline 
+M5P & 76.6 $\pm$0.17 & 592.49 $\pm$209.25 & 894.76 $\pm$508.14 & 60.21 $\pm$18.22 & 69.14 $\pm$37.35 & 0.02$\pm$0.001\tabularnewline
+\hline 
+kNN & 82.7 $\pm$0.09 & 487.00 $\pm$140.27 & 741.81 $\pm$238.56 & 49.27 $\pm$10.50 & 56.62 $\pm$12.59 &  \textbf{0.0001 $\pm$0.0003}\tabularnewline
+\hline 
+RF &  \textbf{85.3 $\pm$0.09} &  \textbf{455.7 $\pm$123.96} &  \textbf{686.54 $\pm$198.16} &  \textbf{46.32 $\pm$10.20} &  \textbf{53.03 $\pm$13.05} & 0.07 $\pm$0.003\tabularnewline
+\hline 
+LR & 64.4 $\pm$0.20 & 817.21 $\pm$331.16 & 1324.05 $\pm$1090.85 & 83.22 $\pm$32.01 & 101.90 $\pm$87.83 & 0.0005 $\pm$0.0005\tabularnewline
+\hline 
+SVM & 71.4 $\pm$0.14 & 644.42 $\pm$203.43 & 1009.66 $\pm$371.83 & 64.47 $\pm$11.70 & 75.54 $\pm$15.99 & 0.018 $\pm$0.001\tabularnewline
+\hline 
+MLP	& 77.3 $\pm$ 0.13	& 709.2 $\pm$ 235.87	& 960.43 $\pm$ 345.28	& 73.11 $\pm$ 24.95	& 75.19 $\pm$ 25.74	& 0.14 $\pm$ 0.003\tabularnewline
+\hline
+ELM & 	79.73	 $\pm$ 	0.14	 & 	569.2	 $\pm$ 	161.37	 & 	841.75	 $\pm$ 	322.13	 & 	61.87	 $\pm$ 	0.21	 & 	69.99	 $\pm$ 	0.3	 & 	0.007	 $\pm$ 	0.02 \tabularnewline
+\hline
+\end{tabular}
+}
+\label{Table:case4results-RAE}
+\end{table*}
+
+
+%--------------- Tables in the Appendix
+
+\begin{table*}[!ht]
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDL704 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1888,7 +1910,7 @@ ELM & 	78.42	 $\pm$ 	0.15	 & 	109.24	 $\pm$ 	52.6	 & 	203.11	 $\pm$ 	215.35	 & 	
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL704 (SOM-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDL704 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1920,7 +1942,7 @@ ELM & 	85.22	 $\pm$ 	0.11	 & 	85.57	 $\pm$ 	25.92	 & 	141.17	 $\pm$ 	62.02	 & 	4
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1950,7 +1972,7 @@ ELM & 	65.66	 $\pm$ 	0.25	 & 	859.21	 $\pm$ 	836.34	 & 	1691.61	 $\pm$ 	3053.2	 
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDLU11 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1981,7 +2003,7 @@ ELM & 	79.52	 $\pm$ 	0.12	 & 	606.38	 $\pm$ 	153.83	 & 	818.18	 $\pm$ 	243.54	 &
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -2010,7 +2032,7 @@ ELM & 	87.25	 $\pm$ 	0.14	 & 	776.49	 $\pm$ 	209.23	 & 	1171.43	 $\pm$ 	455.5	 &
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDL929 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -2042,7 +2064,7 @@ ELM & 	83.44	 $\pm$ 	0.17	 & 	884.83	 $\pm$ 	297.95	 & 	1430.42	 $\pm$ 	874.32	 
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -2073,7 +2095,7 @@ ELM & 	77.62	 $\pm$ 	0.3	 & 	16.53	 $\pm$ 	9.12	 & 	27.18	 $\pm$ 	18.2	 & 	72.75
 
 
 \begin{table*}[!ht]
-\caption{Predicting Total sales for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
+\caption{Predicting \texttt{total\_sales} for PublishingCo-UDLW12 (SOM-FS). Best values in bold.}
 \centering{}%
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -2097,6 +2119,7 @@ ELM & 	73.42	 $\pm$ 	0.31	 & 	20.08	 $\pm$ 	9.8	 & 	31.45	 $\pm$ 	18.84	 & 	85.5
 \hline
 \end{tabular}
 }
+\label{Table:case4resultsSOMFS}
 \end{table*}
 
 
