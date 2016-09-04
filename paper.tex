@@ -1414,6 +1414,27 @@ print around 3000 books to sell a quantity that will start at 1000,
 one third of the print run, and changes depending on a number of
 factors, including price.
 
+\begin{figure*}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_no_fs.eps,width=13cm}
+\caption{Decision tree built by the M5P method for the best seller publishing 
+	company including all pre-sales features.}
+\label{fig:decision_tree_best_seller}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_fs.eps,width=13cm}
+\caption{Decision tree built by the M5P method for the best seller
+  publishing company using  the subset of features selected by the
+  {\sf ReliefAttributeEval} method.} 
+\label{fig:decision_tree_best_seller_fs}
+\end{center}
+\end{figure*}
+
+
 The right hand side of the tree include those books that are
 distributed in a bigger percentage of the total amount of point of
 sale available in Spain, which in Spain includes not only proper
@@ -1485,27 +1506,6 @@ forecasting models by incorporating more marketing related variables
 in their models. This does not mean that the retail price is not a
 factor; it appears in all models, but it will be a secondary factor
 that will have to be decided once the main ones are settled. 
-
-\begin{figure*}[!ht] 
-\begin{center}
-  \epsfig{file=decision_tree_no_fs.eps,width=13cm}
-\caption{Decision tree built by the M5P method for the best seller publishing 
-	company including all pre-sales features.}
-\label{fig:decision_tree_best_seller}
-\end{center}
-\end{figure*}
-
-
-\begin{figure*}[!ht] 
-\begin{center}
-  \epsfig{file=decision_tree_fs.eps,width=13cm}
-\caption{Decision tree built by the M5P method for the best seller
-  publishing company using  the subset of features selected by the
-  {\sf ReliefAttributeEval} method.} 
-\label{fig:decision_tree_best_seller_fs}
-\end{center}
-\end{figure*}
-
 
 
 %********************************************************************************
