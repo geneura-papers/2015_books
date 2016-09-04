@@ -43,7 +43,7 @@ The authors.
 \noindent (1) \emph{Generally speaking, predicting sales is regarded as a regression probelm (numerical output) rather than classification (categorical one). Both CFS and RelieFF are originally designed for classification problem. When CFS is used for regression, please to introduce how to estimate correlations between each feature and output (total sales). Since RReliefF, as a variant of ReliefF, is special for regression, why do not the authors use RReliefF? } 
 
 \begin{verbatim}
-In all our experiments we have applied the Weka's implementation 
+In all our experiments we have applied  WEKA's implementation 
 of the ReliefF algorithm in the regression problems. 
 This version is called "Regressional ReliefF" or "RReliefF" for 
 short, which was first introduced and implemented by Robnik-Sikonja 
@@ -60,20 +60,19 @@ been added to the text to clarify this point.
 \noindent (2) \emph{In sub-section 4.2, five methods are introduced, i.e.,M5P,kNN,RF,LR and SVM. In sub-section 5.1, why is MLP (multi-layer perceptron) with one hidden layer described ? For RF, how many trees are set? } 
 
 \begin{verbatim}
-In sub-section 5.1 the MLP was described as our initial intention 
-was to include it in this study. Thus, in sub-section 
-''2.1. Selecting an appropriate forecasting method'' (old 
-sub-section 4.2) six methods have been introduced M5P, kNN, 
+The current paper includes in sub-section 
+''2.1. Selecting an appropriate forecasting method'' (former
+sub-section 4.2) six methods: M5P, kNN, 
 RF, LR, SVM and MLP.
 
 Also, as suggested by the second reviewer (see his first comment), 
 the results obtained with this method have been included in the 
 new version of this paper.
 
-As far as the number of trees is related, in the experiments 
+As far as the number of trees is concerned, in the experiments 
 section, when describing the parameter settings, it has been 
-mentioned that the best performance was obtained with number of 
-trees equals to 50.
+mentioned that the best performance was obtained with a number of 
+trees equal to 50.
 \end{verbatim}
 
 ~\\
@@ -94,6 +93,8 @@ between classifiers, such as in the paper:
   classification problems?. J. Mach. Learn. Res. 15, 1, pp.3133-3181
 which incorporates a general comparison between all these classifiers.
 \end{verbatim}
+%Every response should end with changes made in the paper, even if it
+%is only clarification. It is not an invitation to discussion. 
 
 ~\\
 \noindent (4) \emph{It seems more reasonable to organize and write that paper according to regression viewpoint only. } 
@@ -118,7 +119,8 @@ Also, several tables have been moved to the Appendix and that
 data has been presented now as the new Figure 3.
 
 Finally, the paper has been completely revised and several 
-typographic errors have been fixed.
+typographic errors have been fixed. We are grateful for your
+suggestions and comments. 
 \end{verbatim}
 
 
