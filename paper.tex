@@ -1008,47 +1008,38 @@ a different (and new) variable per each possible value. Thus, in the
 case of \emph{publisher} or \emph{collection} this would imply the definition of
 hundreds of new variables. 
 
-Correlation coefficient, error measures and time to build the model have been computed for every method. Obtained results are presented in Table \ref{tab:all_publishers_no_fs}.
+Correlation coefficient, error measures and time to build the model have been 
+computed for every method. Obtained results are presented in 
+Figure \ref{fig:all_publishers_no_fs}
+(detailed numeric results can be shown in Table Table \ref{tab:all_publishers_no_fs}
+in the appendix of tables at the end of this paper).
 
-\begin{table*}
-\caption{Predicting Total sales for all publishers (all the features). 30 repetitions, 10-fold cross validation. Best values in bold.
-\label{tab:all_publishers_no_fs}}
-\centering{}%
-\scalebox{0.78}{
-
-\begin{tabular}{|c|l|l|l|l|l|l|}
-\hline 
- & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-M5P  &  \textbf{89.0 $\pm$ 0.09}  &  \textbf{214.37 $\pm$ 22.96}  &  \textbf{634.23 $\pm$ 307.76}  &  \textbf{37.46 $\pm$ 3.12}  &  \textbf{48.32 $\pm$ 25.16} & 18.85 $\pm$ 0.61\tabularnewline
-\hline 
-kNN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  &  \textbf{0.001 $\pm$ 0.01}\tabularnewline
-\hline 
-RF & 84.0 $\pm$ 0.05  & 253.37 $\pm$ 29.43  & 788.94 $\pm$ 282.01  & 44.16 $\pm$ 2.76  & 57.77 $\pm$ 8.15  & 4.91 $\pm$ 0.12\tabularnewline
-\hline 
-LR & 87.2 $\pm$ 0.07  & 308.68 $\pm$ 25.44  & 680.91 $\pm$ 226.41  & 54.05 $\pm$ 4.38  & 52.13 $\pm$ 18.29  & 984.68 $\pm$ 128.21\tabularnewline
-\hline 
-SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\pm$ 2.35  & 53.47 $\pm$ 6.29  & 6169.24 $\pm$ 281.49\tabularnewline
-\hline 
-MLP	& 88.01 $\pm$ 0.11	& 350.99 $\pm$ 185.53	& 730.93 $\pm$ 374.84	& 61.64 $\pm$ 33.61	& 56.33 $\pm$ 31.6	& 7014.06 $\pm$ 110.095 \tabularnewline
-\hline 
-ELM & 	86.79	 $\pm$ 	0.11	 & 	271.01	 $\pm$ 	28.53	 & 	684.98	 $\pm$ 	329.39	 & 	47.73	 $\pm$ 	0.06	 & 	52.42	 $\pm$ 	0.26	 & 	0.203	 $\pm$ 	0.03  \tabularnewline
-
-\hline 
-\end{tabular}
-}
-\end{table*}
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.35]{./imgs/prediction_all_publisher_all_features_Table3.eps}
+\end{center}
+\caption{Predicting \texttt{total\_sales} for all publishers (all the features). 30 repetitions, 10-fold cross validation.}
+\label{fig:all_publishers_no_fs}
+\end{figure*}
 
 
+As far as the different methods are concerned, M5P model obtained the best results, 
+both in time and error. The advantage of M5P is that it can learn and tackle 
+regression tasks that have high dimensionality and categorical variables efficiently. 
+Moreover, M5P generates reproducible and comprehensible representations that 
+provide information on the decision process and does not require human intervention 
+either for the operation or for interpretation. Thus, it is a very suitable model 
+be incorporated in a publishing company processes (as we will show in 
+Section \ref{subsec:decision_trees}).
 
-As far as the different methods are concerned, M5P model obtained the best results, both in time and error. The advantage of M5P is that it can learn and tackle regression
-% Antonio - I think we can change classification by regression. I have done. Check it out. ;)
- tasks that have high dimensionality and categorical variables efficiently. Moreover, M5P generates reproducible and comprehensible representations that provide information on the decision process and does not require human intervention either for the operation or for interpretation. Thus, it is a very suitable model be incorporated in a publishing company 
-processes (as we will show in Section \ref{subsec:decision_trees}).
+Taking into account the obtained results by SVM model, this method obtains comparable 
+errors to those of M5P. Even when using roughly tuned parameter values, it shows 
+a good generalisation performance. However, SVM is much slower than the others to build 
+the model, not only when using the dataset with categorical input variables, such 
+as \emph{collection} and \emph{binding}, but also when using the datasets with 
+numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
-Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \emph{collection} and \emph{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
-
-According to Table \ref{tab:all_publishers_no_fs}, it can also be noticed that 
+According to Figure \ref{fig:all_publishers_no_fs}, it can also be noticed that 
 the Linear Regression model outperforms some other complex methods like the 
 Random Forest, both in time and in obtained errors. 
 %Although, Linear Regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.  % I change this sentence as its meaning is 'strange'...  [pedro]
@@ -1056,12 +1047,17 @@ Although, Linear Regression is considered as a simple model to build, it can obt
 
 kNN is the fastest method used in this study in terms of training time, as it 
 is the simplest one. However, the model is slow when classifying large number of 
-training examples, and it exhibits a poor generalisation ability since it does not learn anything from the training data.
+training examples, and it exhibits a poor generalisation ability since it does 
+not learn anything from the training data.
 
 %Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{collection} and \emph{binding}.
 
-As a first conclusion, paying attention both to the cost in time to obtain the forecasting models and their accuracy, the M5P model would be the most adequate to solve the problem of how many books should be printed when a new book is published. This forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
-
+As a first conclusion, paying attention both to the cost in time to obtain the 
+forecasting models and their accuracy, the M5P model would be the most adequate 
+to solve the problem of how many books should be printed when a new book is 
+published. This forecasting method, with these additional advantages, can be used 
+for products with historical sales data and for new products with little or 
+no historical data available.
 
 
 %--------------------------------------------------------------------------
@@ -1073,13 +1069,6 @@ In the second stage of the experiments, different feature selection methods have
   
 We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
-The dataset has also been analysed using SOM, and a visual exploration of the obtained results has been performed in order to determine the best variables to consider.
-An important preprocessing step has been carried out before conducting the SOM analysis. Thus, the two categorical features \emph{collection} and \emph{binding} have been removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
-
-In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
-
-Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
-
 
 \begin{figure*}[ht]
 \begin{center}
@@ -1088,6 +1077,30 @@ Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hex
 \caption{U-matrix and component planes.}
 \label{fig:componentplanes}
 \end{figure*}
+
+
+
+The dataset has also been analysed using SOM, and a visual exploration of the obtained results has been performed in order to determine the best variables to consider.
+An important preprocessing step has been carried out before conducting the SOM analysis. Thus, the two categorical features \emph{collection} and \emph{binding} have been removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
+
+In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
+
+Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
+
+
+Figure \ref{fig:componentplanes} shows the U-matrix along with the component 
+planes analysis resulted from SOM training. The term component refers in SOM 
+to a variable or feature of the problem.
+The component planes in Figure \ref{fig:componentplanes} show the trend of 
+values of the prototype vectors of the SOM map units. These values are represented 
+as colours. The colourbar on the right of each component plane shows the indication 
+of each colour. On the other side, the U-matrix on the top
+left corner shows the distances between the adjacent units. It is
+important to note that high values in the matrix indicates large
+distance between the units of the map. It can be noticed also that
+there are more hexagons in the U-matrix than component planes since
+the distances between units are also represented as inter-neuron hexagons. 
+
 
 \begin{table*}
 \caption{Input features/variables selected by each method
@@ -1123,123 +1136,48 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \end{table*}
 
 
-Figure \ref{fig:componentplanes} shows the U-matrix along with the component planes analysis resulted from SOM training. The term component refers in SOM to a variable or feature of the problem.
-The component planes in Figure \ref{fig:componentplanes} show the trend of values of the prototype vectors of the SOM map units. These values are represented as colours. The colourbar on the right of each component plane shows the indication of each colour. On the other side, the U-matrix on the top
-left corner shows the distances between the adjacent units. It is
-important to note that high values in the matrix indicates large
-distance between the units of the map. It can be noticed also that
-there are more hexagons in the U-matrix than component planes since
-the distances between units are also represented as inter-neuron hexagons. 
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.35]{./imgs/prediction_all_publisher_Table5.eps}
+\end{center}
+\caption{Predicting \texttt{total\_sales} for all publishers based on features selected by each method.}
+\label{fig:results_all_publishers_fs}
+\end{figure*}
+
 
 Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
 
 The selected features using each one of the three methods are shown in 
-Table \ref{tab:features_selected}. 
+Table \ref{tab:features_selected}.
 Logically, just the independent or input variables are considered.
 
-
-
-\begin{table*}
-\centering{}%
-\caption{Predicting Total sales for all publishers based on features selected
-by each method. Best values in bold.
-\label{tab:results_all_publishers_fs}}
-% RELIEFATTRIBUTEEVAL
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-\multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
-\hline 
- & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
-\hline 
-M5P & 89.2 $\pm$0.10 & 211.15 $\pm$22.41 & 616.35 $\pm$321.25 & 36.93 $\pm$3.41 & 47.30 $\pm$26.83 & 0.49 $\pm$0.02\\
-\hline 
-kNN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 &  \textbf{0.002 $\pm$0.004}\\
-\hline 
-RF &  \textbf{91.0 $\pm$0.05} &  \textbf{198.16 $\pm$19.50} &  \textbf{589.35 $\pm$195.80} &  \textbf{34.61 $\pm$2.27} &  \textbf{44.21 $\pm$11.63} & 3.63 $\pm$0.20\\
-\hline 
-LR & 86.4 $\pm$0.08 & 346.88 $\pm$25.40 & 695.90 $\pm$242.49 & 60.75 $\pm$4.55 & 53.16 $\pm$19.43 & 0.01 $\pm$0.01\\
-\hline 
-SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 & 62.22 $\pm$7.15 & 38.97 $\pm$5.75\\
-\hline  
-MLP	& 88.58 $\pm$ 0.09	& 384.94 $\pm$ 342.05	& 769.74 $\pm$ 427.35	& 67.47 $\pm$ 60.6	& 58.71 $\pm$ 34.81	& 4.9 $\pm$ 0.047\\
-\hline  
-ELM & 	87.55	 $\pm$ 	0.1	 & 	250.88	 $\pm$ 	28.78	 & 	677.94	 $\pm$ 	356.41	 & 	44.16	 $\pm$ 	0.05	 & 	50.86	 $\pm$ 	0.24	 & 	0.1106	 $\pm$ 	0.02\\
-\hline
-
-
-
-\end{tabular}
-}
-% CFSSUBEVAL
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-\multicolumn{7}{|c|}{\textit{CfsSubsetEval}}\\
-\hline
- & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
-\hline 
-M5P &  \textbf{87.0 $\pm$0.09} &  \textbf{266.78 $\pm$23.12} &  \textbf{662.32 $\pm$245.27} &  \textbf{46.66 $\pm$3.25} &  \textbf{50.9 $\pm$20.35} & 0.41 $\pm$0.04\\
-\hline 
-kNN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 &  \textbf{0.001 $\pm$0.001}\\
-\hline 
-RF & 85.0 $\pm$0.11 & 278.42 $\pm$23.07 & 714.13 $\pm$278.65 & 48.71 $\pm$3.43 & 55.26 $\pm$24.41 & 2.48 $\pm$0.13\\
-\hline 
-LR & 85.9 $\pm$0.06 & 356.35 $\pm$22.43 & 708.06 $\pm$195.15 & 62.42 $\pm$4.22 & 53.97 $\pm$14.05 & 0.01 $\pm$0.001\\
-\hline 
-SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 & 60.27 $\pm$5.68 & 32.73 $\pm$5.74\\
-\hline
-MLP	& 87.26 $\pm$ 0.1	& 420.02 $\pm$ 491.51	& 771.6 $\pm$ 514.03	& 73.6 $\pm$ 87.04	& 60.09 $\pm$ 46.83	& 1.08 $\pm$ 0.019\\
-\hline
-ELM & 	85.91	 $\pm$ 	0.12	 & 	282.56	 $\pm$ 	28.36	 & 	692.59	 $\pm$ 	281.38	 & 	49.87	 $\pm$ 	0.06	 & 	53.74	 $\pm$ 	0.25	 & 	0.0095	 $\pm$ 	0.02\\
-\hline
-
-
-\end{tabular}
-}
-% SOM
-\centering{}% SOM
-\resizebox{12cm}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-\multicolumn{7}{|c|}{\textit{SOM}}\tabularnewline
-\hline 
- &  $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
-\hline 
-M5P  & 86.6 $\pm$0.10  & 234.09 $\pm$23.19  & 699.56 $\pm$317.20  & 40.92 $\pm$3.25  & 53.70 $\pm$26.87  & 0.475 $\pm$0.12\tabularnewline
-\hline 
-kNN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  &  \textbf{0.001 $\pm$0.004}\tabularnewline
-\hline 
-RF &  \textbf{89.8 $\pm$0.05}  &  \textbf{211.87 $\pm$20.07}  &  \textbf{617.78 $\pm$187.16}  &  \textbf{37.02 $\pm$2.46}  &  \textbf{46.58 $\pm$11.14}  & 2.93 $\pm$0.11\tabularnewline
-\hline 
-LR  & 85.5 $\pm$0.08  & 351.99 $\pm$23.72  & 714.76 $\pm$214.21  & 61.65 $\pm$4.28  & 54.67 $\pm$16.88  & 0.01 $\pm$0.01\tabularnewline
-\hline 
-SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2.87  & 64.62 $\pm$5.45  & 32.27 $\pm$4.74\tabularnewline
-\hline 
-MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 49.64	& 65.85 $\pm$ 36.49	& 3.29 $\pm$ 0.042\tabularnewline
-\hline
-ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	53.22	 $\pm$ 	0.07	 & 	54.57	 $\pm$ 	0.18	 & 	0.0229	 $\pm$ 	0.02\\
-\hline
-\end{tabular}
-}
-\end{table*}
 
 
 After applying the feature selection process, we have run the same
 forecasting models as in Section \ref{subsec:results_all_publishers}
 for the whole dataset (all the publishers), but considering only the
-selected features by each method. The results are shown in Table
-\ref{tab:results_all_publishers_fs}. Examining the obtained results
-for each feature selection method, it can be seen that RFE got the
-best results compared to SOM and CSE. It can be noticed also that we
-obtain better performance using M5P, kNN and RF with the set of features
-selected by RFE than using all features. %Better publish results in
+selected features by each method. 
+The results are shown in Figure \ref{fig:results_all_publishers_fs} 
+(detailed numeric results can be shown in Table \ref{tab:results_all_publishers_fs}
+in the appendix of tables at the end of this paper).
+Examining the obtained results for each feature selection method, 
+it can be seen that RFE got the best results compared to SOM and CSE. 
+It can be noticed also that we obtain better performance using M5P, 
+kNN and RF with the set of features selected by RFE than using all features. 
+                                %Better publish results in
                                 %the same table or refer to the table
                                 %where it was published. Is this
                                 %difference statistically significant?
                                 %- JJ
-As expected, in general, all feature selection methods have reduced the training time needed to build the forecasting methods. This is because they reduced the considered features and mainly because they excluded the categorical features, which are the hardest to be managed (they have many possible values). On the other side, CSE and SOM did not perform as good as RA. This could be explained due to the extensive reduction made by CSE and due to the `subjective' (but not so accurate) human intervention in the case of SOM. 
+As expected, in general, all feature selection methods have reduced the training 
+time needed to build the forecasting methods. This is because they reduced the 
+considered features and mainly because they excluded the categorical features, 
+which are the hardest to be managed (they have many possible values). 
+On the other side, CSE and SOM did not perform as good as RA. 
+This could be explained due to the extensive reduction made by CSE and due to 
+the `subjective' (but not so accurate) human intervention in the case of SOM. 
 
 
 %********************************************************************************
@@ -1252,16 +1190,6 @@ specially interesting publishing company cases. These publishing companies were
 selected as representative cases which could be very interesting for decision 
 makers and managers in the domain. The four cases are described as follows:
 
-\begin{itemize}
-    \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
-    \item Mid-range seller publishing company: this represents a publishing company that sells medium number of copies compared to other publishing companies (Medium business scale). 
-    \item Highest variation publishing company: this is an example of a publishing company that follows a strategy in publishing a very wide range of different titles.
-    \item Medium varied publishing company: this case represents a publishing company that has a median rank between the other publishing companies regarding the variety of titles sold.
-\end{itemize}
-
-
-Table \ref{Table:special_cases} shows the number of sold copies and the number 
-of titles published by the selected companies.
 
 \begin{table*}
 \caption{Description of publishing companies considered as special cases.}
@@ -1296,6 +1224,19 @@ of titles published by the selected companies.
 \caption{Predicting \texttt{total\_sales} for publishing companies UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).}
 \label{fig:attributeAll}
 \end{figure*}
+
+
+\begin{itemize}
+    \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
+    \item Mid-range seller publishing company: this represents a publishing company that sells medium number of copies compared to other publishing companies (Medium business scale). 
+    \item Highest variation publishing company: this is an example of a publishing company that follows a strategy in publishing a very wide range of different titles.
+    \item Medium varied publishing company: this case represents a publishing company that has a median rank between the other publishing companies regarding the variety of titles sold.
+\end{itemize}
+
+
+Table \ref{Table:special_cases} shows the number of sold copies and the number 
+of titles published by the selected companies.
+
 
 
 The experiments applied on the selected special cases follow the same methodology 
@@ -1630,6 +1571,123 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 \appendix
 \section{APENDIX TABLES}
+
+%--------------- old Tables 3, 5 (before revision)
+
+\begin{table*}
+\caption{Predicting \texttt{total\_sales} for all publishers (all the features). 30 repetitions, 10-fold cross validation. Best values in bold.
+\label{tab:all_publishers_no_fs}}
+\centering{}%
+\scalebox{0.78}{
+
+\begin{tabular}{|c|l|l|l|l|l|l|}
+\hline 
+ & $R^{2}$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+M5P  &  \textbf{89.0 $\pm$ 0.09}  &  \textbf{214.37 $\pm$ 22.96}  &  \textbf{634.23 $\pm$ 307.76}  &  \textbf{37.46 $\pm$ 3.12}  &  \textbf{48.32 $\pm$ 25.16} & 18.85 $\pm$ 0.61\tabularnewline
+\hline 
+kNN  & 78.7 $\pm$ 0.08  & 272.29 $\pm$ 32.38  & 840.59 $\pm$ 240.11  & 47.48 $\pm$ 3.39  & 63.07 $\pm$ 10.29  &  \textbf{0.001 $\pm$ 0.01}\tabularnewline
+\hline 
+RF & 84.0 $\pm$ 0.05  & 253.37 $\pm$ 29.43  & 788.94 $\pm$ 282.01  & 44.16 $\pm$ 2.76  & 57.77 $\pm$ 8.15  & 4.91 $\pm$ 0.12\tabularnewline
+\hline 
+LR & 87.2 $\pm$ 0.07  & 308.68 $\pm$ 25.44  & 680.91 $\pm$ 226.41  & 54.05 $\pm$ 4.38  & 52.13 $\pm$ 18.29  & 984.68 $\pm$ 128.21\tabularnewline
+\hline 
+SVM  & 87.6 $\pm$ 0.04  & 248.76 $\pm$ 27.49  & 732.64 $\pm$ 260.56  & 43.37 $\pm$ 2.35  & 53.47 $\pm$ 6.29  & 6169.24 $\pm$ 281.49\tabularnewline
+\hline 
+MLP	& 88.01 $\pm$ 0.11	& 350.99 $\pm$ 185.53	& 730.93 $\pm$ 374.84	& 61.64 $\pm$ 33.61	& 56.33 $\pm$ 31.6	& 7014.06 $\pm$ 110.095 \tabularnewline
+\hline 
+ELM & 	86.79	 $\pm$ 	0.11	 & 	271.01	 $\pm$ 	28.53	 & 	684.98	 $\pm$ 	329.39	 & 	47.73	 $\pm$ 	0.06	 & 	52.42	 $\pm$ 	0.26	 & 	0.203	 $\pm$ 	0.03  \tabularnewline
+
+\hline 
+\end{tabular}
+}
+\end{table*}
+
+
+
+\begin{table*}
+\centering{}%
+\caption{Predicting \texttt{total\_sales} for all publishers based on features selected by each method. Best values in bold.
+\label{tab:results_all_publishers_fs}}
+% RELIEFATTRIBUTEEVAL
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
+\hline 
+ & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+\hline 
+M5P & 89.2 $\pm$0.10 & 211.15 $\pm$22.41 & 616.35 $\pm$321.25 & 36.93 $\pm$3.41 & 47.30 $\pm$26.83 & 0.49 $\pm$0.02\\
+\hline 
+kNN & 86.9 $\pm$0.09 & 231.78 $\pm$24.25 & 668.03 $\pm$205.14 & 40.48 $\pm$3.06 & 51.28 $\pm$16.81 &  \textbf{0.002 $\pm$0.004}\\
+\hline 
+RF &  \textbf{91.0 $\pm$0.05} &  \textbf{198.16 $\pm$19.50} &  \textbf{589.35 $\pm$195.80} &  \textbf{34.61 $\pm$2.27} &  \textbf{44.21 $\pm$11.63} & 3.63 $\pm$0.20\\
+\hline 
+LR & 86.4 $\pm$0.08 & 346.88 $\pm$25.40 & 695.90 $\pm$242.49 & 60.75 $\pm$4.55 & 53.16 $\pm$19.43 & 0.01 $\pm$0.01\\
+\hline 
+SVM & 84.2 $\pm$0.04 & 252.87 $\pm$33.38 & 858.26 $\pm$318.23 & 44.01 $\pm$3.04 & 62.22 $\pm$7.15 & 38.97 $\pm$5.75\\
+\hline  
+MLP	& 88.58 $\pm$ 0.09	& 384.94 $\pm$ 342.05	& 769.74 $\pm$ 427.35	& 67.47 $\pm$ 60.6	& 58.71 $\pm$ 34.81	& 4.9 $\pm$ 0.047\\
+\hline  
+ELM & 	87.55	 $\pm$ 	0.1	 & 	250.88	 $\pm$ 	28.78	 & 	677.94	 $\pm$ 	356.41	 & 	44.16	 $\pm$ 	0.05	 & 	50.86	 $\pm$ 	0.24	 & 	0.1106	 $\pm$ 	0.02\\
+\hline
+
+\end{tabular}
+}
+% CFSSUBEVAL
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{7}{|c|}{\textit{CfsSubsetEval}}\\
+\hline
+ & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
+\hline 
+M5P &  \textbf{87.0 $\pm$0.09} &  \textbf{266.78 $\pm$23.12} &  \textbf{662.32 $\pm$245.27} &  \textbf{46.66 $\pm$3.25} &  \textbf{50.9 $\pm$20.35} & 0.41 $\pm$0.04\\
+\hline 
+kNN & 84.0 $\pm$0.10 & 289.09 $\pm$22.83 & 743.92 $\pm$260.45 & 50.59 $\pm$3.50 & 57.30 $\pm$22.90 &  \textbf{0.001 $\pm$0.001}\\
+\hline 
+RF & 85.0 $\pm$0.11 & 278.42 $\pm$23.07 & 714.13 $\pm$278.65 & 48.71 $\pm$3.43 & 55.26 $\pm$24.41 & 2.48 $\pm$0.13\\
+\hline 
+LR & 85.9 $\pm$0.06 & 356.35 $\pm$22.43 & 708.06 $\pm$195.15 & 62.42 $\pm$4.22 & 53.97 $\pm$14.05 & 0.01 $\pm$0.001\\
+\hline 
+SVM & 86.0 $\pm$0.06 & 288.47 $\pm$30.32 & 817.56 $\pm$253.24 & 50.30 $\pm$2.38 & 60.27 $\pm$5.68 & 32.73 $\pm$5.74\\
+\hline
+MLP	& 87.26 $\pm$ 0.1	& 420.02 $\pm$ 491.51	& 771.6 $\pm$ 514.03	& 73.6 $\pm$ 87.04	& 60.09 $\pm$ 46.83	& 1.08 $\pm$ 0.019\\
+\hline
+ELM & 	85.91	 $\pm$ 	0.12	 & 	282.56	 $\pm$ 	28.36	 & 	692.59	 $\pm$ 	281.38	 & 	49.87	 $\pm$ 	0.06	 & 	53.74	 $\pm$ 	0.25	 & 	0.0095	 $\pm$ 	0.02\\
+\hline
+
+
+\end{tabular}
+}
+% SOM
+\centering{}% SOM
+\resizebox{12cm}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{7}{|c|}{\textit{SOM}}\tabularnewline
+\hline 
+ &  $R$  & MAE  & RMSE  & RAE (\%)  & RRSE (\%)  & Time (s)\tabularnewline
+\hline 
+M5P  & 86.6 $\pm$0.10  & 234.09 $\pm$23.19  & 699.56 $\pm$317.20  & 40.92 $\pm$3.25  & 53.70 $\pm$26.87  & 0.475 $\pm$0.12\tabularnewline
+\hline 
+kNN  & 86.8 $\pm$0.09  & 237.91 $\pm$25.34  & 665.64 $\pm$212.05  & 41.55 $\pm$3.14  & 50.96 $\pm$16.72  &  \textbf{0.001 $\pm$0.004}\tabularnewline
+\hline 
+RF &  \textbf{89.8 $\pm$0.05}  &  \textbf{211.87 $\pm$20.07}  &  \textbf{617.78 $\pm$187.16}  &  \textbf{37.02 $\pm$2.46}  &  \textbf{46.58 $\pm$11.14}  & 2.93 $\pm$0.11\tabularnewline
+\hline 
+LR  & 85.5 $\pm$0.08  & 351.99 $\pm$23.72  & 714.76 $\pm$214.21  & 61.65 $\pm$4.28  & 54.67 $\pm$16.88  & 0.01 $\pm$0.01\tabularnewline
+\hline 
+SVM  & 84.5 $\pm$0.04  & 267.71 $\pm$33.82  & 888.33 $\pm$308.93  & 46.60 $\pm$2.87  & 64.62 $\pm$5.45  & 32.27 $\pm$4.74\tabularnewline
+\hline 
+MLP	& 84.3 $\pm$ 0.12	& 388.79 $\pm$ 274.18	& 851.01 $\pm$ 422.03	& 68.26 $\pm$ 49.64	& 65.85 $\pm$ 36.49	& 3.29 $\pm$ 0.042\tabularnewline
+\hline
+ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	53.22	 $\pm$ 	0.07	 & 	54.57	 $\pm$ 	0.18	 & 	0.0229	 $\pm$ 	0.02\\
+\hline
+\end{tabular}
+}
+\end{table*}
+
+
 
 %--------------- old Tables 7, 8, 9, 10 (before revision)
 
