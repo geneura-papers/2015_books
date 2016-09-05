@@ -2,7 +2,6 @@ library(stringr)
 library(reshape2)
 library(ggplot2)
 
-
 filenames_all <- list.files(path = "datasets/AllAttributes/",pattern = ".csv",full.names = TRUE)
 ldf <- lapply(filenames_all, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
 for(i in seq(from=1,to=length(filenames_all),by = 1)){
@@ -119,12 +118,73 @@ for(i in var){
   
   
   ggsave(file=paste0("../imgs/metric_",i,".eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
+  ggsave(file=paste0("../imgs/metric_",i,".png"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
 }
 
+
+#Figure to replace Table 3
+all <- read.csv(file = "datasets/all.csv",skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
+
+all <- melt(data = all,id.vars = c("Method"),measure.vars = c("R.","MAE","RMSE","RAE","RRSE","TIME"))
+
+all$error <- as.numeric(sapply(str_split(all$value, '_'), '[', 2))
+all$value <- as.numeric(sapply(str_split(all$value, '_'), '[', 1))
+
+all$variable <- as.character(all$variable)
+all[all$variable=="R.","variable"] <- "R"
+
+
+
+ggplot(data = subset(all), aes(x=Method,y=value)) + 
+  geom_bar(stat="identity",size=3) + geom_point(stat="identity",size=3) +
+  facet_grid(variable ~ . ,scales = "free_y") + 
+  scale_fill_grey(start=0.2,end=0.8) + labs(title="",x="Method",y="") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+
+
+ggsave(file=paste0("../imgs/prediction_all_publisher_all_features_Table3.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
+ggsave(file=paste0("../imgs/prediction_all_publisher_all_features_Table3.png"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
+
+#Reemplazo tabla 5
+
+
+filenames_all_p <- list.files(path = "datasets/AllPublishers//",pattern = ".csv",full.names = TRUE)
+ldf_p <- lapply(filenames_all_p, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
+for(i in seq(from=1,to=length(filenames_all_p),by = 1)){
+  ldf_p[[i]]$Attributes <- sapply(str_split(filenames_all_p, '/'), '[', 5)[i]
+  ldf_p[[i]]$Dataset <- "All Publisher"
+}
+
+m_p <- do.call(rbind,ldf_p)
+
+rm(filenames_all_p)
+
+datos <- melt(data = m_p,id.vars = c("Method","Attributes"),measure.vars = c("R.","MAE","RMSE","RAE","RRSE","TIME"),)
+
+datos$Attributes <- str_replace(datos$Attributes,".csv","")
+
+datos$error <- as.numeric(sapply(str_split(datos$value, '_'), '[', 2))
+datos$value <- as.numeric(sapply(str_split(datos$value, '_'), '[', 1))
+
+datos$variable <- as.character(datos$variable)
+datos[datos$variable=="R.","variable"] <- "R"
+
+ggplot(data = subset(datos), aes(x=Method,y=value)) + 
+  geom_bar(stat="identity",size=3) + geom_point(stat="identity",size=3) +
+  facet_grid(variable ~ Attributes ,scales = "free_y") + 
+  scale_fill_grey(start=0.2,end=0.8) + labs(title="",x="Method",y="") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+
+
+ggsave(file=paste0("../imgs/prediction_all_publisher_Table5.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
+ggsave(file=paste0("../imgs/prediction_all_publisher_Table5.png"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
 
 
 
 #}
+
+
+
 
 # 
 # p2 <- ggplot(data = subset(datos,Attributes==att[2]), aes(x=Method,y=value,color=Attributes,shape=Attributes)) + geom_point(stat="identity",size=2) + 
@@ -191,3 +251,4 @@ for(i in var){
 # 
 # 
 # 
+
