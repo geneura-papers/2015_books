@@ -40,74 +40,93 @@ The authors.
 
 \noindent \emph{There are some issues needed to be addressed further:} \\
 
-\noindent (1) \emph{Generally speaking, predicting sales is regarded as a regression probelm (numerical output) rather than classification (categorical one). Both CFS and RelieFF are originally designed for classification problem. When CFS is used for regression, please to introduce how to estimate correlations between each feature and output (total sales). Since RReliefF, as a variant of ReliefF, is special for regression, why do not the authors use RReliefF? } 
+\noindent (1) \emph{Generally speaking, predicting sales is regarded as a regression problem (numerical output) rather than classification (categorical one). Both CFS and RelieFF are originally designed for classification problem. When CFS is used for regression, please to introduce how to estimate correlations between each feature and output (total sales). Since RReliefF, as a variant of ReliefF, is special for regression, why do not the authors use RReliefF? } 
 
 \begin{verbatim}
-In all our experiments we have applied the Weka's implementation 
+In all our experiments we have applied  WEKA's implementation 
 of the ReliefF algorithm in the regression problems. 
 This version is called "Regressional ReliefF" or "RReliefF" for 
 short, which was first introduced and implemented by Robnik-Sikonja 
 and Kononenko (in ref. [73] for numeric targets). 
 Therefore, we have clarified this point in the text to remove 
 any ambiguity.
-
+\end{verbatim}
+% Antonio - TODO: say where is this clarification in the text (page/paragraph) and/or copy the text here
+\begin{verbatim}
 For CSF, estimating the correlation between attributes is 
 standard linear (Pearson's) correlation. The details have 
 been added to the text to clarify this point.
 \end{verbatim}
+% Antonio - TODO: say where is this clarification in the text (page/paragraph) and/or copy the text here
+
 
 ~\\
-\noindent (2) \emph{In sub-section 4.2, five methods are introduced, i.e.,M5P,kNN,RF,LR and SVM. In sub-section 5.1, why is MLP (multi-layer perceptron) with one hidden layer described ? For RF, how many trees are set? } 
+\noindent (2) \emph{In sub-section 4.2, five methods are introduced, i.e.,M5P,kNN,RF,LR and SVM. In sub-section 5.1, why is MLP (multi-layer perceptron) with one hidden layer described ?} 
 
 \begin{verbatim}
-In sub-section 5.1 the MLP was described as our initial intention 
-was to include it in this study. Thus, in sub-section 
-''2.1. Selecting an appropriate forecasting method'' (old 
-sub-section 4.2) six methods have been introduced M5P, kNN, 
-RF, LR, SVM and MLP.
+The current paper includes in sub-section 
+`2.1. Selecting an appropriate forecasting method' (former
+sub-section 4.2) six methods: M5P, kNN, RF, LR, SVM, MLP,
+ and ELM (requested by Reviewer #2).
 
-Also, as suggested by the second reviewer (see his first comment), 
-the results obtained with this method have been included in the 
-new version of this paper.
-
-As far as the number of trees is related, THIS HAS TO BE DONE.
+Moreover, as suggested by the Reviewer #2 (see his/her first comment), 
+the results obtained with the two last methods have been included in 
+this new version of the paper.
 \end{verbatim}
+% Antonio - TODO: say where are these results (table/figure/page)
+
 
 ~\\
-\noindent (3) \emph{As we known, tree-based mehods (e.g.,M5P and RF) themselve embed feature selection procedure. That is, some features are choosen to build trees. It is not fair enough to compare five methods in Table 3. } 
+\noindent (2) \emph{For RF, how many trees are set? }
+
+\begin{verbatim}
+As far as the number of trees is concerned, in the experiments 
+section, when describing the parameter settings, 
+it has been mentioned that the best performance was obtained with a 
+number of trees equal to 50.
+\end{verbatim}
+% Antonio - TODO: say where is this clarification in the text (page/paragraph) and/or copy the text here
+
+
+~\\
+\noindent (3) \emph{As we known, tree-based methods (e.g., M5P and RF) themselves embed feature selection procedure. That is, some features are chosen to build trees. It is not fair enough to compare five methods in Table 3. } 
 
 \begin{verbatim}
 Although we agree with the reviewer's comment, and the RF and M5P 
 have an embedded feature selection mechanism, we believe that it 
 is unfair to compare them with the filter based feature selection 
 methods we have deployed in our research. 
-The idea is simply to show the decision maker what are the possible 
+The aim is simply to show to the decision maker what are the possible 
 results when we apply one of the off-the-shelf classifiers available 
 in a common open source framework such as WEKA. 
 Moreover, it is not uncommon in the literature to see such comparison 
-between classifiers, such as in the paper:
+between classifiers, as in the paper:
   M. Fernandez-Delgado, E. Cernadas, S. Barro, and D. Amorim. 2014. 
   Do we need hundreds of classifiers to solve real world 
   classification problems?. J. Mach. Learn. Res. 15, 1, pp.3133-3181
 which incorporates a general comparison between all these classifiers.
 \end{verbatim}
+%Every response should end with changes made in the paper, even if it
+%is only clarification. It is not an invitation to discussion. 
+% Antonio - TODO: say how this has been addressed in the paper (where it is clarified). Say if this reference has been included as new.
 
 ~\\
 \noindent (4) \emph{It seems more reasonable to organize and write that paper according to regression viewpoint only. } 
 
 \begin{verbatim}
-According to the reviewer's comment, we have addressed this issue
-at the same time that comment #1, where the application procedure 
-of feature selection methods for regression problems has been 
-clarified. Also, we have added the ''regression'' term all along 
-the paper including the description of the dataset.
+The reviewer is right, thus, we have revised the whole paper referring 
+to the term `regression' instead of `classification'. Moreover this have 
+been also addressed solving the issue related to comment #1, where the
+application procedure of feature selection methods for regression problems 
+has been clarified. 
 \end{verbatim}
+% Antonio - CONCERN: I'm a bit afraid about the term 'organize' which I don't know if has been addressed in any way in the new version...
 
 ~\\
 \noindent (5) \emph{It is necessary to write that paper more concisely. } 
 
 \begin{verbatim}
-Following your suggestion we have reorganized some parts of the 
+Following reviewer's suggestion we have reorganized some parts of the 
 text and several paragraphs have been rewritten in order to make 
 them shorter, clearer and to improve its comprehension. 
 
@@ -115,10 +134,14 @@ Also, several tables have been moved to the Appendix and that
 data has been presented now as the new Figure 3.
 
 Finally, the paper has been completely revised and several 
-typographic errors have been fixed.
+typographic errors have been fixed. 
+
+We are very grateful for your valuable suggestions and comments. 
 \end{verbatim}
+% Antonio - TODO: show some examples of reduced text (page/paragraph), there will be some new figures, I think.
 
 
+~\\
 
 %------------------------------------------------------------------------------------
 \section{Comments by Reviewer \#2}
@@ -129,60 +152,75 @@ typographic errors have been fixed.
 \noindent (1) \emph{The ANN and ELM (extreme learning machine) should be added into the experiments; } 
 
 \begin{verbatim}
-We have added the results of ANN (MLP) and ELM to all tables 
-accordingly. A description of both approaches have been also 
-added to subsection 2.1.
+Following the reviewer's request, we have conducted several new experiments 
+and added the results of ANN (MLP) and ELM to Tables XX, YY, ZZ and
+ Figures AA, BB accordingly. 
+A description of both approaches have been also included in subsection 2.1.
+
+In addition new references has been added to the paper related to these 
+methods, namely [REF_XX, REF_YY].
 \end{verbatim}
+% Antonio - TODO: Complete with the number of tables and figures, along with the new references
+
 
 ~\\
 \noindent (2) \emph{The authors should clarify their main contributions in the introduction parts.}
 
 \begin{verbatim}
-We have rewritten the introduction and introduced this new text:
+We have rewritten the introduction and included this new text:
 
-Our main contribution is, thus, to develop a methodology to 
+"Our main contribution is, thus, to develop a methodology to 
 process book sales data in order to first find out relevant 
 variables and then use these variables to process data so that 
 the publisher, using them, can estimate sales and from them order 
 a specific print run, instead of standard ones, which are around 
 300 copies for standard books and around 5000 for those that are 
-considered, in advance, best sellers.
+considered, in advance, best sellers."
 
 Also, in the next-to-last paragraph, we have laid out our 
-methodology and the main contributions of this paper.
+methodology and clarified the main contributions of this paper 
+to the state of the art.
 \end{verbatim}
+% Antonio - TODO: I rewritten this text, so we should copy the new one here. But I think we all should contribute to create a very good justification (see next CONCERN). :D
+% Antonio - CONCERN: We should definitely write a convincing text which separates this work from existing approaches. Maybe the use of real data is a good point. And also emphasize the contribution to the SotA.
+
 
 ~\\
 \noindent (3) \emph{Technologies related to recommend systems may have the ability to deal with this problem. The authors should add the recommend systems into the future work part. } 
 
 \begin{verbatim}
 Taking into account the reviewer's comment, the recommendation 
-systems have been added to the future works section, at the end 
-of Section 7 (see page 19).
+systems have been added to the future work section, at the end 
+of Section 7 (see page XX).
 \end{verbatim}
+% Antonio - TODO: put the correct page when the text is finished. Cooy the text here.
 
 ~\\
 \noindent (4) \emph{Some tables should be transfer to figures because there are too many tables. } 
 
 \begin{verbatim}
-Following your suggestion several tables have been moved to 
+Following reviewer's suggestion, several tables have been moved to 
 the Appendix and that data has been summarized and presented 
 as the new Figure 3 in order to make that numeric data clearer 
-and to improve its comprehension.
+and to improve their comprehension.
 \end{verbatim}
+% Antonio - CONCERN: I think we should move ALL the results tables and include a couple of figures more. Please see my e-mail on this respect. ;)
+% Antonio - TODO: Talk about the final tables and figures.
 
 ~\\
 \noindent (5) \emph{Graphical abstract should be added. This paper is organized well. The authors should revise their work according to above comments. } 
 
 \begin{verbatim}
-Taking into account the reviewer's comment, we have designed 
-a graphical abstract as a visual summary of the main findings 
-of the article.
+We agree with the reviewer and have designed (and uploaded) a 
+graphical abstract as a visual summary of the paper structure 
+and the utility of the obtained results.
 
-We would like to thank this reviewer for his suggestions and 
-advice about our paper.
+
+We would like to thank this reviewer for his/her suggestions 
+and comments to improve the quality of our paper.
 \end{verbatim}
 
+~\\
 
 
 %------------------------------------------------------------------------------------
@@ -193,45 +231,50 @@ advice about our paper.
 \noindent (1) \emph{In section introduction, this manuscript should describe the contribution of this work. } 
 
 \begin{verbatim}
-We have rewritten the introduction and introduced this new text:
 
-Our main contribution is, thus, to develop a methodology to 
-process book sales data in order to first find out relevant 
-variables and then use these variables to process data so that 
-the publisher, using them, can estimate sales and from them order 
-a specific print run, instead of standard ones, which are around 
-300 copies for standard books and around 5000 for those that are 
-considered, in advance, best sellers.
+********* TO WRITE ***********
 
-Also, in the next-to-last paragraph, we have laid out our 
-methodology and the main contributions of this paper.
 \end{verbatim}
+% Antonio - TODO: we can't write the same answer for two reviewers. We'll answer the same, once we have the response for the previour reviewer but in other words. ;)
+
 
 ~\\
 \noindent (2) \emph{sections 4.1 and 4.2 should be moved to section 2. } 
 
 \begin{verbatim}
-Following your suggestion we have reorganized these sub-sections, 
+Following reviewer's suggestion we have reorganized these sub-sections, 
 moving them to section 2.
 \end{verbatim}
+% Antonio - TODO: we have also to link them properly to the new section and to remove them from the text describing Section 4 where they were... Then, say this in the response.
+
 
 ~\\
 \noindent (3) \emph{In section 4, this manuscript should show a flowchart of the proposed forecasting scheme and describe it. } 
 
 \begin{verbatim}
 Taking into account the reviewer's comment, we have improved the 
-description of the methodology by including a flowchart (see Figure 1 
-at page 6).
+description of the methodology including a flowchart (see Figure XX 
+at page YY).
 \end{verbatim}
+% Antonio - CONCERN: I don't know if te reviewer is speaking about the whole methodology or just about the regression/forecasting part... The figure shows a rough summary of the methodology.
+% Antonio - TODO: Improve the figure, which is a bit 'generic'. Put the correct figure and page.
+
 
 ~\\
-\noindent (4) \emph{In Section 5, parameter settings of M5P, kNN and RF also should be shown. } 
+\noindent (4) \emph{In Section 5, parameter settings of 
+M5P, kNN and RF also should be shown. } 
 
 \begin{verbatim}
-Taking into account the reviewer's comment, we have improved the 
-section 5, including the parameter settings of M5P, kNN and RF 
-methods.
-\end{verbatim}
+We have improved Section 5, including the parameter settings of 
+M5P, kNN and RF methods.
 
+
+The authors want to express our gratitude to this reviewer 
+for his/her suggestions.
+\end{verbatim}
+% Antonio - CONCERN: don't we also put the configuration of the rest of the methods? And say it. :D 
+% Could we use a table for showing them easily?
+% Antonio - TODO: say paragraph/page where they are and maybe put here the text.
 
 \end{document}
+% Antonio - TODO: Say if there are new references and include them in a final section in this letter.
