@@ -52,7 +52,7 @@ datos$error <- as.numeric(sapply(str_split(datos$value, '_'), '[', 2))
 datos$value <- as.numeric(sapply(str_split(datos$value, '_'), '[', 1))
 
 datos$variable <- as.character(datos$variable)
-datos[datos$variable=="R.","variable"] <- "R^2"
+datos[datos$variable=="R.","variable"] <- "R"
 dataset = unique(datos$Dataset)
 
 #ggplot(data = subset(datos,Dataset==dataset[1]), aes(x=Attributes,y=value,color=Attributes,shape=Attributes)) + geom_point(stat="identity",size=3) + 
@@ -82,6 +82,7 @@ for(i in dataset){
                                                                                                     axis.text.x=element_blank(),
                                                                                              axis.ticks.x=element_blank()))
   ggsave(file=paste0("../imgs/datasets_",i,".eps"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
+  ggsave(file=paste0("../imgs/datasets_",i,".png"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
   
 }
 
@@ -92,13 +93,17 @@ att = unique(datos$Attributes)
 #for(i in dataset){
   for(j in att){
   
-print(ggplot(data = subset(datos,Attributes==j & Dataset==i), aes(x=Method,y=value,color=Attributes,shape=Attributes)) + 
-        geom_point(stat="identity",size=2)  +geom_bar(stat="identity") + 
+print(ggplot(data = subset(datos,Attributes==j), aes(x=Method,y=value,fill=Method)) + 
+  geom_point(stat="identity",size=2)  + geom_bar(stat="identity") + 
   facet_grid(variable ~ Dataset,scales = "free_y") + 
-  scale_color_grey(start=0.0,end=0.2) + labs(title="",x="",y="") + 
-  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="none"))
+  scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") +
+    scale_y_continuous(limits = c(0, NA))
+  )
+      
 
-  ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 8, height = 12,dpi = 800)
+  ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+  ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
 
   }
 
