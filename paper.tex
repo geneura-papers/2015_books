@@ -1314,7 +1314,7 @@ linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
 The second decision tree (Figure
 \ref{fig:decision_tree_best_seller_fs}) corresponds to the same
-publishing company, so the same data were used, but the RAE % Problem here: everytime you use RAE in the paper it means Relative Absolute Error, so I don't think we should use just "RAE" here, but ReliefAttributeEval.
+publishing company, so the same data were used, but the RAE % Problem here: everytime you use RAE in the paper it means Relative Absolute Error, so I don't think we should use just "RAE" here, but ReliefFAttributeEval.
 feature
 selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
@@ -1372,7 +1372,7 @@ factors, including price.
   \epsfig{file=decision_tree_fs.eps,width=13cm}
 \caption{Decision tree built by the M5P method for the best seller
   publishing company using  the subset of features selected by the
-  {\sf ReliefAttributeEval} method.} 
+  {\sf ReliefFAttributeEval} method.} 
 \label{fig:decision_tree_best_seller_fs}
 \end{center}
 \end{figure*}
@@ -1610,11 +1610,11 @@ ELM & 	86.79	 $\pm$ 	0.11	 & 	271.01	 $\pm$ 	28.53	 & 	684.98	 $\pm$ 	329.39	 & 
 \centering{}%
 \caption{Predicting \texttt{total\_sales} for all publishers based on features selected by each method. Best values in bold.
 \label{tab:results_all_publishers_fs}}
-% RELIEFATTRIBUTEEVAL
+% RELIEFFATTRIBUTEEVAL
 \resizebox{12cm}{!}{
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-\multicolumn{7}{|c|}{\textit{ReliefAttributeEval}}\\
+\multicolumn{7}{|c|}{\textit{ReliefFAttributeEval}}\\
 \hline 
  & $R$  & MAE & RMSE & RAE (\%) & RRSE (\%) & Time (s)\\
 \hline 
