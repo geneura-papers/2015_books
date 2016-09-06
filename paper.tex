@@ -1016,9 +1016,9 @@ in the appendix of tables at the end of this paper).
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.35]{./imgs/prediction_all_publisher_all_features_Table3.eps}
+\includegraphics[scale=0.4]{./imgs/prediction_all_publisher_all_features_Table3.eps}
 \end{center}
-\caption{Predicting \texttt{total\_sales} for all publishers (all the features). 30 repetitions, 10-fold cross validation.}
+\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). All publishers and all the features have been considered.}
 \label{fig:all_publishers_no_fs}
 \end{figure*}
 
@@ -1072,7 +1072,7 @@ We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based f
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.25]{som_planes.eps}
+\includegraphics[scale=0.35]{som_planes.eps}
 \end{center}
 \caption{U-matrix and component planes.}
 \label{fig:componentplanes}
@@ -1109,9 +1109,9 @@ the distances between units are also represented as inter-neuron hexagons.
 {\footnotesize
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
-No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
+No. & Variable & CfsSubsetEval & ReliefFAttributeEval & SOM\\
 \hline 
-1 & \texttt{ret\_price} & $\checkmark$ &  & $\checkmark$\\
+1 & \texttt{ret\_price} &  & $\checkmark$ & $\checkmark$\\
 \hline 
 2 & \texttt{subject1} & $\checkmark$ & $\checkmark$ & $\checkmark$\\
 \hline 
@@ -1119,15 +1119,15 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 \hline 
 4 & \texttt{binding} &  &  & \\
 \hline 
-5 & \texttt{gifts} & $\checkmark$ &  & $\checkmark$\\
+5 & \texttt{gifts} &  & $\checkmark$ & $\checkmark$\\
 \hline 
-6 & \texttt{distrib\_novelty} & $\checkmark$ &  & \\
+6 & \texttt{distrib\_novelty} &  & $\checkmark$ & \\
 \hline 
-7 & \texttt{tot\_points\_sale} & $\checkmark$ &  & $\checkmark$\\
+7 & \texttt{tot\_points\_sale} &  & $\checkmark$ & $\checkmark$\\
 \hline 
-8 & \texttt{tot\_points\_sale\_1st\_year} & $\checkmark$ &  & \\
+8 & \texttt{tot\_points\_sale\_1st\_year} & & $\checkmark$ & \\
 \hline 
-9 & \texttt{weeks\_sale} & $\checkmark$ &  & $\checkmark$\\
+9 & \texttt{weeks\_sale} &  & $\checkmark$ & $\checkmark$\\
 \hline 
 10 & \texttt{print\_run} & $\checkmark$ & $\checkmark$ & $\checkmark$\\
 \hline 
@@ -1139,9 +1139,9 @@ No. & Variable & ReliefFAttributeEval & CfsSubsetEval & SOM\\
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.35]{./imgs/prediction_all_publisher_Table5.eps}
+\includegraphics[scale=0.4]{./imgs/prediction_all_publisher_Table5.eps}
 \end{center}
-\caption{Predicting \texttt{total\_sales} for all publishers based on features selected by each method.}
+\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). All publishers and just those features selected by each method have been considered in every case.}
 \label{fig:results_all_publishers_fs}
 \end{figure*}
 
@@ -1219,11 +1219,12 @@ makers and managers in the domain. The four cases are described as follows:
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.55]{./imgs/attribute_All.eps}
+\includegraphics[scale=0.6]{./imgs/attribute_All.eps}
 \end{center}
-\caption{Predicting \texttt{total\_sales} for publishing companies UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).}
+\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold). Just the features selected by ReliefFAttributeEval method have been considered.}
 \label{fig:attributeAll}
 \end{figure*}
+% Antonio - CONCERN - The text and the results must be contrasted. If I'm not wrong, I remember that we decided to include here just the results obtained by ReliefFAttributeEval, since they were quite good (maybe the best). But there are plotted apparently the results for all the features. Anyway, in the text, it is said that the process is using all the features, then apply FS. But here just the results for all the features are shown. Why don't we show also the results for the corresponding sets of features selected by each FS method?
 
 
 \begin{itemize}
