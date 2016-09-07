@@ -221,6 +221,7 @@ Section \ref{sec:methodology} details the methodology considered in the study, f
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 % Antonio - TODO: Since two new sections have been added here, maybe we should change the title of the section... Maybe 'Background and related works'?
+% I don't see how or what the new title might change ....  ???   we can discuss this item later this morning.
 
 As far as we know, no previous attempt can be found in the literature 
 %in which prediction methods have been applied to estimate the print run. 
@@ -349,6 +350,10 @@ on decision rules have been tested as an alternative.
 % following two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
 
 % Antonio - TODO: link this section with the rest of the SotA. Introduce it in a paragraph before.
+Many of the previous papers propose using different prediction methods.
+Thus, next subsections describe several forecasting methods and different 
+evaluation criteria, commonly used in the bibliography that have been chosen 
+to face the problem at hand.
 
 %-------------------------------------------------
 \subsection{Selecting an appropriate forecasting method}
@@ -409,6 +414,7 @@ The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in
 which the unknown instances are classified by relating them to the known 
 instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
 % Antonio - CONCERN - should we change the term 'classification' by 'regression' somehow?
+% I don't think so in this case. That is what kNN is...
 
 The main idea behind the algorithm is that two instances far enough in the space, 
 taking into account the distance function, are less likely to belong to the 
@@ -455,6 +461,7 @@ regression problems \cite{Cao2003,Jari2008}.
 %In classification problems the algorithm searches for an optimal hyperplane 
 %that separates two classes, maximising the margin between them.
 % Antonio - CONCERN - remove this classification thing due to a reviewer's comment 
+% ok    :)
 In regression problems, the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
@@ -472,6 +479,7 @@ artificial neural network model that maps the input data onto an appropriate out
 It is an artificial neural network generally used for classification or 
 approximation problems.
 % Antonio - CONCERN - something about regression?
+% in that sentence, approximation is used as synonymous of regression   ;)
 
 This model is a generalisation of the standard linear perceptron that uses several 
 layers of nodes (called neurons) and that is able to solve linearly inseparable 
@@ -511,6 +519,7 @@ the error between the obtained forecast and the current sales for each new book
 published.
 
 % Antonio - TODO: link this section with the rest of the SotA. Introduce it in a paragraph before. And rewrite the initial paragraphs to separate it from section 4 (methodology)
+% I have addressed this "todo" before (lin. 353)
 
 %-------------------------------------------------
 \subsection{Models evaluation}
@@ -544,6 +553,7 @@ where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is 
 
 % previous two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
 % Antonio - TODO - revise them
+% What have to be revised?   :/
 
 %********************************************************************************
 \section{Problem description}
@@ -712,7 +722,11 @@ and subsubjects of every book \textit{subject1,2,3} (see Table
 is no value for \textit{subjects2} and \textit{3}, so we have discarded 
 these features.   
 
-With regard to the feature \textit{publisher}, it has been removed from the final dataset since it is indeed included in the code of \texttt{collection}. In addition, we think it is not really relevant for the accuracy of the models and, moreover, publishers probably will not want to use the results of other publishing companies for predicting their own sales.
+With regard to the feature \textit{publisher}, it has been removed from the 
+final dataset since it is indeed included in the code of \texttt{collection}. 
+In addition, we think it is not really relevant for the accuracy of the models 
+and, moreover, publishers probably will not want to use the results of other 
+publishing companies for predicting their own sales.
 
 Therefore, in order to create simpler and more accurate prediction
 models, and with the aim to provide them as a useful decision-aid tool
@@ -727,7 +741,8 @@ of distance. The same reasoning can be applied to subclasses.
 
 In this prediction problem there are other external variables that also affect 
 the sales of a new book, such as those related to seasonality, trends, or 
-promotions, that classical prediction methods can not deal with, since they are not included in the dataset due to the difficulty to model them. 
+promotions, that classical prediction methods can not deal with, since they 
+are not included in the dataset due to the difficulty to model them. 
 However, an expert can consider them to modify the forecast obtained by 
 the automatic method. Even publishing companies tend to define rules or 
 indexes to subjectively adjust the results of prediction based on
@@ -777,11 +792,19 @@ by a human expert to make predictions.
 In this stage, both numerical and visualisation-based approaches have been 
 applied, in order to select the best variables for the forecasting methods.  
 % Antonio - Should we speak about 'forecasting' or 'regression', Sam? Could they be used with the same meaning?
+% I think so.
 
 % Antonio - TODO: The next paragraph is referring to Section 2.1. We must change it.
-In Section \ref{subsec:select_method}, a selection of the best forecasting techniques that have been conducted has been reported, looking for those rule- or tree-based, together with numerical methods which could yield the best results. 
+% Why? anyway, I add "As stated before,"
+As stated before, in Section \ref{subsec:select_method} a selection of the best 
+forecasting techniques that have been conducted has been reported, looking for 
+those rule- or tree-based, together with numerical methods which could yield 
+the best results. 
 
-Once the models and results have been obtained for the whole dataset (Section \ref{sec:experiments}), the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
+Once the models and results have been obtained for the whole dataset 
+(Section \ref{sec:experiments}), the same methodology has been applied to some 
+specific cases of publishing companies in order to prove the value of the 
+proposal (Section \ref{sec:example_cases}).
 Some specific interpretable models have been created as a final result of the work. 
 
 
@@ -852,7 +875,10 @@ For this reason, the search method used with CFS has been BestFirst, that search
 
 In addition, in order to reduce the dimensionality of the input data
 and to choose an appropriate set of variables, the Self-Organizing Map
-(SOM) \cite{kohonen1998} method has also been applied as a `subjective' (based on expert's opinion) FS technique based on the visualisation of the data as a set of 2D planes (one per feature of the dataset), and their interpretation for finding out relationships between these features.
+(SOM) \cite{kohonen1998} method has also been applied as a `subjective' 
+(based on expert's opinion) FS technique based on the visualisation of the 
+data as a set of 2D planes (one per feature of the dataset), and their 
+interpretation for finding out relationships between these features.
 
 % Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
 % Antonio - explained here and below. Please check.
@@ -898,6 +924,7 @@ between neurons indicate large distances (boundaries) while similar colours
 represent close areas (clusters).
 
 % Antonio - a better description of U-Matrix. ;D
+% thanks!
 
 %---
 
@@ -1202,7 +1229,7 @@ makers and managers in the domain. The four cases are described as follows:
 \end{figure*}
 % Antonio - CONCERN - The text and the results must be contrasted. If I'm not wrong, I remember that we decided to include here just the results obtained by ReliefFAttributeEval, since they were quite good (maybe the best). But there are plotted apparently the results for all the features. Anyway, in the text, it is said that the process is using all the features, then apply FS. But here just the results for all the features are shown. Why don't we show also the results for the corresponding sets of features selected by each FS method?
 % Actually in the previous version there were several tables with these results than have been moved to the Appendix. I think we should include another figure fro them. They show important information. ;)
-
+% we can discuss this point later this morning. If necessary, we can design and include a new plot.
 
 \begin{itemize}
     \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
@@ -1662,6 +1689,7 @@ ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	5
 
 
 % Antonio - I have reordered the tables correctly. ;D
+% thanks!!! (again)  
 
 %--------------- old Table 7 (before revision)
 \begin{table*}
