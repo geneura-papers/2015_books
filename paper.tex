@@ -1279,20 +1279,37 @@ feature selection methods (RFE, CSE and SOM) are applied for each case
 independently, since publishers with different sales ranges, and
 targets, might in fact include different factors or have different
 leverage when deciding how much to print. 
-For clarity purpose, obtained results after applying feature selection methods
-have been shown in Tables \ref{Table:case1results_no_fs} to \ref{Table:case4results_fs_som}
-in the appendix of tables at the end of this paper.
-In those tables it can be seen that, as in the previous experiment, the highest 
-predictive power is exhibited by RFE over CSE and SOM feature selection methods.
-In this sense, RFE reduction has noticeably improved the performance of all models, 
-specially in the case of the best selling publisher house (i.e. UDL929) and the 
-publisher which publishes a wide range of different books (i.e. UDL704). 
 
-% tables have been moved to the Appendix and they have been substituted by the new Figure. Comments (text) have been adapted accordingly  -  [pedro]
-%For clarity purpose, we present here only the results after applying the RFE method for the four cases in Tables \ref{Table:case1results-RAE}, \ref{Table:case2results-RAE}, \ref{Table:case3results-RAE} and \ref{Table:case4results-RAE}, this one was chosen since the selected features by this method showed in the previous experiment the highest predictive power among  all classifiers. 
-%RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
+%  esta frase siguiente ya no, ya que además de pasar las tablas al apéndice, vamos a mostrar la figura:
+%For clarity purpose, obtained results after applying feature selection methods have been shown in Tables \ref{Table:case1results_no_fs} to \ref{Table:case4results_fs_som} in the appendix of tables at the end of this paper. In those tables it can be seen that, as in the previous experiment, the highest predictive power is exhibited by RFE over CSE and SOM feature selection methods. In this sense, RFE reduction has noticeably improved the performance of all models, specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). 
 
-% [pedro]  TODO => una vez hecha la nueva figura, volver a meter este comentario anterior (lin.1297)
+%  esta frase siguiente ya no, porque vamos a pasar las tablas al apéndice
+%For clarity purpose, we present here only the results after applying the RFE method for the four cases in Tables \ref{Table:case1results_fs_rf}, \ref{Table:case2results_fs_rf}, \ref{Table:case4results_fs_rf} and \ref{Table:case4results_fs_rf}, this one was chosen since the selected features by this method showed in the previous experiment the highest predictive power among  all classifiers. RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
+
+%  dejamos ésta finalmente: tablas al apéndice + incluimos nueva figura con los datos del RFE.
+For clarity purpose, only obtained results after applying the RFE method for the 
+four cases are shown in Figure \ref{fig:casesReliefFAttributeEval}
+ (detailed numeric results can be shown in 
+Tables \ref{Table:case1results_fs_rf}, \ref{Table:case2results_fs_rf}, 
+\ref{Table:case3results_fs_rf} and \ref{Table:case4results_fs_rf}
+in the appendix of tables at the end of this paper).
+This one was chosen since the selected features by RFE method showed in the 
+previous experiment the highest predictive power among all models.
+As can be shown, RFE reduction has noticeably improved the performance of all 
+classifiers specially in the case of the best selling publisher house (i.e. UDL929) 
+and the publisher which publishes a wide range of different books (i.e. UDL704). 
+For the rest of the results which are obtained by CSE and SOM feature selection 
+methods we refer the reader to the appendix of tables at the end of this paper.
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.6]{./imgs/attribute_ReliefFAttributeEval-FS.eps}
+\end{center}
+\caption{Boxplots showing the values obtained predicting \texttt{total\_sales}, considering just the features selected by ReliefFAttributeEval method, with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).
+}
+\label{fig:casesReliefFAttributeEval}
+\end{figure*}
+
 
 %--------------------------------------------------------------------------
 
@@ -1320,9 +1337,8 @@ linear regression models that can be easily computed to obtain the
 final predicted value for book sales.
 The second decision tree (Figure
 \ref{fig:decision_tree_best_seller_fs}) corresponds to the same
-publishing company, so the same data were used, but the RAE % Problem here: everytime you use RAE in the paper it means Relative Absolute Error, so I don't think we should use just "RAE" here, but ReliefFAttributeEval.
-feature
-selection method was applied. This simplification, besides making the
+publishing company, so the same data were used, but the RFE %ReliefFAttributeEval
+feature selection method was applied. This simplification, besides making the
 tree easier to understand, reduces training time to a fraction of what
 was needed before the selection method was applied. 
 
@@ -1336,6 +1352,26 @@ experts, who could check the expected impact of different number of
 selling points. This feature also shows that there are different
 regimes depending on the number of points of sale, with best sellers
 being those that are distributed to more than roughly 500 points. 
+
+
+\begin{figure*}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_no_fs.eps,width=13cm}
+\caption{Decision tree built by the M5P method for the best seller publishing 
+	company including all pre-sales features.}
+\label{fig:decision_tree_best_seller}
+\end{center}
+\end{figure*}
+
+\begin{figure*}[!ht] 
+\begin{center}
+  \epsfig{file=decision_tree_fs.eps,width=13cm}
+\caption{Decision tree built by the M5P method for the best seller
+  publishing company using  the subset of features selected by the
+  {\sf ReliefFAttributeEval} method.} 
+\label{fig:decision_tree_best_seller_fs}
+\end{center}
+\end{figure*}
 
 The second {\em splitting} feature, number of books distributed as a
 novelty, gives the publisher a hint on how many books have to be sent
@@ -1363,26 +1399,6 @@ the conclusion with this part of the tree is that you will have to
 print around 3000 books to sell a quantity that will start at 1000,
 one third of the print run, and changes depending on a number of
 factors, including price.
-
-\begin{figure*}[!ht] 
-\begin{center}
-  \epsfig{file=decision_tree_no_fs.eps,width=13cm}
-\caption{Decision tree built by the M5P method for the best seller publishing 
-	company including all pre-sales features.}
-\label{fig:decision_tree_best_seller}
-\end{center}
-\end{figure*}
-
-\begin{figure*}[!ht] 
-\begin{center}
-  \epsfig{file=decision_tree_fs.eps,width=13cm}
-\caption{Decision tree built by the M5P method for the best seller
-  publishing company using  the subset of features selected by the
-  {\sf ReliefFAttributeEval} method.} 
-\label{fig:decision_tree_best_seller_fs}
-\end{center}
-\end{figure*}
-
 
 The right hand side of the tree include those books that are
 distributed in a bigger percentage of the total amount of point of
@@ -1573,7 +1589,9 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 %----------------------------------------------------------------------
 
-\pagebreak
+\newpage
+\clearpage
+\onecolumn
 
 \appendix
 \section{APPENDIX TABLES}
@@ -1582,7 +1600,7 @@ This work has been supported in part by projects PreTEL (PRM Consultores - Treve
 
 %--------------- old Tables 3, 5 (before revision)
 
-\begin{table*}
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for all publishers (all the features). 30 repetitions, 10-fold cross validation. Best values in bold.
 \label{tab:all_publishers_no_fs}}
 \centering{}%
@@ -1609,10 +1627,10 @@ ELM & 	86.79	 $\pm$ 	0.11	 & 	271.01	 $\pm$ 	28.53	 & 	684.98	 $\pm$ 	329.39	 & 
 \hline 
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}
+\begin{table}[!ht]
 \centering{}%
 \caption{Predicting \texttt{total\_sales} for all publishers based on features selected by each method. Best values in bold.
 \label{tab:results_all_publishers_fs}}
@@ -1689,14 +1707,14 @@ ELM & 	85.3	 $\pm$ 	0.09	 & 	301.42	 $\pm$ 	31.43	 & 	704.9	 $\pm$ 	221.83	 & 	5
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 % Antonio - I have reordered the tables correctly. ;D
 % thanks!!! (again)  
 
 %--------------- old Table 7 (before revision)
-\begin{table*}
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for publishing company UDL929 (the best selling publishing company). Best values in bold. 
 \label{Table:case1results_no_fs}}
 \centering{}%
@@ -1723,10 +1741,10 @@ ELM & 	53.38	 $\pm$ 	0.24	 & 	1898.17	 $\pm$ 	728.63	 & 	3104.85	 $\pm$ 	1503.83
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDL929 (CfsSubsetEval-FS). Best values in bold.
 \label{Table:case1results_fs_cf}}
 \centering{}%
@@ -1752,11 +1770,11 @@ ELM & 	87.25	 $\pm$ 	0.14	 & 	776.49	 $\pm$ 	209.23	 & 	1171.43	 $\pm$ 	455.5	 &
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 % --- old table 11 (before revision)
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for publishing company UDL929 (ReliefFAttributeEval-FS). Best values in bold.
 \label{Table:case1results_fs_rf}}
 \centering{}%
@@ -1782,10 +1800,10 @@ ELM & 	84.08	 $\pm$ 	0.17	 & 	890.49	 $\pm$ 	343.61	 & 	1470.33	 $\pm$ 	993.74	 
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDL929 (SOM-FS). Best values in bold.
 \label{Table:case1results_fs_som}}
 \centering{}%
@@ -1811,13 +1829,13 @@ ELM & 	83.44	 $\pm$ 	0.17	 & 	884.83	 $\pm$ 	297.95	 & 	1430.42	 $\pm$ 	874.32	 
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 %-----------------------------------
 
 %--------------- old Table 8 (before revision)
-\begin{table*}
+\begin{table}
 \caption{Predicting \texttt{total\_sales} for publishing company UDLW12 (the median selling publishing company). Best values in bold. 
 \label{Table:case2results_no_fs}}
 \centering{}%
@@ -1843,9 +1861,9 @@ ELM & 	60.52	 $\pm$ 	0.39	 & 	24.28	 $\pm$ 	13.57	 & 	38.83	 $\pm$ 	26.43	 & 	11
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDLW12 (CfsSubsetEval-FS). Best values in bold.
 \label{Table:case2results_fs_cf}}
 \centering{}%
@@ -1872,11 +1890,11 @@ ELM & 	77.62	 $\pm$ 	0.3	 & 	16.53	 $\pm$ 	9.12	 & 	27.18	 $\pm$ 	18.2	 & 	72.75
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 % --- old table 12 (before revision)
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for publishing company UDLW12 (ReliefFAttributeEval-FS). Best values in bold.
 \label{Table:case2results_fs_rf}}
 \centering{}%
@@ -1902,10 +1920,10 @@ ELM & 	70.58	 $\pm$ 	0.34	 & 	19.52	 $\pm$ 	9.91	 & 	30.49	 $\pm$ 	18.09	 & 	145
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDLW12 (SOM-FS). Best values in bold.
 \label{Table:case2results_fs_som}}
 \centering{}%
@@ -1931,14 +1949,14 @@ ELM & 	73.42	 $\pm$ 	0.31	 & 	20.08	 $\pm$ 	9.8	 & 	31.45	 $\pm$ 	18.84	 & 	85.5
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 %-----------------------------------
 
 
 %--------------- old Table 9 (before revision)
-\begin{table*}
+\begin{table}
 \caption{Predicting \texttt{total\_sales} for publishing company UDL704 (highest number of different titles sold). Best values in bold.
 \label{Table:case3results_no_fs}}
 \centering{}%
@@ -1966,10 +1984,10 @@ ELM & 	65.13	 $\pm$ 	0.21	 & 	336.33	 $\pm$ 	1414.85	 & 	1279.83	 $\pm$ 	7128.87
 
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDL704 (CfsSubsetEval-FS). Best values in bold.
 \label{Table:case3results_fs_cf}}
 \centering{}%
@@ -1995,11 +2013,11 @@ ELM & 	78.42	 $\pm$ 	0.15	 & 	109.24	 $\pm$ 	52.6	 & 	203.11	 $\pm$ 	215.35	 & 	
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 % --- old table 13 (before revision)
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for publishing company UDL704 (ReliefFAttributeEval-FS). Best values in bold. 
 \label{Table:case3results_fs_rf}}
 \centering{}%
@@ -2026,10 +2044,10 @@ ELM & 	83.47	 $\pm$ 	0.1	 & 	89.65	 $\pm$ 	25.9	 & 	167.99	 $\pm$ 	82.63	 & 	51.
 
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDL704 (SOM-FS). Best values in bold.
 \label{Table:case3results_fs_som}}
 \centering{}%
@@ -2055,13 +2073,13 @@ ELM & 	85.22	 $\pm$ 	0.11	 & 	85.57	 $\pm$ 	25.92	 & 	141.17	 $\pm$ 	62.02	 & 	4
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 %-----------------------------------
 
 %--------------- old Table 11 (before revision)
-\begin{table*}
+\begin{table}
 \caption{Predicting \texttt{total\_sales} for publishing company UDLU11 (medium number of different books sold). Best values in bold.
 \label{Table:case4results_no_fs}}
 \centering{}%
@@ -2088,10 +2106,10 @@ ELM & 	61.55	 $\pm$ 	0.24	 & 	1350.19	 $\pm$ 	3934.54	 & 	3681.73	 $\pm$ 	19380.
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDLU11 (CfsSubsetEval-FS). Best values in bold.
 \label{Table:case4results_fs_cf}}
 \centering{}%
@@ -2117,11 +2135,11 @@ ELM & 	65.66	 $\pm$ 	0.25	 & 	859.21	 $\pm$ 	836.34	 & 	1691.61	 $\pm$ 	3053.2	 
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 % --- old table 14 (before revision)
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for publishing company UDLU11 (ReliefFAttributeEval-FS). Best values in bold.
 \label{Table:case4results_fs_rf}}
 \centering{}%
@@ -2147,11 +2165,11 @@ ELM & 	79.73	 $\pm$ 	0.14	 & 	569.2	 $\pm$ 	161.37	 & 	841.75	 $\pm$ 	322.13	 & 
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
 
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \caption{Predicting \texttt{total\_sales} for PublishingCo-UDLU11 (SOM-FS). Best values in bold.
 \label{Table:case4results_fs_som}}
 \centering{}%
@@ -2177,8 +2195,9 @@ ELM & 	79.52	 $\pm$ 	0.12	 & 	606.38	 $\pm$ 	153.83	 & 	818.18	 $\pm$ 	243.54	 &
 \hline
 \end{tabular}
 }
-\end{table*}
+\end{table}
 
+\twocolumn
 
 \end{document}
 %%% Local Variables:
