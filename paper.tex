@@ -656,9 +656,6 @@ company Trevenque Editorial S.L. Table
 each book. 
 
 Starting from these raw data, a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. 
-% (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
-% Antonio - because we should not fill important variables automatically, this adds noise to the data, so I think it is better to remove these patterns, since there are still a lot in the dataset. 
-% Indeed, there were just a couple of patterns without important values, that probably were errors of the extraction process or bad insertions in the database.
 Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, 
 has been reduced by an expert to use just those that can be known before a new book 
 is launched, i.e. \textit{pre-sales data}. 
