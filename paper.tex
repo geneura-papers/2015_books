@@ -569,13 +569,6 @@ previously published, books and have taken as reference a set of
 variables (or features), 
 related with the book publication process. 
 
-The training dataset includes historical data about 6083 books
-published in Spain for several years, with an initial set of 50
-variables per pattern. It has been provided by the Spanish publishing
-company Trevenque Editorial S.L. Table 
-\ref{tabla:paramsOrig50} shows the initial set of variables describing
-each book. 
-
 \begin{table*}[!ht]
 \caption{Parameters describing a book, provided by the company Trevenque S.L.}
 \label{tabla:paramsOrig50}
@@ -647,6 +640,14 @@ negative sales environment
 \end{tabular}
 \end{center}
 \end{table*}
+
+
+The training dataset includes historical data about 6083 books
+published in Spain for several years, with an initial set of 50
+variables per pattern. It has been provided by the Spanish publishing
+company Trevenque Editorial S.L. Table 
+\ref{tabla:paramsOrig50} shows the initial set of variables describing
+each book. 
 
 Starting from these raw data, a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. 
 % (Paloma) Why remove those with null values and not to use an algorithm to fill those missing values?
@@ -773,7 +774,7 @@ consider it for his or her own prediction process.
 
 There is not a standard methodology to solve the general problem of sales forecasting. However, the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. Figure \ref{fig:methodology} summarizes these followed steps.
 
-\begin{figure}[!ht] 
+\begin{figure}[!h] 
 \begin{center}
   \epsfig{file=metodologia.eps,width=5.5cm}
 \caption{Steps followed in the proposed methodology.}
