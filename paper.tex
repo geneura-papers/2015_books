@@ -1224,12 +1224,15 @@ makers and managers in the domain. The four cases are described as follows:
 \begin{center}
 \includegraphics[scale=0.6]{./imgs/attribute_All.eps}
 \end{center}
-\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold). Just the features selected by ReliefFAttributeEval method have been considered.}
+\caption{Boxplots showing the values obtained predicting \texttt{total\_sales}, using all features, with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).
+% Just the features selected by ReliefFAttributeEval method have been considered.
+}
 \label{fig:attributeAll}
 \end{figure*}
 % Antonio - CONCERN - The text and the results must be contrasted. If I'm not wrong, I remember that we decided to include here just the results obtained by ReliefFAttributeEval, since they were quite good (maybe the best). But there are plotted apparently the results for all the features. Anyway, in the text, it is said that the process is using all the features, then apply FS. But here just the results for all the features are shown. Why don't we show also the results for the corresponding sets of features selected by each FS method?
 % Actually in the previous version there were several tables with these results than have been moved to the Appendix. I think we should include another figure fro them. They show important information. ;)
-% we can discuss this point later this morning. If necessary, we can design and include a new plot.
+% we can discuss this point later this morning.
+% The thing is that in this plot we are using all features!! (here, no feature selection method has been used)
 
 \begin{itemize}
     \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
