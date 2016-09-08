@@ -114,34 +114,32 @@ which incorporates a general comparison between all these classifiers.
 \noindent (4) \emph{It seems more reasonable to organize and write that paper according to regression viewpoint only. } 
 
 \begin{verbatim}
-The reviewer is right, thus, we have revised the whole paper referring 
-to the term `regression' instead of `classification'. 
-In addition, some sections have been renamed, such as subsection 2.1, 
+The reviewer is right, thus, we have revised the whole paper remarking 
+the regression topic present on the work. We have clarified in several
+ paragraphs that the problem has been addressed by means of regression 
+methods (for instance, note the new title of Section 2.1), or we have 
+generally referred to the term `regression' instead of `classification', 
 in order to better suit the regression viewpoint.
-Moreover this have been also addressed solving the issue related 
-to comment #1, where the application procedure of feature selection 
-methods for regression problems has been clarified. 
+Moreover this suggestion have been also addressed solving the issue 
+related to comment #1, where the application procedure of feature 
+selection methods for regression problems has been clarified. 
 \end{verbatim}
-% Antonio - CONCERN: I'm a bit afraid about the term 'organize' which I don't know if has been addressed in any way in the new version...
-% [Pedro] you are right... but the way the reviewer has expressed it is quite strange.
-% [Hossam]: Regarding your first concern, the reviewer asked for organizing and writing not reorganizing, so we have just addressed that by emphasizing the term regression in all the paper and we have clarified how we applied the FS methods customized for regression problems. So I think we addressed this issue adequately. 
 
 ~\\
 \noindent (5) \emph{It is necessary to write that paper more concisely. } 
 
 \begin{verbatim}
-Following reviewer's suggestion we have reorganized some parts of the 
-text and several paragraphs have been rewritten in order to make 
-them shorter, clearer and to improve its comprehension 
-(i.e. paragraph XX in page YY, and paragraph XX in page YY). 
+Following reviewer's suggestion we have reorganized some parts 
+of the text, removed some sentences, and rewritten several paragraphs 
+in order to make them shorter, clearer and to improve its comprehension. 
 
-Also, several tables have been moved to the Appendix and that
-data has been presented now as the new Figures XX, YY, ZZ.
+Also, all the tables of results have been moved to the Appendix and 
+that data has been presented now as the new Figures XX, YY, ZZ.
 
 Finally, the paper has been completely revised and several 
 typographic errors have been fixed. 
 
-We are very grateful for your valuable suggestions and comments. 
+We are very grateful the reviewer's valuable suggestions and comments. 
 \end{verbatim}
 % Antonio - TODO: show some examples of reduced text (page/paragraph), there will be some new figures, I think.
 % we have to say: "Paragraph #X in subsection #Y" (naming the paragraphs that we identified and gathered-joined)
@@ -174,19 +172,37 @@ methods, namely [REF_XX, REF_YY].
 \noindent (2) \emph{The authors should clarify their main contributions in the introduction parts.}
 
 \begin{verbatim}
-We have rewritten the introduction and included this new text:
+We have rewritten the introduction and included new paragraphs to better 
+explain the problem and the aim of the paper. We have also remarked the
+ contribution with the paragraphs:
 
-"Our main contribution is, thus, to develop a methodology to 
-process book sales data in order to first find out relevant 
-variables and then use these variables to process data so that 
-the publisher, using them, can estimate sales and from them order 
-a specific print run, instead of standard ones, which are around 
-300 copies for standard books and around 5000 for those that are 
-considered, in advance, best sellers."
+"Our intention in this paper is to find out the main factors influencing
+sales in order to create a tool that the publisher can use to decide how
+many books should be printed, as well as how to leverage these printed
+copies to maximize sales using the decision variables under his control. 
+That is why, using data obtained from a company that sells software for 
+publishers, we analyse them and compute predictive models that can be 
+mainly used as decision-aid tools for book publishers. With these models,
+ publishers will be able to combine their expert knowledge about the market 
+with the created forecasting models in order to get a reliable estimation of
+ book sales, and, based on it, act consequently in order to maximize the 
+books sold for a particular print run. This will improve the current 
+decision flow that the publishers follow, which consist in analysing (in a
+ subjective way) the quality of the book and its features (author, genre, 
+etc), and take a `fuzzy' decision roughly between printing 300 copies 
+(standard book) or 5000 (best seller).
 
-Also, in the next-to-last paragraph, we have laid out our 
-methodology and clarified the main contributions of this paper 
-to the state of the art.
+Our main contribution is, thus, the development of the methodology 
+to process book sales data in order to, first find out relevant variables, 
+and then, use these variables to process the data to accurately estimate 
+future sales. To our knowledge this is the first work in which regression
+ methods have been applied to estimate sales for new launched books. 
+Moreover, the use of a real dataset of book sales is another point to 
+remark with respect to other works."
+
+Also, in the following paragraphs, we have laid out our 
+methodology to differentiate it from other approaches.
+
 \end{verbatim}
 % Antonio - TODO: I rewritten this text, so we should copy the new one here. But I think we all should contribute to create a very good justification (see next CONCERN). :D
 % Antonio - CONCERN: We should definitely write a convincing text which separates this work from existing approaches. Maybe the use of real data is a good point. And also emphasize the contribution to the SotA.
@@ -208,14 +224,12 @@ of Section 7 (see page XX).
 \noindent (4) \emph{Some tables should be transfer to figures because there are too many tables. } 
 
 \begin{verbatim}
-Following reviewer's suggestion, several tables have been moved to 
-the Appendix and that data has been summarized and presented 
-as the new Figures XX, YY, ZZ in order to make that numeric data clearer 
-and to improve their comprehension.
+Following reviewer's suggestion, all the results tables have been 
+moved to the Appendix and that data has been summarized and 
+presented as the new Figures XX, YY, ZZ in order to make that numeric 
+data clearer and to improve their comprehension.
 \end{verbatim}
-% Antonio - CONCERN: I think we should move ALL the results tables and include a couple of figures more. Please see my e-mail on this respect. ;)
-% Antonio - TODO: Talk about the final tables and figures.
-% Let's talk about them!   :)
+% Antonio - TODO: put the correct page when the text is finished
 
 ~\\
 \noindent (5) \emph{Graphical abstract should be added. This paper is organized well. The authors should revise their work according to above comments. } 
@@ -242,11 +256,21 @@ and comments to improve the quality of our paper.
 
 \begin{verbatim}
 
-********* TO WRITE ***********
+The reviewer is right. The main contribution of this paper to the 
+state of the art was not properly described. Thus, as stated above 
+in the second response to Reviewer #2, we have clarified this in 
+the introduction adding new sentences and the paragraph:
+
+"Our main contribution is, thus, the development of the methodology 
+to process book sales data in order to, first find out relevant variables, 
+and then, use these variables to process the data to accurately estimate 
+future sales. To our knowledge this is the first work in which regression
+ methods have been applied to estimate sales for new launched books. 
+Moreover, the use of a real dataset of book sales is another point to 
+remark with respect to other works."
 
 \end{verbatim}
-% Antonio - TODO: we can't write the same answer for two reviewers. We'll answer the same, once we have the response for the previour reviewer but in other words. ;)
-
+% Antonio - TODO - put here the paragraph as it will finally be (if it is changed again).
 
 ~\\
 \noindent (2) \emph{sections 4.1 and 4.2 should be moved to section 2. } 
@@ -275,9 +299,10 @@ at page YY).
 M5P, kNN and RF also should be shown. } 
 
 \begin{verbatim}
-We have improved Section 5, including the parameter settings of 
-M5P, kNN and RF methods (see paragraph XX at page YY).
-
+Reviewer is right, so we have improved Section 5, including the 
+parameter settings of M5P, kNN and RF methods (see paragraph XX at 
+page YY), along with the configuration parameters for the rest of 
+methods.
 
 The authors want to express our gratitude to this reviewer 
 for his/her suggestions.
@@ -299,6 +324,9 @@ for his/her suggestions.
 [YY] Authors, Title, Journal, pages, Year
 
 [ZZ] Authors, Title, Journal, pages, Year
+
+%Antonio - [REF-Dewey is new] 
+\cite{wiki:dewey}
 
 \end{document}
 

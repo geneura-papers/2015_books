@@ -106,30 +106,26 @@ subjective. Even if the author or the topic is known, making accurate
 estimations of future sales of the new product is quite difficult, and
 extremely important, so that production runs follow predicted sales.  
 Indeed, several studies have demonstrated that improving sales
-predictions, that is reducing the error in estimated sales, results in an enhancement in the 
-production process \cite{Fildes2010,Saeed2008}, so not only cost
-associated to the book itself are associated,
+predictions, that is reducing the error in estimated sales, results in an enhancement in the whole production process \cite{Fildes2010,Saeed2008}, so not only the costs associated to the book itself are affected.
 % (Paloma) I was about to change this second "associated" for "affected" (seems the right thing to do). However, what's after this comma is also confusing, given that we already said that is affects to the whole production process. Maybe who wrote this should re-think what he/she meant to say here and change it.
- but also the whole
-production process.
+% Antonio - I guess it was a mistake. I think now it is correct.
 
 Within the general area of cultural products, the problem of
 predicting sales is specially acute for book publishers who, among other
 providers of content in physical form, release new {\em products} more frequently than
 other industries, so that they face the problem of predicting sales quite often. The issue, in this case, is to print an adequate number of copies but not too many, as the unsold volumes will lead to losses and sunk inventory cost, 
 whereas if the number of printed copies was not enough, a new print
-run can always be made, resulting in temporary losses due to a lack of supply
-or in bad marketing for the customers, for instance. However, in
-practice predicting lower sales than the actual ones is not such a big
-problem because when inventory is close to exhaustion new print runs
-are made; % (Paloma) I think that the thing that should be highlighted here is that is not big deal because the print run is made _before_ the inventory is exhausted. I mean, the sentence highlights the fact that a new print run is made, and not that maybe the situation where there's any book never happens. 
+run can always be made, but this will result in temporary losses due to a lack of supply or in bad marketing for the customers, for instance. However, in practice predicting lower sales than the actual ones is not such a big problem because the new print run is ordered before the inventory is exhausted; 
+% (Paloma) I think that the thing that should be highlighted here is that is not big deal because the print run is made _before_ the inventory is exhausted. I mean, the sentence highlights the fact that a new print run is made, and not that maybe the situation where there's any book never happens. 
 % Suggestion:  However, in practice predicting lower sales than the actual ones is not such a big problem because the new print run is orderer before the inventory is exhausted;
+% Antonio - fixed then
  nevertheless, this new print run presents the same problem as the
 initial one of printing only as many as forecasted, although its cost
-is not as high as the initial one 
+is not as high as the initial one. 
 % (Paloma) Should we really say this next sentence? :\
-and we are not so concerned with
-this issue in this paper.
+%and we are not so concerned with
+%this issue in this paper.
+% Antonio - yes, no need to say this
 
 Despite the fact that errors in one or the other direction do not have
 the same impact, it is extremely important to develop an accurate
@@ -138,56 +134,39 @@ which could forecast the future sales a new book will achieve, in
 order to optimise production schedules, improve the publishing company
 profits and minimise losses \cite{Zhao2001}. This is the main objective of this paper.
 
-% I don't know what to make with this paragraph. Move it to the
-% presentation of the problem, move it to the state of the art, or
-% eliminate it completely. Whoever wrote it please help - JJ
-It is important to notice that the accuracy of the predictive method
-that we intend to design is affected negatively by several factors
-related to decisions on purchases, to freight traffic, or with the
-distribution strategy \cite{Little1998}. 
-Thus, it is mandatory to know the product and the variables that
-might affect the sales, and how an expert manager takes them into 
-account \cite{Armstrong2001,SThomassey2014}. 
-Moreover, their impact is difficult to estimate and it is not constant over time, hence the complexity to adequately identify and measure their influence \cite{DeToni2000}.
-In addition, some variables may have correlations between them, although these correlations can be detected using data analysis methods, 
-such as Self-Organizing Maps (SOM) \cite{kohonen1998} or stepwise regression analysis (SRA) \cite{Chang2009}. 
-
 In Spain, the process of releasing a book goes like this: the
 publisher decides, based on past experience, how many books to
 print. These books are distributed to points of sale, but also given
 out to reviewers and literary magazines; the number of these will
-depend on how many you have printed. In bookstores books  go, in some cases, to
+depend on how many you have printed. In bookstores books go, in some cases, to
 the {\em novelty} table, that is, they are prominently displayed, shown in the window, or highlighted using props or other 
 kind of advertisement. From these displays they then move to shelves
 or, in some cases and eventually, to storage. Books stay for sale in the store as long as the
 publisher or the store want or until the bookseller decides to return it
 to the publisher. Books returned to the publisher are pulped, sold back or
-given to the author or distributed in used-books channels such as
+given to the author, or finally distributed in used-books channels such as
 book stalls or second-hand bookstores. If the print run has been fully
 distributed and there are more requests from bookstores, on the other
-hand, a new print run is made and distributed to bookstores. 
+hand, a new print run is made and distributed to these shops. 
 Even if the process has changed slightly 
 in the last few years since Amazon started to sell in Spain, in the
 sense that many books are sold through this new channel and do not
 undergo the cycle novelty table-shelf-storage-back to publisher, which
 actually happened {\em after} the data used for this paper was
 collected, it roughly stays the same. Other countries will have a
-similar model, although scale will be different. 
+similar model, although the scale will be different. 
 
 Our intention in this paper is to find out the main factors influencing
 sales in order to create a tool that the publisher can use to decide how
 many books should be printed, as well as how to leverage these printed
 copies to maximize sales using the decision variables under his
-control. That is why, using data obtained from a  company that sells
+control. That is why, using data obtained from a company that sells
 software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
 sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
 
-Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out
-relevant variables, and then, use these variables to process the data to accurately estimate future sales.
+Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, the use of a real dataset of book sales is another point to remark with respect to other works.
 
-
-In the research published in this paper, the problem of predicting total sales is approached using real data provided by the 
-Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
+Therefore, in this paper, the problem of predicting total sales is approached using real data provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
 Usually, the company's expert sales managers analysed historical data
 and applied their knowledge on external variables to compute correct
 estimations (predictions); for instance, they can decide increasing or
@@ -198,11 +177,6 @@ take all the variables into account.
 In addition, the process might be tedious, especially when the amount
 of data is quite large. Moreover, different experts can reach different
 predictions from the same dataset \cite{Sanders1994}. 
-
-%An initial version of this method was developed under a contract with that company and eventually integrated in their product. This paper represents an improved version of that method based on the same data. 
-% We should also mention what data we actually mean, I don't think
-% we've published it here. - JJ
-% Antonio - I think this information is not relevant for the paper...
 
 With this issue in mind, in this paper we firstly present an analysis
 on the aforementioned real dataset, by means of data mining and
@@ -219,22 +193,21 @@ different books. From this, we draw insight on what are the important
 factors when selling a book and some rule of thumbs extracted from the
 prediction methods.
 
-The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes. 
+The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes and shows a set of definitions of the regression methods applied in the paper and the evaluation metrics considered.
 Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run for new books, along with a description of the considered dataset.
-Section \ref{sec:methodology} details the methodology considered in the study, from the data collection and preprocessing stages, to the selection of the forecasting methods to be applied in the experiments.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
+Section \ref{sec:methodology} details the methodology considered in the study.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
+
 
 %********************************************************************************
 \section{Background and State of the art on sales forecasting} 
 \label{sec:soa}
 
-As far as we know, no previous attempt can be found in the literature 
-%in which prediction methods have been applied to estimate the print run. 
-in which prediction methods have been applied to estimate sales for new launched books.
+Book sales forecasting is not a very prolific field of research. There are just a few papers working in this scope \cite{Chang2005_book_forecast_SOM-CBR}...
+% Antonio - TODO - completar esto una vez leido el paper con sus partes malas y buenas de nuestro paper, claro
+% TODO - buscar si hay m�s trabajos...
 However, similar techniques to those proposed in this paper, e.g. 
-regression models \cite{Papalexopoulos1990}, 
-neural networks \cite{Yoo1999} 
-or fuzzy systems \cite{Mastorocostas2001}, 
-have been applied to solve sales prediction problems in other industrial sectors.
+regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} 
+or fuzzy systems \cite{Mastorocostas2001}, have been applied to solve sales prediction problems in other industrial sectors.
 
 Specifically, time-series prediction methods
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10}  
@@ -263,12 +236,6 @@ taking into account their knowledge of industry, their experience,
 and their perception about trends, could make decisions on the companies 
 production, i.e. how many books should be printed when a new book is published. 
 
-  %[pedro] sobre la industria editorial no hay trabajos sobre predicción de ventas.
-  % Lo habitual ha sido usar el conocimiento de expertos para realizar predicciones 
-  %  o aconsejar acerca de la cantidad de libros a imprimir.
-  % Lo más parecido que he encontrado son dos trabajos (uno en realidad) de Moon et al. 
-  %  sobre "Use Blog Information As Book Sales Prediction":
-  %     Moon2010ICSSSM , Moon2010ICEC
 Recently, some works have proposed analysing relationships between on-line 
 information and book sales \cite{Moon2010ICSSSM,Moon2010ICEC}. 
 Specifically, Moon et al. propose using the number of blog references as an 
@@ -278,16 +245,6 @@ and book sales, and at the same time different sales patterns are observed
 by analysing books in series (the first book published takes the longest period 
 to achieve every single sales scale, while the second book takes the second 
 longest period, and so on).
-
-%
-% pasar a contar los casos de la predicción de ventas en la 
-% industria de la moda (SThomassey2014) y de nuevos productos (ChingChin2010)
-%
-% Son problemas muy similares, ya que no hay datos históricos de los nuevos productos,
-% al igual que no los hay sobre ventas, y en los que además influyen mucho las variables 
-% externas (estacionalidad, modas, fama del author, etc).
-% Hay que echar mano de productos similares o simplemente de los datos que describen el nuevo producto.
-%
 
 In general, historical data are used to make time series, as well as for extracting common patterns and obtaining accurate predictions from them.
 However, in the case of new products, such as the issue of new books, past patterns are difficult to observe as there is no available historical sales data 
@@ -309,13 +266,7 @@ The complexity of this problem relies on the lack of historical data, on the
 short lifetime of the majority of items, and on the influence of variables such 
 as promotions, fashions, or economic environment
  \cite{Thomassey2012,Xia2012,SThomassey2014}, as mentioned above.
-%FERGU: completar con: "In our case, these ideas ..."
-% [pedro] no sé a qué te refieres. Please, detalla un poco esto   :)
 
-  %[Pedro] otro caso muy similar es el paper de ChingChin2010 sobre:
-  % New tea product
-  % New cosmetic product
-  % New soft drink product
 Ching et al. propose in \cite{ChingChin2010} a decision-support system for new 
 product sales forecasting to solve three real-world sales forecasting 
 problems, namely: new tea, cosmetics, and soft drink products. 
@@ -326,16 +277,13 @@ data related to the products. Moreover, real-world cases, such as consumer
 electronics and fashion products, should be deeply analysed, as these industries 
 present/launch new products every season. 
 
-  %[Pedro] otro caso a comentar es el paper de Chang2009 sobre: 
-  % sales forecasting in printed circuit board industry.
 On the other hand, in those cases where historical data are available, classical time series forecasting methods have been applied, such as in \cite{Chang2009}, 
 where a hybrid model integrating K-Means and fuzzy neural networks to forecast 
 the future sales of a printed circuit board is proposed.
 A similar method is described by Chern et al. \cite{ChernWSF15}, who analysed 
 historical data throughout online reviews, reviewer characteristics, and review 
 influences to understand how electronic `word-of-mouth' influences product sales. 
-In this case, the proposed method is suitable for those sales forecasting problems 
-with a big amount of online reviews and historical data.
+In this case, the proposed method is suitable for those sales forecasting problems with a big amount of online reviews and historical data.
 
 Thus, taking into account the kind of problem we address in this
 paper, i.e. the prediction of sales of a new product for which no
@@ -353,10 +301,11 @@ on decision rules have been tested as an alternative.
 
 % following two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
 
-Many of the previous papers propose using different prediction methods.
+Many of these previous papers propose using different prediction methods to find out which one performs the best.
 Thus, next subsections describe several forecasting methods and different 
 evaluation metrics, commonly used in the bibliography that have been chosen 
-to face the problem at hand.
+to address the problem of book sales prediction.
+
 
 %-------------------------------------------------
 \subsection{Regression methods}
@@ -416,8 +365,6 @@ root to that node is given as a result.
 The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
 which the unknown instances are classified by relating them to the known 
 instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
-% Antonio - CONCERN - should we change the term 'classification' by 'regression' somehow?
-% I don't think so in this case. That is what kNN is...
 
 The main idea behind the algorithm is that two instances far enough in the space, 
 taking into account the distance function, are less likely to belong to the 
@@ -461,10 +408,6 @@ Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is ba
 statistical learning theory and has successfully used in classification and  
 regression problems \cite{Cao2003,Jari2008}.
 
-%In classification problems the algorithm searches for an optimal hyperplane 
-%that separates two classes, maximising the margin between them.
-% Antonio - CONCERN - remove this classification thing due to a reviewer's comment 
-% ok    :)
 In regression problems, the algorithm chooses a hyperplane close to as many 
 of the data points as possible, minimising the sum of the distances from 
 the data points to the hyperplane. 
@@ -480,13 +423,9 @@ called support vectors.
 A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
 artificial neural network model that maps the input data onto an appropriate output. 
 It is an artificial neural network generally used for classification or 
-approximation problems.
-% Antonio - CONCERN - something about regression?
-% in that sentence, approximation is used as synonymous of regression   ;)
+approximation/regression problems.
 
-This model is a generalisation of the standard linear perceptron that uses several 
-layers of nodes (called neurons) and that is able to solve linearly inseparable 
-problems \cite{SteinwenderBitzer2003}.
+This model is a generalisation of the standard linear perceptron that uses several layers of nodes (called neurons) and that is able to solve linearly inseparable problems \cite{SteinwenderBitzer2003}.
 Each neuron consists of a linear combination of weighted inputs which is passed 
 though a non-linear activation function to produce its output.
 
@@ -508,7 +447,7 @@ ELM is an algorithm for training a single hidden
 layer feedforward neural network which was first proposed by Guang-Bin Huang \cite
 {huang2006extreme}. A typical implementation of ELM is a single hidden layer network where the 
 connection weights between the input layer and the hidden layer are randomly initialized and 
-fixed, while the connection weights between the hidden layer the output layer are learned 
+fixed, while the connection weights between the hidden layer the output layer are learnt 
 analytically in a single step of linear parameters solving. In ELM the hidden layer maps the 
 input data into a feature space called ELM feature space using non-linear activation functions 
 such as Sigmoid, Hyperbolic and Gaussian functions \cite{huang2015trends}.The main advantages 
@@ -519,16 +458,15 @@ training methods such as the Backpropagation algorithm.
 
 The objective is finding the most appropriate forecasting method that minimises 
 the error between the obtained forecast and the current sales for each new book 
-published.
+published. To this end, the results will be evaluated using different metrics, as described in the following section.
 
-% Antonio - TODO: link this section with the rest of the SotA. Introduce it in a paragraph before. And rewrite the initial paragraphs to separate it from section 4 (methodology)
-% I have addressed this "todo" before (lin. 353)
+% Antonio - I have linked the section also here for a more fluent reading. ;)
 
 %-------------------------------------------------
 \subsection{Models evaluation}
 \label{subsec:models_evaluation}
 
-At this step, the developed forecasting models are evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
+The developed forecasting models must be evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
 Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
 
 \begin{itemize}
@@ -554,9 +492,6 @@ Specifically, in order to compute the forecasting errors of the different method
 \end{itemize}
 where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
-% previous two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
-% Antonio - TODO - revise them
-% What have to be revised?   :/
 
 %********************************************************************************
 \section{Problem description}
@@ -651,14 +586,10 @@ negative sales environment
 The training dataset includes historical data about 6083 books
 published in Spain for several years, with an initial set of 50
 variables per pattern. It has been provided by the Spanish publishing
-company Trevenque Editorial S.L. Table 
-\ref{tabla:paramsOrig50} shows the initial set of variables describing
-each book. 
+company Trevenque Editorial S.L. Table \ref{tabla:paramsOrig50} shows the initial set of variables describing each book. 
 
 Starting from these raw data, a preprocessing method has been performed in order to remove incorrect or incoherent patterns, such as those with null values in required variables, or with negative sales, for instance. 
-Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, 
-has been reduced by an expert to use just those that can be known before a new book 
-is launched, i.e. \textit{pre-sales data}. 
+Furthermore, the initial set of variables, presented in Table \ref{tabla:paramsOrig50}, has been reduced by an expert to use just those that can be known before a new book is launched, i.e. \textit{pre-sales data}. 
 %Thus, their value do not depend on the book sales. 
 The selected subset of features is described in Table \ref{tabla:params_pre_sales}.
 
@@ -741,34 +672,13 @@ similar regarding their topics, so they could be also close in terms
 of distance. The same reasoning can be applied to subclasses. 
 
 In this prediction problem there are other external variables that also affect 
-the sales of a new book, such as those related to seasonality, trends, or 
-promotions, that classical prediction methods can not deal with, since they 
-are not included in the dataset due to the difficulty to model them. 
+the sales of a new book \cite{Little1998}, such as those related to seasonality, trends, or promotions, that classical prediction methods can not deal with, since they are not included in the dataset due to the difficulty to model them. 
 However, an expert can consider them to modify the forecast obtained by 
-the automatic method. Even publishing companies tend to define rules or 
-indexes to subjectively adjust the results of prediction based on
-external data. 
+the automatic method \cite{Armstrong2001}. Even publishing companies tend to define rules or  indexes to subjectively adjust the results of prediction based on external data. 
 Thus, the proposed method will analyse the provided data and
 variables and will yield a forecast of sales according to them. This
 result could be used as a reference for a human expert, who would
 consider it for his or her own prediction process. 
-
-% This section is too short and really does not describe the problem
-% to its full extent. First, it should say if some of these variables
-% were discarded for some reason. Group the variables we have in those
-% available to publisher and those that can be used afterwards. And
-% then give an idea of the complexity of the problem and how difficult
-% it should be to find a solution - JJ
-% Antonio - I have included much more contents form other sections. could you do the rest?
-
-% You should include data visualization in problem description,
-% because it shows the distribution of problem variables and then
-% suggests ways to deal with it - JJ
-% You should include in the section an exploratory data
-% analysis that describes the range of variables, how many categories
-% those variables have, and so an do forth - JJ
-% Antonio - as you know SOM has been applied later as a feature selection method... I don't know if we could reference the figure of SOM here or the other way round (do the analysis here and reference later), but in that case, we should explain SOM before, which could be a mess...
-% Antonio - If you meant using other visualization methods... could you do it also?
 
 
 %********************************************************************************
@@ -777,7 +687,7 @@ consider it for his or her own prediction process.
 
 There is not a standard methodology to solve the general problem of sales forecasting. However, the steps we have followed in this paper are those usually applied in a Knowledge Discovery in Databases (KDD) process \cite{fayyad1996data}. Figure \ref{fig:methodology} summarizes these followed steps.
 
-\begin{figure}[!h] 
+\begin{figure}[!ht] 
 \begin{center}
   \epsfig{file=metodologia.eps,width=5.5cm}
 \caption{Steps followed in the proposed methodology.}
@@ -792,20 +702,13 @@ by a human expert to make predictions.
 
 In this stage, both numerical and visualisation-based approaches have been 
 applied, in order to select the best variables for the forecasting methods.  
-% Antonio - Should we speak about 'forecasting' or 'regression', Sam? Could they be used with the same meaning?
-% I think so.
+The methods to apply are those described in Section \ref{subsec:select_method},  which include rule- and tree-based algorithms, together with numerical regression methods. 
+
+The obtained models for the whole dataset have been evaluated by means of the metrics described in Section \ref{subsec:models_evaluation}. The results are presented in Section \ref{sec:experiments}. Then, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
+Specific interpretable models have been created as a final result of the work (Section \ref{subsec:decision_trees}). 
 
 
-As stated before, in Section \ref{subsec:select_method}, a selection of the best 
-forecasting techniques has been reported, looking for those rule- or tree-based, 
-together with numerical regression methods which could yield the best results. 
-
-Once the models and results have been obtained for the whole dataset 
-(Section \ref{sec:experiments}), the same methodology has been applied to some 
-specific cases of publishing companies in order to prove the value of the 
-proposal (Section \ref{sec:example_cases}).
-Some specific interpretable models have been created as a final result of the work. 
-
+% Antonio - CONCERN - The following section seems to be bad placed now. The Methodology Section is now a bit strange with just this subsection. We should think on moving this section and reorganize/improve the methodology description.
 
 %-------------------------------------------------
 \subsection{Data preprocessing by feature selection}
@@ -853,7 +756,7 @@ We have used some numerical FS methods included in Weka software \cite{Hall2009,
   
   The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized.
- The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. For continuous class problems (regression), the correlation between the attributes is estimated based on a standard linear correlation
+The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. For continuous class problems (regression), the correlation between the attributes is estimated based on a standard linear correlation
 using the Pearson's correlation coefficient as given in Equation \ref{eq:corr} \cite{hall2000correlation}. 
 
 \begin{equation}
@@ -878,11 +781,6 @@ and to choose an appropriate set of variables, the Self-Organizing Map
 (based on expert's opinion) FS technique based on the visualisation of the 
 data as a set of 2D planes (one per feature of the dataset), and their 
 interpretation for finding out relationships between these features.
-
-% Why? Is that one of the two forms of feature selection? What do we expect to learn from it? - JJ 
-% Antonio - explained here and below. Please check.
-
-%--- new SOM description % -Sam
 
 SOM is a type of unsupervised neural network inspired by the
 topographical organisation of the sensory cortex of human brain
@@ -922,9 +820,6 @@ adjacent neurons is measured and assigned different colours. Different colours
 between neurons indicate large distances (boundaries) while similar colours 
 represent close areas (clusters).
 
-% Antonio - a better description of U-Matrix. ;D
-% thanks!
-
 %---
 
 This method is usually applied to analyse data as similar items tend to be 
@@ -937,10 +832,7 @@ of variables into separate planes, the so-called component planes analysis
 on every cluster, i.e. those with a higher influence on the creation of that 
 cluster.
 
-
-Finally, Section \ref{sec:experiments} provides a comparison between 
-the feature reduction through SOM, and the feature selection techniques 
-that have been described.
+Next section provides a comparison between the feature reduction through SOM, and the feature selection techniques that have been described.
 
 
 
