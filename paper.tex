@@ -649,12 +649,12 @@ will come back to this choice later on when examining the resulting
 models. 
 
 Initially, there were three different features describing the subjects
-and subsubjects of every book \textit{subject1,2,3} (see Table
+and subsubjects of every book \texttt{subject1,2,3} (see Table
 \ref{tabla:paramsOrig50}), but for most of the patterns (books) there
-is no value for \textit{subjects2} and \textit{3}, so we have discarded 
+is no value for \texttt{subjects2} and \texttt{3}, so we have discarded 
 these features.   
 
-With regard to the feature \textit{publisher}, it has been removed from the 
+With regard to the feature \texttt{publisher}, it has been removed from the 
 final dataset since it is indeed included in the code of \texttt{collection}. 
 In addition, we think it is not really relevant for the accuracy of the models 
 and, moreover, publishers probably will not want to use the results of other 
@@ -899,7 +899,7 @@ process the input patterns and build the different models. SVM for
 instance, must previously transform these categories into binary
 variables in order to deal with the data, which means the creation of
 a different (and new) variable per each possible value. Thus, in the
-case of \emph{publisher} or \emph{collection} this would imply the definition of
+case of \texttt{publisher} or \texttt{collection} this would imply the definition of
 hundreds of new variables. 
 
 Correlation coefficient, error measures and time to build the model have been 
@@ -930,7 +930,7 @@ Taking into account the obtained results by SVM model, this method obtains compa
 errors to those of M5P. Even when using roughly tuned parameter values, it shows 
 a good generalisation performance. However, SVM is much slower than the others to build 
 the model, not only when using the dataset with categorical input variables, such 
-as \emph{collection} and \emph{binding}, but also when using the datasets with 
+as \texttt{collection} and \texttt{binding}, but also when using the datasets with 
 numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
 According to Figure \ref{fig:all_publishers_no_fs}, it can also be noticed that 
@@ -944,7 +944,7 @@ is the simplest one. However, the model is slow when classifying large number of
 training examples, and it exhibits a poor generalisation ability since it does 
 not learn anything from the training data.
 
-%Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \emph{collection} and \emph{binding}.
+%Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \texttt{collection} and \texttt{binding}.
 
 As a first conclusion, paying attention both to the cost in time to obtain the 
 forecasting models and their accuracy, the M5P model would be the most adequate 
@@ -975,7 +975,7 @@ We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based f
 
 
 The dataset has also been analysed using SOM, and a visual exploration of the obtained results has been performed in order to determine the best variables to consider.
-An important preprocessing step has been carried out before conducting the SOM analysis. Thus, the two categorical features \emph{collection} and \emph{binding} have been removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
+An important preprocessing step has been carried out before conducting the SOM analysis. Thus, the two categorical features \texttt{collection} and \texttt{binding} have been removed from the analysis since SOM cannot deal with them without a previous transformation into numerical ones. However, since they have a large number of unique different values this would be finally impracticable and useless. 
 
 In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
@@ -1040,7 +1040,7 @@ No. & Variable & CfsSubsetEval & ReliefFAttributeEval & SOM\\
 \end{figure*}
 
 
-Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \emph{distrib\_novelty} and \emph{print\_run}variables while the second is the \emph{tot\_points\_sale} and \emph{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \emph{distrib\_novelty} and \emph{tot\_points\_sale\_1st\_year} were omitted from the dataset.
+Examining the component planes shown in Figure \ref{fig:componentplanes}, it can be noticed that some variables have very similar colour maps which means that they are highly correlated. In this case, we have two examples; the first is the \texttt{distrib\_novelty} and \texttt{print\_run}variables while the second is the \texttt{tot\_points\_sale} and \texttt{tot\_points\_sale\_1st\_year}. In order to make the dataset having less number of uncorrelated features with each other, one of the redundant features is removed from each pair of features. Therefore, the \texttt{distrib\_novelty} and \texttt{tot\_points\_sale\_1st\_year} were omitted from the dataset.
 
 
 The selected features using each one of the three methods are shown in 
