@@ -912,7 +912,8 @@ in the appendix of tables at the end of this paper).
 \begin{center}
 \includegraphics[scale=0.4]{./imgs/prediction_all_publisher_all_features_Table3.eps}
 \end{center}
-\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). All publishers and all the features have been considered.}
+\caption{Barplots showing the values obtained predicting \texttt{total\_sales}, including errorbars, with different regression methods (30 repetitions, 10-fold cross validation). All publishers and all the features have been considered.}
+%This is not a boxplot - JJ
 \label{fig:all_publishers_no_fs}
 \end{figure*}
 
@@ -1035,7 +1036,7 @@ No. & Variable & CfsSubsetEval & ReliefFAttributeEval & SOM\\
 \begin{center}
 \includegraphics[scale=0.42]{./imgs/prediction_all_publisher_Table5.eps}
 \end{center}
-\caption{Boxplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). All publishers and just those features selected by each method have been considered in every case.}
+\caption{Barplots showing the values obtained predicting \texttt{total\_sales} with different regression methods (30 repetitions, 10-fold cross validation). All publishers and just those features selected by each method have been considered in every case.}
 \label{fig:results_all_publishers_fs}
 \end{figure*}
 
@@ -1115,7 +1116,13 @@ makers and managers in the domain. The four cases are described as follows:
 \begin{center}
 \includegraphics[scale=0.6]{./imgs/attribute_All.eps}
 \end{center}
-\caption{Boxplots showing the values obtained predicting \texttt{total\_sales}, using all features, with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).
+\caption{Barplots showing the values obtained predicting
+  \texttt{total\_sales}, using all features, with different regression
+  methods (30 repetitions, 10-fold cross validation). Results obtained
+  for different special publishing companies: UDL929 (the best selling
+  publishing company), UDLW12 (the median selling publishing company),
+  UDL704 (highest number of different titles sold) and UDLU11 (medium
+  number of different books sold). 
 % Just the features selected by ReliefFAttributeEval method have been considered.
 }
 \label{fig:attributeAll}
@@ -1200,7 +1207,7 @@ methods we refer the reader to the appendix of tables at the end of this paper.
 \begin{center}
 \includegraphics[scale=0.6]{./imgs/attribute_ReliefFAttributeEval-FS.eps}
 \end{center}
-\caption{Boxplots showing the values obtained predicting \texttt{total\_sales}, considering just the features selected by ReliefFAttributeEval method, with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).
+\caption{Barplots showing the values obtained predicting \texttt{total\_sales}, considering just the features selected by ReliefFAttributeEval method, with different regression methods (30 repetitions, 10-fold cross validation). Results obtained for different special publishing companies: UDL929 (the best selling publishing company), UDLW12 (the median selling publishing company), UDL704 (highest number of different titles sold) and UDLU11 (medium number of different books sold).
 }
 \label{fig:casesReliefFAttributeEval}
 \end{figure*}
