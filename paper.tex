@@ -154,9 +154,10 @@ control. That is why, using data obtained from a company that sells
 software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
 sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
 
-Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, we have considered a real dataset of book sales (related to the Spanish market), which is another point to remark.
+Our main contribution is, thus, the development of the methodology to process book sales data in order to first, find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, we have considered a real dataset of book sales (related to the Spanish market), which is another point to remark.
 
 Therefore, in this paper, the problem of predicting total sales is approached using real data provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
+% (Paloma) From here:
 Usually, the company's expert sales managers analysed historical data
 and applied their knowledge on external variables to compute correct
 estimations (predictions); for instance, they can decide increasing or
@@ -164,6 +165,7 @@ decreasing the sales forecast based on season or sales period.
 Nevertheless, just carrying out the analysis and forecasting process
 as a human expert may lead to imprecise predictions, and they may not
 take all the variables into account.  
+% (Paloma) to here, is repeating all over again the process of deciding how many books to print. I think this paragraph should be unified somehow with the previous explanations and to re-order, because the previous paragraph seems like the end of the introduction, but then we go deep in the explanations again... It's not an easy read :(
 In addition, the process might be tedious, especially when the amount
 of data is quite large. Moreover, different experts can reach different
 predictions from the same dataset \cite{Sanders1994}. 
@@ -173,7 +175,12 @@ on the aforementioned real dataset, by means of data mining and
 visualisation techniques. Then, a feature selection process is
 conducted using three different methods, in order to find out what are
 the relevant variables describing a book in the prediction (or
-regression) procedure. After this, a forecasting stage is performed
+regression) procedure. 
+% (Paloma) Why brackets? Suggestions:
+% relevant variables describing a book in the prediction or regression procedure
+% relevant variables describing a book in the prediction, or regression, procedure
+% relevant variables describing a book in the prediction (regression) procedure <- here brackets are ok (me thinks)
+After this, a forecasting stage is performed
 applying a set of regression algorithms to the different datasets,
 also considering a different number of variables. 
 The value of this methodology is contrasted considering four different
@@ -183,8 +190,12 @@ different books. From this, we draw insight on what are the important
 factors when selling a book and some rule of thumbs extracted from the
 prediction methods.
 
-The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes and shows a set of definitions of the regression methods applied in the paper and the evaluation metrics considered.
-Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run for new books, along with a description of the considered dataset.
+The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes, and shows a set of definitions of the regression methods applied in the paper as well as the evaluation metrics considered.
+Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run
+% (Paloma) Guys, 'print run' is written a total of 28 times:
+% 23 are in the 'print-run' form
+% 5 are 'print-run' (with a dash), of which one is inside the list of variables. But what about the rest inside text? Shouldn't they go ALL either with or without the dash?
+for new books, along with a description of the considered dataset.
 Section \ref{sec:methodology} details the methodology considered in the study.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
 
 
