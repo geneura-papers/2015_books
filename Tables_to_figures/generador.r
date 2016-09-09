@@ -55,6 +55,7 @@ datos[datos$variable=="R.","variable"] <- "R"
 dataset = unique(datos$Dataset)
 
 datos$Dataset <- factor(datos$Dataset,c("PublishingCo-UDL929","PublishingCo-UDLW12","PublishingCo-UDL704","PublishingCo-UDLU11"))
+datos$variable <- factor(datos$variable, c("R","MAE","RMSE","RAE","RRSE","TIME"))
 
 #ggplot(data = subset(datos,Dataset==dataset[1]), aes(x=Attributes,y=value,color=Attributes,shape=Attributes)) + geom_point(stat="identity",size=3) + 
 #  facet_grid(variable ~ Method,scales = "free_y",labeller = as_labeller(expression()) + 
@@ -79,9 +80,11 @@ for(i in dataset){
   print(ggplot(data = subset(datos,Dataset==i), aes(x=Attributes,y=value,fill=Attributes,shape=Attributes)) + geom_point(size=2) + geom_bar(stat="identity") + 
     facet_grid(variable ~ Method,scales = "free_y") + 
     scale_fill_grey(start=0.6,end=0.8) + labs(title=i,x="",y="") + 
-    geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  + theme(legend.position="bottom", axis.title.x=element_blank(),
-                                                                                                    axis.text.x=element_blank(),
-                                                                                             axis.ticks.x=element_blank()))
+    geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  +
+    theme(legend.position="bottom", axis.title.x=element_blank(),axis.ticks.x=element_blank(), axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_y_continuous(limits = c(0, NA)))
+  
+  
   ggsave(file=paste0("../imgs/datasets_",i,".eps"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
   ggsave(file=paste0("../imgs/datasets_",i,".png"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
 }
@@ -103,8 +106,8 @@ print(ggplot(data = subset(datos,Attributes==j), aes(x=Method,y=value,fill=Metho
   )
       
 
-  #ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
-  #ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+  ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+  ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
 
   }
 
@@ -116,7 +119,8 @@ for(i in var){
     geom_bar(stat="identity",size=3) + 
     facet_grid(Dataset ~ Attributes,scales = "free_y") + 
     scale_fill_grey(start=0.2,end=0.8) + labs(title=i,x="Method",y="Seconds") + 
-    geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+    geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom") +
+    scale_y_continuous(limits = c(0, NA))
   
   
   ggsave(file=paste0("../imgs/metric_",i,".eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
@@ -135,13 +139,15 @@ all$value <- as.numeric(sapply(str_split(all$value, '_'), '[', 1))
 all$variable <- as.character(all$variable)
 all[all$variable=="R.","variable"] <- "R"
 
+all$variable <- factor(all$variable, c("R","MAE","RMSE","RAE","RRSE","TIME"))
 
 
 ggplot(data = subset(all), aes(x=Method,y=value)) + 
   geom_bar(aes(fill=Method),stat="identity",size=3) + geom_point(stat="identity",size=3) +
   facet_grid(variable ~ . ,scales = "free_y") + 
   scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
-  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right")
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") +
+  scale_y_continuous(limits = c(0, NA))
 
 
 ggsave(file=paste0("../imgs/prediction_all_publisher_all_features_Table3.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
@@ -171,11 +177,14 @@ datos$value <- as.numeric(sapply(str_split(datos$value, '_'), '[', 1))
 datos$variable <- as.character(datos$variable)
 datos[datos$variable=="R.","variable"] <- "R"
 
+datos$variable <- factor(datos$variable, c("R","MAE","RMSE","RAE","RRSE","TIME"))
+
 ggplot(data = subset(datos), aes(x=Method,y=value)) + 
   geom_bar(aes(fill=Method),stat="identity",size=3) + geom_point(stat="identity",size=3) +
   facet_grid(variable ~ Attributes ,scales = "free_y") + 
   scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
-  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right")
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") + 
+  scale_y_continuous(limits = c(0, NA))
 
 
 ggsave(file=paste0("../imgs/prediction_all_publisher_Table5.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
