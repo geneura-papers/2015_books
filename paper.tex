@@ -228,7 +228,7 @@ subjectively apply \cite{Lapide1999,ChernWSF15}.
 % We can remove next sentence if you think it only should appear together with a reference.
 For this reason, usually the methods used to predict book sales have
 been generally based on experts' experience, who analyse data about sales and, 
-taking into account their knowledge of industry, their experience, 
+taking into account their knowledge of the industry, their experience, 
 and their perception about trends, could make decisions on the companies 
 production, i.e. how many books should be printed when a new book is published. 
 
@@ -440,7 +440,7 @@ works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
 
 \item \emph{Extreme learning machine (ELM)}: 
 ELM is an algorithm for training a single hidden 
-layer feedforward neural network which was first proposed by Guang-Bin Huang \cite
+layer feedforward neural network, which was first proposed by Guang-Bin Huang \cite
 {huang2006extreme}. A typical implementation of ELM is a single hidden layer network where the 
 connection weights between the input layer and the hidden layer are randomly initialized and 
 fixed, while the connection weights between the hidden layer the output layer are learnt 
@@ -504,7 +504,7 @@ historical data are available and thus it is not simply a matter of
 analyzing a time series, instead, we have considered data about other,
 previously published, books and have taken as reference a set of
 variables (or features), 
-related with the book publication process. 
+related to the book publication process. 
 
 \begin{table*}[!ht]
 \caption{Parameters describing a book, provided by the company Trevenque S.L.}
@@ -636,11 +636,13 @@ tree nodes, changing the print run might give the publisher an idea of
 how many books are going to be actually sold out of that print run,
 and taking that into account decide on the actual number of books that
 are going to be printed. Just to be clear, printing books does not
+%PABLO: that "Just to be clear" is too informal
 actually sell them, but it is obviously necessary to print books
 before you sell them, and once you have to do it, the publisher might
 make decisions on printing a few more and check, with this model, what
 would be the influence in sales if, for instance, you decide to send
-more books to every point of sale or distribute more in novelty. We
+more books to every point of sale or distribute more in novelty. We 
+%PABLO: previous phrase is toooooo large, please divide
 will come back to this choice later on when examining the resulting
 models. 
 
@@ -652,7 +654,7 @@ these features.
 
 With regard to the feature \texttt{publisher}, it has been removed from the 
 final dataset since it is indeed included in the code of \texttt{collection}. 
-In addition, we think it is not really relevant for the accuracy of the models 
+In addition, we think it is not really relevant to the accuracy of the models 
 and, moreover, publishers probably will not want to use the results of other 
 publishing companies for predicting their own sales.
 
