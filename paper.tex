@@ -164,7 +164,7 @@ control. That is why, using data obtained from a company that sells
 software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
 sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
 
-Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, the use of a real dataset of book sales is another point to remark with respect to other works.
+Our main contribution is, thus, the development of the methodology to process book sales data in order to, first find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, we have considered a real dataset of book sales (related to the Spanish market), which is another point to remark.
 
 Therefore, in this paper, the problem of predicting total sales is approached using real data provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
 Usually, the company's expert sales managers analysed historical data
@@ -202,12 +202,7 @@ Section \ref{sec:methodology} details the methodology considered in the study.  
 \section{Background and State of the art on sales forecasting} 
 \label{sec:soa}
 
-Book sales forecasting is not a very prolific field of research. There are just a few papers working in this scope \cite{Chang2005_book_forecast_SOM-CBR}...
-% Antonio - TODO - completar esto una vez leido el paper con sus partes malas y buenas de nuestro paper, claro
-% TODO - buscar si hay más trabajos...
-However, similar techniques to those proposed in this paper, e.g. 
-regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} 
-or fuzzy systems \cite{Mastorocostas2001}, have been applied to solve sales prediction problems in other industrial sectors.
+As far as we know, no previous attempt can be found in the literature in which prediction methods have been applied to estimate sales for new launched books in a whole country market. However, similar techniques to those proposed in this paper, e.g. regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001}, have been applied to solve sales prediction problems in other industrial sectors.
 
 Specifically, time-series prediction methods
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10}  
@@ -696,28 +691,25 @@ There is not a standard methodology to solve the general problem of sales foreca
 \end{figure}
 
 
-Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, which is portrayed in Section \ref{subsec:data_preproces}. These methods check the relevance of all the variables of the patterns, aiming to reduce even more this set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
+Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, since it is an effective dimensionality reduction technique, able to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
+
+FS methods check the relevance of all the variables of the patterns, aiming to reduce the set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
 This task may also help to identify leading indicators to be considered 
 by a human expert to make predictions.
+At this stage of the methodology, both numerical and visualisation-based approaches have been applied, in order to select the best set of variables for the forecasting methods.  
 
-In this stage, both numerical and visualisation-based approaches have been 
-applied, in order to select the best variables for the forecasting methods.  
-The methods to apply are those described in Section \ref{subsec:select_method},  which include rule- and tree-based algorithms, together with numerical regression methods. 
+After this process has been conducted, different prediction methods have been applied on the dataset. These methods have been described in Section \ref{subsec:select_method}, and include rule- and tree-based algorithms, together with numerical regression methods. 
 
-The obtained models for the whole dataset have been evaluated by means of the metrics described in Section \ref{subsec:models_evaluation}. The results are presented in Section \ref{sec:experiments}. Then, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}).
-Specific interpretable models have been created as a final result of the work (Section \ref{subsec:decision_trees}). 
+As a result, several prediction models are obtained. Then the obtained models for the whole dataset have been evaluated by means of the metrics described in Section \ref{subsec:models_evaluation}. The results are presented in Section \ref{sec:experiments}. 
+
+After this, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}). Specific interpretable models have been created as a final result of the work (Section \ref{subsec:decision_trees}). 
 
 
-% Antonio - CONCERN - The following section seems to be bad placed now. The Methodology Section is now a bit strange with just this subsection. We should think on moving this section and reorganize/improve the methodology description.
+% Antonio - CONCERN - The following section seems to be misplaced after moving the rest to Section 2. Thus, the Methodology Section is now a bit strange with just this subsection. We should think on moving this section and reorganize/improve the methodology description.
 
 %-------------------------------------------------
 \subsection{Data preprocessing by feature selection}
 \label{subsec:data_preproces}
-
-At this stage, a Feature Selection (FS) process has been carried out, 
-since it is an effective dimensionality reduction technique and an essential 
-preprocessing method to discard less relevant or non-useful features 
-\cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
 The aim of these algorithms is exploring the space of attributes to find out 
 which subset of them yields the best results in a regression or prediction 
