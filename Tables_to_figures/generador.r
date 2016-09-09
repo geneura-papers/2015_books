@@ -54,6 +54,8 @@ datos$variable <- as.character(datos$variable)
 datos[datos$variable=="R.","variable"] <- "R"
 dataset = unique(datos$Dataset)
 
+datos$Dataset <- factor(datos$Dataset,c("PublishingCo-UDL929","PublishingCo-UDLW12","PublishingCo-UDL704","PublishingCo-UDLU11"))
+
 #ggplot(data = subset(datos,Dataset==dataset[1]), aes(x=Attributes,y=value,color=Attributes,shape=Attributes)) + geom_point(stat="identity",size=3) + 
 #  facet_grid(variable ~ Method,scales = "free_y",labeller = as_labeller(expression()) + 
 #  scale_color_grey(start=0.0,end=0.2) + labs(title=dataset[1],x="",y="") + 
@@ -82,9 +84,9 @@ for(i in dataset){
                                                                                              axis.ticks.x=element_blank()))
   ggsave(file=paste0("../imgs/datasets_",i,".eps"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
   ggsave(file=paste0("../imgs/datasets_",i,".png"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
-  
 }
 
+  
 # Attribute Selection > Publisher > Method > Metric
 
 att = unique(datos$Attributes)
@@ -95,14 +97,14 @@ att = unique(datos$Attributes)
 print(ggplot(data = subset(datos,Attributes==j), aes(x=Method,y=value,fill=Method)) + 
   geom_point(stat="identity",size=2)  + geom_bar(stat="identity") + 
   facet_grid(variable ~ Dataset,scales = "free_y") + 
-  scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
+  scale_fill_grey(start=0.2,end=0.6) + labs(title=j,x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") +
     scale_y_continuous(limits = c(0, NA))
   )
       
 
-  ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
-  ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+  #ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+  #ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
 
   }
 
@@ -136,10 +138,10 @@ all[all$variable=="R.","variable"] <- "R"
 
 
 ggplot(data = subset(all), aes(x=Method,y=value)) + 
-  geom_bar(stat="identity",size=3) + geom_point(stat="identity",size=3) +
+  geom_bar(aes(fill=Method),stat="identity",size=3) + geom_point(stat="identity",size=3) +
   facet_grid(variable ~ . ,scales = "free_y") + 
-  scale_fill_grey(start=0.2,end=0.8) + labs(title="",x="Method",y="") + 
-  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+  scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right")
 
 
 ggsave(file=paste0("../imgs/prediction_all_publisher_all_features_Table3.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
@@ -170,10 +172,10 @@ datos$variable <- as.character(datos$variable)
 datos[datos$variable=="R.","variable"] <- "R"
 
 ggplot(data = subset(datos), aes(x=Method,y=value)) + 
-  geom_bar(stat="identity",size=3) + geom_point(stat="identity",size=3) +
+  geom_bar(aes(fill=Method),stat="identity",size=3) + geom_point(stat="identity",size=3) +
   facet_grid(variable ~ Attributes ,scales = "free_y") + 
-  scale_fill_grey(start=0.2,end=0.8) + labs(title="",x="Method",y="") + 
-  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom")
+  scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
+  geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right")
 
 
 ggsave(file=paste0("../imgs/prediction_all_publisher_Table5.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
