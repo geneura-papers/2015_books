@@ -694,7 +694,7 @@ There is not a standard methodology to solve the general problem of sales foreca
 \end{figure}
 
 
-Therefore, after the data has been collected and initially preprocessed (as described in previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, since it is an effective dimensionality reduction technique, able to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
+Therefore, after the data has been collected and initially preprocessed (as described in the previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, since it is an effective dimensionality reduction technique, able to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
 FS methods check the relevance of all the variables of the patterns, aiming to reduce the set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
 This task may also help to identify leading indicators to be considered 
@@ -728,7 +728,7 @@ factor in this work, because one of the objectives is to obtain `easily'
 interpretable decision models, which can be useful for human experts (publishers).
 Regarding the algorithm, running time grows with the number of
 features, making it impractical for problems with a large number of features 
-\cite{Selvakuberan2008}; however, this is a secondary objective in this work.
+\cite{Selvakuberan2008}; however, this is a secondary objective of this work.
 
 FS is one of the ways of performing a feature reduction, the other one is 
 feature extraction \cite{kittler1986feature}. 
@@ -741,7 +741,7 @@ contrary, FS attempts to retain the meaning of the
 original feature set. It is part of what is called semantic-preserving
 techniques, known as `selection-based approaches' \cite{liu1998feature}. 
 In the problem this work addresses, it is very important to maintain the 
-semantics of initial variables set, and therefore just FS methods 
+semantics of the initial variables set, and therefore just FS methods 
 have been applied. 
 
 We have used some numerical FS methods included in Weka software \cite{Hall2009,Witten2011}. This tool separates the process into two parts:
@@ -896,7 +896,7 @@ a different (and new) variable per each possible value. Thus, in the
 case of \texttt{publisher} or \texttt{collection} this would imply the definition of hundreds of new variables. 
 
 Correlation coefficient, error measures and time to build the model have been 
-computed for every method. Obtained results are presented in 
+computed for every method. The obtained results are presented in 
 Figure \ref{fig:all_publishers_no_fs}
 (detailed numeric results can be seen in Table \ref{tab:all_publishers_no_fs}
 in the appendix of tables at the end of this paper).
@@ -933,18 +933,18 @@ the Linear Regression model gets a better correlation value and some error measu
 So even though Linear Regression is considered as a simple model to build, it can obtain better results than more powerful models in comparable time.
 
 kNN is the fastest method used in this study in terms of training time, as it 
-is the simplest one. However, the model is slow when classifying large number of 
+is the simplest one. However, the model is slow when classifying a large number of 
 training examples, and it exhibits a poor generalisation ability since it does 
 not learn enough from the training data.
 
 %Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \texttt{collection} and \texttt{binding}.
 
-MLP also gets a very good correlation coefficient, however it takes the largest time to built the models, and obtains high error measures. ELM shows a good balance, since it is very fast in the training phase (the second faster) and yields good results according to the correlation and the error metrics.
+MLP also gets a very good correlation coefficient. However, it takes the largest time to built the models, and obtains high error measures. ELM shows a good balance, since it is very fast in the training phase (the second fastest) and yields good results according to the correlation and the error metrics.
 
 As a first conclusion, paying attention both to the cost in time to obtain the 
 forecasting models and their accuracy, the M5P model would be the most adequate 
 to solve the problem of how many books should be printed when a new book is 
-published considering all the pre-sales data. Therefore this forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
+published considering all the pre-sales data. Therefore, this forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
 
 
 %--------------------------------------------------------------------------
@@ -972,7 +972,7 @@ An important preprocessing step has been carried out before conducting the SOM a
 
 In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
-Thus, the chosen map to represent the data has $26 \times 16$ neurons and an hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
+Thus, the chosen map to represent the data has $26 \times 16$ neurons and a hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
 
 
 Figure \ref{fig:componentplanes} shows the U-matrix along with the component 
@@ -983,7 +983,7 @@ values of the prototype vectors of the SOM map units. These values are represent
 as colours. The colourbar on the right of each component plane shows the indication 
 of each colour. On the other side, the U-matrix on the top
 left corner shows the distances between the adjacent units. It is
-important to note that high values in the matrix indicates large
+important to note that high values in the matrix indicate large
 distance between the units of the map. It can be noticed also that
 there are more hexagons in the U-matrix than component planes since
 the distances between units are also represented as inter-neuron hexagons. 
