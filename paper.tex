@@ -824,7 +824,7 @@ of variables into separate planes, the so-called component planes analysis
 on every cluster, i.e. those with a higher influence on the creation of that 
 cluster.
 
-Next section provides a comparison between the feature reduction through SOM, and the feature selection techniques that have been described.
+These FS techniques have been applied in the following section, including a comparison between all of them.
 
 
 
@@ -834,8 +834,7 @@ Next section provides a comparison between the feature reduction through SOM, an
 
 This section presents the experiments conducted over the dataset considering the 
 pre-sales variables forecasting new book sales.
-Feature selection techniques have also been applied in order to test their utility 
-by comparing the obtained results.
+Feature selection techniques have also been applied in order to test their utility by comparing the obtained results.
 
 We have analysed the whole dataset (all the publishing companies), but also 
 performed some experiments considering specific and representative publishing 
@@ -891,13 +890,12 @@ process the input patterns and build the different models. SVM for
 instance, must previously transform these categories into binary
 variables in order to deal with the data, which means the creation of
 a different (and new) variable per each possible value. Thus, in the
-case of \texttt{publisher} or \texttt{collection} this would imply the definition of
-hundreds of new variables. 
+case of \texttt{publisher} or \texttt{collection} this would imply the definition of hundreds of new variables. 
 
 Correlation coefficient, error measures and time to build the model have been 
 computed for every method. Obtained results are presented in 
 Figure \ref{fig:all_publishers_no_fs}
-(detailed numeric results can be shown in Table Table \ref{tab:all_publishers_no_fs}
+(detailed numeric results can be seen in Table \ref{tab:all_publishers_no_fs}
 in the appendix of tables at the end of this paper).
 
 \begin{figure*}[ht]
@@ -905,7 +903,7 @@ in the appendix of tables at the end of this paper).
 \includegraphics[scale=0.4]{./imgs/prediction_all_publisher_all_features_Table3.eps}
 \end{center}
 \caption{Barplots showing the values obtained predicting \texttt{total\_sales}, including errorbars, with different regression methods (30 repetitions, 10-fold cross validation). All publishers and all the features have been considered.}
-%This is not a boxplot - JJ
+% Antonio - Should we explain the meaning of the dot and the small lines in every barplot? I guess they are mean and standard deviation, aren't they?
 \label{fig:all_publishers_no_fs}
 \end{figure*}
 
@@ -915,8 +913,7 @@ both in time and error. The advantage of M5P is that it can learn and tackle
 regression tasks that have high dimensionality and categorical variables efficiently. 
 Moreover, M5P generates reproducible and comprehensible representations that 
 provide information on the decision process and does not require human intervention 
-either for the operation or for interpretation. Thus, it is a very suitable model 
-be incorporated in a publishing company processes (as we will show in 
+either for the operation or for interpretation. Thus, it is a very suitable model to be incorporated in a publishing company processes (as we will show in 
 Section \ref{subsec:decision_trees}).
 
 Taking into account the obtained results by SVM model, this method obtains comparable 
@@ -927,24 +924,24 @@ as \texttt{collection} and \texttt{binding}, but also when using the datasets wi
 numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
 According to Figure \ref{fig:all_publishers_no_fs}, it can also be noticed that 
-the Linear Regression model outperforms some other complex methods like the 
-Random Forest, both in time and in obtained errors. 
+the Linear Regression model gets a better correlation value and some error measures than other complex methods like the Random Forest. 
 %Although, Linear Regression is considered as a simple model to build, more powerful models can obtain better results in comparable time.  % I change this sentence as its meaning is 'strange'...  [pedro]
-Although, Linear Regression is considered as a simple model to build, it can obtain better results than more powerful models in comparable time.
+% Antonio - I have rewritten it. ;)
+So even though Linear Regression is considered as a simple model to build, it can obtain better results than more powerful models in comparable time.
 
 kNN is the fastest method used in this study in terms of training time, as it 
 is the simplest one. However, the model is slow when classifying large number of 
 training examples, and it exhibits a poor generalisation ability since it does 
-not learn anything from the training data.
+not learn enough from the training data.
 
 %Moreover, in these experiments it has been seen the difficulty for some classifiers like the SVM to process information related to categorical variables, such as \texttt{collection} and \texttt{binding}.
+
+MLP also gets a very good correlation coefficient, however it takes the largest time to built the models, and obtains high error measures. ELM shows a good balance, since it is very fast in the training phase (the second faster) and yields good results according to the correlation and the error metrics.
 
 As a first conclusion, paying attention both to the cost in time to obtain the 
 forecasting models and their accuracy, the M5P model would be the most adequate 
 to solve the problem of how many books should be printed when a new book is 
-published. This forecasting method, with these additional advantages, can be used 
-for products with historical sales data and for new products with little or 
-no historical data available.
+published considering all the pre-sales data. Therefore this forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
 
 
 %--------------------------------------------------------------------------
@@ -954,7 +951,7 @@ no historical data available.
 
 In the second stage of the experiments, different feature selection methods have been applied. The aim of these methods is to reduce the number of features considered in developing the forecasting models which consequently simplify the complexity of the models, improve their interpretability and decrease the training time. The simpler models generated after performing feature selection could give the decision maker a better insight on the underlying process by identifying the most influencing variables. 
   
-We have used both the {\tt CfsSubsetEval} \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
+We have used both the {\tt CfsSubsetEval} (CSE) \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval (RFE) \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
 
 
 \begin{figure*}[ht]
@@ -1047,24 +1044,19 @@ forecasting models as in Section \ref{subsec:results_all_publishers}
 for the whole dataset (all the publishers), but considering only the
 selected features by each method. 
 The results are shown in Figure \ref{fig:results_all_publishers_fs} 
-(detailed numeric results can be shown in Table \ref{tab:results_all_publishers_fs}
-in the appendix of tables at the end of this paper).
+(numeric results are shown in Table \ref{tab:results_all_publishers_fs}
+in the appendix of tables).
 Examining the obtained results for each feature selection method, 
-it can be seen that RFE got the best results compared to SOM and CSE. 
-It can be noticed also that we obtain better performance using M5P, 
-kNN and RF with the set of features selected by RFE than using all features. 
-                                %Better publish results in
-                                %the same table or refer to the table
-                                %where it was published. Is this
-                                %difference statistically significant?
-                                %- JJ
-As expected, in general, all feature selection methods have reduced the training 
-time needed to build the forecasting methods. This is because they reduced the 
-considered features and mainly because they excluded the categorical features, 
-which are the hardest to be managed (they have many possible values). 
-On the other side, CSE and SOM did not perform as good as RA. 
+it can be seen that RFE got the best results in the comparison with SOM and CSE, both considering the quality/accuracy and also the standard deviation.
 This could be explained due to the extensive reduction made by CSE and due to 
 the `subjective' (but not so accurate) human intervention in the case of SOM. 
+It can be noticed also that we obtain better results using M5P, kNN, and RF with the set of features selected by RFE than using all features, so the application of FS has improved their overall performance.
+
+As expected, in general, all feature selection methods have reduced the training 
+time needed to build the forecasting models, considerably in the most time expensive in previous experiment. This is because they reduced the 
+considered features and mainly because they excluded the categorical features, 
+which are the hardest to be managed (they have many possible values). 
+On the other side, CSE and SOM did not perform as good as RFE. 
 
 
 %********************************************************************************
@@ -1073,10 +1065,9 @@ the `subjective' (but not so accurate) human intervention in the case of SOM.
 \label{sec:example_cases}
 
 This section presents further experiments conducted on data concerning four 
-specially interesting publishing company cases. These publishing companies were 
+specially relevant publishing company cases. These companies were 
 selected as representative cases which could be very interesting for decision 
 makers and managers in the domain. The four cases are described as follows:
-
 
 \begin{table*}
 \caption{Description of publishing companies considered as special cases.}
@@ -1115,20 +1106,15 @@ makers and managers in the domain. The four cases are described as follows:
   publishing company), UDLW12 (the median selling publishing company),
   UDL704 (highest number of different titles sold) and UDLU11 (medium
   number of different books sold). 
-% Just the features selected by ReliefFAttributeEval method have been considered.
 }
 \label{fig:attributeAll}
 \end{figure*}
-% Antonio - CONCERN - The text and the results must be contrasted. If I'm not wrong, I remember that we decided to include here just the results obtained by ReliefFAttributeEval, since they were quite good (maybe the best). But there are plotted apparently the results for all the features. Anyway, in the text, it is said that the process is using all the features, then apply FS. But here just the results for all the features are shown. Why don't we show also the results for the corresponding sets of features selected by each FS method?
-% Actually in the previous version there were several tables with these results than have been moved to the Appendix. I think we should include another figure fro them. They show important information. ;)
-% we can discuss this point later this morning.
-% The thing is that in this plot we are using all features!! (here, no feature selection method has been used)
 
 \begin{itemize}
-    \item Best seller publishing company: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
-    \item Mid-range seller publishing company: this represents a publishing company that sells medium number of copies compared to other publishing companies (Medium business scale). 
-    \item Highest variation publishing company: this is an example of a publishing company that follows a strategy in publishing a very wide range of different titles.
-    \item Medium varied publishing company: this case represents a publishing company that has a median rank between the other publishing companies regarding the variety of titles sold.
+    \item \textit{Best seller publishing company}: this case represents the publishing company that sells the highest number of copies regardless the title of the books sold. Therefore, it is an example of a case on a higher business scale.
+    \item \textit{Mid-range seller publishing company}: this represents a publishing company that sells medium number of copies compared to other publishing companies (Medium business scale). 
+    \item \textit{Highest variation publishing company}: this is an example of a publishing company that follows a strategy in publishing a very wide range of different titles.
+    \item \textit{Medium varied publishing company}: this case represents a publishing company that has a median rank between the other publishing companies regarding the variety of titles sold.
 \end{itemize}
 
 
@@ -1137,22 +1123,16 @@ of titles published by the selected companies.
 
 
 
-The experiments applied on the selected special cases follow the same methodology 
-used previously for the whole dataset. First, the forecasting models are applied 
-on each dataset using all features, then, the three feature selection methods 
-(RFE, CSE and SOM) are used to reduce the set of features in each case. 
-Second, the regression models are applied again on the reduced datasets to 
-evaluate their performance.
+The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the regression models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the obtained models (without performing any feature selection 
-method) for the selected four cases  have been summarized in Figure \ref{fig:attributeAll} 
-(detailed numeric results can be seen in Tables 
+Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases  have been summarized in Figure \ref{fig:attributeAll} 
+(numeric results can be seen in Tables 
 \ref{Table:case1results_no_fs}, \ref{Table:case2results_no_fs}, 
 \ref{Table:case3results_no_fs} and \ref{Table:case4results_no_fs} 
-in the appendix of tables at the end of this paper).
-Results in this Figure show that the models performed similarly to the case of 
+in the appendix of tables).
+Results in the figure show that the models performed similarly to the case of 
 the global models for all publishers, which were previously presented in 
-Table \ref{tab:all_publishers_no_fs}. 
+Figure \ref{fig:all_publishers_no_fs}. 
 In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. 
 In the case of Best selling publisher houses (i.e. UDL929) and publishers who 
 publish wide range of different books (i.e. UDL704), M5P could be recommended 
@@ -1183,10 +1163,10 @@ leverage when deciding how much to print.
 %  dejamos ésta finalmente: tablas al apéndice + incluimos nueva figura con los datos del RFE.
 For clarity purpose, only obtained results after applying the RFE method for the 
 four cases are shown in Figure \ref{fig:casesReliefFAttributeEval}
- (detailed numeric results can be shown in 
+ (detailed numeric results can be seen in 
 Tables \ref{Table:case1results_fs_rf}, \ref{Table:case2results_fs_rf}, 
 \ref{Table:case3results_fs_rf} and \ref{Table:case4results_fs_rf}
-in the appendix of tables at the end of this paper).
+in the appendix of tables).
 This one was chosen since the selected features by RFE method showed in the 
 previous experiment the highest predictive power among all models.
 As can be shown, RFE reduction has noticeably improved the performance of all 
