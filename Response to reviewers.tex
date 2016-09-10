@@ -64,16 +64,14 @@ been added to the text to clarify this point.
 \noindent (2) \emph{In sub-section 4.2, five methods are introduced, i.e.,M5P,kNN,RF,LR and SVM. In sub-section 5.1, why is MLP (multi-layer perceptron) with one hidden layer described ?} 
 
 \begin{verbatim}
-The current paper includes in sub-section 
-`2.1. Selecting an appropriate forecasting method' (former
-sub-section 4.2) six methods: M5P, kNN, RF, LR, SVM, MLP,
- and ELM (requested by Reviewer #2). After having included
- ELM, new references have been added (the list of new references
- can be found at the end of this letter).
+The current paper includes in sub-section 4.2 six methods: M5P, kNN, 
+RF, LR, SVM, MLP, and ELM (requested by Reviewer #2). After having 
+included ELM, new references have been added (the list of new 
+references can be found at the end of this letter).
 
-Moreover, as suggested by the Reviewer #2 (see his/her first comment), 
-the results obtained with the two last methods have been included in 
-this new version of the paper.
+Moreover, as suggested by Reviewer #2 (see his/her first comment), 
+the results obtained with the last two methods have been included and 
+analyzed in this new version of the paper.
 \end{verbatim}
 % Antonio - TODO: say where are these results (table/figure/page)
 % where (finally) are we going to put those subsections?   XD
@@ -107,11 +105,14 @@ between classifiers, as in the paper:
   Do we need hundreds of classifiers to solve real world 
   classification problems?. J. Mach. Learn. Res. 15, 1, pp.3133-3181
 which incorporates a general comparison between all these classifiers.
+
+This has been clarified in the text with the following sentence, at the end of section 5.2 (page XX):
+
+"It is important to note that both RF and M5P have an embedded feature selection mechanism (the variables which compose the final trees), however this is part of their inherent procedure. In the following section we will apply three filter-based feature selection techniques on the dataset, so all the methods will profit."
+
+
 \end{verbatim}
-%Every response should end with changes made in the paper, even if it
-%is only clarification. It is not an invitation to discussion. 
-% Antonio - TODO: say how this has been addressed in the paper (where it is clarified). Say if this reference has been included as new.
-% JJ - Antonio, TODO by whom? If it's an issue, put it in the repo and assign it or do it yourself.
+% Antonio - TODO: Put the number of page.
 
 
 ~\\
@@ -121,9 +122,10 @@ which incorporates a general comparison between all these classifiers.
 The reviewer is right, thus, we have revised the whole paper remarking 
 the regression topic present on the work. We have clarified in several
  paragraphs that the problem has been addressed by means of regression 
-methods (for instance, note the new title of Section 2.1), or we have 
+methods (for instance, note the new title of Section 4.2), or we have 
 generally referred to the term `regression' instead of `classification', 
 in order to better suit the regression viewpoint.
+
 Moreover this suggestion have been also addressed solving the issue 
 related to comment #1, where the application procedure of feature 
 selection methods for regression problems has been clarified. 
@@ -136,7 +138,8 @@ selection methods for regression problems has been clarified.
 \begin{verbatim}
 Following reviewer's suggestion we have reorganized some parts 
 of the text, removed some sentences, and rewritten several paragraphs 
-in order to make them shorter, clearer and to improve its comprehension. 
+in order to avoid repetition, and also to make them shorter, clearer, 
+and easier to comprehend. 
 
 Also, all the tables of results have been moved to the Appendix and 
 that data has been presented now as the new Figures XX, YY, ZZ.
@@ -166,8 +169,8 @@ Following the reviewer's request, we have conducted several new experiments
 and added the results of ANN (MLP) and ELM to Tables XX, YY, ZZ and
 Figures AA, BB accordingly. 
 Their results have been also analyzed with the rest of methods, in the 
-paragraphs below each one of the new figures.
-A description of both approaches have been also included in subsection 2.1.
+paragraphs related to each one of the new figures.
+A description of both approaches have been also included in subsection 4.2.
 
 In addition new references have been added to the paper, related to these 
 methods, namely [REF_XX, REF_YY]. In any case, the list of new references
@@ -180,36 +183,55 @@ can be found at the end of this letter.
 \noindent (2) \emph{The authors should clarify their main contributions in the introduction parts.}
 
 \begin{verbatim}
-We have rewritten the introduction and included new paragraphs to better 
-explain the problem and the aim of the paper. We have also remarked the
-contribution with the paragraphs (see page XX):
+Following reviewer's request, we have rewritten the introduction and 
+included new paragraphs to better explain the problem and the aim of 
+the paper. In addition, we have laid out our methodology to differentiate 
+it from other approaches.
+
+We have also remarked the contribution with the paragraphs (see page XX):
 
 "Our intention in this paper is to find out the main factors influencing
-sales in order to create a tool that the publisher can use to decide how
+sales in order to create a tool that the publisher can use to decide how 
 many books should be printed, as well as how to leverage these printed
-copies to maximize sales using the decision variables under his control. 
-That is why, using data obtained from a company that sells software for 
-publishers, we analyse them and compute predictive models that can be 
-mainly used as decision-aid tools for book publishers. With these models,
- publishers will be able to combine their expert knowledge about the market 
-with the created forecasting models in order to get a reliable estimation of
- book sales, and, based on it, act consequently in order to maximize the 
-books sold for a particular print run. This will improve the current 
-decision flow that the publishers follow, which consist in analysing (in a
- subjective way) the quality of the book and its features (author, genre, 
-etc), and take a `fuzzy' decision roughly between printing 300 copies 
-(standard book) or 5000 (best seller).
+copies to maximize sales using the decision variables under his
+control. That is why, using data obtained from a company that sells
+software for publishers, we analyse them and compute predictive models 
+that can be mainly used as decision-aid tools for book publishers. With 
+these models, publishers will be able to combine their expert knowledge 
+about the market with the created forecasting models in order to get a 
+reliable estimation of book sales, and, based on it, act consequently 
+in order to maximize the books sold for a particular print run. 
 
-Our main contribution is, thus, the development of the methodology to 
-process book sales data in order to, first find out relevant variables, 
-and then, use these variables to process the data to accurately estimate 
-future sales. To our knowledge this is the first work in which regression 
-methods have been applied to estimate sales for new launched books. 
-Moreover, we have considered a real dataset of book sales (related to 
-the Spanish market), which is another point to remark."
+This will improve the current decision flow that the publishers follow, 
+which consist in analysing (in a subjective way) the quality of the book 
+and its features (author, genre, etc), and take a `fuzzy' decision roughly
+ between printing 300 copies (standard book) or 5000 (best seller).
 
-Also, in the following paragraphs, we have laid out our 
-methodology to differentiate it from other approaches.
+This process might be tedious, especially when the amount of data is quite
+ large. Moreover, different experts can reach different predictions from 
+the same dataset [4].
+
+With these issues in mind, in this paper, we firstly present an 
+analysis on a real dataset, provided by the Spanish publishing company 
+Trevenque Editorial S.L.
+This study has been conducted by means of data mining and visualisation
+ techniques. Then, a feature selection process is performed using three
+ different methods, in order to find out what are the relevant variables
+ describing a book  in the prediction, or estimation, procedure. 
+This procedure is performed by applying a set of regression algorithms 
+to the different datasets (those with a different number of variables), 
+yielding a set of models which could be used as the desired tool. 
+
+Given this, the main contribution of this paper to the state of the art 
+is the development of the aforementioned methodology to process book sales 
+data, in which: firstly, the most relevant variables are identified, and then,
+ these variables are considered to `refine' the data in order to conduct
+ accurate predictions on future sales. To our knowledge this is the first 
+work in which regression methods have been applied to estimate sales for 
+new launched books. Moreover, as stated before, we have used in the study 
+a real dataset of book sales (related to the Spanish market), which is 
+another point to remark."
+
 \end{verbatim}
 % TODO: update with the correct page where those paragraphs can be found
 
@@ -233,6 +255,9 @@ Following reviewer's suggestion, all the results tables have been
 moved to the Appendix and that data has been summarized and 
 presented as the new Figures XX, YY, ZZ in order to make that numeric 
 data clearer and to improve their comprehension.
+
+Their analysis has been also changed and improved considering Figures 
+instead of tables.
 \end{verbatim}
 % Antonio - TODO: put the correct page when the text is finished
 
@@ -264,29 +289,83 @@ and comments to improve the quality of our paper.
 The reviewer is right. The main contribution of this paper to the 
 state of the art was not properly described. Thus, as stated above 
 in the second response to Reviewer #2, we have clarified this in 
-the introduction adding new sentences and the paragraph (see page XX):
+the introduction improving some paragraphs and adding new sentences 
+(see page XX):
 
-"Our main contribution is, thus, the development of the methodology 
-to process book sales data in order to, first find out relevant 
-variables, and then, use these variables to process the data to 
-accurately estimate future sales. To our knowledge this is the first 
-work in which regression methods have been applied to estimate sales 
-for new launched books. Moreover, we have considered a real dataset 
-of book sales (related to the Spanish market), which is another 
-point to remark."
+"Our intention in this paper is to find out the main factors influencing
+sales in order to create a tool that the publisher can use to decide how 
+many books should be printed, as well as how to leverage these printed
+copies to maximize sales using the decision variables under his
+control. That is why, using data obtained from a company that sells
+software for publishers, we analyse them and compute predictive models 
+that can be mainly used as decision-aid tools for book publishers. With 
+these models, publishers will be able to combine their expert knowledge 
+about the market with the created forecasting models in order to get a 
+reliable estimation of book sales, and, based on it, act consequently 
+in order to maximize the books sold for a particular print run. 
+
+This will improve the current decision flow that the publishers follow, 
+which consist in analysing (in a subjective way) the quality of the book 
+and its features (author, genre, etc), and take a `fuzzy' decision roughly
+ between printing 300 copies (standard book) or 5000 (best seller).
+
+This process might be tedious, especially when the amount of data is quite
+ large. Moreover, different experts can reach different predictions from 
+the same dataset [4].
+
+With these issues in mind, in this paper, we firstly present an 
+analysis on a real dataset, provided by the Spanish publishing company 
+Trevenque Editorial S.L.
+This study has been conducted by means of data mining and visualisation
+ techniques. Then, a feature selection process is performed using three
+ different methods, in order to find out what are the relevant variables
+ describing a book  in the prediction, or estimation, procedure. 
+This procedure is performed by applying a set of regression algorithms 
+to the different datasets (those with a different number of variables), 
+yielding a set of models which could be used as the desired tool. 
+
+Given this, the main contribution of this paper to the state of the art 
+is the development of the aforementioned methodology to process book sales 
+data, in which: firstly, the most relevant variables are identified, and then,
+ these variables are considered to `refine' the data in order to conduct
+ accurate predictions on future sales. To our knowledge this is the first 
+work in which regression methods have been applied to estimate sales for 
+new launched books. Moreover, as stated before, we have used in the study 
+a real dataset of book sales (related to the Spanish market), which is 
+another point to remark."
 
 \end{verbatim}
-% Antonio - TODO - put here the paragraph as it will finally be (if it is changed again).
 
 
 ~\\
 \noindent (2) \emph{sections 4.1 and 4.2 should be moved to section 2. } 
 
 \begin{verbatim}
-Following reviewer's suggestion we have reorganized these sub-sections, 
-moving them to section 2.
+Although the reviewer is right, considering that those sections describe 
+methods and metrics used in the state of the art, the authors wanted to 
+have section 2 as independent from the rest, given it is a key section on 
+every work. 
+
+The authors think that `mixing' background concepts there could mean, 
+somehow, a lost in quality for that section.
+
+In addition, we also guess that if those subsections would be moved 
+to section 2, maybe section 4.3 should be moved too, as it also describes 
+some background concepts (usual evaluation metrics). Thus, the methodology 
+section would be certainly quite short.
+
+Finally, the rest of the reviewers haven't requested to change the 
+organisation and, moreover, Reviewer #2 has remarked that the paper 
+is well organized in his/her last comment.
+
+For these reasons we have decided to maintain those as subsections 
+of methodology (section 4).
+
+We hope that the reviewer agrees with this decision.
 \end{verbatim}
-% where (finally) are we going to put those subsections?   XD
+% Antonio - TODO - check this answer for not doing nothing. XD
+% Well, actually I have to undo several things. :(
+
 
 ~\\
 \noindent (3) \emph{In section 4, this manuscript should show a flowchart of the proposed forecasting scheme and describe it. } 
@@ -295,6 +374,9 @@ moving them to section 2.
 Taking into account the reviewer's comment, we have improved the 
 description of the methodology including a flowchart (see Figure XX 
 at page YY).
+
+Every step/stage shown in that figure has been described in the 
+following paragraphs.
 \end{verbatim}
 
 
@@ -310,7 +392,7 @@ methods.
 
 
 The authors want to express our gratitude to this reviewer 
-for his/her suggestions.
+for his/her valuable comments and suggestions.
 \end{verbatim}
 % Antonio - TODO: say paragraph/page where they are.
 

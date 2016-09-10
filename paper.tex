@@ -92,12 +92,7 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Regr
 Publishing a book, in the same way as releasing any other cultural product with a physical substrate, implies several types of risks and costs due to
 the complexity, and derived expenses, of its processes of production,
 distribution, and storage. Most of these costs are associated
-with the number of books actually printed, the so called {\em print run}. But the problem is further
-complicated for completely new products, in the sense that they have been written by an unknown
-author or deal with a new topic with no track record. In order to make
-the print run as close as possible to actual sales, it is essential to
-have an estimation of those sales; that is the challenge we are taking
-in this paper. 
+with the number of books actually printed, the so called {\em print run}. But the problem is further complicated for completely new products, in the sense that they have been written by an unknown author or deal with a new topic with no track record. In order to make the print run as close as possible to actual sales, it is essential to have an estimation of those sales; that is the challenge we are taking in this paper. 
 
 In general, forecasting the sales of cultural products can
 only be based on the knowledge obtained from sales of other, similar, ones,
@@ -129,13 +124,10 @@ publisher decides, based on past experience, how many books to
 print. These books are distributed to points of sale, but also given
 out to reviewers and literary magazines; the number of these will
 depend on how many were printed. Sometimes books go to
-the {\em novelty} table of the bookstore, that is, they are prominently displayed, shown in the window, or highlighted using props or other %Pablo: rephrasing and removing comas
+the {\em novelty} table of the bookstore, that is, they are prominently displayed, shown in the window, or highlighted using props or other 
+%Pablo: rephrasing and removing comas
 kind of advertisement. From these displays they then move to shelves
-or, in some cases and eventually, to storage. Books stay for sale in the store as long as the
-publisher or the store wants or until the bookseller decides to return them
-to the publisher. Books returned to the publisher are pulped, sold back or
-given to the author, or finally distributed in used-books channels such as
-book stalls or second-hand bookstores. If the print run has been fully
+or, in some cases and eventually, to storage. Books stay for sale in the store as long as the publisher or the store wants or until the bookseller decides to return them to the publisher. Books returned to the publisher are pulped, sold back or given to the author, or finally distributed in used-books channels such as book stalls or second-hand bookstores. If the print run has been fully
 distributed and there are more requests from bookstores, on the other
 hand, a new print run is made and distributed to these shops. 
 Even if the process has changed slightly 
@@ -147,42 +139,27 @@ collected, it roughly stays the same. Other countries will have a
 similar model, although the scale will be different. 
 
 Our intention in this paper is to find out the main factors influencing
-sales in order to create a tool that the publisher can use to decide how
-many books should be printed, as well as how to leverage these printed
+sales in order to create a \textit{tool} that the publisher can use to decide how many books should be printed, as well as how to leverage these printed
 copies to maximize sales using the decision variables under his
 control. That is why, using data obtained from a company that sells
 software for publishers, we analyse them and compute predictive models that can be mainly used as decision-aid tools for book publishers. With these models, publishers will be able to combine their expert knowledge about the market with the created forecasting models in order to get a reliable estimation of book
-sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
+sales, and, based on it, act consequently in order to maximize the books sold for a particular print run. 
 
-Our main contribution is, thus, the development of the methodology to process book sales data in order to find out relevant variables, and then, use these variables to process the data to accurately estimate future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, we have considered a real dataset of book sales (related to the Spanish market), which is another point to remark.
+This will improve the current decision flow that the publishers follow, which consist in analysing (in a subjective way) the quality of the book and its features (author, genre, etc), and take a `fuzzy' decision roughly between printing 300 copies (standard book) or 5000 (best seller).
 
-Therefore, in this paper, the problem of predicting total sales is approached using real data provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}}. This company offers management systems and services for bookshops, publishers, and distributors. 
-% (Paloma) From here:
-Usually, the company's expert sales managers analysed historical data
-and applied their knowledge on external variables to compute correct
-estimations (predictions); for instance, they can decide increasing or
-decreasing the sales forecast based on season or sales period. 
-Nevertheless, just carrying out the analysis and forecasting process
-as a human expert may lead to imprecise predictions, and they may not
-take all the variables into account.  
-% (Paloma) to here, is repeating all over again the process of deciding how many books to print. I think this paragraph should be unified somehow with the previous explanations and to re-order, because the previous paragraph seems like the end of the introduction, but then we go deep in the explanations again... It's not an easy read :(
-In addition, the process might be tedious, especially when the amount
-of data is quite large. Moreover, different experts can reach different
-predictions from the same dataset \cite{Sanders1994}. 
+This process might be tedious, especially when the amount of data is quite large. Moreover, different experts can reach different predictions from the same dataset \cite{Sanders1994}. 
 
-With this issue in mind, in this paper we firstly present an analysis
-on the aforementioned real dataset, by means of data mining and
-visualisation techniques. Then, a feature selection process is
-conducted using three different methods, in order to find out what are
-the relevant variables describing a book in the prediction (or
-regression) procedure. 
+With these issues in mind, in this paper, we firstly present an analysis on a real dataset, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}\\ Trevenque offers management systems and services for bookshops, publishers, and distributors}.
+This study has been conducted by means of data mining and visualisation techniques. Then, a feature selection process is performed using three different methods, in order to find out what are the relevant variables describing a book  in the prediction, or estimation, procedure. 
 % (Paloma) Why brackets? Suggestions:
 % relevant variables describing a book in the prediction or regression procedure
 % relevant variables describing a book in the prediction, or regression, procedure
 % relevant variables describing a book in the prediction (regression) procedure <- here brackets are ok (me thinks)
-After this, a forecasting stage is performed
-applying a set of regression algorithms to the different datasets,
-also considering a different number of variables. 
+% Antonio - I have chosen a better option for not repeating 'regression' in the following sentence
+This procedure is performed by applying a set of regression algorithms to the different datasets (those with a different number of variables), yielding a set of models which could be used as the desired tool. 
+
+Given this, the main contribution of this paper to the state of the art is the development of the aforementioned methodology to process book sales data, in which: firstly, the most relevant variables are identified, and then, these variables are considered to `refine' the data in order to conduct accurate predictions on future sales. To our knowledge this is the first work in which regression methods have been applied to estimate sales for new launched books. Moreover, as stated before, we have used in the study a real dataset of book sales (related to the Spanish market), which is another point to remark.
+
 The value of this methodology is contrasted considering four different
 publishing companies being representative as top sellers, mid-range
 sellers, the most varied, and one which sells a medium amount of
@@ -190,11 +167,25 @@ different books. From this, we draw insight on what are the important
 factors when selling a book and some rule of thumbs extracted from the
 prediction methods.
 
+
+% (Paloma) From here:
+%Usually, the company's expert sales managers analysed historical data
+%and applied their knowledge on external variables to compute correct
+%estimations (predictions); for instance, they can decide increasing or
+%decreasing the sales forecast based on season or sales period. 
+%Nevertheless, just carrying out the analysis and forecasting process
+%as a human expert may lead to imprecise predictions, and they may not
+%take all the variables into account.
+% (Paloma) to here, is repeating all over again the process of deciding how many books to print. I think this paragraph should be unified somehow with the previous explanations and to re-order, because the previous paragraph seems like the end of the introduction, but then we go deep in the explanations again... It's not an easy read :(
+% Antonio - removed and fused/reordered
+
+
 The rest of this paper is structured as follows: next, Section \ref{sec:soa} presents a comprehensive review of the approaches found in the bibliography related to sales prediction in similar scopes, and shows a set of definitions of the regression methods applied in the paper as well as the evaluation metrics considered.
-Then, Section \ref{sec:problem} introduces the problem of the estimation of print-run
+Then, Section \ref{sec:problem} introduces the problem of the estimation of print run
 % (Paloma) Guys, 'print run' is written a total of 28 times:
 % 23 are in the 'print-run' form
 % 5 are 'print-run' (with a dash), of which one is inside the list of variables. But what about the rest inside text? Shouldn't they go ALL either with or without the dash?
+% Antonio - I have replaced all of them by 'print run' as it seems to be the correct one
 for new books, along with a description of the considered dataset.
 Section \ref{sec:methodology} details the methodology considered in the study.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
 
@@ -289,204 +280,10 @@ the book has been launched for sale.
 In our work the relevant variables in the prediction of sales are identified
 by means of data visualisation and feature selection methods. 
 Then, machine learning techniques are applied to predict sales and to infer 
-the ideal print-run of a book.
+the ideal print run of a book.
 In addition, since publishers need models to explain obtained predictions, 
 `black box' forecasting methods may not be suitable, so models based
 on decision rules have been tested as an alternative. 
-
-
-% following two sub-sections have been moved here as requested by reviewer #3 in comment #2 (issue #47)
-
-Many of these previous papers propose using different prediction methods to find out which one performs the best.
-Thus, next subsections describe several forecasting methods and different 
-evaluation metrics, commonly used in the bibliography that have been chosen 
-to address the problem of book sales prediction.
-
-
-%-------------------------------------------------
-\subsection{Regression methods}
-\label{subsec:select_method}
-
-As previously stated, there are many prediction methods available in the 
-literature, each one with a different parameter set that may affect the 
-obtained results.
-
-However, as in the case of new books only some descriptive data are available,
-compared to those cases in which historical data on sales of published books 
-is available, not all forecasting methods can be used in this specific problem.
-
-Thus, in this research six forecasting methods, based on the State of the Art 
-literature review (see above, Section \ref{sec:soa}) 
-\cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, 
-have been used. 
-Well known forecasting methods implemented in the Weka tool have been chosen, 
-as these methods are widely known, and could be very helpful for practitioners 
-to reproduce experiments and even to solve similar sales prediction problems 
-using these methods.
-
-Specifically, the following forecasting methods are proposed: 
-
-\begin{itemize}
-
- % weka.classifiers.trees.M5P
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
- \item \emph{M5 Model trees (M5P)}: 
-A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
-that contain an attribute name and branches to other sub-decision trees.
-Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
-However, in order to use this model in regression problems, some authors have 
-extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
-by combining a conventional decision tree and generating linear regression 
-functions at the nodes.
-
-The construction of a model tree is similar to that of classical decision 
-trees \cite{Solomatine2004}:
-The process breaks the input space of the training data through decision points 
-(nodes) to assign a linear model suitable for that sub-area of the input space. 
-This process may lead to a complex model tree.
-
-Model tree models can learn and tackle tasks with high dimensionality, even up to 
-hundreds of attributes, and generate reproducible and comprehensible representations, 
-what makes them potentially more successful in the eyes of decision makers.
-
-The final model consists of the collection of linear sub-models that brings the 
-required non-linearity in dealing with the regression problem
-and both the predicted values at the answer-nodes along with the path from the 
-root to that node is given as a result.
-
-
- % weka.classifiers.lazy.IBk 
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
- \item \emph{k-Nearest Neighbours (kNN)}: 
-The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
-which the unknown instances are classified by relating them to the known 
-instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
-
-The main idea behind the algorithm is that two instances far enough in the space, 
-taking into account the distance function, are less likely to belong to the 
-same class than two closely situated instances.
-
-The classification algorithm locates the nearest neighbour in instance space and 
-assigns the class of that neighbour to the unknown instance.
-In order to improve the robustness of the model, several neighbours can be 
-located, assigning the resulting class to an unclassified vector using the 
-closest $k$ vectors found in the training set by majority vote.
-
-
- \item \emph{Random Forest (RF)}: This method is based on the
-   construction of a set of decision trees using a stochastic process
-   over the basis of C4.5 algorithm. It was proposed by Breiman
-   \cite{Breiman2001} and aims to create independent and uncorrelated
-   trees based on different and random input vectors, following the
-   same distribution. 
-The result is the average of the generated trees during the process.
-
-
- % weka.classifiers.functions.LinearRegression
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
- \item \emph{Linear Regression (LR)}:
- Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
-relationship between a scalar dependent variable (outcome) and several independent 
-variables (predictors) over the range of values in the dataset. 
-In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
-
-This method of regression provides an adequate and interpretable description of 
-how the input affects the output as it models the dependent variable as a linear 
-function of the independent variables. Moreover, the linear relation can be 
-solved using the least squares method, that minimises the error between the 
-current data and the regression line \cite{McClendon2015}.
-
-
- % weka.classifiers.functions.SMOreg
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
- \item \emph{Support Vector Machine for Regression (SVM)}:
-Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on  
-statistical learning theory and has successfully used in classification and  
-regression problems \cite{Cao2003,Jari2008}.
-
-In regression problems, the algorithm chooses a hyperplane close to as many 
-of the data points as possible, minimising the sum of the distances from 
-the data points to the hyperplane. 
-In both cases, the hyperplane is defined by a subset of training set samples, 
-called support vectors.
-%This method works well even if the space is highly dimensional and the problem is not linearly separable.
-
-
-
- % weka.classifiers.functions.MultilayerPerceptron
- %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
- \item \emph{Multilayer Perceptron}:
-A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
-artificial neural network model that maps the input data onto an appropriate output. 
-It is an artificial neural network generally used for classification or 
-approximation/regression problems.
-
-This model is a generalisation of the standard linear perceptron that uses several layers of nodes (called neurons) and that is able to solve linearly inseparable problems \cite{SteinwenderBitzer2003}.
-Each neuron consists of a linear combination of weighted inputs which is passed 
-though a non-linear activation function to produce its output.
-
-This kind of artificial neural network is trained using a supervised learning 
-technique called back-propagation.
-This training method was developed independently by Werbos \cite{Werbos1974}, 
-Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
-in updating the weights of the output layer neurons once the erroneous output 
-has been obtained, and then, propagating the successive weight layers back to 
-the input layer.
-
-A key issue when designing an MLP is the number of hidden layers of neurons.
-Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
-create classifying regions of any kind. This result was then confirmed in later 
-works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
-
-\item \emph{Extreme learning machine (ELM)}: 
-ELM is an algorithm for training a single hidden 
-layer feedforward neural network, which was first proposed by Guang-Bin Huang \cite
-{huang2006extreme}. A typical implementation of ELM is a single hidden layer network where the 
-connection weights between the input layer and the hidden layer are randomly initialized and 
-fixed, while the connection weights between the hidden layer the output layer are learnt 
-analytically in a single step of linear parameters solving. In ELM the hidden layer maps the 
-input data into a feature space called ELM feature space using non-linear activation functions 
-such as Sigmoid, Hyperbolic and Gaussian functions \cite{huang2015trends}.The main advantages 
-of ELM are the ease of use and the very efficient learning speed compared to other traditional 
-training methods such as the Backpropagation algorithm. 
-
-\end{itemize}
-
-The objective is finding the most appropriate forecasting method that minimises 
-the error between the obtained forecast and the current sales for each new book 
-published. To this end, the results will be evaluated using different metrics, as described in the following section.
-
-% Antonio - I have linked the section also here for a more fluent reading. ;)
-
-%-------------------------------------------------
-\subsection{Models evaluation}
-\label{subsec:models_evaluation}
-
-The developed forecasting models must be evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
-Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
-
-\begin{itemize}
-  \item \emph{Mean Absolute Error} (MAE):
-        \begin{equation}\label{eq:MAE}
-            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
-        \end{equation}
-
-  \item \emph{Root Mean Squared Error} (RMSE):
-        \begin{equation}\label{eq:RMSE}
-            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
-        \end{equation}
-
-  \item \emph{Relative absolute error} (RAE):
-        \begin{equation}\label{eq:RAE}
-            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
-        \end{equation}
-
-  \item \emph{Root relative squared error} (RRSE):
-        \begin{equation}\label{eq:RRSE}
-            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
-        \end{equation}
-\end{itemize}
-where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
 
 
 %********************************************************************************
@@ -524,7 +321,7 @@ subject3
 publisher
 collection
 bookbinding
-print-run
+print run
 total sales
 dept stores sales
 sales through delegates
@@ -694,25 +491,24 @@ There is not a standard methodology to solve the general problem of sales foreca
 \end{figure}
 
 
-Therefore, after the data has been collected and initially preprocessed (as described in the previous section), other preprocessing techniques have been applied, such as Feature Selection (FS) \cite{kittler1986feature}, since it is an effective dimensionality reduction technique, able to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
+Therefore, after the data has been \textit{collected} and initially \textit{preprocessed} (as described in the previous section), other preprocessing techniques have been applied, such as \textit{Feature Selection} (FS) \cite{kittler1986feature}, since it is an effective dimensionality reduction technique, able to discard less relevant or non-useful features \cite{Krishnapuram2004,Chen2011_FS_PTS}.
 
-FS methods check the relevance of all the variables of the patterns, aiming to reduce the set of features, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
+FS methods check the relevance of all the variables of the patterns, aiming to reduce the set of features on a dataset, in order to obtain intelligible models, in a lesser amount of time due to their lower complexity, and usually without accuracy loss.
 This task may also help to identify leading indicators to be considered 
 by a human expert to make predictions.
-At this stage of the methodology, both numerical and visualisation-based approaches have been applied, in order to select the best set of variables for the forecasting methods.  
+At this stage of the methodology, both numerical and visualisation-based approaches have been applied, in order to select the best set of variables for the forecasting methods. These are described in Section \ref{subsec:fs_techniques}. 
 
-After this process has been conducted, different prediction methods have been applied on the dataset. These methods have been described in Section \ref{subsec:select_method}, and include rule- and tree-based algorithms, together with numerical regression methods. 
+After this process has been conducted, different rule-based, tree-based and numerical \textit{forecasting methods} have been applied on the dataset. They are regression techniques and have been described in Section \ref{subsec:regression_methods}.
 
-As a result, several prediction models are obtained. Then the obtained models for the whole dataset have been evaluated by means of the metrics described in Section \ref{subsec:models_evaluation}. The results are presented in Section \ref{sec:experiments}. 
+As a result of the previous step, several prediction models are obtained for the whole dataset. These have been \textit{evaluated} by means of the metrics described in Section \ref{subsec:evaluation_metrics}, and also \textit{analysed} in the experiments (Section \ref{sec:experiments}).
 
-After this, the same methodology has been applied to some specific cases of publishing companies in order to prove the value of the proposal (Section \ref{sec:example_cases}). Specific interpretable models have been created as a final result of the work (Section \ref{subsec:decision_trees}). 
+After this, the same methodology has been applied to some specific cases of publishing companies in order to \textit{validate} the proposal (Section \ref{sec:example_cases}). To this end, also specific interpretable models have been created as a final result of the work (Section \ref{subsec:decision_trees}). 
 
-
-% Antonio - CONCERN - The following section seems to be misplaced after moving the rest to Section 2. Thus, the Methodology Section is now a bit strange with just this subsection. We should think on moving this section and reorganize/improve the methodology description.
+In the following sections, the main techniques to be applied on these steps are described, along with the evaluation metrics computed to value the generated prediction models.
 
 %-------------------------------------------------
-\subsection{Data preprocessing by feature selection}
-\label{subsec:data_preproces}
+\subsection{Feature selection techniques}
+\label{subsec:fs_techniques}
 
 The aim of these algorithms is exploring the space of attributes to find out 
 which subset of them yields the best results in a regression or prediction 
@@ -827,7 +623,194 @@ of variables into separate planes, the so-called component planes analysis
 on every cluster, i.e. those with a higher influence on the creation of that 
 cluster.
 
-These FS techniques have been applied in the following section, including a comparison between all of them.
+These FS techniques have been applied in Section \ref{subsec:feature_selection}, including a comparison between all of them.
+
+
+%-------------------------------------------------
+\subsection{Regression methods}
+\label{subsec:regression_methods}
+
+As previously stated, there are many prediction algorithms available in the 
+literature, each one with a different parameter set that may affect the 
+obtained results.
+
+However, as in the case of new books only some descriptive data are available,
+compared to those cases in which historical data on sales of published books 
+is available, not all forecasting methods can be used in this specific problem.
+
+Thus, in this research six forecasting methods, based on the State of the Art 
+literature review (see above, Section \ref{sec:soa}) 
+\cite{Madsen2008,ChingChin2010,Thomassey2012,Xia2012,SThomassey2014}, 
+have been used. 
+Well known forecasting methods implemented in the Weka tool have been chosen, 
+as these methods are widely known, and could be very helpful for practitioners 
+to reproduce experiments and even to solve similar sales prediction problems 
+using these methods.
+
+Specifically, the following forecasting methods are proposed: 
+
+\begin{itemize}
+
+ % weka.classifiers.trees.M5P
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html
+ \item \emph{M5 Model trees (M5P)}: 
+A decision tree consists of answer-nodes, that indicate a class, and decision-nodes, 
+that contain an attribute name and branches to other sub-decision trees.
+Building a decision tree can be done using many algorithms, i.e. ID3 and C4.5 \cite{Quinlan1986}.
+However, in order to use this model in regression problems, some authors have 
+extended the model using methods such as the M5 model tree \cite{Quinlan1986,Quinlan1992,Wang1997,WittenFrank2000}, 
+by combining a conventional decision tree and generating linear regression 
+functions at the nodes.
+
+The construction of a model tree is similar to that of classical decision 
+trees \cite{Solomatine2004}:
+The process breaks the input space of the training data through decision points 
+(nodes) to assign a linear model suitable for that sub-area of the input space. 
+This process may lead to a complex model tree.
+
+Model tree models can learn and tackle tasks with high dimensionality, even up to 
+hundreds of attributes, and generate reproducible and comprehensible representations, 
+what makes them potentially more successful in the eyes of decision makers.
+
+The final model consists of the collection of linear sub-models that brings the 
+required non-linearity in dealing with the regression problem
+and both the predicted values at the answer-nodes along with the path from the 
+root to that node is given as a result.
+
+
+ % weka.classifiers.lazy.IBk 
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/lazy/IBk.html
+ \item \emph{k-Nearest Neighbours (kNN)}: 
+The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
+which the unknown instances are classified by relating them to the known 
+instances using a distance measurement/function: Euclidean, Minkowsky or minimax.
+
+The main idea behind the algorithm is that two instances far enough in the space, 
+taking into account the distance function, are less likely to belong to the 
+same class than two closely situated instances.
+
+The classification algorithm locates the nearest neighbour in instance space and 
+assigns the class of that neighbour to the unknown instance.
+In order to improve the robustness of the model, several neighbours can be 
+located, assigning the resulting class to an unclassified vector using the 
+closest $k$ vectors found in the training set by majority vote.
+
+
+ \item \emph{Random Forest (RF)}: This method is based on the
+   construction of a set of decision trees using a stochastic process
+   over the basis of C4.5 algorithm. It was proposed by Breiman
+   \cite{Breiman2001} and aims to create independent and uncorrelated
+   trees based on different and random input vectors, following the
+   same distribution. 
+The result is the average of the generated trees during the process.
+
+
+ % weka.classifiers.functions.LinearRegression
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/LinearRegression.html
+ \item \emph{Linear Regression (LR)}:
+ Linear Regression \cite{Cohen2003,Yan2009,Rencher2102,EnkeT05} method models the 
+relationship between a scalar dependent variable (outcome) and several independent 
+variables (predictors) over the range of values in the dataset. 
+In this statistical technique, data are modelled using linear functions to estimate unknown model parameters, examining the linear correlations between independent and dependent variables.
+
+This method of regression provides an adequate and interpretable description of 
+how the input affects the output as it models the dependent variable as a linear 
+function of the independent variables. Moreover, the linear relation can be 
+solved using the least squares method, that minimises the error between the 
+current data and the regression line \cite{McClendon2015}.
+
+
+ % weka.classifiers.functions.SMOreg
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
+ \item \emph{Support Vector Machine for Regression (SVM)}:
+Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on  
+statistical learning theory and has successfully used in classification and  
+regression problems \cite{Cao2003,Jari2008}.
+
+In regression problems, the algorithm chooses a hyperplane close to as many 
+of the data points as possible, minimising the sum of the distances from 
+the data points to the hyperplane. 
+In both cases, the hyperplane is defined by a subset of training set samples, 
+called support vectors.
+%This method works well even if the space is highly dimensional and the problem is not linearly separable.
+
+
+
+ % weka.classifiers.functions.MultilayerPerceptron
+ %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/MultilayerPerceptron.html
+ \item \emph{Multilayer Perceptron}:
+A Multilayer Perceptron (MLP) \cite{Rosenblatt1962,Widrow1990} is a feedforward 
+artificial neural network model that maps the input data onto an appropriate output. 
+It is an artificial neural network generally used for classification or 
+approximation/regression problems.
+
+This model is a generalisation of the standard linear perceptron that uses several layers of nodes (called neurons) and that is able to solve linearly inseparable problems \cite{SteinwenderBitzer2003}.
+Each neuron consists of a linear combination of weighted inputs which is passed 
+though a non-linear activation function to produce its output.
+
+This kind of artificial neural network is trained using a supervised learning 
+technique called back-propagation.
+This training method was developed independently by Werbos \cite{Werbos1974}, 
+Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
+in updating the weights of the output layer neurons once the erroneous output 
+has been obtained, and then, propagating the successive weight layers back to 
+the input layer.
+
+A key issue when designing an MLP is the number of hidden layers of neurons.
+Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
+create classifying regions of any kind. This result was then confirmed in later 
+works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
+
+\item \emph{Extreme learning machine (ELM)}: 
+ELM is an algorithm for training a single hidden 
+layer feedforward neural network, which was first proposed by Guang-Bin Huang \cite
+{huang2006extreme}. A typical implementation of ELM is a single hidden layer network where the 
+connection weights between the input layer and the hidden layer are randomly initialized and 
+fixed, while the connection weights between the hidden layer the output layer are learnt 
+analytically in a single step of linear parameters solving. In ELM the hidden layer maps the 
+input data into a feature space called ELM feature space using non-linear activation functions 
+such as Sigmoid, Hyperbolic and Gaussian functions \cite{huang2015trends}.The main advantages 
+of ELM are the ease of use and the very efficient learning speed compared to other traditional 
+training methods such as the Backpropagation algorithm. 
+
+\end{itemize}
+
+The objective is finding the most appropriate forecasting method that minimises 
+the error between the obtained forecast and the current sales for each new book 
+published. To this end, the results will be evaluated using different metrics, as described in the following section.
+
+% Antonio - I have linked the section also here for a more fluent reading. ;)
+
+%-------------------------------------------------
+\subsection{Evaluation metrics}
+\label{subsec:evaluation_metrics}
+
+The developed forecasting models must be evaluated and assessed based on different evaluation criteria. In addition to the \textit{correlation coefficient}, we have considered the widely accepted standard formulae in the literature \cite{gepsoft} (Equations \ref{eq:MAE} to \ref{eq:RRSE}), which are implemented in tools like Weka \cite{pentaho,Witten2011} or R \cite{otexts,Hyndman2013}.
+Specifically, in order to compute the forecasting errors of the different methods, Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE) and Root relative squared error (RRSE) have been selected:
+
+\begin{itemize}
+  \item \emph{Mean Absolute Error} (MAE):
+        \begin{equation}\label{eq:MAE}
+            MAE = \frac{1}{n}\sum_{i=1}^n {\mid p_i - o_i\mid}
+        \end{equation}
+
+  \item \emph{Root Mean Squared Error} (RMSE):
+        \begin{equation}\label{eq:RMSE}
+            RMSE = \sqrt{ \frac{1}{n}\sum_{i=1}^n {(p_i - o_i)}^2 }
+        \end{equation}
+
+  \item \emph{Relative absolute error} (RAE):
+        \begin{equation}\label{eq:RAE}
+            RAE = \frac{ \sum_{i=1}^n {\mid p_i - o_i\mid} }{ \sum_{i=1}^n {\mid \bar{o} - o_i\mid} }
+        \end{equation}
+
+  \item \emph{Root relative squared error} (RRSE):
+        \begin{equation}\label{eq:RRSE}
+            RRSE = \sqrt{ \frac{ \sum_{i=1}^n {(p_i - o_i)}^2  }{ \sum_{i=1}^n {(\bar{o} - o_i)}^2 }  }
+        \end{equation}
+\end{itemize}
+where $o_i$ is the current value for the instance $i = {1,...,n}$, $\bar{o}$ is the mean of $o$ and $p_i$ is the obtained prediction.
+
 
 
 
@@ -919,12 +902,7 @@ provide information on the decision process and does not require human intervent
 either for the operation or for interpretation. Thus, it is a very suitable model to be incorporated in a publishing company processes (as we will show in 
 Section \ref{subsec:decision_trees}).
 
-Taking into account the obtained results by SVM model, this method obtains comparable 
-errors to those of M5P. Even when using roughly tuned parameter values, it shows 
-a good generalisation performance. However, SVM is much slower than the others to build 
-the model, not only when using the dataset with categorical input variables, such 
-as \texttt{collection} and \texttt{binding}, but also when using the datasets with 
-numerical variables, not to mention the extra time needed to optimize its hyperparameters.
+Taking into account the obtained results by SVM model, this method obtains comparable errors to those of M5P. Even when using roughly tuned parameter values, it shows a good generalisation performance. However, SVM is much slower than the others to build the model, not only when using the dataset with categorical input variables, such as \texttt{collection} and \texttt{binding}, but also when using the datasets with numerical variables, not to mention the extra time needed to optimize its hyperparameters.
 
 According to Figure \ref{fig:all_publishers_no_fs}, it can also be noticed that 
 the Linear Regression model gets a better correlation value and some error measures than other complex methods like the Random Forest. 
@@ -946,6 +924,7 @@ forecasting models and their accuracy, the M5P model would be the most adequate
 to solve the problem of how many books should be printed when a new book is 
 published considering all the pre-sales data. Therefore, this forecasting method, with these additional advantages, can be used for products with historical sales data and for new products with little or no historical data available.
 
+It is important to note that both RF and M5P have an embedded feature selection mechanism (the variables which compose the final trees), however this is part of their inherent procedure. In the following section we will apply three filter-based feature selection techniques on the dataset, so all the methods will profit.
 
 %--------------------------------------------------------------------------
 
@@ -954,7 +933,7 @@ published considering all the pre-sales data. Therefore, this forecasting method
 
 In the second stage of the experiments, different feature selection methods have been applied. The aim of these methods is to reduce the number of features considered in developing the forecasting models which consequently simplify the complexity of the models, improve their interpretability and decrease the training time. The simpler models generated after performing feature selection could give the decision maker a better insight on the underlying process by identifying the most influencing variables. 
   
-We have used both the {\tt CfsSubsetEval} (CSE) \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval (RFE) \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:data_preproces}.
+We have used both the {\tt CfsSubsetEval} (CSE) \cite{Hall1998} (a correlation-based feature subset evaluation method) and the ReliefFAttributeEval (RFE) \cite{RobnikSikonja1997} (an adaptation of relief for attribute estimation) evaluation methods, implemented in the Weka tool and described in Section \ref{subsec:fs_techniques}.
 
 
 \begin{figure*}[ht]
@@ -1133,29 +1112,26 @@ Evaluation results of the obtained models (without performing any feature select
 \ref{Table:case1results_no_fs}, \ref{Table:case2results_no_fs}, 
 \ref{Table:case3results_no_fs} and \ref{Table:case4results_no_fs} 
 in the appendix of tables).
+
 Results in the figure show that the models performed similarly to the case of 
 the global models for all publishers, which were previously presented in 
 Figure \ref{fig:all_publishers_no_fs}. 
-In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. 
+In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR, and also better than MLP and ELM. Actually, the latter presents a low performance in these special cases (not previously for the whole dataset).
+This could be due to the reported low robustness of the basic ELM version \cite{ding2015deep}, which we have applied in this work. More advanced versions such as the Multi-layer ELM, Hierarchical ELM and ELM with kernels will be investigated and experimented in the future work in order to reach better generalization performance.
+
 In the case of Best selling publisher houses (i.e. UDL929) and publishers who 
 publish wide range of different books (i.e. UDL704), M5P could be recommended 
 as it shows more accurate forecasting results than the other models. 
 While in the case of medium sized publishers, in terms of sales and number 
 of published books, the RF model would be adequate.
 
-% tables have been moved to the Appendix and they have been substituted by the new Figure. Comments (text) have been adapted accordingly  -  [pedro]
-%Tables \ref{Table:case1results}, \ref{Table:case2results}, \ref{Table:case3results} and \ref{Table:case4results}. 
-%The results in these tables show that the classifiers performed similarly to the case of the global models for all publishers which were previously presented in Table \ref{tab:all_publishers_no_fs}. In general, M5P, RF and SVM performed better than the `simple' classifiers kNN and LR. In the case of Best selling publisher houses (i.e. UDL929) and publishers who publish wide range of different books (i.e. UDL704), M5P could be recommended as it shows more accurate forecasting results than the other models. While in the case of medium sized publishers, in terms of sales and number of published books, the RF model would be adequate.
 
 %--------------------------------------------------------------------------
 %\subsection{Sales forecasting with feature selection}
 %\label{subsec:case_sales_feature_selection}
 
-In this stage of the experiments for the special cases, the
-feature selection methods (RFE, CSE and SOM) are applied for each case
-independently, since publishers with different sales ranges, and
-targets, might in fact include different factors or have different
-leverage when deciding how much to print. 
+Now the feature selection methods (RFE, CSE and SOM) are applied for each case
+independently, since publishers with different sales ranges, and targets, might in fact include different factors or have different leverage when deciding how much to print. 
 
 %  esta frase siguiente ya no, ya que además de pasar las tablas al apéndice, vamos a mostrar la figura:
 %For clarity purpose, obtained results after applying feature selection methods have been shown in Tables \ref{Table:case1results_no_fs} to \ref{Table:case4results_fs_som} in the appendix of tables at the end of this paper. In those tables it can be seen that, as in the previous experiment, the highest predictive power is exhibited by RFE over CSE and SOM feature selection methods. In this sense, RFE reduction has noticeably improved the performance of all models, specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). 
@@ -1163,20 +1139,17 @@ leverage when deciding how much to print.
 %  esta frase siguiente ya no, porque vamos a pasar las tablas al apéndice
 %For clarity purpose, we present here only the results after applying the RFE method for the four cases in Tables \ref{Table:case1results_fs_rf}, \ref{Table:case2results_fs_rf}, \ref{Table:case4results_fs_rf} and \ref{Table:case4results_fs_rf}, this one was chosen since the selected features by this method showed in the previous experiment the highest predictive power among  all classifiers. RFE reduction has noticeably improved the performance of all classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the publisher which publishes a wide range of different books (i.e. UDL704). For the rest of the results which are obtained by CSE and SOM feature selection methods we refer the reader to the appendix of tables at the end of this paper.
 
-%  dejamos ésta finalmente: tablas al apéndice + incluimos nueva figura con los datos del RFE.
 For clarity purpose, only obtained results after applying the RFE method for the 
-four cases are shown in Figure \ref{fig:casesReliefFAttributeEval}
- (detailed numeric results can be seen in 
+four cases are shown in Figure \ref{fig:casesReliefFAttributeEval}.
+Detailed numeric results of RFE on the special cases can be seen in 
 Tables \ref{Table:case1results_fs_rf}, \ref{Table:case2results_fs_rf}, 
 \ref{Table:case3results_fs_rf} and \ref{Table:case4results_fs_rf}
-in the appendix of tables).
-This one was chosen since the selected features by RFE method showed in the 
-previous experiment the highest predictive power among all models.
-As can be shown, RFE reduction has noticeably improved the performance of all 
-classifiers specially in the case of the best selling publisher house (i.e. UDL929) 
-and the publisher which publishes a wide range of different books (i.e. UDL704). 
-For the rest of the results which are obtained by CSE and SOM feature selection 
-methods we refer the reader to the appendix of tables at the end of this paper.
+in the appendix of tables. 
+RFE was chosen since the selected features by this method showed in the experiment with the whole dataset the highest predictive power among all models.
+For the rest of the results which are obtained by CSE and SOM FS methods, we refer the reader also to the appendix of tables.
+
+As it can be seen, RFE reduction has noticeably improved the performance of all 
+classifiers specially in the case of the best selling publisher house (i.e. UDL929) and the one which publishes a wide range of different books (i.e. UDL704). 
 
 \begin{figure*}[ht]
 \begin{center}
@@ -1277,7 +1250,7 @@ print around 3000 books to sell a quantity that will start at 1000,
 one third of the print run, and changes depending on a number of
 factors, including price.
 
-The right hand side of the tree include those books that are
+The right hand side of the tree includes those books that are
 distributed in a bigger percentage of the total amount of point of
 sale available in Spain, which in Spain includes not only proper
 bookstores, but also press stands and even supermarkets and hovers
@@ -1388,7 +1361,7 @@ the one with the medium number of sales, with the most varied sales
 Considering these datasets and the complete one, five machine learning
 models for sales forecasting have been configured (according to the
 problem requirements) and used to predict new book sales, from which
-the optimal print-run could be estimated. These algorithms include
+the optimal print run could be estimated. These algorithms include
 some based on Decision Trees (M5P and Random Forest), kNN, Support
 Vector Machines and Linear Regression. 
 These methods have been evaluated considering several performance
@@ -1444,7 +1417,7 @@ significantly, another way to improve sales predictions could be making a
 thorough study of the effect of the application of discounts and promotions. 
 
 Finally, there are some variables over which the publisher has some
-control once the book has been published, such as the initial print-run, 
+control once the book has been published, such as the initial print run, 
 the books offered as gifts to reviewers, or what proportion is going to be sent 
 to each possible point of sale. These can be incorporated into an optimisation 
 model that will optimise those values to obtain desired sales. 
