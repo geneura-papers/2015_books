@@ -1,6 +1,8 @@
 library(stringr)
 library(reshape2)
 library(ggplot2)
+library(scales)
+
 
 filenames_all <- list.files(path = "datasets/AllAttributes/",pattern = ".csv",full.names = TRUE)
 ldf <- lapply(filenames_all, read.csv, skip=0, header=TRUE, sep=";",blank.lines.skip = TRUE,strip.white = TRUE, colClasses = rep("character",7))
@@ -82,7 +84,7 @@ for(i in dataset){
     scale_fill_grey(start=0.6,end=0.8) + labs(title=i,x="",y="") + 
     geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  +
     theme(legend.position="bottom", axis.title.x=element_blank(),axis.ticks.x=element_blank(), axis.text.x = element_text(angle = 90, hjust = 1)) + 
-    scale_y_continuous(limits = c(0, NA)))
+    scale_y_continuous(limits = c(0, NA),oob=squish))
   
   
   ggsave(file=paste0("../imgs/datasets_",i,".eps"),scale=2,units = "cm", width = 16, height = 8,dpi = 800)
@@ -102,7 +104,7 @@ print(ggplot(data = subset(datos,Attributes==j), aes(x=Method,y=value,fill=Metho
   facet_grid(variable ~ Dataset,scales = "free_y") + 
   scale_fill_grey(start=0.2,end=0.6) + labs(title=j,x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") +
-    scale_y_continuous(limits = c(0, NA))
+    scale_y_continuous(limits = c(0, NA),oob=squish)
   )
       
 
@@ -118,8 +120,11 @@ print(ggplot(data = t, aes(x=Method,y=value,fill=Method)) +
         facet_grid(variable ~ Dataset,scales = "free_y") + 
         scale_fill_grey(start=0.2,end=0.6) + labs(title="All features",x="",y="") + 
         geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  + theme(legend.position="right") +
-        scale_y_continuous(limits = c(0, NA))
+        scale_y_continuous(limits = c(0, NA),oob=squish)
 )
+j = "All"
+ggsave(file=paste0("../imgs/attribute_",j,".png"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
+ggsave(file=paste0("../imgs/attribute_",j,".eps"),scale=2,units = "cm", width = 14, height = 8,dpi = 800)
 
 
 var = unique(datos$variable)
@@ -131,7 +136,7 @@ for(i in var){
     facet_grid(Dataset ~ Attributes,scales = "free_y") + 
     scale_fill_grey(start=0.2,end=0.8) + labs(title=i,x="Method",y="Seconds") + 
     geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="bottom") +
-    scale_y_continuous(limits = c(0, NA))
+    scale_y_continuous(limits = c(0, NA),oob=squish)
   
   
   ggsave(file=paste0("../imgs/metric_",i,".eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
@@ -195,7 +200,7 @@ ggplot(data = subset(datos), aes(x=Method,y=value)) +
   facet_grid(variable ~ Attributes ,scales = "free_y") + 
   scale_fill_grey(start=0.2,end=0.6) + labs(title="All features",x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") + 
-  scale_y_continuous(limits = c(0, NA))
+  scale_y_continuous(limits = c(0, NA),oob=squish)
 
 
 ggsave(file=paste0("../imgs/prediction_all_publisher_Table5.eps"),scale=2.5,units = "cm", width = 16, height = 8,dpi = 800)
