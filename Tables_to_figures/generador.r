@@ -111,6 +111,17 @@ print(ggplot(data = subset(datos,Attributes==j), aes(x=Method,y=value,fill=Metho
 
   }
 
+t <- subset(datos,Attributes=="All")
+
+print(ggplot(data = t, aes(x=Method,y=value,fill=Method)) + 
+        geom_point(stat="identity",size=2)  + geom_bar(stat="identity") + 
+        facet_grid(variable ~ Dataset,scales = "free_y") + 
+        scale_fill_grey(start=0.2,end=0.6) + labs(title="All features",x="",y="") + 
+        geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.5,size=0.5) + theme_bw()  + theme(legend.position="right") +
+        scale_y_continuous(limits = c(0, NA))
+)
+
+
 var = unique(datos$variable)
 
 for(i in var){
@@ -182,7 +193,7 @@ datos$variable <- factor(datos$variable, c("R","MAE","RMSE","RAE","RRSE","TIME")
 ggplot(data = subset(datos), aes(x=Method,y=value)) + 
   geom_bar(aes(fill=Method),stat="identity",size=3) + geom_point(stat="identity",size=3) +
   facet_grid(variable ~ Attributes ,scales = "free_y") + 
-  scale_fill_grey(start=0.2,end=0.6) + labs(title="",x="",y="") + 
+  scale_fill_grey(start=0.2,end=0.6) + labs(title="All features",x="",y="") + 
   geom_errorbar(aes(ymin=value-error,ymax=value+error), width=0.2,size=0.25) + theme_bw()  + theme(legend.position="right") + 
   scale_y_continuous(limits = c(0, NA))
 
