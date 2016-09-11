@@ -99,7 +99,7 @@ only be based on the knowledge obtained from sales of other, similar, ones,
 but the definition of ``similar'' itself is fuzzy and, sometimes,
 subjective. Even if the author or the topic is known, making accurate
 estimations of future sales of the new product is quite difficult, and
-extremely important, so that production runs follow predicted sales.  
+extremely important, so that production runs follow predicted sales. 
 Indeed, several studies have demonstrated that improving sales
 predictions, that is reducing the error in estimated sales, results in an enhancement in the whole production process \cite{Fildes2010,Saeed2008}, so not only the costs associated with the book itself are affected.
 
@@ -150,7 +150,7 @@ This will improve the current decision flow that the publishers follow, which co
 This process might be tedious, especially when the amount of data is quite large. Moreover, different experts can reach different predictions from the same dataset \cite{Sanders1994}. 
 
 With these issues in mind, in this paper, we firstly present an analysis on a real dataset, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}\\ Trevenque offers management systems and services for bookshops, publishers, and distributors}.
-This study has been conducted by means of data mining and visualisation techniques. Then, a feature selection process is performed using three different methods, in order to find out what are the relevant variables describing a book  in the prediction, or estimation, procedure. 
+This study has been conducted by means of data mining and visualisation techniques. Then, a feature selection process is performed using three different methods, in order to find out what are the relevant variables describing a book in the prediction, or estimation, procedure. 
 % (Paloma) Why brackets? Suggestions:
 % relevant variables describing a book in the prediction or regression procedure
 % relevant variables describing a book in the prediction, or regression, procedure
@@ -187,7 +187,7 @@ Then, Section \ref{sec:problem} introduces the problem of the estimation of prin
 % 5 are 'print-run' (with a dash), of which one is inside the list of variables. But what about the rest inside text? Shouldn't they go ALL either with or without the dash?
 % Antonio - I have replaced all of them by 'print run' as it seems to be the correct one
 for new books, along with a description of the considered dataset.
-Section \ref{sec:methodology} details the methodology considered in the study.  These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
+Section \ref{sec:methodology} details the methodology considered in the study. These are reported in Section \ref{sec:experiments}, which is also devoted to analyse the obtained results in feature selection and book sales forecasting using different datasets, with different amounts of features, for all the publishing companies. Obtained results for the four considered special cases are commented in Section \ref{sec:example_cases}. Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusionsAndFutureWork}. 
 
 
 %********************************************************************************
@@ -197,7 +197,7 @@ Section \ref{sec:methodology} details the methodology considered in the study.  
 As far as we know, no previous attempt can be found in the literature in which prediction methods have been applied to estimate sales for new launched books in a whole country market. However, similar techniques to those proposed in this paper, e.g. regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999} or fuzzy systems \cite{Mastorocostas2001}, have been applied to solve sales prediction problems in other industrial sectors.
 
 Specifically, time-series prediction methods
-\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10}  
+\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10} 
 is perhaps the most used technique to tackle sales forecasting
 problems, although the efficiency of these techniques strongly depends on the 
 field of application and the correctness of the problem data. However, since 
@@ -350,7 +350,7 @@ returns - dept stores
 delegates returns
 rest of returns
 total returns 1st year
-returns -  dept stores 1st year
+returns - dept stores 1st year
 delegates returns 1st year
 rest of returns 1st year
 gifts
@@ -389,7 +389,7 @@ The selected subset of features is described in Table \ref{tabla:params_pre_sale
 
 \begin{table*}
 \caption{Considered pre-sales features and their types. The third column shows
-  the names of the variables used in the applied methods, and the last one indicates if they have been used as an input (independent) or an output (dependent) variable.} 
+ the names of the variables used in the applied methods, and the last one indicates if they have been used as an input (independent) or an output (dependent) variable.} 
 \label{tabla:params_pre_sales}
 \begin{center}
 \resizebox{14cm}{!}{
@@ -399,7 +399,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 \hline 
 1 & retail price (when launched) & \texttt{ret\_price} & numerical & input\\
 2 & main subject (code) & \texttt{subject1} & numerical & input\\
-3 &  publisher + collection (joint code) & \texttt{collection} & categorical & input\\
+3 & publisher + collection (joint code) & \texttt{collection} & categorical & input\\
 4 & bookbinding (code) & \texttt{binding} & categorical & input\\
 5 & gifts (promotional books) & \texttt{gifts} & numerical & input\\
 6 & units distributed as novelty & \texttt{distrib\_novelty} & numerical & input\\
@@ -418,7 +418,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 
 As it can be seen in this table, \texttt{total\_sales} is the output
 variable, so it is the objective of the prediction methods. {\tt
-  total\_sales} is a variable percentage of the {\tt print\_run}, and
+ total\_sales} is a variable percentage of the {\tt print\_run}, and
 thus there is obviously some correlation between them, which might
 prevent us from using it to predict sales; it is quite obvious that
 just increasing the print run, by itself, will not boost
@@ -545,7 +545,7 @@ We have used some numerical FS methods included in Weka software \cite{Hall2009,
 \begin{itemize}
   \item Attribute evaluator: This is the method by which the feature subsets are assessed. In this work, both a correlation-based feature subset evaluation method ({\tt CfsSubsetEval}) and an adaptation of relief for attribute estimation ({\tt ReliefFAttributeEval}) evaluation method are used. 
   
-  The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A  good  feature  subset  is  one  that  contains  features  highly  correlated  with
+  The Correlation Feature Selection (CFS) method evaluates subsets of features/variables on the basis of the hypothesis made by Hall in \cite{Hall1998}, ``A good feature subset is one that  contains features highly correlated with
 (predictive of) the class, yet uncorrelated with (not predictive of) each other''. This evaluator needs the numeric features to be transformed to nominal features first, by being discretized.
 The CFS evaluation function measures the ``merit'' of the subsets, which depend on the mean feature-class correlation, and the average feature-feature intercorrelation. For continuous class problems (regression), the correlation between the attributes is estimated based on a standard linear correlation
 using the Pearson's correlation coefficient as given in Equation \ref{eq:corr} \cite{hall2000correlation}. 
@@ -561,7 +561,7 @@ of deviation.
 
 ``ReliefF'' is the second evaluator used in this work. It is important to note 
 we have applied the Weka's implementation of the ReliefF algorithm for regression problems. This relief method is an updated version, called Regressional ReliefF or RReliefF for short \cite{RobnikSikonja1997}, of the original ReliefF by Kira \& Rendell \cite{Kira1992}. The algorithm works by evaluating single attributes, and not whole subsets of attributes as CFS does. Also, it is applicable even working with both nominal and numeric features, without the need for transformations. For this algorithm, the weight of an attribute depends on the difference of an attribute value inside an instance with its neighbours, being these the nearest instance of the same class, and the nearest of the different class. Therefore, a good attribute is that which gives similar values for instances of the same class, and different values for instances of different class.
-  \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
+ \item Search method: This describes the structured way in which the set of possible feature subsets is studied, based on the results of the evaluator. With regard to the used search criteria, it is important to take into account that CFS evaluates attribute subsets, and Relief evaluates attributes separately.
 
 For this reason, the search method used with CFS has been BestFirst, that searches the space of feature subsets by greedy hill-climbing augmented with a backtracking facility. On the other hand, Ranker is the searching criteria used with the Relief evaluator. This method ranks features by their individual evaluations.
 \end{itemize}
@@ -697,11 +697,11 @@ closest $k$ vectors found in the training set by majority vote.
 
 
  \item \emph{Random Forest (RF)}: This method is based on the
-   construction of a set of decision trees using a stochastic process
-   over the basis of C4.5 algorithm. It was proposed by Breiman
-   \cite{Breiman2001} and aims to create independent and uncorrelated
-   trees based on different and random input vectors, following the
-   same distribution. 
+ construction of a set of decision trees using a stochastic process
+ over the basis of C4.5 algorithm. It was proposed by Breiman
+ \cite{Breiman2001} and aims to create independent and uncorrelated
+ trees based on different and random input vectors, following the
+  same distribution. 
 The result is the average of the generated trees during the process.
 
 
@@ -723,7 +723,7 @@ current data and the regression line \cite{McClendon2015}.
  % weka.classifiers.functions.SMOreg
  %		http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/SMOreg.html
  \item \emph{Support Vector Machine for Regression (SVM)}:
-Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on  
+Support vector machine (SVM) \cite{Cortes1995,Shevade1999,MinSVM05} method is based on 
 statistical learning theory and has successfully used in classification and  
 regression problems \cite{Cao2003,Jari2008}.
 
@@ -861,7 +861,7 @@ This technique is used to estimate how accurately the predictive model will perf
 
 In addition, due to the stochastic component present in some of the methods and also in order to fairly evaluate the running time, 30 repetitions of each experiment have been done per method. Then the average and standard deviation have been computed.
 
-All experiments have been conducted on an  Intel(R) Core(TM) i5-2400 CPU at 3.10Ghz with a memory of 4 GB running Windows 7 professional 32bit operating system and Java JRE\_1.7.0\_72.
+All experiments have been conducted on an Intel(R) Core(TM) i5-2400 CPU at 3.10Ghz with a memory of 4 GB running Windows 7 professional 32bit operating system and Java JRE\_1.7.0\_72.
 
 
 %--------------------------------------------------------------------------
@@ -951,7 +951,7 @@ An important preprocessing step has been carried out before conducting the SOM a
 
 In the analysis, several configurations for SOM have been tested, and the best one regarding both the \textit{quantisation error} and \textit{topographic error} has been chosen. The first error is a measure which represents the average distance between every input pattern and its BMU (i.e. how good the map fits the dataset). The latter refers to the topology of the map and its preservation, so it measures an average value computed looking at both, the first and the second BMUs for every pattern. If they are neighbours (directly connected in the map) a `1' is considered, otherwise a `0' is taken. A small value would mean that the map preserves well its topology.
 
-Thus, the chosen map to represent the data has $26 \times 16$ neurons and a hexagonal neighbourhood topology.  The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
+Thus, the chosen map to represent the data has $26 \times 16$ neurons and a hexagonal neighbourhood topology. The best SOM training results have been obtained with a final quantisation error of 0.691 and topographic error of 0.046.
 
 
 Figure \ref{fig:componentplanes} shows the U-matrix along with the component 
@@ -1107,7 +1107,7 @@ of titles published by the selected companies.
 
 The experiments applied on the selected special cases follow the same methodology used previously for the whole dataset. First, the forecasting models are applied on each dataset using all features, then, the three feature selection methods (RFE, CSE and SOM) are used to reduce the set of features in each case. Second, the regression models are applied again on the reduced datasets to evaluate their performance.
 
-Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases  have been summarized in Figure \ref{fig:attributeAll} 
+Evaluation results of the obtained models (without performing any feature selection method) for the selected four cases have been summarized in Figure \ref{fig:attributeAll} 
 (numeric results can be seen in Tables 
 \ref{Table:case1results_no_fs}, \ref{Table:case2results_no_fs}, 
 \ref{Table:case3results_no_fs} and \ref{Table:case4results_no_fs} 
@@ -1217,7 +1217,7 @@ being those that are distributed to more than roughly 500 points.
 \begin{center}
   \epsfig{file=decision_tree_fs.eps,width=13cm}
 \caption{Decision tree built by the M5P method for the best seller
-  publishing company using  the subset of features selected by the
+  publishing company using the subset of features selected by the
   {\sf ReliefFAttributeEval} method.} 
 \label{fig:decision_tree_best_seller_fs}
 \end{center}
@@ -1276,7 +1276,7 @@ publishing house produce flops from time to time, and those would be
 books which eventually print less than around 12500, indicating that
 there has not been a second print run, since best-seller print runs
 used to start at 15000 books\footnote{Nowadays in Spain that number
-  would be closer to 5000}. In general, that branch of the tree paints
+ would be closer to 5000}. In general, that branch of the tree paints
 a pretty bleak picture: no matter how you combine the variable values,
 it will end up with sales much lower than the print run. The main
 problem with this tree is that its predictive value, with the
@@ -1404,7 +1404,7 @@ methods, such as genetic programming, recommend systems or fuzzy logic.
 Moreover, even if the methods have been configured to obtain the best
 forecasting results, it would be of interest carrying out some
 automatic parameter-tuning procedure by means of optimisation
-meta-algorithms \cite{huang2006ga,Mookiah2013_EA_Tuning,Shen2016_FFly_Tuning},  
+meta-algorithms \cite{huang2006ga,Mookiah2013_EA_Tuning,Shen2016_FFly_Tuning}, 
 for instance. 
 
 In addition, if data for other countries were available, it would be
